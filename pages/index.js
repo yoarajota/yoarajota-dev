@@ -2,13 +2,16 @@ import Head from 'next/head'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useScroll, useTransform } from
   "framer-motion"
-import { Box, Center, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { Box, Button, Center, ChakraProvider, CircularProgress, CircularProgressLabel, SlideFade, useDisclosure } from '@chakra-ui/react'
 import Levelers from '../public/components/levelers';
 import Content from '../public/components/content';
 import Nav from '../public/components/nav';
+import Info from '../public/components/info';
 
 export default function Home() {
   const [navBar, setNavBar] = useState(false);
+  const [home, setHome] = useState(true);
+  const [info, setInfo] = useState(false);
 
   return (
     <div>
@@ -19,7 +22,10 @@ export default function Home() {
 
       <main>
         {navBar && <Nav />}
-        <Content />
+        <ChakraProvider>
+          <Content home={home} setHome={setHome} setInfo={setInfo} />
+          <Info info={info} setHome={setHome} setInfo={setInfo} />
+        </ChakraProvider>
       </main>
 
       <footer>
