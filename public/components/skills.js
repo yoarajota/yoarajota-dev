@@ -8,18 +8,13 @@ function Skills() {
     return (
         <>
             <Box m='15px 0' justifyContent='center'>
-                <SlideFromLeft delay={1.5}>
-                    <Levelers xp='1' lvl='1' title='Testeee' />
-                </SlideFromLeft>
-                <SlideFromLeft delay={1.7}>
-                    <Levelers xp='1' lvl='1' title='Testeee' />
-                </SlideFromLeft>
-                <SlideFromLeft delay={1.9}>
-                    <Levelers xp='1' lvl='1' title='Testeee' />
-                </SlideFromLeft>
-                <SlideFromLeft delay={2.1}>
-                    <Levelers xp='1' lvl='1' title='Testeee' />
-                </SlideFromLeft>
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
+                <Levelers xp='1' lvl='1' title='Testeee' />
             </Box>
         </>
     );

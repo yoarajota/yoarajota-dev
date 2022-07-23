@@ -77,31 +77,6 @@ function Levelers(props) {
                     </Box>
                 </Box>
 
-                {/* <Box w={'100%'} textAlign={'left'} fontWeight={400} fontSize='18px' m='0'>Nível</Box> */}
-                <Box>
-                    <motion.box
-                        initial='i'
-                        animate='a2'
-                        variants={variants}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                        className="ll" />
-                    <Box zIndex={3} w='210px' backgroundColor='transaperent' position='absolute' h='30px' display='flex'>
-                        <Box className="lfs2">
-                        </Box>
-                        <Box className="lfs2">
-                        </Box>
-                        <Box className="lfs2">
-                        </Box>
-                    </Box>
-                    <Box className="lf">
-                        <Box className="lfs2 textoGeral2"> Junior
-                        </Box>
-                        <Box className="lfs2 textoGeral2"> Pleno
-                        </Box>
-                        <Box className="lfs2 textoGeral2"> Senior
-                        </Box>
-                    </Box>
-                </Box>
             </Box>
 
             <style jsx global>{`

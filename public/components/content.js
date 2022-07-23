@@ -1,13 +1,10 @@
 import { Box, Heading, Center, Image, Text, useDisclosure, Slide, Alert, AlertIcon, AlertTitle, AlertDescription, Stack, Stat, StatLabel, StatNumber, StatHelpText } from "@chakra-ui/react";
 import { motion, useScroll } from "framer-motion";
-import Imagem from './images/Teste.jpg';
 import Skills from "./skills";
 import { useEffect, useRef, useState } from "react";
 import { BiInfoCircle } from 'react-icons/bi';
 import { GrReactjs } from 'react-icons/gr';
 import SlideFromLeft from "./animations/slideleft";
-import TypeEffect from "./animations/type";
-import Typewriter from "typewriter-effect";
 
 function Content(props) {
     const constraintsRef = useRef(null);
@@ -97,9 +94,7 @@ function Content(props) {
                                         </Box>
                                     </Box>
                                 </Box>
-                                {/* <Box w='100%' h='100vh'>
-
-</Box> */}
+                              
                             </Box>
                         </Center>
 

@@ -1,6 +1,5 @@
 import { Box, Heading, Center, Image, Text, Button, useDisclosure, Slide } from "@chakra-ui/react";
 import { motion, useScroll } from "framer-motion";
-import Imagem from './images/Teste.jpg';
 import Skills from "./skills";
 import { useEffect, useRef, useState } from "react";
 import { BiInfoCircle } from 'react-icons/bi';

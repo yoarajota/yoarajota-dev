@@ -85,14 +85,6 @@ export default function Home() {
           background-color: #0D0D0D;
         }
 
-
-        * {
-          box-sizing: border-box;
-        }
-
-        *::-webkit-scrollbar {
-          display: none;
-        }
       `}</style>
     </div >
   )
