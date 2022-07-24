@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 export default function Home() {
     const [offset, setOffset] = useState(0);
-    const { isOpen, onToggle } = useDisclosure()
+    const { isOpen, onToggle } = useDisclosure();
     const route = useRouter();
 
     useEffect(() => {

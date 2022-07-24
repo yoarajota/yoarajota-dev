@@ -4,7 +4,7 @@ import { motion, useMotionValue, useScroll, useTransform } from
   "framer-motion"
 import { Box, Button, Center, ChakraProvider, CircularProgress, CircularProgressLabel, SlideFade, useDisclosure } from '@chakra-ui/react'
 import Levelers from '../public/components/levelers';
-import Content from '../public/components/content';
+// import Content from '../public/components/content';
 import Nav from '../public/components/nav';
 import Info from '../public/components/info';
 
@@ -23,7 +23,7 @@ export default function Home() {
       <main>
         {navBar && <Nav />}
         <ChakraProvider>
-          <Content home={home} setHome={setHome} setInfo={setInfo} />
+          {/* <Content home={home} setHome={setHome} setInfo={setInfo} /> */}
           <Info info={info} setHome={setHome} setInfo={setInfo} />
         </ChakraProvider>
       </main>

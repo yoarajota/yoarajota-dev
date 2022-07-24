@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from 'react-icons/gi';
-import Nodes from "../public/components/nodes";
+import Nodes from "../public/components/nodes.jsx";
 
 function Tec() {
     const [offset, setOffset] = useState(0);
     const { isOpen, onToggle } = useDisclosure()
     const route = useRouter();
+    const [innerWidth, setInnerWidth] = useState('')
 
     useEffect(() => {
+        setInnerWidth(parseInt(window.innerWidth * 0.8))
+
         setTimeout(() => {
             onToggle()
             window.addEventListener('scroll', (event) => {
@@ -19,6 +22,10 @@ function Tec() {
             });
         }, 1000)
     }, []);
+
+    useEffect(() => {
+        console.log(innerWidth)
+    }, [innerWidth])
 
     return (
         <>
@@ -33,8 +40,11 @@ function Tec() {
                                 <Yj />
                             </Box>
                         </Box>
-
-                        <Nodes />
+                        <Center w='100%'>
+                            <Box w={`${innerWidth}px`} h='700px' m='auto 0'>
+                                <Nodes />
+                            </Box>
+                        </Center>
                     </Box>
                 </Slide>
             </Box>
