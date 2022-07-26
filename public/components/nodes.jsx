@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import * as util from 'util'
 
 import ReactFlow, {
     addEdge,
@@ -10,6 +11,7 @@ import ReactFlow, {
 import initialElements from "./initial-elements";
 import Edge from './edge'
 import { Box, Text } from "@chakra-ui/react";
+import renderNodes from "./renderNodes";
 
 const onLoad = (reactFlowInstance) => {
     reactFlowInstance.fitView();
@@ -17,7 +19,6 @@ const onLoad = (reactFlowInstance) => {
 
 
 const Nodes = () => {
-
     const [name, setName] = useState("")
     const [elements, setElements, onElementsChange] = useNodesState(initialElements);
     const [edge, setEdge, onEdgeChange] = useEdgesState(Edge)
@@ -25,9 +26,7 @@ const Nodes = () => {
         console.log("flow loaded:", reactFlowInstance);
         reactFlowInstance.fitView();
     };
-    useEffect(() => {
-        console.log(elements)
-    }, [elements])
+
 
     const cNode = () => {
         setElements(e => e.concat({
@@ -47,7 +46,7 @@ const Nodes = () => {
                     </>
                 )
             },
-            position: { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }
+            position: { x: Math.random() * window.innerWidth/50, y: Math.random() * window.innerHeight/50 }
         }))
     }
 
