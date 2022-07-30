@@ -39,6 +39,36 @@ export default [
     position: { x: 1200, y: 400 }
   },
   {
+    id: 'node-jsx',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          JSX
+        </NodeText>
+      )
+    },
+    position: { x: 800, y: 400 }
+  },
+  {
+    id: 'node-create-react-app',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Create React
+        </NodeText>
+      )
+    },
+    position: { x: 750, y: 460 }
+  },
+  {
     id: 'node-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
@@ -52,38 +82,6 @@ export default [
         </NodeText>
       )
     },
-    position: { x: 800, y: 400 }
-  },
-  {
-    id: 'node-create-react-app',
-    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
-    selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
-    data: {
-      label: (
-        <NodeText>
-          Create React
-        </NodeText>
-      )
-    },
-    position: { x: 750, y: 460 }
-  },
-  {
-    id: 'node-jsx',
-    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
-    selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
-    data: {
-      label: (
-        <NodeText>
-          JSX
-        </NodeText>
-      )
-    },
     position: { x: 780, y: 520 }
   },
   {
@@ -91,7 +89,6 @@ export default [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
     targetPosition: 'right',
     data: {
       label: (
@@ -100,15 +97,45 @@ export default [
         </NodeText>
       )
     },
-    position: { x: 840, y: 540 }
+    position: { x: 840, y: 570 }
+  },
+  {
+    id: 'node-functional-components',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Functional Components
+        </NodeText>
+      )
+    },
+    position: { x: 400, y: 540 }
+  },
+  {
+    id: 'node-class-components',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Class Components
+        </NodeText>
+      )
+    },
+    position: { x: 450, y: 600 }
   },
   {
     id: 'node-component-lifecycle',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: 'right',
+    targetPosition: 'left',
     data: {
       label: (
         <NodeText>
@@ -119,28 +146,12 @@ export default [
     position: { x: 1600, y: 400 }
   },
   {
-    id: 'node-hooks',
-    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
-    selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
-    data: {
-      label: (
-        <NodeText>
-          Basic Hooks
-        </NodeText>
-      )
-    },
-    position: { x: 1650, y: 460 }
-  },
-  {
     id: 'node-composition-inheritance',
-    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: 'right',
+    targetPosition: 'left',
     data: {
       label: (
         <NodeText>
@@ -148,6 +159,70 @@ export default [
         </NodeText>
       )
     },
+    position: { x: 1650, y: 460 }
+  },
+  {
+    id: 'node-hooks',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Basic Hooks
+        </NodeText>
+      )
+    },
     position: { x: 1630, y: 520 }
+  },
+  {
+    id: 'node-lists',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Lists And Keys
+        </NodeText>
+      )
+    },
+    position: { x: 1560, y: 570 }
+  },
+  {
+    id: 'node-useeffect',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          useEffect
+        </NodeText>
+      )
+    },
+    position: { x: 2000, y: 540 }
+  },
+  {
+    id: 'node-usestate',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          useState
+        </NodeText>
+      )
+    },
+    position: { x: 1950, y: 600 }
   },
 ];

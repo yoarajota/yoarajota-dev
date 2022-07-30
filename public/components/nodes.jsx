@@ -9,7 +9,7 @@ import ReactFlow, {
 } from "react-flow-renderer";
 
 import initialElements from "./initial-elements";
-import Edge from './edge'
+import Edge from './initial-edges'
 import { Box, Text } from "@chakra-ui/react";
 
 const Nodes = () => {
@@ -42,7 +42,7 @@ const Nodes = () => {
                     </>
                 )
             },
-            position: { x: Math.random() * window.innerWidth/50, y: Math.random() * window.innerHeight/50 }
+            position: { x: Math.random() * window.innerWidth / 50, y: Math.random() * window.innerHeight / 50 }
         }))
     }
 
