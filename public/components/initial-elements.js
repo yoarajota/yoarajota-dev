@@ -529,6 +529,6 @@ export default [
         </NodeText>
       )
     },
-    position: { x: 990, y: 1320 }
+    position: { x: 990, y: 1280 }
   },
 ];
