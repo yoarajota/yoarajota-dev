@@ -9,8 +9,9 @@ export default [
   {
     id: "node-head",
     type: "input",
+    sourcePosition: "bottom",
     selectable: false,
-    style: { padding: '0', minWidth: '220px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     data: {
       label: (
         <>
@@ -20,7 +21,7 @@ export default [
         </>
       )
     },
-    position: { x: 1200, y: 0 }
+    position: { x: 1200, y: 100 }
   },
   {
     id: 'node-fundamental',
@@ -41,7 +42,7 @@ export default [
   {
     id: 'node-jsx',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     targetPosition: 'right',
     data: {
@@ -56,7 +57,7 @@ export default [
   {
     id: 'node-create-react-app',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     targetPosition: 'right',
     data: {
@@ -71,7 +72,7 @@ export default [
   {
     id: 'node-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'default',
     selectable: false,
     sourcePosition: 'left',
     targetPosition: 'right',
@@ -87,7 +88,7 @@ export default [
   {
     id: 'node-props-state',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     targetPosition: 'right',
     data: {
@@ -102,7 +103,7 @@ export default [
   {
     id: 'node-functional-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     targetPosition: 'right',
     data: {
@@ -117,7 +118,7 @@ export default [
   {
     id: 'node-class-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     targetPosition: 'right',
     data: {
@@ -132,7 +133,7 @@ export default [
   {
     id: 'node-component-lifecycle',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -148,7 +149,7 @@ export default [
   {
     id: 'node-composition-inheritance',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -164,7 +165,7 @@ export default [
   {
     id: 'node-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'default',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -180,7 +181,7 @@ export default [
   {
     id: 'node-lists',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -196,7 +197,7 @@ export default [
   {
     id: 'node-useeffect',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -212,7 +213,7 @@ export default [
   {
     id: 'node-usestate',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: 'output',
     selectable: false,
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -224,5 +225,244 @@ export default [
       )
     },
     position: { x: 1950, y: 600 }
+  },
+
+
+
+
+
+
+  {
+    id: 'node-advanced',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'bottom',
+    targetPosition: 'top',
+    data: {
+      label: (
+        <NodeText>
+          Advanced
+        </NodeText>
+      )
+    },
+    position: { x: 1200, y: 700 }
+  },
+  {
+    id: 'node-context',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Context
+        </NodeText>
+      )
+    },
+    position: { x: 800, y: 700 }
+  },
+  {
+    id: 'node-refs',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Refs
+        </NodeText>
+      )
+    },
+    position: { x: 750, y: 760 }
+  },
+  {
+    id: 'node-hooks-adv',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'default',
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Hooks
+        </NodeText>
+      )
+    },
+    position: { x: 780, y: 820 }
+  },
+  {
+    id: 'node-render-props',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Render Props
+        </NodeText>
+      )
+    },
+    position: { x: 840, y: 870 }
+  },
+  {
+    id: 'node-own-hooks',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Own Hooks
+        </NodeText>
+      )
+    },
+    position: { x: 400, y: 840 }
+  },
+  {
+    id: 'node-common-hooks',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Common Hooks  <br />
+          <br />
+          useCallBack <br />
+          useMemo <br />
+          useReducer <br />
+          useContext <br />
+        </NodeText>
+      )
+    },
+    position: { x: 450, y: 900 }
+  },
+  {
+    id: 'node-portal',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Portal
+        </NodeText>
+      )
+    },
+    position: { x: 1600, y: 700 }
+  },
+  {
+    id: 'node-error-boundaries',
+    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
+    type: 'output',
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Error Boundaries
+        </NodeText>
+      )
+    },
+    position: { x: 1650, y: 760 }
+  },
+  {
+    id: 'node-fiber',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: 'default',
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Fiber Architecture
+        </NodeText>
+      )
+    },
+    position: { x: 1630, y: 820 }
+  },
+  {
+    id: 'node-order',
+    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
+    type: 'default',
+    selectable: false,
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          High Order Components
+        </NodeText>
+      )
+    },
+    position: { x: 1560, y: 870 }
+  },
+
+
+
+
+
+
+
+
+  {
+    id: 'node-ecosystem',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'bottom',
+    targetPosition: 'top',
+    data: {
+      label: (
+        <NodeText>
+          Ecosystem
+        </NodeText>
+      )
+    },
+    position: { x: 1200, y: 1000 }
+  },
+
+
+  {
+    id: 'node-router',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Router
+        </NodeText>
+      )
+    },
+    position: { x: 880, y: 1040 }
+  },
+  {
+    id: 'node-react-router',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "output",
+    selectable: false,
+    targetPosition: 'top',
+    data: {
+      label: (
+        <NodeText>
+          React Router
+        </NodeText>
+      )
+    },
+    position: { x: 620, y: 1120 }
   },
 ];

@@ -19,51 +19,14 @@ const Nodes = () => {
     const onLoad = (reactFlowInstance) => {
         reactFlowInstance.fitView();
     };
-
-    // useEffect(() => {
-    //     onLoad()
-    // }, []);
-
-    const cNode = () => {
-        setElements(e => e.concat({
-            id: (e.length + 1).toString(),
-            style: { padding: '0', background: 'none' },
-            type: "default",
-            sourcePosition: 'left',
-            targetPosition: 'right',
-            data: {
-                label: (
-                    <>
-                        <Box m='0' border='4px solid #4B4453' borderRadius='8px' background='#0D0D0D'>
-                            <Text m='0' p='5px' fontFamily='Ubuntu' fontSize='24px' color='#D99E6A'>
-                                {name}
-                            </Text>
-                        </Box>
-                    </>
-                )
-            },
-            position: { x: Math.random() * window.innerWidth / 50, y: Math.random() * window.innerHeight / 50 }
-        }))
-    }
-
-    const onConnect = useCallback(
-        (params) => setEdge((eds) => addEdge({ ...params, animated: true, style: { stroke: '#fff' } }, eds)),
-        []
-    );
-
     return (
         <>
-            <Box>
-                <input type='text' onChange={e => setName(e.target.value)} />
-                <input type="button" onClick={cNode} />
-            </Box>
             <ReactFlowProvider position='absoltue'>
                 <ReactFlow
                     onNodesChange={onElementsChange}
                     onEdgesChange={onEdgeChange}
                     onInit={onLoad}
                     defaultPosition={[100, 100]}
-                    onConnect={onConnect}
                     connectionLineType='bezier'
                     maxZoom={20}
                     nodes={elements}

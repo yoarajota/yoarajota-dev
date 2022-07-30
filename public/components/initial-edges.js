@@ -83,4 +83,11 @@ export default [
         animated: true,
         style: { stroke: 'red' },
     },
+    {
+        id: 'edge-head-fundamental',
+        source: 'node-head',
+        target: 'node-fundamental',
+        animated: true,
+        style: { stroke: 'green' },
+    },
 ]

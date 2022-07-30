@@ -5,6 +5,7 @@ import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Nodes from "../public/components/nodes.jsx";
 import NodeHead from "../public/components/nodes/nodeHead"
+import Titles from "../public/components/titles";
 
 function Tec() {
     const [offset, setOffset] = useState(0);
@@ -41,11 +42,16 @@ function Tec() {
                                 <Yj />
                             </Box>
                         </Box>
-                        <Center w='100%'>
-                            <Box w={`${innerWidth}px`} position='relative' h='700px' m='auto 0' width='70%'>
-                                <Nodes />
-                            </Box>
-                        </Center>
+                        <Box w='100%' textAlign='center'>
+                            <Titles>
+                                Principais Tecnologias
+                            </Titles>
+                            <Center w='100%'>
+                                <Box w={`${innerWidth}px`} position='relative' h='100vh' m='auto 0' width='90%'>
+                                    <Nodes />
+                                </Box>
+                            </Center>
+                        </Box>
                     </Box>
                 </Slide>
             </Box>
