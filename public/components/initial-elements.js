@@ -463,6 +463,72 @@ export default [
         </NodeText>
       )
     },
-    position: { x: 620, y: 1120 }
+    position: { x: 640, y: 1100 }
+  },
+
+  {
+    id: 'node-ssg',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          SSG
+        </NodeText>
+      )
+    },
+    position: { x: 960, y: 1150 }
+  },
+  {
+    id: 'node-ssr',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          SSR
+        </NodeText>
+      )
+    },
+    position: { x: 960, y: 1200 }
+  },
+  {
+    id: 'node-next',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          NEXT JS
+        </NodeText>
+      )
+    },
+    position: { x: 630, y: 1175 }
+  },
+
+  {
+    id: 'node-api',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          API
+        </NodeText>
+      )
+    },
+    position: { x: 990, y: 1320 }
   },
 ];
