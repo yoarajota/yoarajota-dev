@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Nodes from "../public/components/nodes.jsx";
+import NodeHead from "../public/components/nodes/nodeHead"
 
 function Tec() {
     const [offset, setOffset] = useState(0);
@@ -41,7 +42,7 @@ function Tec() {
                             </Box>
                         </Box>
                         <Center w='100%'>
-                            <Box w={`${innerWidth}px`} h='700px' m='auto 0'>
+                            <Box w={`${innerWidth}px`} position='relative' h='700px' m='auto 0' width='70%'>
                                 <Nodes />
                             </Box>
                         </Center>

@@ -11,22 +11,18 @@ import ReactFlow, {
 import initialElements from "./initial-elements";
 import Edge from './edge'
 import { Box, Text } from "@chakra-ui/react";
-import renderNodes from "./renderNodes";
-
-const onLoad = (reactFlowInstance) => {
-    reactFlowInstance.fitView();
-}
-
 
 const Nodes = () => {
     const [name, setName] = useState("")
     const [elements, setElements, onElementsChange] = useNodesState(initialElements);
     const [edge, setEdge, onEdgeChange] = useEdgesState(Edge)
     const onLoad = (reactFlowInstance) => {
-        console.log("flow loaded:", reactFlowInstance);
         reactFlowInstance.fitView();
     };
 
+    // useEffect(() => {
+    //     onLoad()
+    // }, []);
 
     const cNode = () => {
         setElements(e => e.concat({
@@ -57,15 +53,15 @@ const Nodes = () => {
 
     return (
         <>
-            <div>
+            <Box>
                 <input type='text' onChange={e => setName(e.target.value)} />
                 <input type="button" onClick={cNode} />
-            </div>
-            <ReactFlowProvider >
+            </Box>
+            <ReactFlowProvider position='absoltue'>
                 <ReactFlow
                     onNodesChange={onElementsChange}
                     onEdgesChange={onEdgeChange}
-                    onLoad={onLoad}
+                    onInit={onLoad}
                     defaultPosition={[100, 100]}
                     onConnect={onConnect}
                     connectionLineType='bezier'

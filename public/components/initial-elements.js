@@ -1,20 +1,153 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
+import NodeHead from "./nodes/nodeHead";
+import NodePoint from "./nodes/nodePoints";
+import NodeText from "./nodes/nodeText";
 
 export default [
 
   {
-    id: "1",
+    id: "node-head",
     type: "input",
-    style: { padding: '0', background: 'none', width: '38px', height: '19px', border: 'none' },
+    selectable: false,
+    style: { padding: '0', minWidth: '220px', background: 'none', border: 'none' },
     data: {
       label: (
         <>
-          <Box m='0' width='30px' height='30px' border='4px solid #4B4453' borderRadius='360px' background='#0D0D0D'>
-          </Box>
+          <NodeHead xp='1' lvl='2'>
+            React JS
+          </NodeHead>
         </>
       )
     },
-    position: { x: 600, y: 0 }
+    position: { x: 1200, y: 0 }
+  },
+  {
+    id: 'node-fundamental',
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'bottom',
+    targetPosition: 'top',
+    data: {
+      label: (
+        <NodeText>
+          Fundamental
+        </NodeText>
+      )
+    },
+    position: { x: 1200, y: 400 }
+  },
+  {
+    id: 'node-components',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Components
+        </NodeText>
+      )
+    },
+    position: { x: 800, y: 400 }
+  },
+  {
+    id: 'node-create-react-app',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Create React
+        </NodeText>
+      )
+    },
+    position: { x: 750, y: 460 }
+  },
+  {
+    id: 'node-jsx',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          JSX
+        </NodeText>
+      )
+    },
+    position: { x: 780, y: 520 }
+  },
+  {
+    id: 'node-props-state',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Props vs State
+        </NodeText>
+      )
+    },
+    position: { x: 840, y: 540 }
+  },
+  {
+    id: 'node-component-lifecycle',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Component Life Cycle
+        </NodeText>
+      )
+    },
+    position: { x: 1600, y: 400 }
+  },
+  {
+    id: 'node-hooks',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Basic Hooks
+        </NodeText>
+      )
+    },
+    position: { x: 1650, y: 460 }
+  },
+  {
+    id: 'node-composition-inheritance',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Composition vs Inheritance
+        </NodeText>
+      )
+    },
+    position: { x: 1630, y: 520 }
   },
 ];
