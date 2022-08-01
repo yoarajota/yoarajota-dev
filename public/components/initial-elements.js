@@ -1,5 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
+import ReactSvg from "../images/reactsvg";
 import NodeHead from "./nodes/nodeHead";
 import NodePoint from "./nodes/nodePoints";
 import NodeText from "./nodes/nodeText";
@@ -17,6 +18,7 @@ export default [
         <>
           <NodeHead xp='1' lvl='2'>
             React JS
+            <ReactSvg />
           </NodeHead>
         </>
       )
@@ -379,9 +381,8 @@ export default [
   {
     id: 'node-fiber',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'default',
+    type: 'output',
     selectable: false,
-    sourcePosition: 'right',
     targetPosition: 'left',
     data: {
       label: (
@@ -395,9 +396,8 @@ export default [
   {
     id: 'node-order',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
-    type: 'default',
+    type: 'output',
     selectable: false,
-    sourcePosition: 'right',
     targetPosition: 'left',
     data: {
       label: (
@@ -436,7 +436,7 @@ export default [
 
   {
     id: 'node-router',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
     sourcePosition: 'left',
@@ -452,7 +452,7 @@ export default [
   },
   {
     id: 'node-react-router',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "output",
     selectable: false,
     targetPosition: 'top',
@@ -468,7 +468,7 @@ export default [
 
   {
     id: 'node-ssg',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
     sourcePosition: 'left',
@@ -484,11 +484,10 @@ export default [
   },
   {
     id: 'node-ssr',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    type: "default",
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "input",
     selectable: false,
     sourcePosition: 'left',
-    targetPosition: 'right',
     data: {
       label: (
         <NodeText>
@@ -500,10 +499,9 @@ export default [
   },
   {
     id: 'node-next',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    type: "default",
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "output",
     selectable: false,
-    sourcePosition: 'left',
     targetPosition: 'right',
     data: {
       label: (
@@ -515,12 +513,15 @@ export default [
     position: { x: 630, y: 1175 }
   },
 
+
+
+
   {
     id: 'node-api',
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
+    sourcePosition: 'bottom',
     targetPosition: 'right',
     data: {
       label: (
@@ -530,5 +531,86 @@ export default [
       )
     },
     position: { x: 990, y: 1280 }
+  },
+  {
+    id: 'node-reactquery',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "output",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          React Query
+        </NodeText>
+      )
+    },
+    position: { x: 800, y: 1330 }
+  },
+  {
+    id: 'node-axios',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "output",
+    selectable: false,
+    targetPosition: 'right',
+    data: {
+      label: (
+        <NodeText>
+          Axios
+        </NodeText>
+      )
+    },
+    position: { x: 860, y: 1380 }
+  },
+
+
+
+
+  
+  {
+    id: 'node-styling',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "default",
+    selectable: false,
+    sourcePosition: 'bottom',
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Styling
+        </NodeText>
+      )
+    },
+    position: { x: 1340, y: 1140 }
+  },
+  {
+    id: 'node-chakra',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "output",
+    selectable: false,
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Chakra UI
+        </NodeText>
+      )
+    },
+    position: { x: 1540, y: 1240 }
+  },
+  {
+    id: 'node-material',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "output",
+    selectable: false,
+    targetPosition: 'left',
+    data: {
+      label: (
+        <NodeText>
+          Material UI
+        </NodeText>
+      )
+    },
+    position: { x: 1510, y: 1320 }
   },
 ];
