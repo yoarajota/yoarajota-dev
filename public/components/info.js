@@ -32,12 +32,6 @@ function Info(props) {
                     </Box>
                 </Slide>
             )}
-
-            <style jsx global>
-                {`
-
-`}
-            </style>
         </>
     )
 }

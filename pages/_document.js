@@ -18,7 +18,7 @@ export default class Document extends NextDocument {
           content="Portfolio de João Vítor Basso Sberse"
         />
         <link rel="icon" href="/favicon.ico" />
-        <title>Teste</title>
+        <title>y o a r a j o t a</title>
         <body>
           <ColorModeScript />
           <Main />

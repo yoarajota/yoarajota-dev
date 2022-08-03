@@ -8,32 +8,26 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Skills from "../public/components/skills";
-import Titles from "../public/components/titles";
+import Titles from "../public/components/typography/titles";
 import Yj from "../public/components/yj";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Normaltext from "../public/components/typography/normaltext";
 
 export default function Home() {
-  const [offset, setOffset] = useState(0);
   const { isOpen, onToggle } = useDisclosure();
   const route = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
-      onToggle();
-      window.addEventListener("scroll", (event) => {
-        onToggle();
-        route.push("/tec");
-      });
-    }, 1000);
+    onToggle();
   }, []);
 
   return (
     <>
-      <Box h="101vh">
+      <Box minHeight="100vh">
         <Slide in={isOpen} direction="top">
-          <Box backgroundColor={"#0D0D0D"} w="100%">
+          <Box backgroundColor={"#0D0D0D"} w="100%" minWidth="100vh">
             <Box paddingTop="5em" m="auto" w="100%" display="block">
               <Box display="flex" h="160px" w="100%">
                 <Center w="33.33333333%">
@@ -67,7 +61,7 @@ export default function Home() {
                           color="#737373"
                           textAlign="left"
                         >
-                          <Text>
+                          <Normaltext>
                             Olá! 😁🌹 <br />
                             Sou o João Vítor Basso Sberse, tenho 19 anos e sou
                             desenvolvedor. <br /> <br />
@@ -80,7 +74,7 @@ export default function Home() {
                             non bibendum sem molestie in. Quisque et libero
                             vitae nisi convallis efficitur sed a eros. Curabitur
                             vehicula laoreet lacinia.
-                          </Text>
+                          </Normaltext>
                         </Box>
                       </Box>
                     </Box>
@@ -91,19 +85,6 @@ export default function Home() {
           </Box>
         </Slide>
       </Box>
-
-      <style jsx global>
-        {`
-          body {
-            margin: 0;
-            background-color: #0d0d0d;
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-        `}
-      </style>
     </>
   );
 }

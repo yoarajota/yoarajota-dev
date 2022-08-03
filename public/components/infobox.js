@@ -18,18 +18,6 @@ function InfoBox() {
             </Box>
         </motion.div>
     );
-
-    <style jsx global> {`
-        .item {
-            width: 100px;
-        height: 100px;
-        background: transparent;
-        border-radius: inherit;
-          }
-
-          `}
-
-    </style>
 }
 
 export default InfoBox;

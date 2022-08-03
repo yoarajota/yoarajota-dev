@@ -5,7 +5,7 @@ import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Nodes from "../public/components/nodes.jsx";
 import NodeHead from "../public/components/nodes/nodeHead"
-import Titles from "../public/components/titles";
+import Titles from "../public/components/typography/titles";
 
 function Tec() {
     const [offset, setOffset] = useState(0);
@@ -55,16 +55,6 @@ function Tec() {
                     </Box>
                 </Slide>
             </Box>
-
-            <style jsx global>
-                {`
-                body {
-                    margin: 0;
-                    background-color: #0D0D0D;
-                }
-                
-                `}
-            </style>
         </>
     );
 }

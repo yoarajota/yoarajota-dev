@@ -3,99 +3,72 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Titles from "../public/components/titles";
+import Titles from "../public/components/typography/titles";
 import Timeline from "../public/components/timeline";
+import Normaltext from "../public/components/typography/normaltext";
 
 function Exp() {
   const { isOpen, onToggle } = useDisclosure();
-  const route = useRouter();
-  const [innerWidth, setInnerWidth] = useState("");
   const [info, setInfo] = useState("");
 
   useEffect(() => {
-    setInnerWidth(parseInt(window.innerWidth * 0.8));
-
-    setTimeout(() => {
-      onToggle();
-      window.addEventListener("scroll", (event) => {
-        onToggle();
-        route.push("/homepage");
-      });
-    }, 1000);
+    onToggle();
   }, []);
+
+  const fakedata = {
+    carrer_information_1: {
+      title: 'Includer Tecnologia',
+      time: '04 22 - xx xx',
+      text1: "aa",
+      text2: "bb",
+      text3: "cc",
+    },
+    carrer_information_2: {
+      title: 'Vagabundo',
+      time: '00 00 - xx xx',
+      text1: "123123",
+      text2: "1231",
+      text3: "312312321",
+    },
+  };
 
   return (
     <>
-      <Box vh="121vh">
-        <Slide in={isOpen} direction="top">
-          <Box h="100%">
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box m="20px">
-                <GiHamburgerMenu size="40" color="#D99E6A" />
-              </Box>
-              <Box m="20px">
-                <Yj />
-              </Box>
+      <Box minHeight="100vh">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Box m="20px">
+            <GiHamburgerMenu size="40" color="#D99E6A" />
+          </Box>
+          <Box m="20px">
+            <Yj />
+          </Box>
+        </Box>
+        <Box w="100%" textAlign="center">
+          <Titles>Experiência Profissional</Titles>
+          <Box w="100%">
+            <Box h="20vh" w="100%">
+              <Timeline setInfo={setInfo} />
             </Box>
-            <Box w="100%" textAlign="center">
-              <Titles>Experiência Profissional</Titles>
-              <Box w="100%">
-                <Box h="20vh" w="100%">
-                  <Timeline setInfo={setInfo} />
-                </Box>
-                <div className="container-mediaquery-responsive-display">
-                  <Box m="0 15px">
-                    <Text className="box-text-child">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Proin congue et eros non placerat. Curabitur lacinia, est
-                      in semper interdum, turpis libero egestas mi, a lobortis
-                      augue odio at eros. Sed lobortis odio vel mollis molestie.
-                      Proin blandit rhoncus massa ultrices ultrices. Ut eu massa
-                      at nunc dignissim feugiat. Etiam varius dolor non risus
-                      pellentesque laoreet.
-                    </Text>
-                  </Box>
-                  <Box m="0 15px">
-                    <Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Proin congue et eros non placerat. Curabitur lacinia, est
-                      in semper interdum, turpis libero egestas mi, a lobortis
-                      augue odio at eros. Sed lobortis odio vel mollis molestie.
-                      Proin blandit rhoncus massa ultrices ultrices. Ut eu massa
-                      at nunc dignissim feugiat. Etiam varius dolor non risus
-                      pellentesque laoreet.
-                    </Text>
-                  </Box>
-                  <Box m="0 15px">
-                    <Text className="box-text-child">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Proin congue et eros non placerat. Curabitur lacinia, est
-                      in semper interdum, turpis libero egestas mi, a lobortis
-                      augue odio at eros. Sed lobortis odio vel mollis molestie.
-                      Proin blandit rhoncus massa ultrices ultrices. Ut eu massa
-                      at nunc dignissim feugiat. Etiam varius dolor non risus
-                      pellentesque laoreet.
-                    </Text>
-                  </Box>
-                </div>
+            <Box m="0 0 50px 0">
+              <Titles customFontSize="30px">{fakedata?.[info]?.title}</Titles>
+            </Box>
+            <div className="container-mediaquery-responsive-display">
+              <Box className="box-text-child" w='100%' justifyContent='center'>
+                <Normaltext>{fakedata?.[info]?.text1}</Normaltext>
               </Box>
+              <Box m="0 15px" w='100%' justifyContent='center'>
+                <Normaltext>{fakedata?.[info]?.text2}</Normaltext>
+              </Box>
+              <Box className="box-text-child" w='100%' justifyContent='center'>
+                <Normaltext>{fakedata?.[info]?.text3}</Normaltext>
+              </Box>
+            </div>
+            <Box>
+              <Normaltext customFontSize="28px">{fakedata?.[info]?.time}</Normaltext>
             </Box>
           </Box>
-        </Slide>
+        </Box>
       </Box>
-
-      <style jsx global>
-        {`
-          body {
-            margin: 0;
-            background-color: #0d0d0d;
-          }
-        `}
-      </style>
     </>
   );
 }

@@ -5,13 +5,11 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
 } from "@chakra-ui/react";
+import SlideFromLeft from "./animations/slideleft";
 
-function Timeline(info) {
+function Timeline(props) {
   return (
     <Box
       h="20px"
@@ -24,37 +22,64 @@ function Timeline(info) {
       <Box
         h="5px"
         width="100%"
-        backgroundColor="red"
+        backgroundColor="#737373"
         borderRadius="360px"
-      ></Box>
-      <Box
-        onClick={() => {}}
-        cursor="pointer"
         position="absolute"
-        w="17px"
-        h="17px"
-        borderRadius="360px"
-        backgroundColor="white"
       ></Box>
+
+      <SlideFromLeft position="absolute" howFar="70px">
+        <Popover trigger="hover">
+          <PopoverTrigger>
+            <Box
+              onClick={() => {
+                props.setInfo("carrer_information_1");
+              }}
+              cursor="pointer"
+              w="20px"
+              h="20px"
+              border="2px solid #0d0d0d"
+              borderRadius="360px"
+              backgroundColor="#D99E6A"
+              transform="scale(1, 1)"
+              _hover={{
+                transform: "scale(1.3, 1.3)",
+              }}
+            />
+          </PopoverTrigger>
+          <PopoverContent bg="0D0D0D" color="white">
+            <PopoverHeader fontWeight="semibold">Júnior</PopoverHeader>
+            <PopoverArrow bg="0D0D0D" />
+            <PopoverBody>
+              Ingresso no mercado de trabalho da programação.
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </SlideFromLeft>
+
       <Popover trigger="hover">
         <PopoverTrigger>
           <Box
+            onClick={() => {
+              props.setInfo("carrer_information_2");
+            }}
             cursor="pointer"
             position="absolute"
-            left="90px"
-            w="17px"
-            h="17px"
+            w="20px"
+            h="20px"
+            border="2px solid #0d0d0d"
             borderRadius="360px"
-            backgroundColor="white"
+            backgroundColor="#D99E6A"
+            transform="scale(1, 1)"
+            _hover={{
+              transform: "scale(1.3, 1.3)",
+            }}
           />
         </PopoverTrigger>
-        <PopoverContent bg="tomato" color="white">
-          <PopoverHeader fontWeight="semibold">Customization</PopoverHeader>
-          <PopoverArrow bg="pink.500" />
-          <PopoverCloseButton bg="purple.500" />
+        <PopoverContent bg="0D0D0D" color="white">
+          <PopoverHeader fontWeight="semibold">Júnior</PopoverHeader>
+          <PopoverArrow bg="0D0D0D" />
           <PopoverBody>
-            Tadaa!! The arrow color and background color is customized. Check
-            the props for each component.
+            Ingresso no mercado de trabalho da programação.
           </PopoverBody>
         </PopoverContent>
       </Popover>
