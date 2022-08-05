@@ -44,7 +44,7 @@ function Levelers(props) {
                 </Text>
                 {/* <Box w={'100%'} textAlign={'left'} fontSize='18px' fontWeight={400}>Anos</Box> */}
                 <Box marginBottom={'10px'}>
-                    <motion.box
+                    <motion.div
                         initial='i'
                         animate='a'
                         variants={variants}
