@@ -6,31 +6,30 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Titles from "../public/components/typography/titles";
 import Timeline from "../public/components/timeline";
 import Normaltext from "../public/components/typography/normaltext";
+import axios from "axios";
 
 function Exp() {
   const { isOpen, onToggle } = useDisclosure();
   const [info, setInfo] = useState("");
+  const [state, setState] = useState("");
 
   useEffect(() => {
     onToggle();
   }, []);
 
-  const fakedata = {
-    carrer_information_1: {
-      title: 'Includer Tecnologia',
-      time: '04 22 - xx xx',
-      text1: "aa",
-      text2: "bb",
-      text3: "cc",
-    },
-    carrer_information_2: {
-      title: 'Vagabundo',
-      time: '00 00 - xx xx',
-      text1: "123123",
-      text2: "1231",
-      text3: "312312321",
-    },
-  };
+  useEffect(() => {
+    async function getData() {
+      axios.get("http://localhost:8000/exp").then((response) => {
+        setState(response.data.data);
+      });
+    }
+
+    getData();
+  }, []);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   return (
     <>
@@ -50,21 +49,23 @@ function Exp() {
               <Timeline setInfo={setInfo} />
             </Box>
             <Box m="0 0 50px 0">
-              <Titles customFontSize="30px">{fakedata?.[info]?.title}</Titles>
+              <Titles customFontSize="30px">{state?.[info]?.title}</Titles>
             </Box>
             <div className="container-mediaquery-responsive-display">
-              <Box className="box-text-child" w='100%' justifyContent='center'>
-                <Normaltext>{fakedata?.[info]?.text1}</Normaltext>
+              <Box className="box-text-child" w="100%" justifyContent="center">
+                <Normaltext>{state?.[info]?.text1}</Normaltext>
               </Box>
-              <Box m="0 15px" w='100%' justifyContent='center'>
-                <Normaltext>{fakedata?.[info]?.text2}</Normaltext>
+              <Box m="0 15px" w="100%" justifyContent="center">
+                <Normaltext>{state?.[info]?.text2}</Normaltext>
               </Box>
-              <Box className="box-text-child" w='100%' justifyContent='center'>
-                <Normaltext>{fakedata?.[info]?.text3}</Normaltext>
+              <Box className="box-text-child" w="100%" justifyContent="center">
+                <Normaltext>{state?.[info]?.text3}</Normaltext>
               </Box>
             </div>
             <Box>
-              <Normaltext customFontSize="28px">{fakedata?.[info]?.time}</Normaltext>
+              <Normaltext customFontSize="28px">
+                {state?.[info]?.time}
+              </Normaltext>
             </Box>
           </Box>
         </Box>
