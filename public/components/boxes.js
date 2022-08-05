@@ -5,6 +5,7 @@ function Boxes() {
         <>
             <Box>
                 <Heading w='100%' textAlign='center'>
+                    
                 </Heading>
             </Box>
         </>
