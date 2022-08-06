@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'UnifrakturCook';
+  src: url('../public/asset/UnifrakturCook-Bold.ttf');
+  }
+
 @media only screen and (min-width: 768px) {
   .container-mediaquery-responsive-display {
     display: flex;
@@ -106,4 +111,9 @@ body::-webkit-scrollbar {
 .textoGeral {
   font-family: "Prompt", sans-serif;
   color: #d99e6a;
+}
+
+.yj-logo {
+  font-family: 'UnifrakturCook';
+  font-weight: bold;
 }

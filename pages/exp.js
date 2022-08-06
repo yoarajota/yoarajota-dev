@@ -1,35 +1,30 @@
 import { Box, Center, Slide, useDisclosure, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Yj from "../public/components/yj";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Titles from "../public/components/typography/titles";
 import Timeline from "../public/components/timeline";
 import Normaltext from "../public/components/typography/normaltext";
 import axios from "axios";
+import { useQuery } from "react-query";
 
 function Exp() {
   const { isOpen, onToggle } = useDisclosure();
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState("carrer_information_2");
   const [state, setState] = useState("");
 
-  useEffect(() => {
-    onToggle();
-  }, []);
+  const { isLoading, data } = useQuery(
+    "exp",
+    () => {
+      return axios.get("http://localhost:8000/exp");
+    },
+    {staleTime: 1000 * 60 * 10,}
+  );
 
-  useEffect(() => {
-    async function getData() {
-      axios.get("http://localhost:8000/exp").then((response) => {
-        setState(response.data.data);
-      });
-    }
-
-    getData();
-  }, []);
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <>
@@ -49,22 +44,22 @@ function Exp() {
               <Timeline setInfo={setInfo} />
             </Box>
             <Box m="0 0 50px 0">
-              <Titles customFontSize="30px">{state?.[info]?.title}</Titles>
+              <Titles customFontSize="30px">{data?.data[info]?.title}</Titles>
             </Box>
             <div className="container-mediaquery-responsive-display">
               <Box className="box-text-child" w="100%" justifyContent="center">
-                <Normaltext>{state?.[info]?.text1}</Normaltext>
+                <Normaltext>{data?.data[info]?.text1}</Normaltext>
               </Box>
               <Box m="0 15px" w="100%" justifyContent="center">
-                <Normaltext>{state?.[info]?.text2}</Normaltext>
+                <Normaltext>{data?.data[info]?.text2}</Normaltext>
               </Box>
               <Box className="box-text-child" w="100%" justifyContent="center">
-                <Normaltext>{state?.[info]?.text3}</Normaltext>
+                <Normaltext>{data?.data[info]?.text3}</Normaltext>
               </Box>
             </div>
             <Box>
               <Normaltext customFontSize="28px">
-                {state?.[info]?.time}
+                {data?.data[info]?.time}
               </Normaltext>
             </Box>
           </Box>
