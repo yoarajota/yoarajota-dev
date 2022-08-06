@@ -42,7 +42,7 @@ function Tec() {
 
   return (
     <>
-      <Box vh="121vh">
+      <Box minHeight="100vh">
         <Slide in={isOpen} direction="top">
           <Box h="100%">
             <Box
