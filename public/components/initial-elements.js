@@ -34,7 +34,7 @@ export default [
     targetPosition: 'top',
     data: {
       label: (
-        <NodeText>
+        <NodeText title customFontSize='28px'>
           Fundamental
         </NodeText>
       )
@@ -243,7 +243,7 @@ export default [
     targetPosition: 'top',
     data: {
       label: (
-        <NodeText>
+        <NodeText title customFontSize='28px'>
           Advanced
         </NodeText>
       )
@@ -425,7 +425,7 @@ export default [
     targetPosition: 'top',
     data: {
       label: (
-        <NodeText>
+        <NodeText title customFontSize='28px'>
           Ecosystem
         </NodeText>
       )

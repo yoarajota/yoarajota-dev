@@ -1,21 +1,35 @@
 {
-  "private": true,
+  "name": "who-is-yoarajota",
+  "version": "1.0.0",
+  "description": "This is a starter template for [Learn Next.js](https://nextjs.org/learn).",
+  "main": "next.config.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoarajota/who-is-yoarajota.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoarajota/who-is-yoarajota/issues"
+  },
+  "homepage": "https://github.com/yoarajota/who-is-yoarajota#readme",
   "dependencies": {
-    "@chakra-ui/react": "^2.2.4",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "framer-motion": "^6.5.1",
-    "lodash": "^4.17.21",
-    "next": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-flow-renderer": "^10.3.11",
-    "react-icons": "^4.4.0",
-    "typewriter-effect": "^2.19.0"
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "axios": "^0.26.1",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.2.8",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-flow-renderer": "^10.3.14",
+    "react-hook-form": "^7.28.1",
+    "react-icons": "^4.3.1",
+    "react-query": "^3.34.19"
   }
 }

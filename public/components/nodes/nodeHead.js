@@ -15,7 +15,7 @@ function NodeHead({ img, lvl, xp, children }) {
       <Text m="0" p="5px" fontFamily="Ubuntu" fontSize="26px" color="#D99E6A">
         {children[0]}
       </Text>
-      <Box m='10px 0'>
+      <Box m="10px 0" w="100%" justifyContent="center">
         {children[1]}
       </Box>
       <Levelers xp={xp ? xp : ""} lvl={lvl ? lvl : ""} />

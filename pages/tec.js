@@ -15,31 +15,18 @@ function Tec() {
   const [innerWidth, setInnerWidth] = useState("");
 
   useEffect(() => {
-    async function getData() {
-      axios.get("http://localhost:8000/tec").then((response) => {
-        console.log(response);
-      });
-    }
+    // async function getData() {
+    //   axios.get("http://localhost:8000/tec").then((response) => {
+    //   });
+    // }
 
-    getData();
+    // getData();
   }, []);
 
   useEffect(() => {
-    setInnerWidth(parseInt(window.innerWidth * 0.8));
-
-    setTimeout(() => {
       onToggle();
-      window.addEventListener("scroll", (event) => {
-        onToggle();
-        route.push("/homepage");
-      });
-    }, 1000);
   }, []);
-
-  useEffect(() => {
-    console.log(innerWidth);
-  }, [innerWidth]);
-
+  
   return (
     <>
       <Box minHeight="100vh">

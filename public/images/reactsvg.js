@@ -1,6 +1,7 @@
 export default function ReactSvg() {
   return (
     <svg
+      style={{margin: "0 auto"}}
       width="40%"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-11.5 -10.23174 23 20.46348"
