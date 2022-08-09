@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Divider,
   FormControl,
   FormLabel,
   HStack,
@@ -83,14 +84,25 @@ function Extra() {
             <Box w="100%" textAlign="center">
               <Titles>Contato</Titles>
             </Box>
-            <Box display="flex">
-              <Box w="50%">
-                <Titles></Titles>
+            <SimpleGrid
+              gap="30px"
+              column={"2"}
+              minChildWidth={"370px"}
+              justifyContent="center"
+              w="90%"
+              m="30px auto 0 auto"
+            >
+              <Box w="100%">
+                <Divider />
+                <Box h="150"></Box>
               </Box>
-              <Box w="50%">
-                <Titles></Titles>
+              <Box w="100%">
+                <Divider />
+                <Box h="150" m="15px 0" w="100%" textAlign='center'>
+                  <Normaltext>Linkedin</Normaltext>
+                </Box>
               </Box>
-            </Box>
+            </SimpleGrid>
             <HStack
               m="0 auto"
               w="80%"

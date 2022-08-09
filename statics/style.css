@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'UnifrakturCook';
-  src: url('../public/asset/UnifrakturCook-Bold.ttf');
-  }
+  font-family: "UnifrakturCook";
+  src: url("../public/asset/UnifrakturCook-Bold.ttf");
+}
 
 @media only screen and (min-width: 768px) {
   .container-mediaquery-responsive-display {
@@ -11,11 +11,48 @@
   .box-text-child {
     margin: 70px 15px 0 15px;
   }
+  .header-container {
+    display: flex;
+  }
+
+  .header-center-box {
+    width: 33.33333%;
+  }
+
+  .content-container-hp {
+    display: flex;
+  }
+
+  .content-container-child {
+    width: 33.333333%;
+  }
+
+  .content-container-child:nth-child(2) {
+    width: 66.6666%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .box-text-child {
     margin: 15px 0;
+  }
+
+  .header-center-box:nth-child(3) {
+    display: none;
+  }
+
+  .header-center-box {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .content-container-hp {
+    display: block;
+  }
+  
+  .content-container-child {
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -33,7 +70,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .lf {
@@ -114,6 +151,6 @@ body::-webkit-scrollbar {
 }
 
 .yj-logo {
-  font-family: 'UnifrakturCook';
+  font-family: "UnifrakturCook";
   font-weight: bold;
 }

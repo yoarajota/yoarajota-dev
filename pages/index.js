@@ -27,16 +27,16 @@ export default function Home() {
     <>
       <Box minHeight="100vh">
         <Slide in={isOpen} direction="top">
-          <Box backgroundColor={"#0D0D0D"} w="100%" minWidth="100vh">
+          <Box backgroundColor={"#0D0D0D"} w="100%">
             <Box paddingTop="5em" m="auto" w="100%" display="block">
-              <Box display="flex" h="160px" w="100%">
-                <Center w="33.33333333%">
+              <Box className="header-container" h="160px" w="100%">
+                <Center className="header-center-box">
                   <Yj />
                 </Center>
-                <Center w="33.33333333%">
+                <Center className="header-center-box" textAlign="center">
                   <Titles>João Vítor Basso Sberse</Titles>
                 </Center>
-                <Center w="33.33333333%">
+                <Center className="header-center-box">
                   <Image
                     src={"images/me.jpg"}
                     w="200px"
@@ -45,15 +45,17 @@ export default function Home() {
                   />
                 </Center>
               </Box>
-              <Box paddingTop="2em" display="flex" w="100%">
-                <Center w="33.33333333%">
+              <Box paddingTop="2em" class="content-container-hp" w="100%">
+                <Center className="content-container-child">
                   <Skills />
                 </Center>
-                <Center w="66.666666666%">
-                  <Box w="90%">
-                    <Box w="70%">
+                <Center className="content-container-child">
+                  <Box w="90%" m="0 auto">
+                    <Box w="70%" m="0 auto">
                       <Box textAlign="center" w="100%">
-                        <AiOutlineInfoCircle size="40" fill="#737373" />
+                        <Center m="0 auto" w="100%">
+                          <AiOutlineInfoCircle size="40" fill="#737373" />
+                        </Center>
                         <Box
                           w="100%"
                           fontSize="24px"
