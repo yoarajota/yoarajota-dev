@@ -32,19 +32,7 @@ function Tec() {
       <Box minHeight="100vh">
         <Slide in={isOpen} direction="top">
           <Box h="100%">
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box m="20px">
-                <GiHamburgerMenu size="40" color="#D99E6A" />
-              </Box>
-              <Box m="20px">
-                <Yj />
-              </Box>
-            </Box>
-            <Box w="100%" textAlign="center">
+            <Box w="100%" paddingTop="5em" textAlign="center">
               <Titles>Principais Tecnologias</Titles>
               <Center w="100%">
                 <Box
@@ -54,6 +42,26 @@ function Tec() {
                   m="auto 0"
                   width="90%"
                 >
+                  <Box
+                    w="100%"
+                    h="2px"
+                    filter="blur(4px)"
+                    marginTop = '-4px'
+                    zIndex={21}
+                    opacity="1"
+                    backgroundColor="#0d0d0d"
+                    position="absolute"
+                  ><box></box></Box>
+               <Box
+                w="100%"
+                h="10px"
+                filter="blur(4px)"
+                marginTop = '-4px'
+                zIndex={20}
+                opacity="0.8"
+                backgroundColor="#0d0d0d"
+                position="absolute"
+              ><box></box></Box>
                   <Nodes />
                 </Box>
               </Center>
