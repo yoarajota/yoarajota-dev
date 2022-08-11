@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <Navbar />
+        <Navbar/>
           <Component {...pageProps} />
       </ChakraProvider>
     </QueryClientProvider>

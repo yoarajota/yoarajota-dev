@@ -16,10 +16,14 @@ import Titles from "./typography/titles";
 import HoverText from "./animations/hovertext";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import { route } from "next/dist/server/router";
 
-function Navbar() {
+function Navbar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+
+
+  console.log(router)
 
   const { isLoading, data } = useQuery(
     "nav",
@@ -36,7 +40,7 @@ function Navbar() {
         zIndex="4"
         alignItems={"center"}
         justifyContent={"space-between"}
-        display={"flex"}
+        display={router.pathname === "/" ? 'none' : "flex"}
         w={"100%"}
       >
         <Box m="20px">
