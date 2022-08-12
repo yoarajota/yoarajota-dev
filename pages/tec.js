@@ -52,7 +52,8 @@ function Tec() {
                     backgroundColor="#0d0d0d"
                     position="absolute"
                   ><box></box></Box>
-               <Box
+               <Box 
+               
                 w="100%"
                 h="10px"
                 filter="blur(4px)"
