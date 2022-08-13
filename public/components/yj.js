@@ -1,4 +1,5 @@
-import { Heading, Image } from "@chakra-ui/react";
+import { Box, Heading, Image } from "@chakra-ui/react";
+import PulseAnimation from "./animations/pulseAnimation";
 
 function Yj({ otherColor }) {
   return (
@@ -10,7 +11,10 @@ function Yj({ otherColor }) {
         className="yj-logo"
         fontSize="48px"
       >
-        YJ
+        <Box display='flex'>
+        {'< '+'Y'+'J'}<PulseAnimation>{' '+' >'} </PulseAnimation>  
+        </Box>
+
       </Heading>
 
       {/* <Image src='images/YJ.png' width='63px' /> */}

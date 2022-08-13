@@ -47,7 +47,7 @@ function Extra() {
     },
     onSubmit: (values, actions) => {
       axios
-        .post("http://localhost:8000/comments", values)
+        .post("/comments", values)
         .then((response) => {
           setComments((prevState) => [...prevState, values]);
           data = {};
@@ -78,6 +78,7 @@ function Extra() {
   }, [comments]);
 
   return (
+    <>
     <Box minHeight="100vh">
       <Box w="100%">
         <Box w="100%" paddingTop="65px">
@@ -198,6 +199,10 @@ function Extra() {
         </Box>
       </Box>
     </Box>
+
+
+
+    </>
   );
 }
 

@@ -13,7 +13,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Titles from "../../public/components/typography/titles";
 import Timeline from "../../public/components/timeline";
 import Normaltext from "../../public/components/typography/normaltext";
-import axios from "axios";
+import api from "../../public/api/axios";
 import { useQuery } from "react-query";
 import SlideFromLeft from "../../public/components/animations/slideleft";
 import HoverText from "../../public/components/animations/hovertext";
@@ -27,7 +27,7 @@ function Exp() {
   const { isLoading, data } = useQuery(
     "exp",
     () => {
-      return axios.get("http://localhost:8000/exp");
+      return api.get("http://localhost:8000/exp");
     },
     { staleTime: 1000 * 60 * 10 }
   );
