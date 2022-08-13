@@ -22,9 +22,6 @@ function Navbar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
-
-  console.log(router)
-
   const { isLoading, data } = useQuery(
     "nav",
     () => {
@@ -70,11 +67,11 @@ function Navbar(props) {
                   <HoverText>
                     <Titles customFontSize="30">
                       <NextLink
-                        _focus={{ outline: "none", boxShadow: "none" }}
+                        outline="none"  
                         style={{ textDecoration: "none" }}
                         href={item.link}
-                      >
-                        <a>{item.title}</a>
+                      > 
+                        {item.title}
                       </NextLink>
                     </Titles>
                   </HoverText>

@@ -30,7 +30,6 @@ function Tec() {
   return (
     <>
       <Box minHeight="100vh">
-        <Slide in={isOpen} direction="top">
           <Box h="100%">
             <Box w="100%" paddingTop="5em" textAlign="center">
               <Titles>Principais Tecnologias</Titles>
@@ -53,7 +52,7 @@ function Tec() {
                     position="absolute"
                   ><box></box></Box>
                <Box 
-               
+
                 w="100%"
                 h="10px"
                 filter="blur(4px)"
@@ -68,7 +67,6 @@ function Tec() {
               </Center>
             </Box>
           </Box>
-        </Slide>
       </Box>
     </>
   );

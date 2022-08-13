@@ -4,6 +4,7 @@ function Titles({ customFontSize, children }) {
   return (
     <>
       <Heading
+        _focus={{ outline: "none", boxShadow: "none" }}
         color="#D99E6A"
         fontSize={customFontSize ? customFontSize : "48px"}
         fontFamily="Ubuntu"

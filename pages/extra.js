@@ -20,6 +20,7 @@ import Normaltext from "../public/components/typography/normaltext";
 import Titles from "../public/components/typography/titles";
 import { FiUser } from "react-icons/fi";
 import { useQuery } from "react-query";
+import { BsLinkedin } from "react-icons/bs";
 
 function Extra() {
   const toast = useToast();
@@ -86,7 +87,7 @@ function Extra() {
             </Box>
             <SimpleGrid
               gap="30px"
-              column={"2"}
+              column={["2"]}
               minChildWidth={"370px"}
               justifyContent="center"
               w="90%"
@@ -98,42 +99,80 @@ function Extra() {
               </Box>
               <Box w="100%">
                 <Divider />
-                <Box h="150" m="15px 0" w="100%" textAlign='center'>
-                  <Normaltext>Linkedin</Normaltext>
+                <Box h="150" m="15px 0" w="100%" textAlign="center">
+                  <Box alignItems="center" display="flex">
+                    <BsLinkedin size="20px" />
+                    <Normaltext>Linkedin</Normaltext>
+                  </Box>
+                  <Box alignItems="center" display="flex">
+                    <BsLinkedin size="20px" />
+                    <Normaltext>Linkedin</Normaltext>
+                  </Box>
                 </Box>
               </Box>
             </SimpleGrid>
             <HStack
-              m="0 auto"
+              m="25px auto"
               w="80%"
               alignItem="center"
               display="flex"
               as="form"
               onSubmit={formik.handleSubmit}
             >
-              <FormControl marginRight="15px" width="20%">
-                <Input
-                  placeholder="Nome"
-                  name="name"
-                  onChange={formik.handleChange}
-                  value={formik.values.name}
-                ></Input>
-              </FormControl>
-              <FormControl marginRight="15px" width="60%">
-                <Input
-                  placeholder="Escreva um comentário"
-                  name="comment"
-                  onChange={formik.handleChange}
-                  value={formik.values.comment}
-                ></Input>
-              </FormControl>
-
-              <Button type="submit" width="20%">
-                Submit
-              </Button>
+              <SimpleGrid
+                w="100%"
+                gap={"20px"}
+                columns={3}
+                m="0 auto"
+                justifyContent="center"
+                minChildWidth="370px"
+              >
+                <FormControl
+                  marginRight="15px"
+                  width="100%"
+                  m="0 auto"
+                  justifyContent="center"
+                >
+                  <Input
+                    _focus={{ outline: "none" }}
+                    placeholder="Nome"
+                    name="name"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                  ></Input>
+                </FormControl>
+                <FormControl
+                  marginRight="15px"
+                  width="100%"
+                  m="0 auto"
+                  justifyContent="center"
+                >
+                  <Input
+                    _focus={{ outline: "none" }}
+                    placeholder="Escreva um comentário"
+                    name="comment"
+                    onChange={formik.handleChange}
+                    value={formik.values.comment}
+                  ></Input>
+                </FormControl>
+                <Button
+                  _focus={{ outline: "none" }}
+                  type="submit"
+                  width="100%"
+                  m="0 auto"
+                  justifyContent="center"
+                >
+                  Submit
+                </Button>
+              </SimpleGrid>
             </HStack>
             <Box w="90%" m="0 auto" display="flex" flexWrap="wrap">
-              <SimpleGrid w="100%" column={"3"} minChildWidth="220px">
+              <SimpleGrid
+                w="100%"
+                column={"3"}
+                gap={"25px"}
+                minChildWidth="220px"
+              >
                 {(comments ?? [] ?? data?.data.data).map((comment) => {
                   return (
                     <HStack display="block" m="2%">

@@ -26,7 +26,6 @@ export default function Home() {
   return (
     <>
       <Box minHeight="100vh">
-        <Slide in={isOpen} direction="top">
           <Box backgroundColor={"#0D0D0D"} w="100%">
             <Box paddingTop="5em" m="auto" w="100%" display="block">
               <Box className="header-container" h="160px" w="100%">
@@ -45,7 +44,7 @@ export default function Home() {
                   />
                 </Center>
               </Box>
-              <Box paddingTop="2em" class="content-container-hp" w="100%">
+              <Box paddingTop="2em" className="content-container-hp" w="100%">
                 <Center className="content-container-child">
                   <Skills />
                 </Center>
@@ -85,7 +84,6 @@ export default function Home() {
               </Box>
             </Box>
           </Box>
-        </Slide>
       </Box>
     </>
   );

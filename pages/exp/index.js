@@ -32,10 +32,6 @@ function Exp() {
     { staleTime: 1000 * 60 * 10 }
   );
 
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
-
   return (
     <>
       <Box minHeight="100vh">
@@ -45,7 +41,7 @@ function Exp() {
           </Box>
           <Box w="100%">
             <Box h="140px" w="100%">
-              <Timeline data={data.data.career} setInfo={setInfo} />
+              <Timeline data={data?.data.career} setInfo={setInfo} />
             </Box>
             <Box m="0 0 50px 0">
               <TextAnimation customFontSize="30px" title text={info.title} />
