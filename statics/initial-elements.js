@@ -1,9 +1,9 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
-import ReactSvg from "../images/reactsvg";
-import NodeHead from "./nodes/nodeHead";
-import NodePoint from "./nodes/nodePoints";
-import NodeText from "./nodes/nodeText";
+import ReactSvg from "../public/images/reactsvg";
+import NodeHead from "../public/components/nodes/nodeHead";
+import NodePoint from "../public/components/nodes/nodePoints";
+import NodeText from "../public/components/nodes/nodeText";
 
 export default [
 

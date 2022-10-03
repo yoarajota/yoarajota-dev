@@ -8,8 +8,8 @@ import ReactFlow, {
     useEdgesState
 } from "react-flow-renderer";
 
-import initialElements from "./initial-elements";
-import Edge from './initial-edges'
+import initialElements from "../../statics/initial-elements";
+import Edge from '../../statics/initial-edges'
 import { Box, Text } from "@chakra-ui/react";
 
 const Nodes = () => {

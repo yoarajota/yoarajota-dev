@@ -1,7 +1,9 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
+import NextLink from "next/link";
 
-function Yj({ otherColor }) {
+
+function Yj({ otherColor, indexPage }) {
   return (
     <>
       <Heading
@@ -12,7 +14,18 @@ function Yj({ otherColor }) {
         fontSize="48px"
       >
         <Box display='flex'>
-        {'< '+'Y'+'J'}<PulseAnimation>{' '+' >'} </PulseAnimation>  
+          {'< ' + 'Y' + 'J'}
+          {indexPage ?
+            <NextLink
+              outline="none"
+              style={{ textDecoration: "none" }}
+              href='/tec'><button>
+                <PulseAnimation><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
+              </button>
+            </NextLink>
+            :
+            <PulseAnimation>{' ' + ' >'} </PulseAnimation>
+          }
         </Box>
 
       </Heading>
