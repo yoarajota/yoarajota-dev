@@ -1,6 +1,7 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
 import NextLink from "next/link";
+import RainbowAnimation from "./animations/rainbowanimation";
 
 
 function Yj({ otherColor, indexPage }) {
