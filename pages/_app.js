@@ -1,7 +1,7 @@
 import "../statics/style.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Navbar from "../public/components/navbar";
+import Navbar from "../public/components/navbar/navbar";
 
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();

@@ -21,7 +21,7 @@ function Yj({ otherColor, indexPage }) {
               outline="none"
               style={{ textDecoration: "none" }}
               href='/tec'><button>
-                <PulseAnimation><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
+                <PulseAnimation ><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
               </button>
             </NextLink>
             :

@@ -11,15 +11,18 @@ import {
 import axios from "axios";
 import { useQuery } from "react-query";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Yj from "./yj";
-import Titles from "./typography/titles";
-import HoverText from "./animations/hovertext";
+import Yj from "../yj";
+import Titles from "../typography/titles";
+import HoverText from "../animations/hovertext";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { route } from "next/dist/server/router";
+import ModalNavBar from "./modalnavbar";
+import { useState } from "react";
 
 function Navbar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalOpen, setModalOpen] = useState();
   const router = useRouter();
 
   const { isLoading, data } = useQuery(
@@ -43,7 +46,7 @@ function Navbar(props) {
         <Box m="20px">
           <GiHamburgerMenu size="40" color="#D99E6A" onClick={onOpen} />
         </Box>
-        <Box m="20px">
+        <Box onClick={() => {setModalOpen(true)}} m="20px">
           <Yj />
         </Box>
       </Box>
@@ -60,17 +63,16 @@ function Navbar(props) {
           <DrawerBody backgroundColor="#0d0d0d">
             <Center display="block">
               <Box textAlign="center" marginBottom="20px">
-                <Yj otherColor="#7d7d7d7" />
+                <Yj />
               </Box>
               {data?.data.menu?.map((item) => {
                 return (
                   <HoverText>
                     <Titles customFontSize="30">
                       <NextLink
-                        outline="none"  
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", outline: "none" }}
                         href={item.link}
-                      > 
+                      >
                         {item.title}
                       </NextLink>
                     </Titles>
@@ -81,6 +83,8 @@ function Navbar(props) {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
+
+      <ModalNavBar active={modalOpen} setActive={setModalOpen}/>
     </>
   );
 }

@@ -11,6 +11,7 @@
   .box-text-child {
     margin: 70px 15px 0 15px;
   }
+
   .header-container {
     display: flex;
   }
@@ -49,7 +50,7 @@
   .content-container-hp {
     display: block;
   }
-  
+
   .content-container-child {
     margin: 0 auto;
     width: 100%;
@@ -64,6 +65,7 @@
 
 #__next,
 body {
+  outline: none;
   margin: 0;
   background-color: #0d0d0d;
   scrollbar-width: thin;
