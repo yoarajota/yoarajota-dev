@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import RainbowAnimation from "./animations/rainbowanimation";
 
 
-function Yj({ otherColor, indexPage }) {
+function Yj({ otherColor = false, indexPage = false }) {
   return (
     <>
       <Heading

@@ -11,7 +11,7 @@ import Skills from "../public/components/skills";
 import Titles from "../public/components/typography/titles";
 import Yj from "../public/components/yj";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Normaltext from "../public/components/typography/normaltext";
 

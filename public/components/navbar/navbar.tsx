@@ -16,19 +16,21 @@ import Titles from "../typography/titles";
 import HoverText from "../animations/hovertext";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { route } from "next/dist/server/router";
 import ModalNavBar from "./modalnavbar";
 import { useState } from "react";
+import keyable from "../types/keylable";
 
-function Navbar(props) {
+const BG = "#0d0d0d"
+
+function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [modalOpen, setModalOpen] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
 
   const { isLoading, data } = useQuery(
     "nav",
     () => {
-      return axios.get("http://localhost:8000/menu");
+      return axios.get("http://localhost:3000/api/navbar");
     },
     { staleTime: 1000 * 60 * 10 }
   );
@@ -52,20 +54,18 @@ function Navbar(props) {
       </Box>
 
       <Drawer
-        backgroundColor="#0d0d0d"
-        opacity="1"
         placement="left"
         onClose={onClose}
         isOpen={isOpen}
       >
         <DrawerOverlay />
-        <DrawerContent backgroundColor="#0d0d0d" opacity="1">
-          <DrawerBody backgroundColor="#0d0d0d">
+        <DrawerContent backgroundColor={BG} opacity="1">
+          <DrawerBody backgroundColor={BG}>
             <Center display="block">
               <Box textAlign="center" marginBottom="20px">
                 <Yj />
               </Box>
-              {data?.data.menu?.map((item) => {
+              {data?.data.data?.map((item: keyable) => {
                 return (
                   <HoverText>
                     <Titles customFontSize="30">
