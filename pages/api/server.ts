@@ -81,8 +81,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 //         ],
 //       });
 //     });
-//     // hRdtF9KSSfsyExxa
-//     // mongodb+srv://Yoarajota:hRdtF9KSSfsyExxa@yjcluster.runkvch.mongodb.net/?retryWrites=true&w=majority
 //     app.get("menu", async (req, res) => {
 //       return res.json({
 //         error: false,
@@ -133,6 +131,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 //     //
 
+// mongooseconect
 // //                                      .              .,,,,,,         .,,,,,,,,,,,,,,.
 // //      #@.  (&.  .@,                 #@*              .****&@         (@/*********@@,
 // //       ,@/@#    .@,               (@@@*                  .&@         *#        #@(
