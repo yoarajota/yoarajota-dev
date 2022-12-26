@@ -15,22 +15,22 @@ import Timeline from "../../public/components/timeline";
 import Normaltext from "../../public/components/typography/normaltext";
 import api from "../../public/api/axios";
 import { useQuery } from "react-query";
-import SlideFromLeft from "../../public/components/animations/slideleft";
-import HoverText from "../../public/components/animations/hovertext";
 import TextAnimation from "../../public/components/animations/textanimation";
+import { Info } from "../../public/asset/types";
 
 function Exp() {
-  const { isOpen, onToggle } = useDisclosure();
-  const [info, setInfo] = useState("carrer_information_2");
-  const [isOn, setIsOn] = useState(false);
 
   const { isLoading, data } = useQuery(
     "exp",
     () => {
-      return api.get("http://localhost:8000/exp");
+      return api.get("http://localhost:3000/api/exp");
     },
     { staleTime: 1000 * 60 * 10 }
   );
+
+  const { isOpen, onToggle } = useDisclosure();
+  const [info, setInfo] = useState<Info>({});
+  const [isOn, setIsOn] = useState(false);
 
   return (
     <>
@@ -41,7 +41,7 @@ function Exp() {
           </Box>
           <Box w="100%">
             <Box h="140px" w="100%">
-              <Timeline data={data?.data.career} setInfo={setInfo} />
+              <Timeline data={data?.data.data} setInfo={setInfo} />
             </Box>
             <Box m="0 0 50px 0">
               <TextAnimation customFontSize="30px" title text={info.title} />
@@ -67,7 +67,7 @@ function Exp() {
                 zIndex={-1}
                 position="absolute"
               ></Box>
-              <Normaltext marginTop='20px' customFontSize="28px" position="relative">
+              <Normaltext customFontSize="28px">
                 {info.time}
               </Normaltext>
             </Box>

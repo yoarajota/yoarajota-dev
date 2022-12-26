@@ -3,8 +3,9 @@ import { motion, useScroll } from "framer-motion";
 import Skills from "./skills";
 import { useEffect, useRef, useState } from "react";
 import { BiInfoCircle } from 'react-icons/bi';
+import keyable from "../asset/types";
 
-function Info(props) {
+function Info(props: keyable) {
     const { isOpen, onToggle } = useDisclosure()
 
     useEffect(() => {

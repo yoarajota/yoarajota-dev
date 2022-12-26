@@ -13,7 +13,7 @@ import Yj from "../public/components/yj";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Normaltext from "../public/components/typography/normaltext";
+import NormalText from "../public/components/typography/normaltext";
 
 export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
@@ -62,7 +62,7 @@ export default function Home() {
                         color="#737373"
                         textAlign="left"
                       >
-                        <Normaltext>
+                        <NormalText>
                           Olá! 😁🌹 <br />
                           Sou o João Vítor Basso Sberse, tenho 19 anos e sou
                           desenvolvedor. <br /> <br />
@@ -75,7 +75,7 @@ export default function Home() {
                           non bibendum sem molestie in. Quisque et libero
                           vitae nisi convallis efficitur sed a eros. Curabitur
                           vehicula laoreet lacinia.
-                        </Normaltext>
+                        </NormalText>
                       </Box>
                     </Box>
                   </Box>

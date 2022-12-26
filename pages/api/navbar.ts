@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { defaultResponse } from "./types/data";
+import { defaultResponse } from "../../public/asset/types";
 
 export default function handler(
     req: NextApiRequest,

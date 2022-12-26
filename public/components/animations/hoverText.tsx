@@ -1,7 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+import { Children } from "../../asset/types";
 
-function HoverText({ children }) {
+function HoverText({ children }: Children) {
   return (
     <motion.div
       animate={{ x: [-120, 0], opacity: [0.4, 1] }}

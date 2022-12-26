@@ -1,43 +1,39 @@
 import {
   Box,
   Button,
-  Center,
   Divider,
   FormControl,
-  FormLabel,
   HStack,
   Input,
   InputGroup,
   SimpleGrid,
   Text,
   useToast,
-  VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import Normaltext from "../public/components/typography/normaltext";
-import Titles from "../public/components/typography/titles";
+import Titles from "../../public/components/typography/titles";
 import { FiUser } from "react-icons/fi";
 import { useQuery } from "react-query";
 import { BsLinkedin } from "react-icons/bs";
+import NormalText from "../../public/components/typography/normaltext";
 
 function Extra() {
   const toast = useToast();
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<Array<any>>([]);
   const { isLoading, data } = useQuery(
     "comments",
     () => {
-      return axios.get("http://localhost:8000/comments");
+      return axios.get("http://localhost:3000/api/comments");
     },
     { staleTime: 1000 * 60 * 10 }
   );
 
   useEffect(() => {
     if (!isLoading) {
-      setComments(data.data.data);
+      setComments(data?.data.data);
     }
-    console.log(data?.data.data);
   }, [isLoading]);
 
   const formik = useFormik({
@@ -50,7 +46,6 @@ function Extra() {
         .post("/comments", values)
         .then((response) => {
           setComments((prevState) => [...prevState, values]);
-          data = {};
           toast({
             title: "Sucesso!",
             description: response.data.message,
@@ -103,11 +98,11 @@ function Extra() {
                 <Box h="150" m="15px 0" w="100%" textAlign="center">
                   <Box alignItems="center" display="flex">
                     <BsLinkedin size="20px" />
-                    <Normaltext>Linkedin</Normaltext>
+                    <NormalText>Linkedin</NormalText>
                   </Box>
                   <Box alignItems="center" display="flex">
                     <BsLinkedin size="20px" />
-                    <Normaltext>Linkedin</Normaltext>
+                    <NormalText>Linkedin</NormalText>
                   </Box>
                 </Box>
               </Box>
@@ -115,10 +110,9 @@ function Extra() {
             <HStack
               m="25px auto"
               w="80%"
-              alignItem="center"
               display="flex"
               as="form"
-              onSubmit={formik.handleSubmit}
+              onSubmit={() => formik.handleSubmit}
             >
               <SimpleGrid
                 w="100%"
@@ -185,10 +179,10 @@ function Extra() {
                         w="100%"
                       >
                         <FiUser size="23" />
-                        <Normaltext>{comment.name}</Normaltext>
+                        <NormalText>{comment.name}</NormalText>
                       </Box>
                       <Box>
-                        <Normaltext>{comment.comment}</Normaltext>
+                        <NormalText>{comment.comment}</NormalText>
                       </Box>
                     </HStack>
                   );

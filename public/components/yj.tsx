@@ -2,9 +2,10 @@ import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
 import NextLink from "next/link";
 import RainbowAnimation from "./animations/rainbowanimation";
+import { yjLogotipo } from "../asset/types";
 
 
-function Yj({ otherColor = false, indexPage = false }) {
+function Yj({ otherColor, indexPage }: yjLogotipo) {
   return (
     <>
       <Heading
@@ -18,10 +19,9 @@ function Yj({ otherColor = false, indexPage = false }) {
           {'< ' + 'Y' + 'J'}
           {indexPage ?
             <NextLink
-              outline="none"
               style={{ textDecoration: "none" }}
               href='/tec'><button>
-                <PulseAnimation ><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
+                <PulseAnimation><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
               </button>
             </NextLink>
             :

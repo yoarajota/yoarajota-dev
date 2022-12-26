@@ -13,12 +13,12 @@ import { useQuery } from "react-query";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Yj from "../yj";
 import Titles from "../typography/titles";
-import HoverText from "../animations/hovertext";
+import HoverText from "../animations/hoverText";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import ModalNavBar from "./modalnavbar";
 import { useState } from "react";
-import keyable from "../types/keylable";
+import keyable from "../../asset/types";
 
 const BG = "#0d0d0d"
 
@@ -68,7 +68,7 @@ function Navbar() {
               {data?.data.data?.map((item: keyable) => {
                 return (
                   <HoverText>
-                    <Titles customFontSize="30">
+                    <Titles customFontSize={30}>
                       <NextLink
                         style={{ textDecoration: "none", outline: "none" }}
                         href={item.link}

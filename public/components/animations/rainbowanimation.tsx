@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { RainbowAnimation } from "../../asset/types";
 
-function RainbowAnimation({ otherColor, children }) {
+function RainbowAnimation({ otherColor, children }: RainbowAnimation) {
     return (
         <motion.div
             animate={{

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { Children } from "../../asset/types";
 
-function PulseAnimation({ position, howFar, delay, children, otherColor }) {
+function PulseAnimation({ children }: Children) {
   return (
     <motion.div
       animate={{
