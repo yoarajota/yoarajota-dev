@@ -40,5 +40,9 @@ interface Slide {
     howFar : number,
     delay? : number
 } 
+interface Width {
+    width: string
+} 
 
 export type SlideLeft = Children & Slide
+export type TimeLinePoints = Children & Width
