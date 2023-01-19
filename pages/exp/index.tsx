@@ -19,13 +19,12 @@ import TextAnimation from "../../public/components/animations/textanimation";
 import { Info } from "../../public/asset/types";
 
 function Exp() {
-
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, error, refetch } = useQuery(
     "exp",
     () => {
       return api.get("http://localhost:3000/api/exp");
     },
-    { staleTime: 1000 * 60 * 10 }
+    { staleTime: 1000 * 60 * 10, enabled: false }
   );
 
   const { isOpen, onToggle } = useDisclosure();

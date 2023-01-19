@@ -50,7 +50,7 @@ function Tec() {
                     opacity="1"
                     backgroundColor="#0d0d0d"
                     position="absolute"
-                  ><box></box></Box>
+                  ></Box>
                <Box 
 
                 w="100%"
@@ -61,7 +61,7 @@ function Tec() {
                 opacity="0.8"
                 backgroundColor="#0d0d0d"
                 position="absolute"
-              ><box></box></Box>
+              ></Box>
                   <Nodes />
                 </Box>
               </Center>

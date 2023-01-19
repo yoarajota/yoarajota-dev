@@ -4,7 +4,7 @@ import React, { Attributes } from "react";
 import { ReactElement } from "react";
 import { defaultText } from "../../asset/types";
 
-function Titles({ customFontSize = "48px", children }: defaultText) {
+function Titles({ customFontSize = "40px", children }: defaultText) {
   return (
     <>
       <Heading

@@ -76,8 +76,8 @@ body::-webkit-scrollbar {
 }
 
 .lf {
-  width: 210px;
-  height: 30px;
+  width: 180px;
+  height: 25px;
   background-color: rgb(75, 68, 83);
   display: flex;
   border: 1px solid #0d0d0d;
@@ -119,7 +119,7 @@ body::-webkit-scrollbar {
 .ll {
   margin-top: 1px;
   background-color: rgb(195, 74, 54);
-  height: 28px;
+  height: 24px;
   overflow: hidden;
   opacity: 0.5;
   border-radius: 4px 0 0 4px;
@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
 
 .lh {
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   letter-spacing: 0.4px;
   font-weight: 500;
 }

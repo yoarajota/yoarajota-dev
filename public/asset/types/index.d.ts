@@ -1,3 +1,5 @@
+import Levelers from "../../components/levelers";
+
 export type defaultResponse = {
     status: string,
     data?: object | Array<any>,
@@ -20,7 +22,9 @@ interface Children {
     children: React.ReactNode
 }
 
-export type defaultText = Info & Children
+export type defaultText = Info & Children & {
+    customColor?: string
+}
 
 interface IndexPage {
     indexPage?: boolean
@@ -46,3 +50,9 @@ interface Width {
 
 export type SlideLeft = Children & Slide
 export type TimeLinePoints = Children & Width
+
+type Levelers = {
+    xp: number,
+    lvl: number, 
+    title:string
+}

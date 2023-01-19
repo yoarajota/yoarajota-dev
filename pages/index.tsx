@@ -5,15 +5,22 @@ import {
   Image,
   Slide,
   Text,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
+import { useQuery } from "react-query";
 import Skills from "../public/components/skills";
 import Titles from "../public/components/typography/titles";
 import Yj from "../public/components/yj";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NormalText from "../public/components/typography/normaltext";
+import Timeline from "../public/components/timeline";
+import TextAnimation from "../public/components/animations/textanimation";
+import api from "../public/api/axios";
+import { Info } from "../public/asset/types";
+import Exp from "./exp";
+
 
 export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
@@ -22,6 +29,21 @@ export default function Home() {
   useEffect(() => {
     onToggle();
   }, []);
+
+  ///////////////////////////////////////// EXP
+
+  const { isLoading, data, error, refetch } = useQuery(
+    "exp",
+    () => {
+      return api.get("http://localhost:3000/api/exp");
+    },
+    { staleTime: 1000 * 60 * 10, enabled: false }
+  );
+
+  const [info, setInfo] = useState<Info>({});
+  const [isOn, setIsOn] = useState(false);
+
+  /////////////////////////////////////////
 
   return (
     <>
@@ -44,20 +66,20 @@ export default function Home() {
                 />
               </Center>
             </Box>
-            <Box paddingTop="2em" className="content-container-hp" w="100%">
+            <Box className="content-container-hp" w="100%">
               <Center className="content-container-child">
                 <Skills />
               </Center>
               <Center className="content-container-child">
                 <Box w="90%" m="0 auto">
-                  <Box w="70%" m="0 auto">
+                  <Box w="85%">
                     <Box textAlign="center" w="100%">
                       <Center m="0 auto" w="100%">
                         <AiOutlineInfoCircle size="40" fill="#737373" />
                       </Center>
                       <Box
                         w="100%"
-                        fontSize="24px"
+                        fontSize="18px"
                         fontFamily="Ubuntu"
                         color="#737373"
                         textAlign="left"
@@ -84,6 +106,7 @@ export default function Home() {
             </Box>
           </Box>
         </Box>
+        <Exp />
       </Box>
     </>
   );

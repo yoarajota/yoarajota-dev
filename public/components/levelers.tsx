@@ -1,8 +1,9 @@
 import { Center, Box, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Levelers } from "../asset/types";
 
-function Levelers(props) {
-    const xp = props.xp * 40.5;
+function Levelers(props: Levelers) {
+    const xp = props.xp * 36;
     const lvl = props.lvl * 67.5;
     const title = props.title;
 
@@ -23,26 +24,12 @@ function Levelers(props) {
         },
     }
 
-    const variants2 = {
-        i: {
-            x: 0,
-            display: "none",
-        },
-
-        a: {
-            display: "block",
-            x: 120
-        },
-
-    }
-
     return (
         <>
-            <Box maxW={'210px'} m='0 auto'>
-                <Text fontFamily={'Prompt'} fontSize='20px' m='0px' className="textoGeral">
+            <Box maxW={'180px'} m='0 auto'>
+                <Text fontFamily={'Prompt'} fontSize='16px' m='0px' className="textoGeral">
                     {title}
                 </Text>
-                {/* <Box w={'100%'} textAlign={'left'} fontSize='18px' fontWeight={400}>Anos</Box> */}
                 <Box marginBottom={'10px'}>
                     <motion.div
                         initial='i'
@@ -50,7 +37,7 @@ function Levelers(props) {
                         variants={variants}
                         transition={{ duration: 2, ease: "easeInOut" }}
                         className="ll" />
-                    <Box zIndex={3} w='210px' backgroundColor='transaperent' position='absolute' h='30px' display='flex'>
+                    <Box zIndex={3} w='180px' backgroundColor='transaperent' position='absolute' h='25px' display='flex'>
                         <Box className="lfs">
                         </Box>
                         <Box className="lfs">
