@@ -2,7 +2,7 @@ import { Heading, ResponsiveValue } from "@chakra-ui/react";
 import { jsx } from "@emotion/react";
 import React, { Attributes } from "react";
 import { ReactElement } from "react";
-import { defaultText } from "../../asset/types";
+import { defaultText } from "../../../src/api/assset/types";
 
 function Titles({ customFontSize = "40px", children }: defaultText) {
   return (

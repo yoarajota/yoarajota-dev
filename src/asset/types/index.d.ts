@@ -1,4 +1,4 @@
-import Levelers from "../../components/levelers";
+import Levelers from "../../../../src/components/levelers";
 
 export type defaultResponse = {
     status: string,

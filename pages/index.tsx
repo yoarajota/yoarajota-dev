@@ -8,18 +8,17 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { useQuery } from "react-query";
-import Skills from "../public/components/skills";
-import Titles from "../public/components/typography/titles";
-import Yj from "../public/components/yj";
+import Skills from "../src/components/skills";
+import Titles from "../src/components/typography/titles";
+import Yj from "../src/components/yj";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import NormalText from "../public/components/typography/normaltext";
-import Timeline from "../public/components/timeline";
-import TextAnimation from "../public/components/animations/textanimation";
-import api from "../public/api/axios";
-import { Info } from "../public/asset/types";
+import NormalText from "../src/components/typography/normaltext";
+import api from "../src/api/axios";
+import { Info } from "../src/api/assset/types";
 import Exp from "./exp";
+import Tec from "./tec";
 
 
 export default function Home() {
@@ -29,21 +28,6 @@ export default function Home() {
   useEffect(() => {
     onToggle();
   }, []);
-
-  ///////////////////////////////////////// EXP
-
-  const { isLoading, data, error, refetch } = useQuery(
-    "exp",
-    () => {
-      return api.get("http://localhost:3000/api/exp");
-    },
-    { staleTime: 1000 * 60 * 10, enabled: false }
-  );
-
-  const [info, setInfo] = useState<Info>({});
-  const [isOn, setIsOn] = useState(false);
-
-  /////////////////////////////////////////
 
   return (
     <>
@@ -107,6 +91,8 @@ export default function Home() {
           </Box>
         </Box>
         <Exp />
+
+        <Tec />
       </Box>
     </>
   );

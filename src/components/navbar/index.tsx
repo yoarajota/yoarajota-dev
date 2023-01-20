@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import ModalNavBar from "./modalnavbar";
 import { useState } from "react";
-import keyable from "../../asset/types";
+import keyable from "../../../src/api/assset/types";
 
 const BG = "#0d0d0d"
 

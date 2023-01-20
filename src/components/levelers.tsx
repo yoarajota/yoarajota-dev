@@ -1,6 +1,6 @@
 import { Center, Box, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { Levelers } from "../asset/types";
+import { Levelers } from "../../src/api/assset/types";
 
 function Levelers(props: Levelers) {
     const xp = props.xp * 36;

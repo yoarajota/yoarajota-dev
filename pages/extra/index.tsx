@@ -13,11 +13,11 @@ import {
 import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import Titles from "../../public/components/typography/titles";
+import Titles from "../../src/components/typography/titles";
 import { FiUser } from "react-icons/fi";
 import { useQuery } from "react-query";
 import { BsLinkedin } from "react-icons/bs";
-import NormalText from "../../public/components/typography/normaltext";
+import NormalText from "../../src/components/typography/normaltext";
 
 function Extra() {
   const toast = useToast();

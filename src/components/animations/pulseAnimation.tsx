@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
-import { Children } from "../../asset/types";
+import { Children } from "../../assset/types";
 
 function PulseAnimation({ children }: Children) {
   return (

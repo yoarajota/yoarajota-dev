@@ -8,15 +8,15 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
-import Yj from "../../public/components/yj";
+import Yj from "../../src/components/yj";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Titles from "../../public/components/typography/titles";
-import Timeline from "../../public/components/timeline";
-import Normaltext from "../../public/components/typography/normaltext";
-import api from "../../public/api/axios";
+import Titles from "../../src/components/typography/titles";
+import Timeline from "../../src/components/timeline";
+import Normaltext from "../../src/components/typography/normaltext";
+import api from "../../src/api/axios";
 import { useQuery } from "react-query";
-import TextAnimation from "../../public/components/animations/textanimation";
-import { Info } from "../../public/asset/types";
+import TextAnimation from "../../src/components/animations/textanimation";
+import { Info } from "../../src/asset/types";
 
 function Exp() {
   const { isLoading, data, error, refetch } = useQuery(
