@@ -56,3 +56,11 @@ type Levelers = {
     lvl: number, 
     title:string
 }
+
+
+export type CustomNodes = customFontSize & {
+  label: string;
+  handleStyle: keyable;
+};
+
+

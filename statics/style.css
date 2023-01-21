@@ -156,3 +156,21 @@ body::-webkit-scrollbar {
   font-family: "UnifrakturCook";
   font-weight: bold;
 }
+
+.react-flow__attribution {
+  font-family: "Prompt", sans-serif;
+  background-color: transparent !important;
+  color: white  !important;
+  border: 2px solid #4B4453;
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.react-flow__attribution a {
+  padding: 0 5px;
+}
+
+.react-flow-provider {
+  border-right: 1px dotted;
+  border-left: 1px dotted;
+}

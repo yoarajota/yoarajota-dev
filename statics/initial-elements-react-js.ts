@@ -1,15 +1,13 @@
-import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import ReactSvg from "../public/images/reactsvg";
 import NodeHead from "../src/components/nodes/nodeHead";
-import NodePoint from "../src/components/nodes/nodePoints";
 import NodeText from "../src/components/nodes/nodeText";
+const nodeTypes = { NodeText: NodeText };
 
-export default [
-
+const InitialElementsReactJs: Node<any>[] = [
   {
     id: "node-head",
-    type: "input",
+    type: NodeText,
     sourcePosition: "bottom",
     selectable: false,
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
@@ -614,3 +612,5 @@ export default [
     position: { x: 1510, y: 1320 }
   },
 ];
+
+export default InitialElementsReactJs;
