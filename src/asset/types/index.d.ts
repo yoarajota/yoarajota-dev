@@ -1,3 +1,4 @@
+import { Position } from "react-flow-renderer";
 import Levelers from "../../../../src/components/levelers";
 
 export type defaultResponse = {
@@ -59,8 +60,10 @@ type Levelers = {
 
 
 export type CustomNodes = customFontSize & {
-  label: string;
-  handleStyle: keyable;
+  targetPosition: Position;
+  sourcePositon: Position;
+  data: keyable;
+  selectable: boolean;
 };
 
 

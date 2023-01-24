@@ -20,7 +20,7 @@ const Nodes = () => {
 
     return (
       <>
-        {/* <ReactFlowProvider>
+        <ReactFlowProvider>
                 <ReactFlow
                     className="react-flow-provider"
                     onInit={onLoad}
@@ -31,9 +31,10 @@ const Nodes = () => {
                     snapGrid={[16, 16]}
                     connectionLineType={ConnectionLineType.Bezier}
                     edges={InitialEdgesReactJs}
+                    nodeTypes={nodeTypes}
                 />
-            </ReactFlowProvider> */}
-        <ReactFlowProvider>
+            </ReactFlowProvider>
+        {/* <ReactFlowProvider>
           <ReactFlow
             nodeTypes={nodeTypes}
             className="react-flow-provider"
@@ -46,7 +47,7 @@ const Nodes = () => {
             snapGrid={[16, 16]}
             edges={InitialEdgesLaravel}
           />
-        </ReactFlowProvider>
+        </ReactFlowProvider> */}
       </>
     );
 };

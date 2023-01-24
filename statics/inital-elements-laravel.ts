@@ -36,8 +36,8 @@ const InitialElementsLaravel: Node<any>[] = [
     },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Bottom,
     targetPosition: Position.Top,
+    sourcePosition: Position.Bottom,
     data: {
       label: 'Fundamental',
     },

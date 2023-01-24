@@ -1,432 +1,332 @@
 import React from "react";
+import { Position } from "react-flow-renderer";
+import { Node } from "reactflow";
 import ReactSvg from "../public/images/reactsvg";
 import NodeHead from "../src/components/nodes/nodeHead";
 import NodeText from "../src/components/nodes/nodeText";
-const nodeTypes = { NodeText: NodeText };
 
 const InitialElementsReactJs: Node<any>[] = [
-  {
-    id: "node-head",
-    type: NodeText,
-    sourcePosition: "bottom",
-    selectable: false,
-    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    data: {
-      label: (
-        <>
-          <NodeHead xp='1' lvl='2'>
-            React JS
-            <ReactSvg />
-          </NodeHead>
-        </>
-      )
-    },
-    position: { x: 1200, y: 100 }
-  },
+  // {
+  //   id: "node-head",
+  //   type: NodeText,
+  //   sourcePosition: "bottom",
+  //   selectable: false,
+  //   style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+  //   data: {
+  //     label:
+  //       <>
+  //         <NodeHead xp='1' lvl='2'>
+  //           React JS
+  //           <ReactSvg />
+  //         </NodeHead>
+  //       </>
+  //     
+  //   },
+  //   position: { x: 1200, y: 100 }
+  // },
   {
     id: 'node-fundamental',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'bottom',
-    targetPosition: 'top',
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Top,
     data: {
-      label: (
-        <NodeText title customFontSize='28px'>
-          Fundamental
-        </NodeText>
-      )
+      label:
+        "Fundamental"
     },
     position: { x: 1200, y: 400 }
   },
   {
     id: 'node-jsx',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          JSX
-        </NodeText>
-      )
+      label:
+        "JSX"
     },
     position: { x: 800, y: 400 }
   },
   {
     id: 'node-create-react-app',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Create React
-        </NodeText>
-      )
+      label:
+        "Create React App"
     },
     position: { x: 750, y: 460 }
   },
   {
     id: 'node-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'default',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: Position.Left,
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          Components
-        </NodeText>
-      )
+      biggerVariable: true,
+      label: "Components"
     },
     position: { x: 780, y: 520 }
   },
   {
     id: 'node-props-state',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Props vs State
-        </NodeText>
-      )
+      label: "Props vs State"
     },
     position: { x: 840, y: 570 }
   },
   {
     id: 'node-functional-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Functional Components
-        </NodeText>
-      )
+      label: "Functional Components"
     },
     position: { x: 400, y: 540 }
   },
   {
     id: 'node-class-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Class Components
-        </NodeText>
-      )
+      label: "Class Components"
     },
     position: { x: 450, y: 600 }
   },
   {
     id: 'node-component-lifecycle',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Component Life Cycle
-        </NodeText>
-      )
+      label: "Component Life Cycle"
     },
     position: { x: 1600, y: 400 }
   },
   {
     id: 'node-composition-inheritance',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Composition vs Inheritance
-        </NodeText>
-      )
+      label: "Composition vs Inheritance"
     },
     position: { x: 1650, y: 460 }
   },
   {
     id: 'node-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'default',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Basic Hooks
-        </NodeText>
-      )
+      biggerVariable: true,
+      label: "Basic Hooks"
     },
     position: { x: 1630, y: 520 }
   },
   {
     id: 'node-lists',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Lists And Keys
-        </NodeText>
-      )
+      label: "Lists And Keys"
     },
     position: { x: 1560, y: 570 }
   },
   {
     id: 'node-useeffect',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          useEffect
-        </NodeText>
-      )
+      label: "useEffect"
     },
     position: { x: 2000, y: 540 }
   },
   {
     id: 'node-usestate',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          useState
-        </NodeText>
-      )
+      label: "useState"
     },
     position: { x: 1950, y: 600 }
   },
-
-
-
-
-
-
   {
     id: 'node-advanced',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'bottom',
-    targetPosition: 'top',
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Top,
     data: {
-      label: (
-        <NodeText title customFontSize='28px'>
-          Advanced
-        </NodeText>
-      )
+      label: "Advanced"
     },
     position: { x: 1200, y: 700 }
   },
   {
     id: 'node-context',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Context
-        </NodeText>
-      )
+      label: "Context"
     },
     position: { x: 800, y: 700 }
   },
   {
     id: 'node-refs',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Refs
-        </NodeText>
-      )
+      label: "Refs"
     },
     position: { x: 750, y: 760 }
   },
   {
     id: 'node-hooks-adv',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'default',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: Position.Left,
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          Hooks
-        </NodeText>
-      )
+      biggerVariable: true,
+      label: "Hooks"
     },
     position: { x: 780, y: 820 }
   },
   {
     id: 'node-render-props',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Render Props
-        </NodeText>
-      )
+      label: "Render Props"
     },
     position: { x: 840, y: 870 }
   },
   {
     id: 'node-own-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Own Hooks
-        </NodeText>
-      )
+      label: "Own Hooks"
     },
     position: { x: 400, y: 840 }
   },
   {
     id: 'node-common-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Common Hooks  <br />
-          <br />
-          useCallBack <br />
-          useMemo <br />
-          useReducer <br />
-          useContext <br />
-        </NodeText>
-      )
+      label: ["Common Hooks", "useCallBack", "useMemo", 'useReducer', "useContext"]
     },
     position: { x: 450, y: 900 }
   },
   {
     id: 'node-portal',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Portal
-        </NodeText>
-      )
+      label: "Portal"
     },
     position: { x: 1600, y: 700 }
   },
   {
     id: 'node-error-boundaries',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    sourcePosition: Position.Right,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Error Boundaries
-        </NodeText>
-      )
+      label: "Error Boundaries"
     },
     position: { x: 1650, y: 760 }
   },
   {
     id: 'node-fiber',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'left',
+    targetPosition: Position.Left,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Fiber Architecture
-        </NodeText>
-      )
+      label: "Fiber Architecture"
     },
     position: { x: 1630, y: 820 }
   },
   {
     id: 'node-order',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
-    type: 'output',
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'left',
+    targetPosition: Position.Left,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          High Order Components
-        </NodeText>
-      )
+      label: "High Order Components"
     },
     position: { x: 1560, y: 870 }
   },
-
-
-
-
-
-
-
-
   {
     id: 'node-ecosystem',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'bottom',
-    targetPosition: 'top',
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Top,
     data: {
-      label: (
-        <NodeText title customFontSize='28px'>
-          Ecosystem
-        </NodeText>
-      )
+      label: "Ecosystem"
     },
     position: { x: 1200, y: 1000 }
   },
@@ -437,29 +337,21 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: Position.Left,
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          Router
-        </NodeText>
-      )
+      label: "Router"
     },
     position: { x: 880, y: 1040 }
   },
   {
     id: 'node-react-router',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'top',
+    targetPosition: Position.Top,
     data: {
-      label: (
-        <NodeText>
-          React Router
-        </NodeText>
-      )
+      label: "React Router"
     },
     position: { x: 640, y: 1100 }
   },
@@ -469,14 +361,10 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'left',
-    targetPosition: 'right',
+    sourcePosition: Position.Left,
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          SSG
-        </NodeText>
-      )
+      label: "SSG"
     },
     position: { x: 960, y: 1150 }
   },
@@ -485,129 +373,90 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "input",
     selectable: false,
-    sourcePosition: 'left',
+    sourcePosition: Position.Left,
+    targetPosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          SSR
-        </NodeText>
-      )
+      label: "SSR"
     },
     position: { x: 960, y: 1200 }
   },
   {
     id: 'node-next',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          NEXT JS
-        </NodeText>
-      )
+      label: "NEXT JS"
     },
     position: { x: 630, y: 1175 }
   },
-
-
-
-
   {
     id: 'node-api',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'bottom',
-    targetPosition: 'right',
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          API
-        </NodeText>
-      )
+      label: "API"
     },
     position: { x: 990, y: 1280 }
   },
   {
     id: 'node-reactquery',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          React Query
-        </NodeText>
-      )
+      label: "React Query"
     },
     position: { x: 800, y: 1330 }
   },
   {
     id: 'node-axios',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'right',
+    targetPosition: Position.Right,
     data: {
-      label: (
-        <NodeText>
-          Axios
-        </NodeText>
-      )
+      label: "Axios"
     },
     position: { x: 860, y: 1380 }
   },
-
-
-
-
-  
   {
     id: 'node-styling',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "default",
     selectable: false,
-    sourcePosition: 'bottom',
-    targetPosition: 'left',
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Styling
-        </NodeText>
-      )
+      label: "Styling"
     },
     position: { x: 1340, y: 1140 }
   },
   {
     id: 'node-chakra',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'left',
+    targetPosition: Position.Left,
     data: {
-      label: (
-        <NodeText>
-          Chakra UI
-        </NodeText>
-      )
+      label: "Chakra UI"
     },
     position: { x: 1540, y: 1240 }
   },
   {
     id: 'node-material',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "output",
+    type: "NodeText",
     selectable: false,
-    targetPosition: 'left',
+    targetPosition: Position.Left,
+    sourcePosition: undefined,
     data: {
-      label: (
-        <NodeText>
-          Material UI
-        </NodeText>
-      )
+      label: "Material UI"
     },
     position: { x: 1510, y: 1320 }
   },
