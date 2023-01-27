@@ -16,9 +16,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NormalText from "../src/components/typography/normaltext";
 import api from "../src/api/axios";
-import Exp from "./exp";
-import Tec from "./tec";
-import Resume from "./resume";
+import Exp from "../src/sections/exp";
+import Tec from "../src/sections/tec";
+import Resume from "../src/sections/resume";
+import Scrollbar from "../src/components/scrollbar";
 
 export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
@@ -30,6 +31,7 @@ export default function Home() {
 
   return (
     <Box>
+      <Scrollbar currentPosition={1} />
       <Resume />
       <Exp />
       <Tec />

@@ -1,9 +1,10 @@
 import { Box, Center, Image } from "@chakra-ui/react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import Skills from "../../src/components/skills";
-import NormalText from "../../src/components/typography/normaltext";
-import Titles from "../../src/components/typography/titles";
-import Yj from "../../src/components/yj";
+import { Colors } from "../../asset/types";
+import Skills from "../../components/skills";
+import NormalText from "../../components/typography/normaltext";
+import Titles from "../../components/typography/titles";
+import Yj from "../../components/yj";
 
 function Resume() {
     return (
@@ -35,13 +36,13 @@ function Resume() {
                 <Box w="85%">
                   <Box textAlign="center" w="100%">
                     <Center m="0 auto" w="100%">
-                      <AiOutlineInfoCircle size="40" fill="#737373" />
+                      <AiOutlineInfoCircle size="40" fill={Colors.Gray} />
                     </Center>
                     <Box
                       w="100%"
                       fontSize="18px"
                       fontFamily="Ubuntu"
-                      color="#737373"
+                      color={Colors.Gray}
                       textAlign="left"
                     >
                       <NormalText>

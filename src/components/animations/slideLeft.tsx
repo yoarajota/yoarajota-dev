@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ForwardRefExoticComponent, useEffect } from "react";
-import { SlideLeft } from "../../assset/types";
+import { SlideLeft } from "../../asset/types";
 
 function SlideFromLeft({ howFar, delay, children }: SlideLeft) {
   const transition = {

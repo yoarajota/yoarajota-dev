@@ -1,8 +1,8 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
 import NextLink from "next/link";
-import { yjLogotipo } from "../../src/api/assset/types";
 import RainbowAnimation from "./animations/rainbowanimation";
+import { Colors, yjLogotipo } from "../asset/types";
 
 
 function Yj({ otherColor, indexPage }: yjLogotipo) {
@@ -10,7 +10,7 @@ function Yj({ otherColor, indexPage }: yjLogotipo) {
     <>
       <Heading
         m="0px"
-        color={otherColor ? otherColor : "#D99E6A"}
+        color={otherColor ? otherColor : Colors.Orange}
         fontFamily="UnifrakturCook"
         className="yj-logo"
         fontSize="48px"

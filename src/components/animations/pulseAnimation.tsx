@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
-import { Children } from "../../assset/types";
+import { Colors, Children } from "../../asset/types";
 
 function PulseAnimation({ children }: Children) {
   return (
     <motion.div
       animate={{
         x: [6, 16, 6],
-        color: [ "#D99E6A", "#0d0d0d", "#D99E6A" ],
+        color: [ Colors.Orange, Colors.Black, Colors.Orange ],
       }}
       transition={{ 
         repeat: Infinity, 

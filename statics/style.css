@@ -3,6 +3,10 @@
   src: url("../src/asset/UnifrakturCook-Bold.ttf");
 }
 
+*:focus {
+  outline: none;
+}
+
 @media only screen and (min-width: 768px) {
   .container-mediaquery-responsive-display {
     display: flex;
@@ -149,7 +153,7 @@ body::-webkit-scrollbar {
 
 .textoGeral {
   font-family: "Prompt", sans-serif;
-  color: #d99e6a;
+  color: var(--orange);
 }
 
 .yj-logo {
@@ -160,7 +164,7 @@ body::-webkit-scrollbar {
 .react-flow__attribution {
   font-family: "Prompt", sans-serif;
   background-color: transparent !important;
-  color: white  !important;
+  color: white !important;
   border: 2px solid #4B4453;
   border-radius: 4px;
   opacity: 0.5;

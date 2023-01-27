@@ -8,14 +8,10 @@ import {
   PopoverArrow,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
-import SlideFromLeft from "./animations/slideleft";
-import TimeLinePoints from "./animations/timelinepoints";
+import { Colors } from "../asset/types";
+import TimeLinePoints from "./animations/timelinePoints";
 
 function Timeline({ data, setInfo }) {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <Box
       h="20px"
@@ -29,14 +25,14 @@ function Timeline({ data, setInfo }) {
         id="timeline-bar"
         h="5px"
         width="100%"
-        backgroundColor="#737373"
+        backgroundColor={Colors.Gray}
         borderRadius="360px"
         position="absolute"
       ></Box>
 
       {data?.map((item) => {
         return (
-          <TimeLinePoints position="absolute" width={item.progress}>
+          <TimeLinePoints width={item.progress}>
             <Popover trigger="hover">
               <PopoverTrigger>
                 <Box
@@ -46,9 +42,9 @@ function Timeline({ data, setInfo }) {
                   cursor="pointer"
                   w="20px"
                   h="20px"
-                  border="2px solid #0d0d0d"
+                  border={`"2px solid ${Colors.Black}`}
                   borderRadius="360px"
-                  backgroundColor="#D99E6A"
+                  backgroundColor={Colors.Orange}
                   transform="scale(1, 1)"
                   _hover={{
                     transform: "scale(1.3, 1.3)",
@@ -77,9 +73,9 @@ function Timeline({ data, setInfo }) {
               cursor="pointer"
               w="20px"
               h="20px"
-              border="2px solid #0d0d0d"
+              border={`"2px solid ${Colors.Black}`}
               borderRadius="360px"
-              backgroundColor="#D99E6A"
+              backgroundColor={Colors.Orange}
               transform="scale(1, 1)"
               _hover={{
                 transform: "scale(1.3, 1.3)",
@@ -106,9 +102,9 @@ function Timeline({ data, setInfo }) {
             position="absolute"
             w="20px"
             h="20px"
-            border="2px solid #0d0d0d"
+            border={`"2px solid ${Colors.Black}`}
             borderRadius="360px"
-            backgroundColor="#D99E6A"
+            backgroundColor={Colors.Orange}
             transform="scale(1, 1)"
             _hover={{
               transform: "scale(1.3, 1.3)",

@@ -1,8 +1,8 @@
 import { Box, Text } from "@chakra-ui/react";
 import { Handle, Position } from "react-flow-renderer";
-import { CustomNodes } from "../../asset/types";
+import { Colors, CustomNodes } from "../../asset/types";
 
-function NodeText({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, label, handleStyle } }: CustomNodes) {
+function NodeText({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, bottomSource = false, label, handleStyle } }: CustomNodes) {
   if (biggerVariable) {
     customFontSize = "26px"
     title = true
@@ -10,31 +10,37 @@ function NodeText({ selectable, targetPosition, sourcePosition, data: { customFo
 
   return (
     <>
-      {targetPosition && <Handle type="target" style={{ width: '12px', height: '12px', border: '2px solid #4B4453', borderRadius: '360px', background: '#0D0D0D' }} position={targetPosition} />}
+      {targetPosition && <Handle type="target" style={{ width: '12px', height: '12px', border: `2px solid ${Colors.Purple}`, borderRadius: '360px', background: Colors.Black }} position={targetPosition} />}
       <Box
         m="0"
-        border="2px solid #4B4453"
+        border={`2px solid ${Colors.Purple}`}
         borderRadius="8px"
-        background="#0D0D0D"
+        background={Colors.Black}
         minWidth="260px"
       >
-        <Text
+        {Array.isArray(label) ? label.map((i: string) => {
+          return (<>
+            <Text
+              fontFamily="Ubuntu"
+              fontSize={customFontSize ? customFontSize : "24px"}
+              color={title ? Colors.Orange : Colors.Purple}
+            >
+              {i}
+            </Text>
+          </>)
+        }) : <Text
           m="0"
           p="5px"
           fontFamily="Ubuntu"
           fontSize={customFontSize ? customFontSize : "24px"}
-          color={title ? "#D99E6A" : "#4B4453"}
-        >
-          {/* {label?.[0] !== undefined ? label?.map?.((i: string) => <>{i}<br /></>) : label} */}
-          {label}
-        </Text>
+          color={title ? Colors.Orange : Colors.Purple}
+        >{label} </Text>}
       </Box>
-      {sourcePosition !== Position.Bottom && <Handle
+      {(sourcePosition !== Position.Bottom || bottomSource) && <Handle
         type="source"
         position={sourcePosition}
         isConnectable={selectable}
-        id="a"
-        style={{ width: '12px', height: '12px', border: '2px solid #4B4453', borderRadius: '360px', background: '#0D0D0D' }}
+        style={{ width: '12px', height: '12px', border: `2px solid ${Colors.Purple}`, borderRadius: '360px', background: Colors.Black }}
       />}
     </>
   );

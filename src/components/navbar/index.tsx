@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import ModalNavBar from "./modalnavbar";
 import { useState } from "react";
-import keyable from "../../../src/api/assset/types";
+import { Colors, keyable } from "../../asset/types";
 
 const BG = "#0d0d0d"
 
@@ -46,7 +46,7 @@ function Navbar() {
         w={"100%"}
       >
         <Box m="20px">
-          <GiHamburgerMenu size="40" color="#D99E6A" onClick={onOpen} />
+          <GiHamburgerMenu size="40" color={Colors.Orange} onClick={onOpen} />
         </Box>
         <Box onClick={() => {setModalOpen(true)}} m="20px">
           <Yj />

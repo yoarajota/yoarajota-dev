@@ -6,34 +6,31 @@ import NodeHead from "../src/components/nodes/nodeHead";
 import NodeText from "../src/components/nodes/nodeText";
 
 const InitialElementsReactJs: Node<any>[] = [
-  // {
-  //   id: "node-head",
-  //   type: NodeText,
-  //   sourcePosition: "bottom",
-  //   selectable: false,
-  //   style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-  //   data: {
-  //     label:
-  //       <>
-  //         <NodeHead xp='1' lvl='2'>
-  //           React JS
-  //           <ReactSvg />
-  //         </NodeHead>
-  //       </>
-  //     
-  //   },
-  //   position: { x: 1200, y: 100 }
-  // },
+  {
+    id: "node-head",
+    type: "NodeHead",
+    sourcePosition: Position.Bottom,
+    selectable: false,
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    data: {
+      label: "React JS",
+      xp: '1',
+      lvl: '2',
+      img: ReactSvg
+    },
+    position: { x: 1180, y: 100 }
+  },
   {
     id: 'node-fundamental',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Top,
     data: {
-      label:
-        "Fundamental"
+      label: "Fundamental",
+      biggerVariable: true,
+      bottomSource: true
     },
     position: { x: 1200, y: 400 }
   },
@@ -71,7 +68,6 @@ const InitialElementsReactJs: Node<any>[] = [
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
     data: {
-      biggerVariable: true,
       label: "Components"
     },
     position: { x: 780, y: 520 }
@@ -117,7 +113,7 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
+    // sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "Component Life Cycle"
@@ -129,7 +125,7 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
+    // sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "Composition vs Inheritance"
@@ -144,7 +140,6 @@ const InitialElementsReactJs: Node<any>[] = [
     sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
-      biggerVariable: true,
       label: "Basic Hooks"
     },
     position: { x: 1630, y: 520 }
@@ -166,7 +161,7 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
+    // sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "useEffect"
@@ -178,7 +173,7 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
+    // sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "useState"
@@ -188,11 +183,13 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-advanced',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Top,
     data: {
+      biggerVariable: true,
+      bottomSource: true,
       label: "Advanced"
     },
     position: { x: 1200, y: 700 }
@@ -229,7 +226,6 @@ const InitialElementsReactJs: Node<any>[] = [
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
     data: {
-      biggerVariable: true,
       label: "Hooks"
     },
     position: { x: 780, y: 820 }
@@ -270,18 +266,18 @@ const InitialElementsReactJs: Node<any>[] = [
     },
     position: { x: 450, y: 900 }
   },
-  {
-    id: 'node-portal',
-    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "NodeText",
-    selectable: false,
-    sourcePosition: Position.Right,
-    targetPosition: Position.Left,
-    data: {
-      label: "Portal"
-    },
-    position: { x: 1600, y: 700 }
-  },
+  // {
+  //   id: 'node-portal',
+  //   style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+  //   type: "NodeText",
+  //   selectable: false,
+  //   sourcePosition: Position.Right,
+  //   targetPosition: Position.Left,
+  //   data: {
+  //     label: "Portal"
+  //   },
+  //   position: { x: 1600, y: 700 }
+  // },
   {
     id: 'node-error-boundaries',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
@@ -321,11 +317,13 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-ecosystem',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Top,
     data: {
+      biggerVariable: true,
+      bottomSource: true,
       label: "Ecosystem"
     },
     position: { x: 1200, y: 1000 }
@@ -335,7 +333,7 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-router',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
@@ -359,7 +357,7 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-ssg',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
@@ -371,10 +369,10 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-ssr',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "input",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
-    targetPosition: undefined,
+    // targetPosition: undefined,
     data: {
       label: "SSR"
     },
@@ -394,12 +392,13 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-api',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Right,
     data: {
-      label: "API"
+      label: "API",
+      bottomSource: true
     },
     position: { x: 990, y: 1280 }
   },
@@ -428,11 +427,12 @@ const InitialElementsReactJs: Node<any>[] = [
   {
     id: 'node-styling',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-    type: "default",
+    type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Left,
     data: {
+      bottomSource: true,
       label: "Styling"
     },
     position: { x: 1340, y: 1140 }

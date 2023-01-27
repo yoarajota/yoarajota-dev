@@ -1,11 +1,11 @@
 import { Box, Center, Slide, useDisclosure, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Yj from "../../src/components/yj";
+import Yj from "../../components/yj";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Nodes from "../../src/components/nodes";
-import NodeHead from "../../src/components/nodes/nodeHead";
-import Titles from "../../src/components/typography/titles";
+import Nodes from "../../components/nodes";
+import NodeHead from "../../components/nodes/nodeHead";
+import Titles from "../../components/typography/titles";
 import axios from "axios";
 
 function Tec() {

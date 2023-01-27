@@ -191,13 +191,6 @@ const InitialEdgesReactJs: Edge<any>[] = [
     style: { stroke: "rgb(195, 74, 54)" },
   },
   {
-    id: "edge-advanced-hooks",
-    source: "node-advanced",
-    target: "node-hooks",
-    animated: true,
-    style: { stroke: "rgb(195, 74, 54)" },
-  },
-  {
     id: "edge-advanced-hooks-adv",
     source: "node-advanced",
     target: "node-hooks-adv",
@@ -225,13 +218,13 @@ const InitialEdgesReactJs: Edge<any>[] = [
     animated: true,
     style: { stroke: "rgb(195, 74, 54)" },
   },
-  {
-    id: "edge-advanced-portal",
-    source: "node-advanced",
-    target: "node-portal",
-    animated: true,
-    style: { stroke: "rgb(195, 74, 54)" },
-  },
+  // {
+  //   id: "edge-advanced-portal",
+  //   source: "node-advanced",
+  //   target: "node-portal",
+  //   animated: true,
+  //   style: { stroke: "rgb(195, 74, 54)" },
+  // },
   {
     id: "edge-advanced-error-boundaries",
     source: "node-advanced",
