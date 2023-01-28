@@ -67,4 +67,5 @@ export type CustomNodes = customFontSize & {
 
 export type Scrollbar = {
     currentPosition: integer
+    scrollYProgress: any
 }

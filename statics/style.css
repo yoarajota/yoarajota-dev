@@ -145,13 +145,13 @@ body::-webkit-scrollbar {
   font-weight: 500;
 }
 
-.textoGeral2 {
+.geral-text2 {
   font-family: "Prompt", sans-serif;
-  color: #0d0d0d;
+  color: var(--black);
   font-weight: 600;
 }
 
-.textoGeral {
+.geral-text {
   font-family: "Prompt", sans-serif;
   color: var(--orange);
 }
@@ -177,4 +177,11 @@ body::-webkit-scrollbar {
 .react-flow-provider {
   border-right: 1px dotted;
   border-left: 1px dotted;
+}
+
+.scroll-bar-point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
 }
