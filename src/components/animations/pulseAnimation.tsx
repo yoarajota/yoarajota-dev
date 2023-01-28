@@ -1,6 +1,6 @@
+import { Colors } from "asset/enums";
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
-import { Colors, Children } from "../../asset/types";
+import { Children } from "../../asset/types";
 
 function PulseAnimation({ children }: Children) {
   return (

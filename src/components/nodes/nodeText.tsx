@@ -1,6 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
+import { Colors } from "asset/enums";
 import { Handle, Position } from "react-flow-renderer";
-import { Colors, CustomNodes } from "../../asset/types";
+import { CustomNodes } from "../../asset/types";
 
 function NodeText({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, bottomSource = false, label, handleStyle } }: CustomNodes) {
   if (biggerVariable) {

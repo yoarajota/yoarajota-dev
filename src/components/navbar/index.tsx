@@ -6,7 +6,6 @@ import {
   DrawerContent,
   useDisclosure,
   Center,
-  Link,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -18,7 +17,8 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import ModalNavBar from "./modalnavbar";
 import { useState } from "react";
-import { Colors, keyable } from "../../asset/types";
+import { keyable } from "../../asset/types";
+import { Colors } from "asset/enums";
 
 const BG = "#0d0d0d"
 

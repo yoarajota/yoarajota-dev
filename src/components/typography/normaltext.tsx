@@ -1,7 +1,8 @@
 import { Text } from "@chakra-ui/react";
-import { Colors, defaultText } from "../../asset/types";
+import { Colors } from "asset/enums";
+import { defaultText } from "../../asset/types";
 
-function NormalText({ customFontSize = "18px", customColor = Colors.Gray,children }: defaultText) {
+function NormalText({ customFontSize = "18px", customColor = Colors.Gray, children }: defaultText) {
   return (
     <Text color={customColor} fontSize={customFontSize} fontFamily="Ubuntu">
       {children}

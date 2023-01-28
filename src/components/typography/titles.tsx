@@ -1,8 +1,7 @@
 import { Heading, ResponsiveValue } from "@chakra-ui/react";
-import { jsx } from "@emotion/react";
-import React, { Attributes } from "react";
-import { ReactElement } from "react";
-import { Colors, defaultText } from "../../asset/types";
+import { Colors } from "asset/enums";
+import React from "react";
+import { defaultText } from "../../asset/types";
 
 function Titles({ customFontSize = "40px", children }: defaultText) {
   return (

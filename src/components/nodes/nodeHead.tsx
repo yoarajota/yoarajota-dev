@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
-import Image from "next/image";
-import { Handle, Position } from "react-flow-renderer";
-import { Colors, CustomNodes } from "../../asset/types";
+import { Colors } from "asset/enums";
+import { Handle } from "react-flow-renderer";
+import { CustomNodes } from "../../asset/types";
 import Levelers from "../levelers";
 
 function NodeHead({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, bottomSource = false, label, xp, lvl, img } }: CustomNodes) {

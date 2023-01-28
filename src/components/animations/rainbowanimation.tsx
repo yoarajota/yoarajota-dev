@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Colors, RainbowAnimation } from "../../asset/types";
+import { RainbowAnimation } from "../../asset/types";
+import { Colors } from "asset/enums";
 
 function RainbowAnimation({ otherColor, children }: RainbowAnimation) {
     return (

@@ -1,6 +1,6 @@
 import { Box, Center, Image } from "@chakra-ui/react";
+import { Colors } from "asset/enums";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { Colors } from "../../asset/types";
 import Skills from "../../components/skills";
 import NormalText from "../../components/typography/normaltext";
 import Titles from "../../components/typography/titles";

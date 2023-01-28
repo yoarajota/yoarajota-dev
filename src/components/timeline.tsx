@@ -7,8 +7,7 @@ import {
   PopoverBody,
   PopoverArrow,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { Colors } from "../asset/types";
+import { Colors } from "asset/enums";
 import TimeLinePoints from "./animations/timelinePoints";
 
 function Timeline({ data, setInfo }) {

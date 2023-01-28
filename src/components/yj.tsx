@@ -2,7 +2,8 @@ import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
 import NextLink from "next/link";
 import RainbowAnimation from "./animations/rainbowanimation";
-import { Colors, yjLogotipo } from "../asset/types";
+import { yjLogotipo } from "../asset/types";
+import { Colors } from "asset/enums";
 
 
 function Yj({ otherColor, indexPage }: yjLogotipo) {

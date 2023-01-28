@@ -1,18 +1,9 @@
 import { Position } from "react-flow-renderer";
-import Levelers from "../../../../src/components/levelers";
 
 export type defaultResponse = {
     status: string,
     data?: object | Array<any>,
     message?: string
-}
-
-export enum Colors {
-    Orange = '#d99e6a',
-    Purple = '#4B4453',
-    Black = '#0d0d0d',
-    Gray = '#737373',
-    DarkPurple = '#1a202c'
 }
 
 export type Info = {
@@ -27,7 +18,7 @@ interface Info {
     customFontSize?: number | string | null,
 }
 
-interface Children {
+export interface Children {
     children: React.ReactNode
 }
 
@@ -60,7 +51,7 @@ interface Width {
 export type SlideLeft = Children & Slide
 export type TimeLinePoints = Children & Width
 
-type Levelers = {
+export type Levelers = {
     xp: number,
     lvl: number,
     title: string
@@ -77,4 +68,3 @@ export type CustomNodes = customFontSize & {
 export type Scrollbar = {
     currentPosition: integer
 }
-

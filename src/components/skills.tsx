@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { Colors } from "../asset/types";
+import { Colors } from "asset/enums";
 import Levelers from "./levelers";
 import NormalText from "./typography/normaltext";
 
