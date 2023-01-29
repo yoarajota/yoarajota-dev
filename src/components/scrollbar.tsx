@@ -4,15 +4,9 @@ import { useEffect, useRef } from "react";
 import { Scrollbar } from "../asset/types";
 import { motion } from "framer-motion";
 
-function Scrollbar({ scrollY, wrapRef }: Scrollbar) {
+function Scrollbar({ scrollY }: Scrollbar) {
   const scroll = useRef<HTMLDivElement>(null);
-  const top = useTransform(
-    scrollY,
-    // Map x from these values:
-    [0, 1],
-    // Into these values:
-    ["0%", "100%"]
-  )
+  const top = useTransform(scrollY, [0, 1], ["0%", "100%"]);
 
   return (
     <>
@@ -24,7 +18,7 @@ function Scrollbar({ scrollY, wrapRef }: Scrollbar) {
         display="flex"
         justifyContent="center"
       >
-        <Box w={"4px"} h={"75vh"} backgroundColor={"red"} bg=""></Box>
+        <Box w={"4px"} h={"75vh"}></Box>
 
         <motion.div
           ref={scroll}

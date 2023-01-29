@@ -1,3 +1,11 @@
+:root {
+  --orange: #d99e6a;
+  --purple: #4B4453;
+  --black: #0d0d0d;
+  --gray: #737373;
+  --darkPurple: #1a202c;
+}
+
 @font-face {
   font-family: "UnifrakturCook";
   src: url("../src/asset/UnifrakturCook-Bold.ttf");
@@ -183,5 +191,6 @@ body::-webkit-scrollbar {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: blue;
+  border: 1px solid var(--orange);
+  border-radius: 15px;
 }

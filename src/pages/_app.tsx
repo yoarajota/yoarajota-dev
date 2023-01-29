@@ -1,7 +1,6 @@
 import "../../statics/style.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Navbar from "../../src/components/navbar";
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,7 +9,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <Navbar/>
           <Component {...pageProps} />
       </ChakraProvider>
     </QueryClientProvider>

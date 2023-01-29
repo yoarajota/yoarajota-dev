@@ -69,5 +69,4 @@ export type CustomNodes = customFontSize & {
 
 export type Scrollbar = {
   scrollY: MotionValue<number>;
-  wrapRef?: RefObject<HTMLDivElement>;
 };

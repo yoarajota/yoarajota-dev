@@ -15,12 +15,9 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    console.log(scrollYProgress)
-  }, [scrollYProgress	]);
   return (
     <Box ref={wrap}>
-      <Scrollbar wrapRef={wrap} scrollY={scrollYProgress}/>
+      <Scrollbar scrollY={scrollYProgress}/>
       <Resume />
       <Exp />
       <Tec />

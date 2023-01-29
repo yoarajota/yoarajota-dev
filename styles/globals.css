@@ -39,11 +39,11 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 
-  --orange: #d99e6a
-  --purple: #4B4453
-  --black: #0d0d0d
-  --gray: #737373
-  --darkPurple: #1a202c
+  --orange: #d99e6a;
+  --purple: #4B4453;
+  --black: #0d0d0d;
+  --gray: #737373;
+  --darkPurple: #1a202c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,3 +111,4 @@ a {
     color-scheme: dark;
   }
 }
+
