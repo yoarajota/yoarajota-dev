@@ -9,16 +9,18 @@ import { useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
   const wrap = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    console.log(wrap.current?.scrollHeight)
-    console.log("aa =>", scrollYProgress);
+  const { scrollYProgress } = useScroll({
+    target: wrap,
+    offset: ["start start", "end end"],
   });
 
+  useEffect(() => {
+    console.log(scrollYProgress)
+  }, [scrollYProgress	]);
   return (
     <Box ref={wrap}>
-      <Scrollbar currentPosition={wrap.current?.scrollHeight} scrollYProgress={scrollYProgress}/>
+      <Scrollbar wrapRef={wrap} scrollY={scrollYProgress}/>
       <Resume />
       <Exp />
       <Tec />

@@ -1,17 +1,18 @@
 import { Box } from "@chakra-ui/react";
-import { useSpring } from "framer-motion";
+import { useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Scrollbar } from "../asset/types";
 import { motion } from "framer-motion";
 
-function Scrollbar({ currentPosition, scrollYProgress }: Scrollbar) {
-    const scaleY = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-      });
-    const scroll = useRef<HTMLDivElement>(null)
-    // const position = currentPosition / scroll.current?.offsetHeight ?? 1;
+function Scrollbar({ scrollY, wrapRef }: Scrollbar) {
+  const scroll = useRef<HTMLDivElement>(null);
+  const top = useTransform(
+    scrollY,
+    // Map x from these values:
+    [0, 1],
+    // Into these values:
+    ["0%", "100%"]
+  )
 
   return (
     <>
@@ -26,8 +27,9 @@ function Scrollbar({ currentPosition, scrollYProgress }: Scrollbar) {
         <Box w={"4px"} h={"75vh"} backgroundColor={"red"} bg=""></Box>
 
         <motion.div
+          ref={scroll}
           className="scroll-bar-point"
-          style={{ scaleY }}
+          style={{ top }}
         ></motion.div>
       </Box>
     </>

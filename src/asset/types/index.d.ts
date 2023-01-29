@@ -1,3 +1,5 @@
+import { MotionValue } from "framer-motion";
+import { RefObject } from "react";
 import { Position } from "react-flow-renderer";
 
 export type defaultResponse = {
@@ -66,6 +68,6 @@ export type CustomNodes = customFontSize & {
 };
 
 export type Scrollbar = {
-    currentPosition: integer
-    scrollYProgress: any
-}
+  scrollY: MotionValue<number>;
+  wrapRef?: RefObject<HTMLDivElement>;
+};
