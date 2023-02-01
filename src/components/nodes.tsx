@@ -12,13 +12,17 @@ import InitialElementsLaravel from "../../statics/inital-elements-laravel"
 import InitialEdgesLaravel from '../../statics/inital-edges-laravel'
 import NodeText from "./nodes/nodeText";
 import NodeHead from "./nodes/nodeHead";
+import { Nodes } from "asset/types";
 
-const Nodes = () => {
+const Nodes = ({ tech }: Nodes) => {
   const onLoad = (reactFlowInstance: ReactFlowInstance) => {
     reactFlowInstance.fitView();
   };
   const nodeTypes = useMemo(() => ({ NodeText: NodeText, NodeHead: NodeHead }), []);
 
+  const nodes = tech === 1 ? InitialElementsReactJs : InitialElementsLaravel; 
+  const edges = tech === 1 ? InitialEdgesReactJs : InitialEdgesLaravel; 
+  
   return (
     <>
       <ReactFlowProvider>
@@ -27,28 +31,14 @@ const Nodes = () => {
           onInit={onLoad}
           defaultPosition={[100, 100]}
           maxZoom={20}
-          nodes={InitialElementsReactJs}
+          nodes={nodes}
           snapToGrid={true}
           snapGrid={[16, 16]}
           connectionLineType={ConnectionLineType.Bezier}
-          edges={InitialEdgesReactJs}
+          edges={edges}
           nodeTypes={nodeTypes}
         />
       </ReactFlowProvider>
-      {/* <ReactFlowProvider>
-          <ReactFlow
-            nodeTypes={nodeTypes}
-            className="react-flow-provider"
-            onInit={onLoad}
-            defaultPosition={[100, 100]}
-            connectionLineType={ConnectionLineType.Bezier}
-            maxZoom={20}
-            nodes={InitialElementsLaravel}
-            snapToGrid={true}
-            snapGrid={[16, 16]}
-            edges={InitialEdgesLaravel}
-          />
-        </ReactFlowProvider> */}
     </>
   );
 };

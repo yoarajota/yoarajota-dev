@@ -283,7 +283,6 @@ const InitialElementsReactJs: Node<any>[] = [
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "Error Boundaries"

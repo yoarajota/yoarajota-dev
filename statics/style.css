@@ -189,8 +189,9 @@ body::-webkit-scrollbar {
 
 .scroll-bar-point {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: 1px solid var(--orange);
   border-radius: 15px;
+  background-color: var(--black);
 }

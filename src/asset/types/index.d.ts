@@ -70,3 +70,7 @@ export type CustomNodes = customFontSize & {
 export type Scrollbar = {
   scrollY: MotionValue<number>;
 };
+
+export type Nodes = {
+  tech: integer;
+};

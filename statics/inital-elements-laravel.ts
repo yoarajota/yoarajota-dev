@@ -1,31 +1,24 @@
 import React from "react";
 import { Node, Position } from "reactflow";
+import LaravelSvg from "../public/images/laravelsvg";
 import NodeHead from "../src/components/nodes/nodeHead";
 import NodeText from "../src/components/nodes/nodeText";
 
 const InitialElementsLaravel: Node<any>[] = [
-  // {
-  //   id: "node-head",
-  //   type: "input",
-  //   sourcePosition: Position.Bottom,
-  //   selectable: false,
-  //   style: {
-  //     padding: "0",
-  //     minWidth: "260px",
-  //     background: "none",
-  //     border: "none",
-  //   },
-  //   position: { x: 1200, y: 100 },
-  //   data: {
-  //     label: (
-  //       <>
-  //         <NodeHead xp="1" lvl="2">
-  //           Laravel
-  //         </NodeHead>
-  //       </>
-  //     )
-  //   },
-  // },
+  {
+    id: "node-head",
+    type: "NodeHead",
+    sourcePosition: Position.Bottom,
+    selectable: false,
+    style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
+    data: {
+      label: "React JS",
+      xp: '1',
+      lvl: '2',
+      img: LaravelSvg
+    },
+    position: { x: 1180, y: 100 }
+  },
   {
     id: "node-fundamental",
     style: {
