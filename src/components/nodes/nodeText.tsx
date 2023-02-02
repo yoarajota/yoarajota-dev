@@ -18,6 +18,7 @@ function NodeText({ selectable, targetPosition, sourcePosition, data: { customFo
         borderRadius="8px"
         background={Colors.Black}
         minWidth="260px"
+        padding="0 15px"
       >
         {Array.isArray(label) ? label.map((i: string) => {
           return (<>
