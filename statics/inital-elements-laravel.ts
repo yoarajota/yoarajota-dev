@@ -238,99 +238,157 @@ const InitialElementsLaravel: Node<any>[] = [
     position: { x: 750, y: 760 }
   },
   {
-    id: 'node-hooks-adv',
+    id: 'node-database-adv',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
     data: {
-      label: "Hooks"
+      label: "Database Advanced"
     },
     position: { x: 780, y: 820 }
   },
   {
-    id: 'node-render-props',
+    id: 'node-file',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Right,
     sourcePosition: undefined,
     data: {
-      label: "Render Props"
+      label: "File Uploads"
     },
-    position: { x: 840, y: 870 }
+    position: { x: 890, y: 880 }
   },
   {
-    id: 'node-own-hooks',
+    id: 'node-debug',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Right,
     sourcePosition: undefined,
     data: {
-      label: "Own Hooks"
+      label: "Debug"
+    },
+    position: { x: 930, y: 950 }
+  },
+  {
+    id: 'node-mail',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
+    data: {
+      label: "Mailables and Mail Facade, etc"
+    },
+    position: { x: 530, y: 970 }
+  },
+  {
+    id: 'node-query',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
+    data: {
+      label: "Eloquent Query Scopes"
     },
     position: { x: 400, y: 840 }
   },
   {
-    id: 'node-common-hooks',
+    id: 'node-collections',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Right,
     sourcePosition: undefined,
     data: {
-      label: ["Common Hooks", "useCallBack", "useMemo", 'useReducer', "useContext"]
+      label: "Eloquent Collections"
     },
     position: { x: 450, y: 900 }
   },
-  // {
-  //   id: 'node-portal',
-  //   style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
-  //   type: "NodeText",
-  //   selectable: false,
-  //   sourcePosition: Position.Right,
-  //   targetPosition: Position.Left,
-  //   data: {
-  //     label: "Portal"
-  //   },
-  //   position: { x: 1600, y: 700 }
-  // },
   {
-    id: 'node-error-boundaries',
-    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
+    id: 'node-accessors',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Right,
+    sourcePosition: undefined,
+    data: {
+      label: "Eloquent Accessors and Mutators"
+    },
+    position: { x: 450, y: 900 }
+  },
+  {
+    id: 'node-api',
+    style: { padding: '0',  background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Left,
+    sourcePosition: Position.Right,
     data: {
-      label: "Error Boundaries"
+      label: "API"
     },
-    position: { x: 1650, y: 760 }
+    position: { x: 1360, y: 775 }
   },
   {
-    id: 'node-fiber',
+    id: 'node-error',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Left,
-    sourcePosition: undefined,
     data: {
-      label: "Fiber Architecture"
+      label: "API Error Handling and Status Codes"
     },
-    position: { x: 1630, y: 820 }
+    position: { x: 1650, y: 700 }
   },
   {
-    id: 'node-order',
+    id: 'node-apps',
+    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Left,
+    data: {
+      label: "Postman, Insomnia, ThudnerClient"
+    },
+    position: { x: 1700, y: 760 }
+  },
+  {
+    id: 'node-api-routes',
+    style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Left,
+    data: {
+      label: "API Routes and Controllers"
+    },
+    position: { x: 1680, y: 820 }
+  },
+  {
+    id: 'node-resources',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Left,
     sourcePosition: undefined,
     data: {
-      label: "High Order Components"
+      label: "API Eloquent Resources"
     },
-    position: { x: 1560, y: 870 }
+    position: { x: 1610, y: 880 }
+  },
+  {
+    id: 'node-try',
+    style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
+    type: "NodeText",
+    selectable: false,
+    targetPosition: Position.Left,
+    sourcePosition: undefined,
+    data: {
+      label: "Try-Catch and Laravel Exceptions"
+    },
+    position: { x: 1460, y: 940 }
   },
   {
     id: 'node-ecosystem',
@@ -344,7 +402,7 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Ecosystem"
     },
-    position: { x: 1200, y: 1000 }
+    position: { x: 1200, y: 1100 }
   },
 
 
@@ -358,7 +416,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Router"
     },
-    position: { x: 880, y: 1040 }
+    position: { x: 880, y: 1140 }
   },
   {
     id: 'node-react-router',
@@ -369,7 +427,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "React Router"
     },
-    position: { x: 640, y: 1100 }
+    position: { x: 640, y: 1200 }
   },
 
   {
@@ -382,7 +440,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "SSG"
     },
-    position: { x: 960, y: 1150 }
+    position: { x: 960, y: 1250 }
   },
   {
     id: 'node-ssr',
@@ -394,7 +452,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "SSR"
     },
-    position: { x: 960, y: 1200 }
+    position: { x: 960, y: 1300 }
   },
   {
     id: 'node-next',
@@ -405,10 +463,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "NEXT JS"
     },
-    position: { x: 630, y: 1175 }
+    position: { x: 630, y: 1275 }
   },
   {
-    id: 'node-api',
+    id: 'node-XXX',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -418,7 +476,7 @@ const InitialElementsLaravel: Node<any>[] = [
       label: "API",
       bottomSource: true
     },
-    position: { x: 990, y: 1280 }
+    position: { x: 990, y: 1380 }
   },
   {
     id: 'node-reactquery',
@@ -429,7 +487,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "React Query"
     },
-    position: { x: 800, y: 1330 }
+    position: { x: 800, y: 1430 }
   },
   {
     id: 'node-axios',
@@ -440,7 +498,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Axios"
     },
-    position: { x: 860, y: 1380 }
+    position: { x: 860, y: 1480 }
   },
   {
     id: 'node-styling',
@@ -453,7 +511,7 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Styling"
     },
-    position: { x: 1340, y: 1140 }
+    position: { x: 1340, y: 1240 }
   },
   {
     id: 'node-chakra',
@@ -464,7 +522,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Chakra UI"
     },
-    position: { x: 1540, y: 1240 }
+    position: { x: 1540, y: 1340 }
   },
   {
     id: 'node-material',
@@ -476,7 +534,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Material UI"
     },
-    position: { x: 1510, y: 1320 }
+    position: { x: 1510, y: 1420 }
   },
 ];
 
