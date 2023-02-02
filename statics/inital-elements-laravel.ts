@@ -391,7 +391,7 @@ const InitialElementsLaravel: Node<any>[] = [
     position: { x: 1460, y: 940 }
   },
   {
-    id: 'node-ecosystem',
+    id: 'node-mid',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -400,21 +400,21 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       biggerVariable: true,
       bottomSource: true,
-      label: "Ecosystem"
+      label: "Mid Level"
     },
     position: { x: 1200, y: 1100 }
   },
 
 
   {
-    id: 'node-router',
+    id: 'node-observers',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
     data: {
-      label: "Router"
+      label: "Model"
     },
     position: { x: 880, y: 1140 }
   },
@@ -431,49 +431,49 @@ const InitialElementsLaravel: Node<any>[] = [
   },
 
   {
-    id: 'node-ssg',
+    id: 'node-eloquent-features',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     targetPosition: Position.Right,
     data: {
-      label: "SSG"
+      label: "All Eloquent Features"
     },
     position: { x: 960, y: 1250 }
   },
   {
-    id: 'node-ssr',
+    id: 'node-raw',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
     // targetPosition: undefined,
     data: {
-      label: "SSR"
+      label: "Raw Database Queries"
     },
     position: { x: 960, y: 1300 }
   },
   {
-    id: 'node-next',
+    id: 'node-jobs',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Right,
     data: {
-      label: "NEXT JS"
+      label: "Jobs and Queues"
     },
     position: { x: 630, y: 1275 }
   },
   {
-    id: 'node-XXX',
+    id: 'node-observers',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Right,
     data: {
-      label: "API",
+      label: "Model Observers",
       bottomSource: true
     },
     position: { x: 990, y: 1380 }
@@ -501,7 +501,7 @@ const InitialElementsLaravel: Node<any>[] = [
     position: { x: 860, y: 1480 }
   },
   {
-    id: 'node-styling',
+    id: 'node-caching',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -509,7 +509,7 @@ const InitialElementsLaravel: Node<any>[] = [
     targetPosition: Position.Left,
     data: {
       bottomSource: true,
-      label: "Styling"
+      label: "Caching"
     },
     position: { x: 1340, y: 1240 }
   },
