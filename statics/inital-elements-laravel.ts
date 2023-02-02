@@ -490,13 +490,13 @@ const InitialElementsLaravel: Node<any>[] = [
     position: { x: 800, y: 1430 }
   },
   {
-    id: 'node-axios',
+    id: 'node-solid',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Right,
     data: {
-      label: "Axios"
+      label: "SOLID Code"
     },
     position: { x: 860, y: 1480 }
   },
@@ -514,25 +514,25 @@ const InitialElementsLaravel: Node<any>[] = [
     position: { x: 1340, y: 1240 }
   },
   {
-    id: 'node-chakra',
+    id: 'node-file-api',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Left,
     data: {
-      label: "Chakra UI"
+      label: "Upload Files via API"
     },
     position: { x: 1540, y: 1340 }
   },
   {
-    id: 'node-material',
+    id: 'node-only-api',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     targetPosition: Position.Left,
     sourcePosition: undefined,
     data: {
-      label: "Material UI"
+      label: "Only-API Projects"
     },
     position: { x: 1510, y: 1420 }
   },
