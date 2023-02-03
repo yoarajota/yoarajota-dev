@@ -16,8 +16,15 @@ texts;
 
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
-Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP. 
+Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP com um sistema web complexo. 
 
-Ótimo membro de equipe, dividindo e tutorando conhecimento técnico com os envolvidos.
+Ótimo membro de equipe, tutorando e dividindo conhecimento técnico com os envolvidos.
 
 Entenda um pouco melhor de mim;
+
+Fullstack Developer profficient in frot-end and server-side technologies.
+At the moment bringing inovation, inteligence and high performance on ERP area with a complex web system.
+
+Great team member, tutoring and sharing technical knowledge with the others.
+
+Know me better;
