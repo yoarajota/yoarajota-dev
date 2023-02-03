@@ -8,3 +8,16 @@
 <p> education section </p>
 <p> tech section part of random stuffs </p>
 <p> pt-br and english </p>
+<p> objetivos </p>
+
+
+
+texts;
+
+ptbr
+Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
+Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP. 
+
+Ótimo membro de equipe, dividindo e tutorando conhecimento técnico com os envolvidos.
+
+Entenda um pouco melhor de mim;
