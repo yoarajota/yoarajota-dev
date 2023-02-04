@@ -9,6 +9,7 @@
 <p> tech section part of random stuffs </p>
 <p> pt-br and english </p>
 <p> objetivos </p>
+<p> passar static p dentro do src </p>
 
 
 
