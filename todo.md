@@ -29,3 +29,21 @@ At the moment bringing inovation, inteligence and high performance on ERP area w
 Great team member, tutoring and sharing technical knowledge with the others.
 
 Know me better;
+
+
+----
+
+Education
+
+Instituto Federal do Rio Grande do Sul
+
+É um tipo de instituição especializada na oferta de educação profissional e tecnológica em diferentes modalidades de ensinos.
+Os institutos federais compõem a Rede Federal de Educação Profissional, Científica e Tecnológica.
+
+Análise e Desenvolvimento de Sistemas.
+
+Cadeiras Importantes;
+Programação Orientada a Objetos I e II, Álgebra Linear, Estatística, Modelagem e Projeto de Banco de Dados, Modelagem de Software,Engenharia de Requisitos, Desenvolvimento para sistemas da internet, Desenvolvimentos de Sistemas, Programação para dispositivos móveis, +++
+
+
+
