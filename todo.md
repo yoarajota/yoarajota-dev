@@ -45,5 +45,5 @@ Análise e Desenvolvimento de Sistemas.
 Cadeiras Importantes;
 Programação Orientada a Objetos I e II, Álgebra Linear, Estatística, Modelagem e Projeto de Banco de Dados, Modelagem de Software,Engenharia de Requisitos, Desenvolvimento para sistemas da internet, Desenvolvimentos de Sistemas, Programação para dispositivos móveis, +++
 
-
-
+It is a type of institution specialized in offering professional and technological education in different teaching modalities.
+These institutions make the "Rede Federal de Educação Profissional, Científica e Tecnologica" (Federal Network of Professional, Scientific and Technological Education)
