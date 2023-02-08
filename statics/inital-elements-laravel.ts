@@ -221,7 +221,6 @@ const InitialElementsLaravel: Node<any>[] = [
     },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Right,
     targetPosition: Position.Left,
     data: {
       label: "MVC",
@@ -379,7 +378,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Debug",
     },
-    position: { x: 930, y: 950 },
+    position: { x: 990, y: 950 },
   },
   {
     id: "node-mail",
@@ -442,12 +441,11 @@ const InitialElementsLaravel: Node<any>[] = [
     },
     type: "NodeText",
     selectable: false,
-    targetPosition: Position.Right,
-    sourcePosition: undefined,
+    targetPosition: Position.Top,
     data: {
       label: "Eloquent Accessors and Mutators",
     },
-    position: { x: 450, y: 900 },
+    position: { x: 560, y: 960 },
   },
   {
     id: "node-api",
@@ -589,8 +587,7 @@ const InitialElementsLaravel: Node<any>[] = [
     },
     type: "NodeText",
     selectable: false,
-    sourcePosition: Position.Left,
-    // targetPosition: undefined,
+    targetPosition: Position.Top,
     data: {
       label: "Raw Database Queries",
     },
@@ -616,7 +613,7 @@ const InitialElementsLaravel: Node<any>[] = [
     id: "node-observers",
     style: {
       padding: "0",
-      minWidth: "280px",
+      minWidth: "250px",
       background: "none",
       border: "none",
     },
