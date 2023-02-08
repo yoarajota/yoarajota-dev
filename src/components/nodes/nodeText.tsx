@@ -3,7 +3,7 @@ import { Colors } from "asset/enums";
 import { Handle, Position } from "react-flow-renderer";
 import { CustomNodes } from "../../asset/types";
 
-function NodeText({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, bottomSource = false, label, handleStyle } }: CustomNodes) {
+function NodeText({ selectable, targetPosition, sourcePosition, data: { customFontSize, title, biggerVariable, bottomSource = false, label, handleStyle, noTarget = false } }: CustomNodes) {
   if (biggerVariable) {
     customFontSize = "26px"
     title = true
@@ -11,7 +11,7 @@ function NodeText({ selectable, targetPosition, sourcePosition, data: { customFo
 
   return (
     <>
-      {targetPosition && <Handle type="target" style={{ width: '12px', height: '12px', border: `2px solid ${Colors.Purple}`, borderRadius: '360px', background: Colors.Black }} position={targetPosition} />}
+      {targetPosition && !noTarget && <Handle type="target" style={{ width: '12px', height: '12px', border: `2px solid ${Colors.Purple}`, borderRadius: '360px', background: Colors.Black }} position={targetPosition} />}
       <Box
         m="0"
         border={`2px solid ${Colors.Purple}`}
