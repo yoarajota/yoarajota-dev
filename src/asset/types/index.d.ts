@@ -74,3 +74,12 @@ export type Scrollbar = {
 export type Nodes = {
   tech: integer;
 };
+
+export type ExpType = {
+    callApi: boolean
+}
+
+export type Timeline = {
+    data:  Array<any>,
+    setInfo: (arr: Array<any>) => void,
+}

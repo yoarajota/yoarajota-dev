@@ -17,7 +17,7 @@ const InitialElementsLaravel: Node<any>[] = [
       border: "none",
     },
     data: {
-      label: "React JS",
+      label: "Laravel",
       xp: "1",
       lvl: "2",
       img: LaravelSvg,
@@ -241,7 +241,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Migrations",
     },
-    position: { x: 2000, y: 540 },
+    position: { x: 1975, y: 540 },
   },
 
   {
@@ -258,7 +258,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: ["hasOne", "hasMany", "belongsTo", "belongsToMany"],
     },
-    position: { x: 2000, y: 290 },
+    position: { x: 1975, y: 290 },
   },
   {
     id: "node-seeders",

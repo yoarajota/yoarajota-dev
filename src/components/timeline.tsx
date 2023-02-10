@@ -1,16 +1,24 @@
 import {
   Box,
   Popover,
-  PopoverTrigger,
   PopoverContent,
   PopoverHeader,
   PopoverBody,
   PopoverArrow,
 } from "@chakra-ui/react";
-import { Colors } from "asset/enums";
-import TimeLinePoints from "./animations/timelinePoints";
 
-function Timeline({ data, setInfo }) {
+
+import { Colors } from "asset/enums";
+import { Timeline } from "asset/types";
+import TimeLinePoints from "./animations/timelinePoints";
+import {
+  PopoverTrigger as OrigPopoverTrigger
+} from '@chakra-ui/react'
+
+export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
+  OrigPopoverTrigger
+
+function Timeline({ data, setInfo }: Timeline) {
   return (
     <Box
       h="20px"
@@ -30,6 +38,8 @@ function Timeline({ data, setInfo }) {
       ></Box>
 
       {data?.map((item) => {
+        console.log(item)
+
         return (
           <TimeLinePoints width={item.progress}>
             <Popover trigger="hover">
@@ -41,7 +51,7 @@ function Timeline({ data, setInfo }) {
                   cursor="pointer"
                   w="20px"
                   h="20px"
-                  border={`"2px solid ${Colors.Black}`}
+                  border={`2px solid ${Colors.Black}`}
                   borderRadius="360px"
                   backgroundColor={Colors.Orange}
                   transform="scale(1, 1)"

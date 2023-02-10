@@ -16,9 +16,9 @@ import Normaltext from "../../components/typography/normaltext";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
-import { Info } from "../../asset/types";
+import { ExpType, Info } from "../../asset/types";
 
-function Exp() {
+function Exp({ callApi }: ExpType) {
   const { isLoading, data, error, refetch } = useQuery(
     "exp",
     () => {
@@ -27,9 +27,16 @@ function Exp() {
     { staleTime: 1000 * 60 * 10, enabled: false }
   );
 
-  const { isOpen, onToggle } = useDisclosure();
   const [info, setInfo] = useState<Info>({});
-  const [isOn, setIsOn] = useState(false);
+  const [fetched, setFetched] = useState(false);
+
+  useEffect(() => {
+    if (callApi && !fetched) {
+      refetch().then((r) => {
+        setFetched(true)
+      })
+    }
+  }, [callApi])
 
   return (
     <Box minHeight="100vh" w="100%" textAlign="center">
