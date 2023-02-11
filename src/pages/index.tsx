@@ -1,15 +1,14 @@
-import {
-  Box,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Exp from "../../src/sections/exp";
 import Tec from "../../src/sections/tec";
 import Resume from "../../src/sections/resume";
 import Scrollbar from "../../src/components/scrollbar";
 import { useEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
+import AnimatedContainer from "components/animations/animatedContainer";
 
 export default function Home() {
-  const wrap = useRef<HTMLDivElement>(null)
+  const wrap = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
 
   const { scrollYProgress } = useScroll({
@@ -20,23 +19,28 @@ export default function Home() {
   let motioned = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 30,
-    restDelta: 0.0001
+    restDelta: 0.0001,
+    restSpeed: 1
   });
-  const x = useTransform(motioned, [0, 0.2, 0.4, 0.6, 0.8, 1], ["-1000px", "0px", "0px", "0px", "0px", "0px",]);
-  const opacity = useTransform(motioned, [0, 0.2, 0.4, 0.6, 0.8, 1], ["0", "1", "1", "1", "1", "1",]);
 
   useEffect(() => {
-    scrollYProgress.onChange(v => setHookedYPosition(v));
+    scrollYProgress.onChange((v) => setHookedYPosition(v));
   }, [scrollYProgress]);
 
   return (
     <Box ref={wrap}>
       <Scrollbar scrollY={scrollYProgress} />
       <Resume />
-      <motion.div
-        style={{ x, opacity }}
-      ><Exp scrollYProgress={motioned} callApi={(hookedYPosition ?? 0) > 0.15} /></motion.div>
-      <Tec />
+      <AnimatedContainer end={0} motioned={motioned}>
+        <Exp
+          scrollYProgress={motioned}
+          hookedYPosition={hookedYPosition}
+          callApi={(hookedYPosition ?? 0) > 0.15}
+        />
+      </AnimatedContainer>
+      <AnimatedContainer end={4} motioned={motioned}>
+        <Tec />
+      </AnimatedContainer>
     </Box>
   );
 }

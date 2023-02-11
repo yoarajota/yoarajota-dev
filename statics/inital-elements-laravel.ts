@@ -1,8 +1,6 @@
 import React from "react";
 import { Node, Position } from "reactflow";
 import LaravelSvg from "../public/images/laravelSvg";
-import NodeHead from "../src/components/nodes/nodeHead";
-import NodeText from "../src/components/nodes/nodeText";
 
 const InitialElementsLaravel: Node<any>[] = [
   {

@@ -85,9 +85,15 @@ interface scrollYProgress {
 
 export type ExpType = scrollYProgress & {
     callApi: boolean
+    hookedYPosition?: number
 }
 
 export type Timeline = scrollYProgress & {
     data: Array<any>,
-    setInfo: (arr: Array<any>) => void,
+    setInfo: React.Dispatch<SetStateAction<Array[]>>,
+}
+
+export type AnimatedContainerType = Children & {
+    motioned: MotionValue<number>
+    end: number
 }

@@ -8,7 +8,7 @@ import Yj from "../../components/yj";
 
 function Resume() {
     return (
-      <Box backgroundColor={"#0D0D0D"} w="100%" minHeight="100vh">
+      <Box backgroundColor={"#0D0D0D"} w="100%">
         <Box paddingTop="5em" m="auto" w="100%" display="block">
           <Box className="header-container" h="160px" w="100%">
             <Center className="header-center-box">

@@ -8,15 +8,10 @@ function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePo
 
   const transition = {
     type: "tween",
-    stiffness: 100,
-    duration: 1,
+    stiffness: 120,
   }
 
-
-  var width = useTransform(useMotionValue(0), [0, 1], ["0%", "0%"]);
-  if (sWidth) {
-    width = useTransform(scrollYProgress, arr[0], arr[1]);
-  }
+  const width = useTransform(scrollYProgress, arr[0], arr[1]);
 
   return (
     <motion.div
