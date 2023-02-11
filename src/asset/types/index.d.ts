@@ -51,7 +51,11 @@ interface Width {
 }
 
 export type SlideLeft = Children & Slide
-export type TimeLinePoints = Children & Width
+
+export type TimeLinePoints = Children & scrollYProgress & {
+    sWidth: string,
+    index: number
+}
 
 export type Levelers = {
     xp: number,
@@ -75,11 +79,15 @@ export type Nodes = {
   tech: integer;
 };
 
-export type ExpType = {
+interface scrollYProgress {
+    scrollYProgress: MotionValue<number>
+}
+
+export type ExpType = scrollYProgress & {
     callApi: boolean
 }
 
-export type Timeline = {
-    data:  Array<any>,
+export type Timeline = scrollYProgress & {
+    data: Array<any>,
     setInfo: (arr: Array<any>) => void,
 }

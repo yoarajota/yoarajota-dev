@@ -26,7 +26,6 @@ export default function Home() {
   const opacity = useTransform(motioned, [0, 0.2, 0.4, 0.6, 0.8, 1], ["0", "1", "1", "1", "1", "1",]);
 
   useEffect(() => {
-    // hook into the onChange, store the current value as state.
     scrollYProgress.onChange(v => setHookedYPosition(v));
   }, [scrollYProgress]);
 
@@ -36,7 +35,7 @@ export default function Home() {
       <Resume />
       <motion.div
         style={{ x, opacity }}
-      ><Exp callApi={(hookedYPosition ?? 0) > 0.15} /></motion.div>
+      ><Exp scrollYProgress={motioned} callApi={(hookedYPosition ?? 0) > 0.15} /></motion.div>
       <Tec />
     </Box>
   );

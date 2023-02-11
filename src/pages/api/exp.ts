@@ -1,5 +1,5 @@
+import { defaultResponse } from "asset/types";
 import { NextApiRequest, NextApiResponse } from "next";
-import { defaultResponse } from "../../src/api/assset/types";
 
 export default function handler(
     req: NextApiRequest,
@@ -11,6 +11,7 @@ export default function handler(
             {
                 title: "Estudante Autodidata",
                 time: "12 19 - ∞",
+                progress: "3%",
                 text1:
                     "Mesmo desde pequeno por dentro da tecnologia, foi o começo do estudo da programação. Desdobrando-se para estudar tecnologia durante o tempo livre, baseado em material gratuito na Internet.",
                 text2:

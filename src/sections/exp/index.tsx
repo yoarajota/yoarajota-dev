@@ -18,7 +18,7 @@ import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
 import { ExpType, Info } from "../../asset/types";
 
-function Exp({ callApi }: ExpType) {
+function Exp({ callApi, scrollYProgress }: ExpType) {
   const { isLoading, data, error, refetch } = useQuery(
     "exp",
     () => {
@@ -45,7 +45,7 @@ function Exp({ callApi }: ExpType) {
       </Box>
       <Box w="100%">
         <Box h="140px" w="100%">
-          <Timeline data={data?.data.data} setInfo={setInfo} />
+          <Timeline scrollYProgress={scrollYProgress} data={data?.data.data} setInfo={setInfo} />
         </Box>
         <Box m="0 0 50px 0">
           <TextAnimation customFontSize="30px" title text={info.title} />
