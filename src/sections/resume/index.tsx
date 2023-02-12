@@ -1,12 +1,17 @@
 import { Box, Center, Image } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
+import { LanguageContext } from "components/contexts/language";
+import { useContext } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Skills from "../../components/skills";
 import NormalText from "../../components/typography/normaltext";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
+import DOMPurify from 'isomorphic-dompurify';
 
 function Resume() {
+  const { msg } = useContext(LanguageContext); 
+
     return (
       <Box backgroundColor={"#0D0D0D"} w="100%">
         <Box paddingTop="5em" m="auto" w="100%" display="block">
@@ -35,30 +40,28 @@ function Resume() {
               <Box w="90%" m="0 auto">
                 <Box w="85%">
                   <Box textAlign="center" w="100%">
-                    <Center m="0 auto" w="100%">
-                      <AiOutlineInfoCircle size="40" fill={Colors.Gray} />
-                    </Center>
-                    <Box
-                      w="100%"
-                      fontSize="18px"
-                      fontFamily="Ubuntu"
-                      color={Colors.Gray}
-                      textAlign="left"
-                    >
-                      <NormalText>
-                        Olá! 😁🌹 <br />
-                        Sou o João Vítor Basso Sberse, tenho 19 anos e sou
-                        desenvolvedor. <br /> <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse varius ligula in iaculis facilisis. Nulla
-                        non magna ornare dolor tempor varius et sed augue. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                        Vestibulum rutrum placerat ante a ullamcorper. Sed
-                        commodo ante lorem, non bibendum sem molestie in.
-                        Quisque et libero vitae nisi convallis efficitur sed a
-                        eros. Curabitur vehicula laoreet lacinia.
-                      </NormalText>
-                    </Box>
+                    {msg?.resume_text && (
+                      <>
+                        <Center m="0 auto" w="100%">
+                          <AiOutlineInfoCircle size="40" fill={Colors.Gray} />
+                        </Center>
+                        <Box
+                          w="100%"
+                          fontSize="18px"
+                          fontFamily="Ubuntu"
+                          color={Colors.Gray}
+                          textAlign="left"
+                        >
+                          <NormalText>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(msg?.resume_text),
+                              }}
+                            />
+                          </NormalText>
+                        </Box>
+                      </>
+                    )}
                   </Box>
                 </Box>
               </Box>

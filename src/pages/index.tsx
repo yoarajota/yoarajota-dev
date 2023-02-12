@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
+import LanguagePop from "components/languagePop";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <Box ref={wrap}>
       <Scrollbar scrollY={scrollYProgress} />
+      <LanguagePop />
       <Resume />
       <AnimatedContainer end={0} motioned={motioned}>
         <Exp

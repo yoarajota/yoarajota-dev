@@ -6,7 +6,7 @@ import {
   Text,
   background,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
@@ -17,8 +17,11 @@ import TextAnimation from "../../components/animations/textanimation";
 import { ExpType, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
+import { LanguageContext } from "components/contexts/language";
 
 function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
+  const { msg } = useContext(LanguageContext);
+
   const { isLoading, data, error, refetch } = useQuery(
     "exp",
     () => {
