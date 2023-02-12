@@ -6,6 +6,7 @@ import Scrollbar from "../../src/components/scrollbar";
 import { useEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
+import FadeInContainer from "components/animations/fadeInContainer";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -20,7 +21,7 @@ export default function Home() {
     stiffness: 120,
     damping: 30,
     restDelta: 0.0001,
-    restSpeed: 1
+    restSpeed: 1,
   });
 
   useEffect(() => {
@@ -38,9 +39,9 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.15}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={4} motioned={motioned}>
+      <FadeInContainer end={6} motioned={motioned}>
         <Tec />
-      </AnimatedContainer>
+      </FadeInContainer>
     </Box>
   );
 }

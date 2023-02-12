@@ -93,7 +93,7 @@ export type Timeline = scrollYProgress & {
     setInfo: React.Dispatch<SetStateAction<Array[]>>,
 }
 
-export type AnimatedContainerType = Children & {
+export type DefaultAnimatedContainerType = Children & {
     motioned: MotionValue<number>
     end: number
 }

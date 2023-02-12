@@ -15,8 +15,14 @@ function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePo
 
   return (
     <motion.div
-      style={{ position: 'absolute', display: "flex", justifyContent: "right", zIndex: index + 5, width }}
-      transition={transition} 
+      style={{
+        position: "absolute",
+        display: "flex",
+        justifyContent: "right",
+        zIndex: 15 - index + 5,
+        width,
+      }}
+      transition={transition}
     >
       {children}
     </motion.div>

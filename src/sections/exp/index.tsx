@@ -43,7 +43,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
       setInfo({});
     } else if ((hookedYPosition ?? 0) > 0.2 && _.isEmpty(info)) {
       let a = data?.data.data;
-      setInfo(a[a.length - 1]);
+      if (a) setInfo(a[a.length - 1]);
     }
   }, [hookedYPosition]);
 
@@ -53,7 +53,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
         <Titles>Experiência Profissional</Titles>
       </Box>
       <Box w="100%">
-        <Box h="140px" w="100%">
+        <Box h="110px" w="100%">
           <Timeline
             scrollYProgress={scrollYProgress}
             data={data?.data.data}

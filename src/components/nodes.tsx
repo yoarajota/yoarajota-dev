@@ -30,10 +30,8 @@ const Nodes = ({ tech }: Nodes) => {
           className="react-flow-provider"
           onInit={onLoad}
           defaultPosition={[100, 100]}
-          maxZoom={20}
+          maxZoom={1}
           nodes={nodes}
-          snapToGrid={true}
-          snapGrid={[16, 16]}
           connectionLineType={ConnectionLineType.Bezier}
           edges={edges}
           nodeTypes={nodeTypes}

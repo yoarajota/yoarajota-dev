@@ -27,6 +27,7 @@ function Timeline({ data, setInfo, scrollYProgress }: Timeline) {
       alignItems="center"
       display="flex"
       position="relative"
+      padding="20px 0"
     >
       <Box
         id="timeline-bar"
