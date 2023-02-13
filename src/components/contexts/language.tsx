@@ -8,7 +8,7 @@ export const LanguageContextProvider = ({ children }: Children) => {
   const [msg, setMsg] = useState<keyable>({});
   const [lang, setLang] = useState<string>(global.navigator?.language);
   useEffect(() => {
-    setMsg(Messages[global.navigator?.language]);
+    setMsg(Messages[["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
   }, []);
 
   const changeLanguage = useCallback((value: string) => {

@@ -99,8 +99,13 @@ body::-webkit-scrollbar {
   background-color: rgb(75, 68, 83);
   display: flex;
   border: 1px solid #0d0d0d;
-  border-radius: 4px;
+  border-radius: 0px 4px 4px 0px;
   z-index: 0;
+}
+
+
+.lf > div {
+  z-index: 5;
 }
 
 .lf:not(:last-child) {
@@ -122,7 +127,6 @@ body::-webkit-scrollbar {
 }
 
 .lfs2 {
-  width: 33.3333333%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -136,12 +140,15 @@ body::-webkit-scrollbar {
 
 .ll {
   margin-top: 1px;
-  background-color: rgb(195, 74, 54);
-  height: 24px;
-  overflow: hidden;
-  opacity: 0.5;
-  border-radius: 4px 0 0 4px;
+  background-color: rgb(117, 77, 69);
+  height: 23px;
   position: absolute;
+  z-index: 2;
+}
+
+.second-level {
+  background-color: rgb(14, 114, 5);
+  z-index: 1;
 }
 
 .lfs:not(:last-child) {
@@ -177,7 +184,7 @@ body::-webkit-scrollbar {
 
 .react-flow__attribution {
   font-family: "Prompt", sans-serif;
-  background-color: transparent !important;
+  background: transparent !important;
   color: white !important;
   border: 2px solid #4B4453;
   border-radius: 4px;
@@ -215,8 +222,9 @@ body::-webkit-scrollbar {
   font-family: "Prompt", sans-serif;
   position: relative;
   top: 50%;
-  width: 100px;
+  width: 85px;
   height: 30px;
+  cursor: pointer;
   overflow: hidden;
 }
 
@@ -246,7 +254,7 @@ body::-webkit-scrollbar {
 
 .layer {
   width: 100%;
-  background-color: transparent;
+  background: transparent;
   transition: 0.3s ease all;
   z-index: 3;
   border: 2px solid var(--gray)
@@ -259,23 +267,23 @@ body::-webkit-scrollbar {
   justify-content: center;
   content: "pt-BR";
   position: absolute;
-  top: 3px;
-  left: 4px;
-  width: 40px;
-  height: 25px;
-  color: #fff;
+  top: 2px;
+  left: 2px;
+  width: 42.5px;
+  height: 26px;
+  color: var(--gray);
   font-size: 10px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
   padding: 9px 4px;
-  background-color: #03a9f4;
-  border-radius: 20%;
+  border-radius: 7px;
   transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
 }
 
 #switch .checkbox:checked+.knobs:before {
+  color: var(--black);
   content: "en-US";
-  left: 56px;
-  background-color: #f44336;
+  left: 40px;
+  background-color: var(--gray);
 }

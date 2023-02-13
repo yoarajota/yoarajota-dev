@@ -1,24 +1,29 @@
-import { Center, Box, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import { Levelers } from "asset/types";
 import { motion } from "framer-motion";
-import { Levelers } from "../../src/api/assset/types";
 
 function Levelers(props: Levelers) {
   const xp = props.xp * 36;
-  const lvl = props.lvl * 67.5;
+  const lvl = props.lvl * 36;
   const title = props.title;
 
   const variants = {
     i: {
-      width: 0,
       display: "none",
     },
 
     a: {
       display: "block",
-      width: xp ?? lvl,
+      width: xp,
+    },
+  };
+
+  const variants2 = {
+    i: {
+      display: "none",
     },
 
-    a2: {
+    a: {
       display: "block",
       width: lvl,
     },
@@ -43,10 +48,16 @@ function Levelers(props: Levelers) {
             transition={{ duration: 2, ease: "easeInOut" }}
             className="ll"
           />
+          <motion.div
+            initial="i"
+            animate="a"
+            variants={variants2}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="ll second-level"
+          />
           <Box
-            zIndex={3}
+            zIndex="3"
             w="180px"
-            backgroundColor="transaperent"
             position="absolute"
             h="25px"
             display="flex"

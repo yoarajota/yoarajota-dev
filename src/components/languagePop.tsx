@@ -39,7 +39,7 @@ function LanguagePop() {
         }}
       >
         <input
-          checked={state !== "pt-BR"}
+          defaultChecked={state !== "pt-BR"}
           type="checkbox"
           className="checkbox"
           id="check"

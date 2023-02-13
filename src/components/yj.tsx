@@ -19,12 +19,7 @@ function Yj({ otherColor, indexPage }: yjLogotipo) {
         <Box display='flex'>
           {'< ' + 'Y' + 'J'}
           {indexPage ?
-            <NextLink
-              style={{ textDecoration: "none" }}
-              href='/tec'><button>
                 <PulseAnimation><RainbowAnimation >{' ' + ' >'} </RainbowAnimation></PulseAnimation>
-              </button>
-            </NextLink>
             :
             <PulseAnimation>{' ' + ' >'} </PulseAnimation>
           }

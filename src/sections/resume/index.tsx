@@ -4,7 +4,7 @@ import { LanguageContext } from "components/contexts/language";
 import { useContext } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Skills from "../../components/skills";
-import NormalText from "../../components/typography/normaltext";
+import NormalText from "../../components/typography/normalText";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
 import DOMPurify from 'isomorphic-dompurify';
@@ -39,18 +39,18 @@ function Resume() {
             <Center className="content-container-child">
               <Box w="90%" m="0 auto">
                 <Box w="85%">
-                  <Box textAlign="center" w="100%">
+                  <Box textAlign="center" m='10% 0' w="100%">
                     {msg?.resume_text && (
-                      <>
-                        <Center m="0 auto" w="100%">
-                          <AiOutlineInfoCircle size="40" fill={Colors.Gray} />
-                        </Center>
+                      // <>
+                      //   <Center m="0 auto" w="100%">
+                      //     <AiOutlineInfoCircle size="40" fill={Colors.Gray} />
+                      //   </Center>
                         <Box
-                          w="100%"
+                          w="80%"
                           fontSize="18px"
                           fontFamily="Ubuntu"
                           color={Colors.Gray}
-                          textAlign="left"
+                          textAlign="center"
                         >
                           <NormalText>
                             <div
@@ -60,7 +60,7 @@ function Resume() {
                             />
                           </NormalText>
                         </Box>
-                      </>
+                      // </>
                     )}
                   </Box>
                 </Box>
