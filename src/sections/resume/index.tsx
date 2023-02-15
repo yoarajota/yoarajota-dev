@@ -14,7 +14,7 @@ function Resume() {
 
     return (
       <Box backgroundColor={"#0D0D0D"} w="100%">
-        <Box paddingTop="5em" m="auto" w="100%" display="block">
+        <Box paddingTop="5em" m="auto" w="92%" display="block">
           <Box className="header-container" h="160px" w="100%">
             <Center className="header-center-box">
               <Yj indexPage={true} />
@@ -50,7 +50,8 @@ function Resume() {
                           fontSize="18px"
                           fontFamily="Ubuntu"
                           color={Colors.Gray}
-                          textAlign="center"
+                          // textAlign="center"
+                          textAlign="left"
                         >
                           <NormalText>
                             <div

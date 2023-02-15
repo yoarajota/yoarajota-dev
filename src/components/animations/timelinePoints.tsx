@@ -1,3 +1,4 @@
+import { Colors } from "asset/enums";
 import { createArraysTimeLinePoints } from "components/helpers";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useMemo } from "react";
@@ -20,6 +21,7 @@ function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePo
         display: "flex",
         justifyContent: "right",
         zIndex: 15 - index + 5,
+        background: `repeating-linear-gradient(to right,transparent,transparent 10px,${Colors.Black} 10px,${Colors.Black} 20px)`,
         width,
       }}
       transition={transition}
