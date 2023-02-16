@@ -11,6 +11,7 @@
 <p> objetivos </p>
 <p> passar static p dentro do src </p>
 <p> easteregg </p>
+<p> file names camelCase </p>
 
 
 
