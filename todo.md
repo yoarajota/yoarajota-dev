@@ -12,8 +12,8 @@
 <p> passar static p dentro do src </p>
 <p> easteregg </p>
 <p> file names camelCase </p>
-
-
+<p> make the request messages have the 2 languages </p>
+<p> projects section </p>
 
 
 texts;
