@@ -11,7 +11,7 @@
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
@@ -204,7 +204,7 @@
   }
 
   .description {
-    font-size: 0.8rem;
+    font-size: 0.8em;
   }
 
   .description a {

@@ -10,7 +10,6 @@ import { useContext, useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
-import Normaltext from "../../components/typography/normaltext";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
@@ -18,6 +17,7 @@ import { ExpType, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { LanguageContext } from "components/contexts/language";
+import NormalText from "components/typography/normalText";
 
 function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
   const { msg } = useContext(LanguageContext);
@@ -108,7 +108,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
                   position="absolute"
                 ></Box>
                 <motion.div exit={{ opacity: 0 }}>
-                  <Normaltext customFontSize="28px">{info.time}</Normaltext>
+                  <NormalText customFontSize="28px">{info.time}</NormalText>
                 </motion.div>
               </Box>
             </>

@@ -13,6 +13,7 @@
 
 *:focus {
   outline: none;
+  box-shadow: none !important;
 }
 
 /* SWITCH BOXSHADOW */
@@ -123,7 +124,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.125em;
 }
 
 .lfs2 {
@@ -131,7 +132,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.125em;
 }
 
 .lfs2:not(:last-child) {
@@ -161,7 +162,7 @@ body::-webkit-scrollbar {
 
 .lh {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.125em;
   letter-spacing: 0.4px;
   font-weight: 500;
 }

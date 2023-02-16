@@ -13,7 +13,7 @@ function InfoBox() {
                     <Center>
                         <GrReactjs size='54' />
                     </Center>
-                    <StatLabel fontSize='1.5rem'>React JS</StatLabel>
+                    <StatLabel fontSize='1.5em'>React JS</StatLabel>
                 </Stat>
             </Box>
         </motion.div>

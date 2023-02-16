@@ -2,10 +2,9 @@ import { Box, Text } from "@chakra-ui/react";
 import { Levelers } from "asset/types";
 import { motion } from "framer-motion";
 
-function Levelers(props: Levelers) {
-  const xp = props.xp * 36;
-  const lvl = props.lvl * 36;
-  const title = props.title;
+function Levelers({ xp, lvl, title, index }: Levelers) {
+  const xpResult = xp * 36;
+  const lvlResult = lvl * 36;
 
   const variants = {
     i: {
@@ -14,7 +13,7 @@ function Levelers(props: Levelers) {
 
     a: {
       display: "block",
-      width: xp,
+      width: xpResult,
     },
   };
 
@@ -25,13 +24,13 @@ function Levelers(props: Levelers) {
 
     a: {
       display: "block",
-      width: lvl,
+      width: lvlResult,
     },
   };
 
   return (
     <>
-      <Box maxW={"180px"} m="0 auto">
+      <motion.div style={{ maxWidth: "180px", margin: "0 auto" }} animate={{ x: ['-120px', '0px'], opacity: [0, 1] }} transition={{ delay: index / 8, ease: 'circOut' }}>
         <Text
           fontFamily={"Prompt"}
           fontSize="16px"
@@ -77,7 +76,7 @@ function Levelers(props: Levelers) {
             <Box className="lfs geral-text2"> 5</Box>
           </Box>
         </Box>
-      </Box>
+      </motion.div>
     </>
   );
 }

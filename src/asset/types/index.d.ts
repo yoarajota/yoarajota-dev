@@ -60,6 +60,7 @@ export type TimeLinePoints = Children & scrollYProgress & {
 export type Levelers = {
     xp: number,
     lvl: number,
+    index: number,
     title: string
 }
 
