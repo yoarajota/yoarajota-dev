@@ -10,6 +10,7 @@ import Yj from "../../components/yj";
 import DOMPurify from 'isomorphic-dompurify';
 import api from "../../api/axios";
 import NormalText from "components/typography/normaltext";
+import { motion } from "framer-motion";
 
 function Resume() {
   const { msg } = useContext(LanguageContext);
@@ -17,11 +18,6 @@ function Resume() {
     api.get('http://localhost:3000/api/download', { responseType: "blob" }).then((response) => {
       const file = new Blob([response.data], { type: "application/pdf" });
       const fileURL = URL.createObjectURL(file);
-
-      // const pdfWindow = window.open();
-      // if (pdfWindow) {
-        // pdfWindow.location.href = fileURL;
-      // }
 
       var fileLink = document.createElement('a');
       fileLink.href = fileURL;
@@ -32,7 +28,10 @@ function Resume() {
   }, [])
 
   return (
-    <Box backgroundColor={"#0D0D0D"} w="100%">
+    <motion.div
+      animate={{ y: ["-400px", "0px"], opacity: [0, 1] }}
+      style={{ width: "100%", backgroundColor: Colors.Black }}
+    >
       <Box paddingTop="5em" m="auto" w="90%" display="block">
         <Box className="header-container" h="160px" w="100%">
           <Center className="header-center-box">
@@ -58,7 +57,7 @@ function Resume() {
           <Center className="content-container-child">
             <Box w="90%" m="0 auto">
               <Box w="85%">
-                <Box textAlign="center" m='10% 0' w="100%">
+                <Box textAlign="center" m="10% 0" w="100%">
                   {msg?.resume_text && (
                     <>
                       <Box
@@ -78,13 +77,44 @@ function Resume() {
                           />
                         </NormalText>
                       </Box>
-                      <Box marginTop="5rem" gap={'6rem'} display='flex' justifyContent='center'>
-                      <Button onClick={() => {
-                        handleDownload()
-                      }} bg='transparent' color={Colors.Gray} lineHeight="0" _active={{ bg: '' }} _hover={{ bg: '' }} gap="9px"><AiOutlineFilePdf size={'2em'} /><NormalText customFontSize="1em">Download Resume</NormalText></Button>
-                      <Button onClick={() => {
-                        handleDownload()
-                      }} bg='transparent' color={Colors.Gray} lineHeight="0" _active={{ bg: '' }} _hover={{ bg: '' }} gap="9px"><SiLinkedin size={'1.7em'} color={Colors.Gray} /><NormalText customFontSize="1em">Linkedin Profile</NormalText></Button>
+                      <Box
+                        marginTop="5rem"
+                        gap={"6rem"}
+                        display="flex"
+                        justifyContent="center"
+                      >
+                        <Button
+                          onClick={() => {
+                            handleDownload();
+                          }}
+                          bg="transparent"
+                          color={Colors.Gray}
+                          lineHeight="0"
+                          _active={{ bg: "" }}
+                          _hover={{ bg: "" }}
+                          gap="9px"
+                        >
+                          <AiOutlineFilePdf size={"2em"} />
+                          <NormalText customFontSize="1em">
+                            Download Resume
+                          </NormalText>
+                        </Button>
+                        <Button
+                          onClick={() => {
+                            handleDownload();
+                          }}
+                          bg="transparent"
+                          color={Colors.Gray}
+                          lineHeight="0"
+                          _active={{ bg: "" }}
+                          _hover={{ bg: "" }}
+                          gap="9px"
+                        >
+                          <SiLinkedin size={"1.7em"} color={Colors.Gray} />
+                          <NormalText customFontSize="1em">
+                            Linkedin Profile
+                          </NormalText>
+                        </Button>
                       </Box>
                     </>
                   )}
@@ -94,7 +124,7 @@ function Resume() {
           </Center>
         </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 }
 
