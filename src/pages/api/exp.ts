@@ -7,7 +7,7 @@ export default function handler(
 ) {
   res.status(200).json({
     status: "success",
-    data: [
+    data: [{ pt-BR: [
       {
         title: "Estudante Autodidata",
         time: "12 19 - ∞",
@@ -36,7 +36,8 @@ export default function handler(
         level: "Cargo Nível Junior",
         popover_text:
           "Marcando o ingresso no mercado de trabalho da programação.",
-      },
-    ],
+      }],
+en-US: [{}, {}]
+    ]},
   });
 }
