@@ -17,10 +17,10 @@ import { ExpType, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { LanguageContext } from "components/contexts/language";
-import NormalText from "components/typography/normalText";
+import NormalText from "components/typography/normaltext";
 
 function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
-  const { msg } = useContext(LanguageContext);
+  const { lang } = useContext(LanguageContext);
 
   const { isLoading, data, error, refetch } = useQuery(
     "exp",
@@ -45,7 +45,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
     if ((hookedYPosition ?? 0) < 0.2) {
       setInfo({});
     } else if ((hookedYPosition ?? 0) > 0.2 && _.isEmpty(info)) {
-      let a = data?.data.data;
+      let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
   }, [hookedYPosition]);
@@ -59,7 +59,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
         <Box h="110px" w="100%">
           <Timeline
             scrollYProgress={scrollYProgress}
-            data={data?.data.data}
+            data={data?.data.data[lang]}
             setInfo={setInfo}
           />
         </Box>

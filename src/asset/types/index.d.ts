@@ -62,6 +62,7 @@ export type Levelers = {
     lvl: number,
     index: number,
     title: string
+    extraDelay?: number,
 }
 
 

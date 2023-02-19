@@ -51,9 +51,9 @@ function Resume() {
           </Center>
         </Box>
         <Box className="content-container-hp" w="100%">
-          <Center className="content-container-child">
+          <Box gap={'15px'} className="content-container-child">
             <Skills />
-          </Center>
+          </Box>
           <Center className="content-container-child">
             <Box w="90%" m="0 auto">
               <Box w="85%">

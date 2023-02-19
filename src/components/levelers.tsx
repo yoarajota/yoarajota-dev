@@ -2,7 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { Levelers } from "asset/types";
 import { motion } from "framer-motion";
 
-function Levelers({ xp, lvl, title, index }: Levelers) {
+function Levelers({ xp, lvl, title, index, extraDelay = 0 }: Levelers) {
   const xpResult = xp * 36;
   const lvlResult = lvl * 36;
 
@@ -30,7 +30,7 @@ function Levelers({ xp, lvl, title, index }: Levelers) {
 
   return (
     <>
-      <motion.div style={{ maxWidth: "180px", margin: "0 auto" }} animate={{ x: ['-120px', '0px'], opacity: [0, 1] }} transition={{ delay: index / 8, ease: 'circOut' }}>
+      <motion.div style={{ maxWidth: "180px", margin: "0 auto" }} animate={{ x: ['-120px', '0px'], opacity: [0, 1] }} transition={{ delay: (index + extraDelay) / 8, ease: 'circOut' }}>
         <Text
           fontFamily={"Prompt"}
           fontSize="16px"

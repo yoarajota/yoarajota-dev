@@ -6,7 +6,7 @@ export const LanguageContext = createContext<keyable>({});
 
 export const LanguageContextProvider = ({ children }: Children) => {
   const [msg, setMsg] = useState<keyable>({});
-  const [lang, setLang] = useState<string>(global.navigator?.language);
+  const [lang, setLang] = useState<string>(["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US');
   useEffect(() => {
     setMsg(Messages[["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
   }, []);
