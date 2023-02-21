@@ -40,8 +40,6 @@ export type yjLogotipo = IndexPage & otherColor
 
 export type RainbowAnimation = Children & otherColor
 
-// { howFar, delay, children }
-
 interface Slide {
     howFar: number,
     delay?: number
