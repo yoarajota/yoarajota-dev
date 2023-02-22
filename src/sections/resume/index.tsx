@@ -40,28 +40,73 @@ function Resume() {
           <Center className="header-center-box" textAlign="center">
             <Titles>João Vítor Basso Sberse</Titles>
           </Center>
-          <Center className="header-center-box">
-            <Image
-              alt="picture of João Vítor Sberse"
-              src={"images/me.jpg"}
-              w="200px"
-              borderRadius="999px"
-              border="4px solid #4B4453"
-            />
-          </Center>
         </Box>
         <Box className="content-container-hp" w="100%">
           <Box gap={'15px'} className="content-container-child">
             <Skills />
           </Box>
-          <Center className="content-container-child">
+          <Box className="content-container-child">
+            <Box>
+              <Box
+                flexDirection='column-reverse'
+                display="flex"
+                justifyContent="center">
+                <Box
+                marginTop='-4rem'
+                  gap={"6rem"}
+                  display="flex"
+                  justifyContent="center"
+                >
+                  <Button
+                    h={'2rem'}
+                    padding={'1.8rem 0.8rem'}
+                    border="4px solid #4B4453"
+                    borderRadius="999px"
+                    onClick={() => {
+                      handleDownload();
+                    }}
+                    bg="transparent"
+                    color={Colors.Gray}
+                    _active={{ bg: "" }}
+                    _hover={{ bg: "" }}
+                    gap="9px"
+                  >
+                    <AiOutlineFilePdf size={"2em"} />
+                  </Button>
+                  <Button
+                    h={'2rem'}
+                    padding={'1.8rem 0.8rem'}
+                    border="4px solid #4B4453"
+                    borderRadius="999px"
+                    onClick={() => {
+                      handleDownload();
+                    }}
+                    bg="transparent"
+                    color={Colors.Gray}
+                    _active={{ bg: "" }}
+                    _hover={{ bg: "" }}
+                    gap="9px"
+                  >
+                    <SiLinkedin size={"2em"} color={Colors.Gray} />
+                  </Button>
+                </Box>
+              <Image
+                margin={'0 auto'}
+                alt="picture of João Vítor Sberse"
+                src={"images/me.jpg"}
+                w="150px"
+                borderRadius="999px"
+                border="4px solid #4B4453"
+              />
+              </Box>
+            </Box>
             <Box w="90%" m="0 auto">
-              <Box w="85%">
+              <Box w="100%">
                 <Box textAlign="center" m="10% 0" w="100%">
                   {msg?.resume_text && (
                     <>
                       <Box
-                        w="80%"
+                        w="100%"
                         fontSize="1.125em"
                         fontFamily="Ubuntu"
                         color={Colors.Gray}
@@ -77,51 +122,12 @@ function Resume() {
                           />
                         </NormalText>
                       </Box>
-                      <Box
-                        marginTop="5rem"
-                        gap={"6rem"}
-                        display="flex"
-                        justifyContent="center"
-                      >
-                        <Button
-                          onClick={() => {
-                            handleDownload();
-                          }}
-                          bg="transparent"
-                          color={Colors.Gray}
-                          lineHeight="0"
-                          _active={{ bg: "" }}
-                          _hover={{ bg: "" }}
-                          gap="9px"
-                        >
-                          <AiOutlineFilePdf size={"2em"} />
-                          <NormalText customFontSize="1em">
-                            Download Resume
-                          </NormalText>
-                        </Button>
-                        <Button
-                          onClick={() => {
-                            handleDownload();
-                          }}
-                          bg="transparent"
-                          color={Colors.Gray}
-                          lineHeight="0"
-                          _active={{ bg: "" }}
-                          _hover={{ bg: "" }}
-                          gap="9px"
-                        >
-                          <SiLinkedin size={"1.7em"} color={Colors.Gray} />
-                          <NormalText customFontSize="1em">
-                            Linkedin Profile
-                          </NormalText>
-                        </Button>
-                      </Box>
                     </>
                   )}
                 </Box>
               </Box>
             </Box>
-          </Center>
+          </Box>
         </Box>
       </Box>
     </motion.div>
