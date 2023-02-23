@@ -97,3 +97,8 @@ export type DefaultAnimatedContainerType = Children & {
     motioned: MotionValue<number>
     end: number
 }
+
+export type ImageAndButtonType = {
+    idString?: string
+}
+
