@@ -101,4 +101,3 @@ export type DefaultAnimatedContainerType = Children & {
 export type ImageAndButtonType = {
     idString?: string
 }
-

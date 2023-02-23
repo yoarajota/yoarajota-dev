@@ -22,9 +22,27 @@
   box-shadow: none !important;
 }
 
+#inside-image {
+  display: none;
+}
+
+#outside-image {
+  height: 11rem;
+  display: flex;
+}
+
 @media only screen and (min-width: 768px) {
   .container-mediaquery-responsive-display {
     display: flex;
+  }
+  
+  #inside-image {
+    display: flex;
+    height: 8rem;
+  }
+  
+  #outside-image {
+    display: none;
   }
 
   .box-text-child {

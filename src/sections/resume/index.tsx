@@ -2,8 +2,6 @@ import { Box, Button, Center, Image } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { LanguageContext } from "components/contexts/language";
 import { useCallback, useContext } from "react";
-import { AiOutlineFilePdf } from "react-icons/ai";
-import { SiLinkedin } from "react-icons/si";
 import Skills from "../../components/skills";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
@@ -11,28 +9,17 @@ import DOMPurify from 'isomorphic-dompurify';
 import api from "../../api/axios";
 import NormalText from "components/typography/normaltext";
 import { motion } from "framer-motion";
+import ImageAndButtons from "components/imageAndButtons";
 
 function Resume() {
   const { msg } = useContext(LanguageContext);
-  const handleDownload = useCallback(() => {
-    api.get('http://localhost:3000/api/download', { responseType: "blob" }).then((response) => {
-      const file = new Blob([response.data], { type: "application/pdf" });
-      const fileURL = URL.createObjectURL(file);
-
-      var fileLink = document.createElement('a');
-      fileLink.href = fileURL;
-      fileLink.download = 'Currículo João Vítor Basso Sberse';
-      fileLink.click();
-      fileLink.remove();
-    })
-  }, [])
 
   return (
     <motion.div
       animate={{ y: ["-400px", "0px"], opacity: [0, 1] }}
       style={{ width: "100%", backgroundColor: Colors.Black }}
     >
-      <Box paddingTop="5em" m="auto" w="90%" display="block">
+      <Box paddingTop="5em" m="auto" w="80%" display="block">
         <Box className="header-container" h="160px" w="100%">
           <Center className="header-center-box">
             <Yj indexPage={true} />
@@ -41,65 +28,13 @@ function Resume() {
             <Titles>João Vítor Basso Sberse</Titles>
           </Center>
         </Box>
+        <ImageAndButtons idString="outside-image" />
         <Box className="content-container-hp" w="100%">
           <Box gap={'15px'} className="content-container-child">
             <Skills />
           </Box>
           <Box className="content-container-child">
-            <Box>
-              <Box
-                flexDirection='column-reverse'
-                display="flex"
-                justifyContent="center">
-                <Box
-                marginTop='-4rem'
-                  gap={"6rem"}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <Button
-                    h={'2rem'}
-                    padding={'1.8rem 0.8rem'}
-                    border="4px solid #4B4453"
-                    borderRadius="999px"
-                    onClick={() => {
-                      handleDownload();
-                    }}
-                    bg="transparent"
-                    color={Colors.Gray}
-                    _active={{ bg: "" }}
-                    _hover={{ bg: "" }}
-                    gap="9px"
-                  >
-                    <AiOutlineFilePdf size={"2em"} />
-                  </Button>
-                  <Button
-                    h={'2rem'}
-                    padding={'1.8rem 0.8rem'}
-                    border="4px solid #4B4453"
-                    borderRadius="999px"
-                    onClick={() => {
-                      handleDownload();
-                    }}
-                    bg="transparent"
-                    color={Colors.Gray}
-                    _active={{ bg: "" }}
-                    _hover={{ bg: "" }}
-                    gap="9px"
-                  >
-                    <SiLinkedin size={"2em"} color={Colors.Gray} />
-                  </Button>
-                </Box>
-              <Image
-                margin={'0 auto'}
-                alt="picture of João Vítor Sberse"
-                src={"images/me.jpg"}
-                w="150px"
-                borderRadius="999px"
-                border="4px solid #4B4453"
-              />
-              </Box>
-            </Box>
+            <ImageAndButtons idString="inside-image" />
             <Box w="90%" m="0 auto">
               <Box w="100%">
                 <Box textAlign="center" m="10% 0" w="100%">
