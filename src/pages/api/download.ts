@@ -7,7 +7,8 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Buffer | defaultResponse>
 ) {
-    const filePath = path.join(process.cwd(), "./src/files/asdsa.pdf");
+    let { lang } = req.query;
+    const filePath = path.join(process.cwd(), `./src/files/${lang}.pdf`);
 
     try {
         const imageBuffer = fs.createReadStream(filePath);
