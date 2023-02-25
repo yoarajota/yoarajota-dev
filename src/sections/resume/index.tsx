@@ -36,7 +36,7 @@ function Resume() {
             <ImageAndButtons idString="inside-image" />
             <Box w="90%" m="0 auto">
               <Box w="100%">
-                <Box textAlign="center" m="10% 0" w="100%">
+                <Box m="10% 5%" w="90%">
                   {msg?.resume_text && (
                     <>
                       <Box
@@ -46,7 +46,7 @@ function Resume() {
                         color={Colors.Gray}
                         // textAlign="center"
                         minHeight="26vh"
-                        textAlign="left"
+                        textAlign="left" 
                       >
                         <NormalText>
                           <div
