@@ -3,13 +3,13 @@ import { Colors } from "asset/enums";
 import React from "react";
 import { defaultText } from "../../asset/types";
 
-function Titles({ customFontSize = "40px", children }: defaultText) {
+function Titles({ size = 'bg', children }: defaultText) {
   return (
     <>
       <Heading
+        className={`title-${size}`}
         _focus={{ outline: "none", boxShadow: "none" }}
         color={Colors.Orange}
-        fontSize={customFontSize}
         fontFamily="Ubuntu"
         m="0px"
       >

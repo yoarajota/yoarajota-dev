@@ -51,7 +51,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
   }, [hookedYPosition]);
 
   return (
-    <Box w="100%" textAlign="center" minHeight="90vh">
+    <Box w="100%" textAlign="center" minHeight="100vh">
       <Box paddingTop="65px">
         <Titles>Experiência Profissional</Titles>
       </Box>
@@ -67,7 +67,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
           {!_.isEmpty(info) && (
             <>
               <Box m="0 0 50px 0">
-                <TextAnimation customFontSize="30px" title text={info.title} />
+                <TextAnimation title size={'md'} text={info.title} />
               </Box>
               <motion.div
                 className="container-mediaquery-responsive-display"

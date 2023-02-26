@@ -25,7 +25,8 @@ export interface Children {
 }
 
 export type defaultText = Info & Children & {
-    customColor?: string
+    customColor?: string,
+    size?: string
 }
 
 interface IndexPage {

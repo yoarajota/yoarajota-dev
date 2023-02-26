@@ -29,7 +29,7 @@ function Levelers({ xp, lvl, title, index, extraDelay = 0 }: Levelers) {
   };
 
   return (
-    <motion.div style={{ maxWidth: "180px" }} animate={{ x: ['-120px', '0px'], opacity: [0, 1] }} transition={{ delay: (index + extraDelay) / 8, ease: 'circOut' }}>
+    <motion.div style={{ maxWidth: "180px", margin: '0 auto' }} animate={{ x: ['-120px', '0px'], opacity: [0, 1] }} transition={{ delay: (index + extraDelay) / 8, ease: 'circOut' }}>
       <Text
         fontFamily={"Prompt"}
         fontSize="16px"

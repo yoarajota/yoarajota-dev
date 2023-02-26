@@ -5,7 +5,7 @@ import Titles from "../typography/titles";
 function TextAnimation(props: {
   text: string
   title?: boolean | null,
-  customFontSize?: string | number
+  size?: string
 }) {
   return (
     <motion.div
@@ -17,7 +17,7 @@ function TextAnimation(props: {
       {!props.title ? (
         <NormalText customFontSize={null}>{props.text}</NormalText>
       ) : (
-        <Titles customFontSize={props.customFontSize}>{props.text}</Titles>
+          <Titles size={props.size}>{props.text}</Titles>
       )}
     </motion.div>
   );
