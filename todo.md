@@ -15,6 +15,7 @@
 <p> make the request messages have the 2 languages </p>
 <p> projects section </p>
 <p> new resume layout ✅ </p> 
+<p> infinite scroll </p>
 
 
 texts;
