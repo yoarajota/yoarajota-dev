@@ -58,7 +58,21 @@
   flex-direction: column;
 }
 
+#academic-big {
+  display: none;
+}
+#academic-small {
+  display: fle;
+}
+
 @media only screen and (min-width: 768px) {
+  #academic-big {
+    display: flex;
+  }
+  #academic-small {
+    display: none;
+  }
+
   .title-bg {
     font-size: 2.5rem !important;
   }
@@ -345,4 +359,20 @@ body::-webkit-scrollbar {
   content: "en-US";
   left: 40px;
   background-color: var(--gray);
+}
+
+.academy-extra-info {
+  padding: 0em 1em;
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--black);
+  z-index: 1;
+}
+.academy-extra-info:nth-child(2) {
+  z-index: 2;
+}
+
+.fit-content {
+  width: fit-content;
+  width: -webkit-fit-content;
 }

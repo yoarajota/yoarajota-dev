@@ -2,9 +2,9 @@ import { Box, Text } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { defaultText } from "../../asset/types";
 
-function NormalText({ customFontSize = "1.125em", customColor = Colors.Gray, children }: defaultText) {
+function NormalText({ customFontSize = "1.125rem", customColor = Colors.Gray, functions = {}, children }: defaultText) {
   return (
-    <Box color={customColor} fontSize={customFontSize} fontWeight='medium' letterSpacing='0.5' fontFamily="Ubuntu">
+    <Box color={customColor} {...functions} fontSize={customFontSize} fontWeight='medium' letterSpacing='0.5' fontFamily="Ubuntu">
       {children}
     </Box>
   );

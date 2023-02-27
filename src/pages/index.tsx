@@ -8,6 +8,7 @@ import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
 import LanguagePop from "components/languagePop";
+import Academy from "sections/academy";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -39,6 +40,13 @@ export default function Home() {
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}
           callApi={(hookedYPosition ?? 0) > 0.15}
+        />
+      </AnimatedContainer>
+      <AnimatedContainer end={0} motioned={motioned}>
+        <Academy
+          scrollYProgress={motioned}
+          hookedYPosition={hookedYPosition}
+          callApi={(hookedYPosition ?? 0) > 0.35}
         />
       </AnimatedContainer>
       <FadeInContainer end={6} motioned={motioned}>

@@ -1,5 +1,5 @@
 import { MotionValue } from "framer-motion";
-import { RefObject } from "react";
+import { ReactNode, RefObject } from "react";
 import { Position } from "react-flow-renderer";
 
 export type defaultResponse = {
@@ -26,6 +26,7 @@ export interface Children {
 
 export type defaultText = Info & Children & {
     customColor?: string,
+    functions?: keyable
     size?: string
 }
 
@@ -84,7 +85,7 @@ interface scrollYProgress {
     scrollYProgress: MotionValue<number>
 }
 
-export type ExpType = scrollYProgress & {
+export type Section = scrollYProgress & {
     callApi: boolean
     hookedYPosition?: number
 }
@@ -101,4 +102,8 @@ export type DefaultAnimatedContainerType = Children & {
 
 export type ImageAndButtonType = {
     idString?: string
+}
+
+export type Carousel = {
+    list: Array<string | ReactNode>
 }

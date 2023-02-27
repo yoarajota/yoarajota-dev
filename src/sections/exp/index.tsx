@@ -13,13 +13,13 @@ import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
-import { ExpType, Info } from "../../asset/types";
+import { Section, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { LanguageContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
 
-function Exp({ callApi, scrollYProgress, hookedYPosition }: ExpType) {
+function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   const { lang } = useContext(LanguageContext);
 
   const { isLoading, data, error, refetch } = useQuery(
