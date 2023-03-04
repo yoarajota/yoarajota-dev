@@ -1,22 +1,17 @@
 import {
-  Box, List, ListIcon, ListItem,
+  Box
 } from "@chakra-ui/react";
 import { useContext, useEffect, useReducer, useState } from "react";
 import Titles from "../../components/typography/titles";
-import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
-import TextAnimation from "../../components/animations/textanimation";
 import { Info, keyable, Section } from "../../asset/types";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import _ from "lodash";
 import { LanguageContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
 import DOMPurify from "isomorphic-dompurify";
-import { validateYupSchema } from "formik";
-import { BiInfoCircle } from "react-icons/bi";
-import { FiChevronRight } from "react-icons/fi";
-import InfinityScrollCarousel from "components/infinityScrollCarousel";
+import InfinitySlideCarousel from "components/infinitySlideCarousel";
 
 const ACADEMY = 1
 const COURSE = 2
@@ -68,10 +63,10 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
       <Box paddingTop="65px">
         <Titles>{msg.academy_title}</Titles>
       </Box>
-      <Box m='0 auto' w="90%">
+      <Box m='0 auto' w="80%">
         <Box id="academic-big" minH='20em' position='relative'>
-          <Box w='75%' display='flex'>
-            <Box marginTop='2em' w='60%' textAlign='left' position='relative'>
+          <Box w='100%' display='flex'>
+            <Box marginTop='2em' w='50%' textAlign='left' position='relative'>
               <NormalText><p className="fit-content" onMouseLeave={() => dispatch({ type: ACADEMY, value: false })} onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}>{msg.academy_name}</p></NormalText>
               <motion.div className="academy-extra-info" transition={{ type: "spring", mass: 0.4, delay: 0.1 }} animate={hovered.academy ? { maxHeight: "10em" } : { maxHeight: "0em" }}
               >
@@ -93,13 +88,13 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
               </motion.div>
               <NormalText>{msg.academy_start}</NormalText>
             </Box>
-            <Box w='40%'>
-              <InfinityScrollCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
+            <Box marginTop='calc(2em - 10px)' w='50%'>
+              <InfinitySlideCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
             </Box>
           </Box>
-          <Box w='25%'>
+          {/* <Box w='25%'>
             <Titles size="sm">Challenges</Titles>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
       <Box id="academic-small" minH='20em' position='relative'>
