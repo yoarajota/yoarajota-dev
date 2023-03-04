@@ -17,7 +17,7 @@ import { Colors } from "asset/enums";
 const variants = {
     enter: (direction: number) => {
         return {
-            y: direction > 0 ? 300 : -300,
+            y: direction > 0 ? 70 : -70,
             opacity: 0
         };
     },
@@ -29,7 +29,7 @@ const variants = {
     exit: (direction: number) => {
         return {
             zIndex: 0,
-            y: direction < 0 ? -300 : 300,
+            y: direction < 0 ? -70 : 70,
             opacity: 0
         };
     }
@@ -63,7 +63,8 @@ function InfinitySlideCarousel({ list }: Carousel) {
                         animate="center"
                         exit="exit"
                         transition={{
-                            y: { type: "spring", stiffness: 300, damping: 30 },
+                            duration: 0.1,
+                            y: {type: "spring", stiffness: 300, damping: 30 },
                             opacity: { duration: 0.2 }
                         }}
                         drag="y"

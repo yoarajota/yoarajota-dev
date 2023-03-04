@@ -12,6 +12,8 @@ import { LanguageContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
 import DOMPurify from "isomorphic-dompurify";
 import InfinitySlideCarousel from "components/infinitySlideCarousel";
+import { Colors } from "asset/enums";
+import InfinityBoxSlideCarousel from "components/infinityBoxSlideCarousel";
 
 const ACADEMY = 1
 const COURSE = 2
@@ -65,7 +67,7 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
       </Box>
       <Box m='0 auto' w="80%">
         <Box id="academic-big" minH='20em' position='relative'>
-          <Box w='100%' display='flex'>
+          <Box w='100%' h='fit-content' paddingBottom='3em' display='flex' borderBottom={`1px solid ${Colors.Purple}`}>
             <Box marginTop='2em' w='50%' textAlign='left' position='relative'>
               <NormalText><p className="fit-content" onMouseLeave={() => dispatch({ type: ACADEMY, value: false })} onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}>{msg.academy_name}</p></NormalText>
               <motion.div className="academy-extra-info" transition={{ type: "spring", mass: 0.4, delay: 0.1 }} animate={hovered.academy ? { maxHeight: "10em" } : { maxHeight: "0em" }}
@@ -92,10 +94,8 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
               <InfinitySlideCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
             </Box>
           </Box>
-          {/* <Box w='25%'>
-            <Titles size="sm">Challenges</Titles>
-          </Box> */}
         </Box>
+        <InfinityBoxSlideCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
       </Box>
       <Box id="academic-small" minH='20em' position='relative'>
         <Box m='2em auto 0 auto' w='80%' textAlign='left' position='relative'>

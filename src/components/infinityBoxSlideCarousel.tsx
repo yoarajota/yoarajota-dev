@@ -10,7 +10,6 @@ import React, {
 } from "react";
 import { motion } from "framer-motion";
 import { wrap } from "popmotion";
-import { dir } from "console";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
 
@@ -49,11 +48,11 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
     };
 
     return (
-        <Box textAlign='center' display='flex' flexDirection='column' alignItems='center'>
+        <Box textAlign='center' display='flex' justifyContent='center' alignItems='center' gap='20px'>
             <Box color={Colors.Orange} onClick={() => { paginate(1) }}>
                 <BiUpArrow />
             </Box>
-            <motion.div style={{ overflow: "hidden" }}>
+            <motion.div style={{ overflow: "hidden", width: '140px', justifyContent: 'center', display: 'flex' }}>
                 <AnimatePresence exitBeforeEnter >
                     <motion.div
                         key={page}
@@ -83,8 +82,11 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                         <Box
                             alignItems="center"
                             display='flex'
-                            height='40px'
+                            h='100px'
+                            w='100px'
                             color="white"
+                            padding='20px'
+                            borderRadius='14px'
                             border={`1px solid ${Colors.Purple}`}
                         >{list[imageIndex]}</Box>
                     </motion.div>
