@@ -1,5 +1,5 @@
 import {
-  Box
+  Box, Center, List, ListItem
 } from "@chakra-ui/react";
 import { useContext, useEffect, useReducer, useState } from "react";
 import Titles from "../../components/typography/titles";
@@ -14,6 +14,8 @@ import DOMPurify from "isomorphic-dompurify";
 import InfinitySlideCarousel from "components/infinitySlideCarousel";
 import { Colors } from "asset/enums";
 import InfinityBoxSlideCarousel from "components/infinityBoxSlideCarousel";
+import LinkText from "components/typography/linkText";
+import { BsFillRecordFill } from "react-icons/bs"
 
 const ACADEMY = 1
 const COURSE = 2
@@ -66,7 +68,7 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
         <Titles>{msg.academy_title}</Titles>
       </Box>
       <Box m='0 auto' w="80%">
-        <Box id="academic-big" minH='20em' position='relative'>
+        <Box id="academic-big" p='0 0 1em 0' position='relative'>
           <Box w='100%' h='fit-content' paddingBottom='3em' display='flex' borderBottom={`1px solid ${Colors.Purple}`}>
             <Box marginTop='2em' w='50%' textAlign='left' position='relative'>
               <NormalText><p className="fit-content" onMouseLeave={() => dispatch({ type: ACADEMY, value: false })} onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}>{msg.academy_name}</p></NormalText>
@@ -91,10 +93,13 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: Section) {
               <NormalText>{msg.academy_start}</NormalText>
             </Box>
             <Box marginTop='calc(2em - 10px)' w='50%'>
-              <InfinitySlideCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
+              <InfinitySlideCarousel list={msg.academy_subjects_list} />
             </Box>
           </Box>
         </Box>
+        <Center gap='2em' p='0 0 1em 0' borderBottom={`1px solid ${Colors.Purple}`} m={'0 0 1em 0'}>
+          {['asçlkdaçslkdsalçd', 'çlaskdçlsakçldsa'].map((a: any) => (<Center _hover={{ transform: "scale(1.02)" }} transition='transform 0.1s cubic-bezier(.17,.67,.83,.67)'><BsFillRecordFill color={Colors.Gray} /><LinkText link='' color='white'>{a}</LinkText></Center>))}
+        </Center>
         <InfinityBoxSlideCarousel list={['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG']} />
       </Box>
       <Box id="academic-small" minH='20em' position='relative'>

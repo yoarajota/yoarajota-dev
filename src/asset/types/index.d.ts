@@ -30,6 +30,10 @@ export type defaultText = Info & Children & {
     size?: string
 }
 
+export type linkText = defaultText & {
+    link: string;
+}
+
 interface IndexPage {
     indexPage?: boolean
 }

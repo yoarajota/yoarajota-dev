@@ -19,7 +19,7 @@ const Messages: keyable = {
     academy_start: "⏳ 03/23/2022",
     academy_course: "📚 Systems Analysis and Development",
     academy_course_info: "The graduation in Systems Analysis and Development fits as a technological course in the area of ​​Information and Communication. Therefore, it must present general contents about this field, in addition to specific contents of the area. <br /> The course trains professionals capable of developing, analyzing, designing, implementing and updating systems (software) for various sectors of activity.",
-    academy_subjects_list: "Relevant Subjects/Modules"
+    academy_subjects_list: ["Programação Orientada a Objetos I", "Programação Orientada a Objetos II", "Álgebra Linear", "Estatística", "Modelagem e Projeto de Banco de Dados", "Modelagem de Software", "Engenharia de Requisitos", "Desenvolvimento para Sistemas da Internet", "Desenvolvimentos de Sistemas", "Programação para Dispositivos Móveis"]
   },
 };
 

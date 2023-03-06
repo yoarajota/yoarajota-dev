@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 import { wrap } from "popmotion";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
+import Titles from "./typography/titles";
+import NormalText from "./typography/normaltext";
 
 const variants = {
     enter: (direction: number) => {
@@ -52,7 +54,7 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
             <Box color={Colors.Orange} onClick={() => { paginate(1) }}>
                 <BiUpArrow />
             </Box>
-            <motion.div style={{ overflow: "hidden", width: '140px', justifyContent: 'center', display: 'flex' }}>
+            <motion.div style={{ overflow: "hidden", width: '19em', justifyContent: 'center', display: 'flex' }}>
                 <AnimatePresence exitBeforeEnter >
                     <motion.div
                         key={page}
@@ -70,7 +72,6 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                         dragElastic={1}
                         onDragEnd={(e, { offset, velocity }) => {
                             const swipe = swipePower(offset.x, velocity.x);
-
                             if (swipe < -swipeConfidenceThreshold) {
                                 paginate(1);
                             } else if (swipe > swipeConfidenceThreshold) {
@@ -80,15 +81,25 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
 
                     >
                         <Box
-                            alignItems="center"
-                            display='flex'
-                            h='100px'
-                            w='100px'
+                            h='11em'
+                            w='17em'
                             color="white"
                             padding='20px'
+                            justifyContent='center'
                             borderRadius='14px'
                             border={`1px solid ${Colors.Purple}`}
-                        >{list[imageIndex]}</Box>
+                        >
+                            <Box border={`1px solid ${Colors.Purple}`} borderLeft='none' borderRight='none' p='1% 0'>
+                                <Titles size='esm'>
+                                    {list[imageIndex]}
+                                </Titles>
+                            </Box>
+                            <Box h='80%' p='0.5em' display='flex'>
+                                <NormalText>
+                                    {list[imageIndex]}
+                                </NormalText>
+                            </Box>
+                        </Box>
                     </motion.div>
                 </AnimatePresence>
             </motion.div>

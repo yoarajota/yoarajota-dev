@@ -4,7 +4,7 @@ import { defaultText } from "../../asset/types";
 
 function NormalText({ customFontSize = "1.125rem", customColor = Colors.Gray, functions = {}, children }: defaultText) {
   return (
-    <Box color={customColor} {...functions} fontSize={customFontSize} fontWeight='medium' letterSpacing='0.5' fontFamily="Ubuntu">
+    <Box color={customColor} {...functions} fontSize={customFontSize} fontWeight='medium' letterSpacing='0.25px' fontFamily="Ubuntu">
       {children}
     </Box>
   );

@@ -13,6 +13,7 @@ import { wrap } from "popmotion";
 import { dir } from "console";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
+import NormalText from "./typography/normaltext";
 
 const variants = {
     enter: (direction: number) => {
@@ -42,7 +43,7 @@ const swipePower = (offset: number, velocity: number) => {
 
 function InfinitySlideCarousel({ list }: Carousel) {
     const [[page, direction], setPage] = useState([0, 0]);
-    const imageIndex = wrap(0, list.length, page);
+    const imageIndex = wrap(0, list?.length ?? 0, page);
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
@@ -53,7 +54,7 @@ function InfinitySlideCarousel({ list }: Carousel) {
             <Box color={Colors.Orange} onClick={() => { paginate(1) }}>
                 <BiUpArrow />
             </Box>
-            <motion.div style={{ height: '40px', overflow: "hidden" }}>
+            <motion.div style={{ height: 'fit-content', overflow: "hidden" }}>
                 <AnimatePresence exitBeforeEnter >
                     <motion.div
                         key={page}
@@ -84,9 +85,12 @@ function InfinitySlideCarousel({ list }: Carousel) {
                         <Box
                             alignItems="center"
                             display='flex'
-                            height='40px'
+                            height='fit-content'
                             color="white"
-                        >{list[imageIndex]}</Box>
+                        ><NormalText>
+                                {list && list[imageIndex]}
+                            </NormalText>
+                        </Box>
                     </motion.div>
                 </AnimatePresence>
             </motion.div>
