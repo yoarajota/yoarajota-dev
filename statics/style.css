@@ -29,6 +29,10 @@
   justify-content: center;
 }
 
+.box-carousel{
+  height: 2em;
+}
+
 #inside-image {
   display: none;
 }
