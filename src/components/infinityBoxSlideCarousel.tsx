@@ -15,26 +15,26 @@ import { Colors } from "asset/enums";
 import Titles from "./typography/titles";
 import NormalText from "./typography/normaltext";
 
-const variants = {
-    enter: (direction: number) => {
-        return {
-            x: direction > 0 ? 300 : -300,
-            opacity: 0
-        };
-    },
-    center: {
-        zIndex: 1,
-        x: 0,
-        opacity: 1
-    },
-    exit: (direction: number) => {
-        return {
-            zIndex: 0,
-            x: direction < 0 ? -300 : 300,
-            opacity: 0
-        };
-    }
-};
+// const variants = {
+//     enter: (direction: number) => {
+//         return {
+//             x: direction > 0 ? 300 : -300,
+//             opacity: 0
+//         };
+//     },
+//     center: {
+//         zIndex: 1,
+//         x: 0,
+//         opacity: 1
+//     },
+//     exit: (direction: number) => {
+//         return {
+//             zIndex: 0,
+//             x: direction < 0 ? -300 : 300,
+//             opacity: 0
+//         };
+//     }
+// };
 
 const swipeConfidenceThreshold = 30;
 const swipePower = (offset: number, velocity: number) => {
@@ -44,9 +44,45 @@ const swipePower = (offset: number, velocity: number) => {
 function InfinityBoxSlideCarousel({ list }: Carousel) {
     const [[page, direction], setPage] = useState([0, 0]);
     const imageIndex = wrap(0, list.length, page);
+    const [variant, setVariant] = useState<keyable>({})
+    const [loading, setLoading] = useState<boolean>(false)
 
     const paginate = (newDirection: number) => {
-        setPage([page + newDirection, newDirection]);
+        if (loading) {
+            return;
+        }
+        setLoading(true)
+        setVariant({
+            center: {
+                zIndex: 1,
+                x: 0,
+                opacity: 1,
+            },
+            exit: () => {
+                return {
+                    x: newDirection < 0 ? 269 : -269,
+                    scale: 1,
+                };
+            },
+            exit2: () => {
+                return {
+                    x: newDirection < 0 ? 269 : -269,
+                    scale: 0.9,
+                };
+            },
+            exit3: () => {
+                return {
+                    x: newDirection < 0 ? 269 : -269,
+                };
+            },
+        });
+        setTimeout(() => {
+            setPage([page + newDirection, newDirection]);
+        }, 10)
+
+        setTimeout(() => {
+            setLoading(false)
+        }, 400)
     };
 
     return (
@@ -54,55 +90,59 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
             <Box color={Colors.Orange} onClick={() => { paginate(1) }}>
                 <BiUpArrow />
             </Box>
-            <motion.div style={{ overflow: "hidden", width: '19em', justifyContent: 'center', display: 'flex' }}>
-                <AnimatePresence exitBeforeEnter >
+            <Box overflow="hidden" width='50em' justifyContent='center' display='flex'>
+                <AnimatePresence exitBeforeEnter>
                     <motion.div
-                        key={page}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{
-                            x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 }
-                        }}
-                        drag="x"
-                        dragConstraints={{ top: 0, bottom: 0 }}
-                        dragElastic={1}
-                        onDragEnd={(e, { offset, velocity }) => {
-                            const swipe = swipePower(offset.x, velocity.x);
-                            if (swipe < -swipeConfidenceThreshold) {
-                                paginate(1);
-                            } else if (swipe > swipeConfidenceThreshold) {
-                                paginate(-1);
-                            }
-                        }}
-
+                        key={page + "boxes"}
                     >
-                        <Box
-                            h='11em'
-                            w='17em'
-                            color="white"
-                            padding='20px'
-                            justifyContent='center'
-                            borderRadius='14px'
-                            border={`1px solid ${Colors.Purple}`}
-                        >
-                            <Box border={`1px solid ${Colors.Purple}`} borderLeft='none' borderRight='none' p='1% 0'>
-                                <Titles size='esm'>
-                                    {list[imageIndex]}
-                                </Titles>
-                            </Box>
-                            <Box h='80%' p='0.5em' display='flex'>
-                                <NormalText>
-                                    {list[imageIndex]}
-                                </NormalText>
-                            </Box>
+                        <Box className="flex wrap-box-carousel">
+                            {[-2, -1, 0, 1, 2].map((index) => (
+                                <motion.div
+                                    key={`k-${index}`}
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                    }}
+                                    variants={variant}
+                                    animate="center"
+                                    exit={[-2, 2].includes(index) ? "exit3" : [-1].includes(index) ? "exit" : "exit2"}
+                                    style={index === 0 ? {} : { scale: 0.9 }}
+                                >
+                                    <Box
+                                        h='11em'
+                                        w='17em'
+                                        color="white"
+                                        padding='20px'
+                                        justifyContent='center'
+                                        borderRadius='14px'
+                                        border={`1px solid ${Colors.Purple}`}
+                                    >
+                                        <Box border={`1px solid ${Colors.Purple}`} borderLeft='none' borderRight='none' p='1% 0'>
+                                            <Titles size='esm'>
+                                                {list &&
+                                                    (list[imageIndex + index]
+                                                        ? list[imageIndex + index]
+                                                        : list[
+                                                        (list.length + index + imageIndex) % list.length
+                                                        ])}
+                                            </Titles>
+                                        </Box>
+                                        <Box h='80%' p='0.5em' display='flex'>
+                                            <NormalText>
+                                                {list &&
+                                                    (list[imageIndex + index]
+                                                        ? list[imageIndex + index]
+                                                        : list[
+                                                        (list.length + index + imageIndex) % list.length
+                                                        ])}
+                                            </NormalText>
+                                        </Box>
+                                    </Box>
+                                </motion.div>
+                            ))}
                         </Box>
                     </motion.div>
                 </AnimatePresence>
-            </motion.div>
+            </Box>
             <Box color={Colors.Orange} onClick={() => { paginate(-1) }}>
                 <BiDownArrow />
             </Box>

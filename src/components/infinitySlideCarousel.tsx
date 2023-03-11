@@ -7,7 +7,7 @@ import {
   useScroll,
 } from "framer-motion";
 import _ from "lodash";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { wrap } from "popmotion";
 import { dir } from "console";
@@ -15,30 +15,9 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
 import NormalText from "./typography/normaltext";
 
-const variants = {
-  center: {
-    zIndex: 1,
-    y: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      y: direction < 0 ? 25 : -25,
-      scale: 1,
-    };
-  },
-  exit2: (direction: number) => {
-    return {
-      y: direction < 0 ? 25 : -25,
-      scale: 0.9,
-    };
-  },
-};
-
 const TRANSITION = {
   duration: 0.1,
   y: { type: "spring", stiffness: 300, damping: 30 },
-  opacity: { duration: 0.2 },
 };
 
 const swipeConfidenceThreshold = 30;
@@ -49,9 +28,46 @@ const swipePower = (offset: number, velocity: number) => {
 function InfinitySlideCarousel({ list }: Carousel) {
   const [[page, direction], setPage] = useState([0, 0]);
   const imageIndex = wrap(0, list?.length ?? 0, page);
+  const [variant, setVariant] = useState<keyable>({})
+  const [loading, setLoading] = useState<boolean>(false)
 
   const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
+    if (loading) {
+      return;
+    }
+    setLoading(true)
+    
+    setVariant({
+      center: {
+        zIndex: 1,
+        y: 0,
+        opacity: 1,
+      },
+      exit: () => {
+        return {
+          y: newDirection < 0 ? 33 : -33,
+          scale: 1,
+        };
+      },
+      exit2: () => {
+        return {
+          y: newDirection < 0 ? 33 : -33,
+          scale: 0.9,
+        };
+      },
+      exit3: () => {
+        return {
+          y: newDirection < 0 ? 33 : -33,
+        };
+      },
+    });
+    setTimeout(() => {
+      setPage([page + newDirection, newDirection]);
+    }, 10)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 400)
   };
 
   return (
@@ -60,6 +76,7 @@ function InfinitySlideCarousel({ list }: Carousel) {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      w="100%"
     >
       <Box
         color={Colors.Orange}
@@ -70,7 +87,7 @@ function InfinitySlideCarousel({ list }: Carousel) {
         <BiUpArrow />
       </Box>
       <motion.div
-        style={{ height: "6em", overflow: "hidden", display: "flex", justifyItems: 'center'}}
+        className="box-carousel-wrap"
       >
         <AnimatePresence exitBeforeEnter>
           <motion.div key={page}>
@@ -78,25 +95,27 @@ function InfinitySlideCarousel({ list }: Carousel) {
               height="fit-content"
               color="white"
               display='flex'
+              flexDirection='column'
+              margin='-2em'
+              w="fit-content"
             >
               {[-2, -1, 0, 1, 2].map((index) => (
                 <motion.div
-                  key={index}
+                  key={`k-${index}`}
                   transition={TRANSITION}
-                  custom={direction}
-                  variants={variants}
+                  variants={variant}
                   animate="center"
-                  exit={index === 0 ? "exit2" : "exit"}
+                  exit={[-2, 2].includes(index) ? "exit3" : [-1].includes(index) ? "exit" : "exit2"}
                   className="box-carousel"
                   style={index === 0 ? {} : { scale: 0.9 }}
-                >
+                  >
                   <NormalText>
                     {list &&
                       (list[imageIndex + index]
                         ? list[imageIndex + index]
                         : list[
-                            (list.length + index + imageIndex) % list.length
-                          ])}
+                        (list.length + index + imageIndex) % list.length
+                        ])}
                   </NormalText>
                 </motion.div>
               ))}
