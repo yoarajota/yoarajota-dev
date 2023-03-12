@@ -17,7 +17,7 @@
 <p> new resume layout ✅ </p> 
 <p> infinite scroll ✅ </p>
 <p> phill 413 </p>
-
+<p> end box carousel </p>
 
 texts;
 
