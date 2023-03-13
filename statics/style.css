@@ -29,6 +29,10 @@
   justify-content: center;
 }
 
+.underline {
+  border-bottom: 1px solid var(--gray);
+}
+
 .box-carousel {
   height: 2em;
 }

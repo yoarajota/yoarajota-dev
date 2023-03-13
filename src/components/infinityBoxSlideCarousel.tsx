@@ -58,10 +58,10 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                 x: 0,
                 opacity: 1,
             },
-            exit: () => {
+            exit: (index: number) => {
                 return {
                     x: newDirection < 0 ? 269 : -269,
-                    scale: 1,
+                    scale: index === newDirection ? 1 : 0.9,
                 };
             },
             exit2: () => {
@@ -82,7 +82,7 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
 
         setTimeout(() => {
             setLoading(false)
-        }, 400)
+        }, 600)
     };
 
     return (
@@ -103,11 +103,13 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                                         x: { type: "spring", stiffness: 300, damping: 30 },
                                     }}
                                     variants={variant}
+                                    custom={index}
                                     animate="center"
-                                    exit={[-2, 2].includes(index) ? "exit3" : [-1].includes(index) ? "exit" : "exit2"}
+                                    exit={[-2, 2].includes(index) ? "exit3" : [-1, 1].includes(index) ? "exit" : "exit2"}
                                     style={index === 0 ? {} : { scale: 0.9 }}
                                 >
                                     <Box
+                                        onClick={[-1, 1].includes(index) ? (() => { paginate(index) }) : () => { }}
                                         h='11em'
                                         w='17em'
                                         color="white"

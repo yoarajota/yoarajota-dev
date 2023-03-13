@@ -43,10 +43,10 @@ function InfinitySlideCarousel({ list }: Carousel) {
         y: 0,
         opacity: 1,
       },
-      exit: () => {
+      exit: (index: number) => {
         return {
           y: newDirection < 0 ? 33 : -33,
-          scale: 1,
+          scale: index === newDirection ? 1 : 0.9,
         };
       },
       exit2: () => {
@@ -105,9 +105,11 @@ function InfinitySlideCarousel({ list }: Carousel) {
                   transition={TRANSITION}
                   variants={variant}
                   animate="center"
-                  exit={[-2, 2].includes(index) ? "exit3" : [-1].includes(index) ? "exit" : "exit2"}
+                  custom={index}
+                  exit={[-2, 2].includes(index) ? "exit3" : [-1, 1].includes(index) ? "exit" : "exit2"}
                   className="box-carousel"
                   style={index === 0 ? {} : { scale: 0.9 }}
+                  onClick={[-1, 1].includes(index) ? (() => { paginate(index) }) : () => { }}
                   >
                   <NormalText>
                     {list &&

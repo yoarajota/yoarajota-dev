@@ -111,3 +111,11 @@ export type ImageAndButtonType = {
 export type Carousel = {
     list: Array<string | ReactNode>
 }
+
+export type ModalType = ModalProps & {
+    data?: keyable
+}
+
+export type AcademyType = Section & {
+    modal: keyable
+}
