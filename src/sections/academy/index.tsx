@@ -30,7 +30,7 @@ const reducer = (state: keyable, action: keyable) => {
   }
 };
 
-function Academy({ callApi, scrollYProgress, hookedYPosition }: AcademyType) {
+function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
   const { lang, msg } = useContext(LanguageContext);
 
   const { isLoading, data, error, refetch } = useQuery(
@@ -69,11 +69,11 @@ function Academy({ callApi, scrollYProgress, hookedYPosition }: AcademyType) {
       </Box>
       <Box m='0 auto' w="80%">
         <Box id="academic-big" p='0 0 3em 0' position='relative'>
-          <Box w='100%' h='fit-content' paddingBottom='3em' display='flex' borderBottom={`1px solid ${Colors.Purple}`}>
+          <Box w='100%' h='fit-content' paddingBottom='3em' display='flex' borderBottom={`1px dotted ${Colors.Purple}`}>
             <Box marginTop='2em' w='50%' textAlign='left' position='relative'>
               <Box marginBottom="0.5em" display='flex' alignItems='center' gap={'0.7em'} className="underline" w='fit-content'>
                 {/* <Box> */}
-                  <NormalText><p className="fit-content"
+                <NormalText><p onClick={() => { modal.setModalData({ title: msg.academy_name, text: msg.academy_extra_info}); modal.onOpen() }} className="fit-content"
                   // onMouseLeave={() => dispatch({ type: ACADEMY, value: false })} 
                   // onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}
                   >

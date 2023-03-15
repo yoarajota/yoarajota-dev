@@ -11,11 +11,13 @@ import LanguagePop from "components/languagePop";
 import Academy from "sections/academy";
 import ModalWrap from "components/modal";
 import Maintenance from "components/maintenance";
+import { keyable } from "asset/types";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
-  const { isOpen, onClose } = useDisclosure();
+  const [modalData, setModalData] = useState<keyable>({});
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { scrollYProgress } = useScroll({
     target: wrap,
@@ -48,7 +50,7 @@ export default function Home() {
       </AnimatedContainer>
       <AnimatedContainer end={0} motioned={motioned}>
         <Academy
-          modal={{ isOpen, onClose }}
+          modal={{ isOpen, onClose, onOpen, setModalData }}
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}
           callApi={(hookedYPosition ?? 0) > 0.35}
@@ -58,7 +60,7 @@ export default function Home() {
         <Tec />
       </FadeInContainer>
 
-      <ModalWrap isOpen={isOpen} onClose={onClose} />
+      <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );
 }

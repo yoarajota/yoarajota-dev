@@ -8,28 +8,30 @@ import {
     ModalCloseButton,
     Button,
 } from '@chakra-ui/react'
+import { Colors } from 'asset/enums';
 import { ModalType } from 'asset/types';
+import DOMPurify from "isomorphic-dompurify";
+import NormalText from './typography/normaltext';
+import Titles from './typography/titles';
 
 function ModalWrap({ isOpen, onClose, data }: ModalType) {
     return (
-        <>
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                        <Button variant='ghost'>Secondary Action</Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
-        </>
+        <Modal isOpen={isOpen} isCentered size='xl' onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent backgroundColor={Colors.Black}>
+                <ModalHeader><Titles size='esm'>{data?.title}</Titles></ModalHeader>
+                <ModalCloseButton color={Colors.Orange} />
+                <ModalBody>
+                    <NormalText>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(data?.text),
+                            }}
+                        />
+                    </NormalText>
+                </ModalBody>
+            </ModalContent>
+        </Modal>
     )
 }
 

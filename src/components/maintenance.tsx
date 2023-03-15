@@ -5,6 +5,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import NormalText from "./typography/normaltext";
 import { LanguageContext } from "components/contexts/language";
 import { GrFormClose } from "react-icons/gr";
+import { Colors } from "asset/enums";
 
 function Maintenance() {
   const { msg } = useContext(LanguageContext);
@@ -22,16 +23,16 @@ function Maintenance() {
           }}
           className="maintenance-wrap"
         >
-          <Box>
+          <Box onClick={() => {
+            setIsOpen(false);
+          }}>
             <Box>
               <FiAlertTriangle />
             </Box>
-            <NormalText>{msg?.alert}</NormalText>
+            <NormalText customColor={Colors.Black}>{msg?.alert}</NormalText>
             <Box
               _hover={{ opacity: 0.6 }}
-              onClick={() => {
-                setIsOpen(false);
-              }}
+
             >
               <GrFormClose />
             </Box>
