@@ -2,14 +2,15 @@ import { keyable } from "asset/types";
 
 const Messages: keyable = {
   "pt-BR": {
+    alert: "Por favor, note que esta página está em construção e pode estar incompleta ou sujeita a alterações.",
     resume_text: "Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.</br>Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP com um sistema web complexo.</br>Ótimo membro de equipe, tutorando e dividindo conhecimento técnico com os envolvidos.</br> </br>  Entenda um pouco melhor de mim;",
     tech_title: "Tecnologias",
     exp_title: "Experiências",
     academy_title: "Vida Acadêmica",
     academy_course_info: "A formação em Análise e Desenvolvimento de Sistemas se enquadra como um curso tecnológico da área de Informação e Comunicação. Por isso, deve apresentar conteúdos gerais sobre esse campo, além dos conteúdos específicos da área. <br /> O curso forma profissionais capazes de desenvolver, analisar, projetar, implementar e atualizar sistemas de informação para diversos setores de atividades.",
-    
   },
   "en-US": {
+    alert: "This webpage is currently under construction and may be incomplete or subject to changes.",
     resume_text: "Fullstack Developer profficient in frot-end and server-side technologies.</br>At the moment bringing inovation, inteligence and high performance on ERP area with a complex web system.</br>Great team member, tutoring and sharing technical knowledge with the others.</br> </br> Know me better;",
     tech_title: "Technologies",
     exp_title: "Experiences",

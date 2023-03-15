@@ -1,4 +1,4 @@
-import { Box, List, ListItem } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Carousel, keyable } from "asset/types";
 import {
   animate,
@@ -20,10 +20,6 @@ const TRANSITION = {
   y: { type: "spring", stiffness: 300, damping: 30 },
 };
 
-const swipeConfidenceThreshold = 30;
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
 
 function InfinitySlideCarousel({ list }: Carousel) {
   const [[page, direction], setPage] = useState([0, 0]);

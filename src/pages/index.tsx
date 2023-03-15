@@ -10,11 +10,12 @@ import FadeInContainer from "components/animations/fadeInContainer";
 import LanguagePop from "components/languagePop";
 import Academy from "sections/academy";
 import ModalWrap from "components/modal";
+import Maintenance from "components/maintenance";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onClose } = useDisclosure();
 
   const { scrollYProgress } = useScroll({
     target: wrap,
@@ -33,7 +34,8 @@ export default function Home() {
   }, [scrollYProgress]);
 
   return (
-    <Box ref={wrap}>
+    <Box ref={wrap} position="relative">
+      <Maintenance />
       <Scrollbar scrollY={scrollYProgress} />
       <LanguagePop />
       <Resume />
@@ -46,7 +48,7 @@ export default function Home() {
       </AnimatedContainer>
       <AnimatedContainer end={0} motioned={motioned}>
         <Academy
-          modal={{isOpen, onClose}}
+          modal={{ isOpen, onClose }}
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}
           callApi={(hookedYPosition ?? 0) > 0.35}
