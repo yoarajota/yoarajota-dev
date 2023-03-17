@@ -18,6 +18,7 @@
 <p> infinite scroll ✅ </p>
 <p> phill 413 </p>
 <p> end box carousel </p>
+<p> deploy vercel </p>
 
 texts;
 
