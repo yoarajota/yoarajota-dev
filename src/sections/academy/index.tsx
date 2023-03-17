@@ -71,40 +71,15 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
         <Box id="academic-big" p='0 0 3em 0' position='relative'>
           <Box w='100%' h='fit-content' paddingBottom='3em' display='flex' borderBottom={`1px dotted ${Colors.Purple}`}>
             <Box marginTop='2em' w='50%' textAlign='left' position='relative'>
-              <Box marginBottom="0.5em" display='flex' alignItems='center' gap={'0.7em'} className="underline" w='fit-content'>
-                {/* <Box> */}
-                <NormalText><p onClick={() => { modal.setModalData({ title: msg.academy_name, text: msg.academy_extra_info}); modal.onOpen() }} className="fit-content"
-                  // onMouseLeave={() => dispatch({ type: ACADEMY, value: false })} 
-                  // onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}
-                  >
-                    {msg.academy_name}</p></NormalText>
-                  {/* <motion.div className="academy-extra-info" transition={{ type: "spring", mass: 0.4, delay: 0.1 }} animate={hovered.academy ? { maxHeight: "10em" } : { maxHeight: "0em" }}
-                  >
-                    <NormalText customFontSize="0.95rem">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(msg.academy_extra_info),
-                        }}
-                      /></NormalText>
-                  </motion.div> */}
-                {/* </Box> */}
+              <Box cursor="pointer" marginBottom="0.5em" display='flex' alignItems='center' gap={'0.7em'} className="underline" w='fit-content'>
+                <NormalText functions={{ onClick: () => { modal.setModalData({ title: msg.academy_name, text: msg.academy_extra_info }); modal.onOpen() } }}>
+                  {msg.academy_name}
+                </NormalText>
                 <BsInfoLg color={Colors.Gray} />
               </Box>
-              <Box marginBottom="0.5em" display='flex' alignItems='center' gap={'0.7em'} className="underline" w='fit-content'>
-                {/* <Box> */}
-                  <NormalText><p className="fit-content"
-                  // onMouseLeave={() => dispatch({ type: COURSE, value: false })} 
-                  // onMouseEnter={() => dispatch({ type: COURSE, value: true })} 
-                  >{msg.academy_course}</p></NormalText>
-                  {/* <motion.div className="academy-extra-info" transition={{ type: "spring", mass: 0.4, delay: 0.1 }} animate={hovered.course ? { maxHeight: "10em" } : { maxHeight: "0em" }}>
-                    <NormalText customFontSize="0.95rem">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(msg.academy_course_info),
-                        }}
-                      /></NormalText>
-                  </motion.div> */}
-                {/* </Box> */}
+              <Box cursor="pointer" marginBottom="0.5em" display='flex' alignItems='center' gap={'0.7em'} className="underline" w='fit-content'>
+                <NormalText functions={{ onClick: () => { modal.setModalData({ title: msg.academy_course, text: msg.academy_course_info }); modal.onOpen() } }}>
+                  {msg.academy_course}</NormalText>
                 <BsInfoLg color={Colors.Gray} />
               </Box>
               <NormalText>{msg.academy_start}</NormalText>
