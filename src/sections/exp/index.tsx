@@ -22,7 +22,7 @@ import NormalText from "components/typography/normaltext";
 function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   const { lang } = useContext(LanguageContext);
 
-  const { isLoading, data, error, refetch } = useQuery(
+  const { data, refetch } = useQuery(
     "exp",
     () => {
       return api.get("http://localhost:3000/api/exp");

@@ -67,10 +67,6 @@ function Extra() {
     },
   });
 
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
-
   return (
     <>
     <Box minHeight="100vh">
