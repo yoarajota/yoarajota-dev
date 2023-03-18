@@ -1,6 +1,6 @@
 import React from "react";
 import { Node, Position } from "reactflow";
-import LaravelSvg from "../public/images/laravelSvg";
+import LaravelSvg from "../src/components/svg/laravelSvg";
 
 const InitialElementsLaravel: Node<any>[] = [
   {

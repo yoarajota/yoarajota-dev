@@ -1,9 +1,7 @@
 import React from "react";
 import { Position } from "react-flow-renderer";
 import { Node } from "reactflow";
-import ReactSvg from "../public/images/reactsvg";
-import NodeHead from "../src/components/nodes/nodeHead";
-import NodeText from "../src/components/nodes/nodeText";
+import ReactSvg from "../src/components/svg/reactSvg";
 
 const InitialElementsReactJs: Node<any>[] = [
   {
