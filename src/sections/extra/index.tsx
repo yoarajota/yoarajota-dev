@@ -24,7 +24,7 @@ function Extra() {
   const { isLoading, data } = useQuery(
     "comments",
     () => {
-      return axios.get("http://localhost:3000/api/comments");
+      return axios.get("api/comments");
     },
     { staleTime: 1000 * 60 * 10 }
   );

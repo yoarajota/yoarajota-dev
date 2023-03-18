@@ -1,10 +1,5 @@
 import {
   Box,
-  Center,
-  Slide,
-  useDisclosure,
-  Text,
-  background,
 } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 // import { useRouter } from "next/router";
@@ -25,7 +20,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   const { data, refetch } = useQuery(
     "exp",
     () => {
-      return api.get("http://localhost:3000/api/exp");
+      return api.get("api/exp");
     },
     { staleTime: 1000 * 60 * 10, enabled: false }
   );

@@ -16,7 +16,7 @@ function ImageAndButtons({ idString }: ImageAndButtonType) {
     console.log(lang);
 
     api
-      .get("http://localhost:3000/api/download", {
+      .get("api/download", {
         params: { lang },
         responseType: "blob",
       })

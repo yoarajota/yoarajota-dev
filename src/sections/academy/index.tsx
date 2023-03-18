@@ -36,7 +36,7 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
   const { data, refetch } = useQuery(
     "academy",
     () => {
-      return api.get("http://localhost:3000/api/acad");
+      return api.get("api/acad");
     },
     { staleTime: 1000 * 60 * 10, enabled: false }
   );
