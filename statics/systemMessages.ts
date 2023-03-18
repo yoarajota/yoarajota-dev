@@ -14,8 +14,17 @@ const Messages: keyable = {
     tech_title: "Tecnologias",
     exp_title: "Experiências",
     academy_title: "Vida Acadêmica",
-    academy_course_info:
-      "A formação em Análise e Desenvolvimento de Sistemas se enquadra como um curso tecnológico da área de Informação e Comunicação. Por isso, deve apresentar conteúdos gerais sobre esse campo, além dos conteúdos específicos da área. <br /> O curso forma profissionais capazes de desenvolver, analisar, projetar, implementar e atualizar sistemas de informação para diversos setores de atividades.",
+    academy_name: "🎓 Instituto Federal do Rio Grande do Sul",
+    academy_extra_info: [
+      "It is a type of institution specialized in offering professional and technological education in different teaching modalities.",
+      "These institutions make the 'Rede Federal de Educação Profissional, Científica e Tecnologica' (Federal Network of Professional, Scientific and Technological Education)",
+    ],
+    academy_start: "⏳ 23/03/2022",
+    academy_course: "📚 Análise e Desenvolvimento de Sistemas",
+    academy_course_info: [
+      "A formação em Análise e Desenvolvimento de Sistemas se enquadra como um curso tecnológico da área de Informação e Comunicação. Por isso, deve apresentar conteúdos gerais sobre esse campo, além dos conteúdos específicos da área. ",
+      "O curso forma profissionais capazes de desenvolver, analisar, projetar, implementar e atualizar sistemas de informação para diversos setores de atividades.",
+    ],
   },
   "en-US": {
     alert:
@@ -39,7 +48,7 @@ const Messages: keyable = {
     academy_course: "📚 Systems Analysis and Development",
     academy_course_info: [
       "The graduation in Systems Analysis and Development fits as a technological course in the area of Information and Communication. Therefore, it must present general contents about this field, in addition to specific contents of the area.",
-      " The course trains professionals capable of developing, analyzing, designing, implementing and updating systems (software) for various sectors of activity.",
+      "The course trains professionals capable of developing, analyzing, designing, implementing and updating systems (software) for various sectors of activity.",
     ],
     academy_subjects_list: [
       "Programação Orientada a Objetos I",
