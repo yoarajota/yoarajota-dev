@@ -22,13 +22,7 @@ function ModalWrap({ isOpen, onClose, data }: ModalType) {
                 <ModalHeader><Titles size='esm'>{data?.title}</Titles></ModalHeader>
                 <ModalCloseButton color={Colors.Orange} />
                 <ModalBody>
-                    <NormalText>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: DOMPurify.sanitize(data?.text),
-                            }}
-                        />
-                    </NormalText>
+                    <NormalText text={data?.text} />
                 </ModalBody>
             </ModalContent>
         </Modal>

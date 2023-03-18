@@ -1,12 +1,34 @@
 import { Box, Text } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
+import _ from "lodash";
 import { defaultText } from "../../asset/types";
 
-function NormalText({ customFontSize = "1.125rem", customColor = Colors.Gray, functions = {}, children }: defaultText) {
-  return (
-    <Box color={customColor} {...functions} fontSize={customFontSize} fontWeight='medium' letterSpacing='0.25px' fontFamily="Ubuntu">
-      {children}
-    </Box>
+function NormalText({
+  customFontSize = "1.125rem",
+  customColor = Colors.Gray,
+  functions = {},
+  text,
+}: defaultText): JSX.Element {
+  const displayText = typeof text === "object" ? text : [text];
+
+  return text ? (
+    <>
+      {displayText.map((i) => (
+        <Text
+          key={_.uniqueId()}
+          color={customColor}
+          {...functions}
+          fontSize={customFontSize}
+          fontWeight="medium"
+          letterSpacing="0.25px"
+          fontFamily="Ubuntu"
+        >
+          {i}
+        </Text>
+      ))}
+    </>
+  ) : (
+    <></>
   );
 }
 

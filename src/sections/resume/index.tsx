@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Skills from "../../components/skills";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
-import DOMPurify from 'isomorphic-dompurify';
+import DOMPurify from "isomorphic-dompurify";
 import NormalText from "components/typography/normaltext";
 import { motion } from "framer-motion";
 import ImageAndButtons from "components/imageAndButtons";
@@ -29,7 +29,7 @@ function Resume() {
         </Box>
         <ImageAndButtons idString="outside-image" />
         <Box className="content-container-hp" w="100%">
-          <Box gap={'15px'} className="content-container-child">
+          <Box gap={"15px"} className="content-container-child">
             <Skills />
           </Box>
           <Box className="content-container-child">
@@ -46,15 +46,9 @@ function Resume() {
                         color={Colors.Gray}
                         // textAlign="center"
                         minHeight="26vh"
-                        textAlign="left" 
+                        textAlign="left"
                       >
-                        <NormalText>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: DOMPurify.sanitize(msg?.resume_text),
-                            }}
-                          />
-                        </NormalText>
+                        <NormalText text={msg?.resume_text} />
                       </Box>
                     </>
                   )}

@@ -37,9 +37,9 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   }, [callApi, fetched, refetch]);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) < 0.2) {
+    if ((hookedYPosition ?? 0) < 0.175) {
       setInfo({});
-    } else if ((hookedYPosition ?? 0) > 0.2 && _.isEmpty(info)) {
+    } else if ((hookedYPosition ?? 0) > 0.175 && _.isEmpty(info)) {
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
@@ -54,6 +54,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
       <Box w="100%">
         <Box h="110px" w="100%">
           <Timeline
+            info={info}
             scrollYProgress={scrollYProgress}
             data={data?.data.data[lang]}
             setInfo={setInfo}
@@ -63,7 +64,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
           {!_.isEmpty(info) && (
             <>
               <Box m="0 0 50px 0">
-                <TextAnimation title size={'md'} text={info.title} />
+                <TextAnimation title size={"md"} text={info.title} />
               </Box>
               <motion.div
                 className="container-mediaquery-responsive-display"
@@ -104,7 +105,9 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
                   position="absolute"
                 ></Box>
                 <motion.div exit={{ opacity: 0 }}>
-                  <NormalText customFontSize="28px">{info.time}</NormalText>
+                  <Box marginTop='1em'>
+                    <NormalText customFontSize="28px" text={info.time} />
+                  </Box>
                 </motion.div>
               </Box>
             </>

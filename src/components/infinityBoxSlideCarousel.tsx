@@ -129,14 +129,8 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                                             </Titles>
                                         </Box>
                                         <Box h='80%' p='0.5em' display='flex'>
-                                            <NormalText>
                                                 {list &&
-                                                    (list[imageIndex + index]
-                                                        ? list[imageIndex + index]
-                                                        : list[
-                                                        (list.length + index + imageIndex) % list.length
-                                                        ])}
-                                            </NormalText>
+                                            <NormalText text={String(list[imageIndex + index] ? list[imageIndex + index] : list[(list.length + index + imageIndex) % list.length])} />}
                                         </Box>
                                     </Box>
                                 </motion.div>

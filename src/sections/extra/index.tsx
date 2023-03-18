@@ -69,128 +69,125 @@ function Extra() {
 
   return (
     <>
-    <Box minHeight="100vh">
-      <Box w="100%">
-        <Box w="100%" paddingTop="65px">
-          <Box>
-            <Box w="100%" textAlign="center">
-              <Titles>Contato</Titles>
-            </Box>
-            <SimpleGrid
-              gap="30px"
-              column={["2"]}
-              minChildWidth={"370px"}
-              justifyContent="center"
-              w="90%"
-              m="30px auto 0 auto"
-            >
-              <Box w="100%">
-                <Divider />
-                <Box h="150"></Box>
+      <Box minHeight="100vh">
+        <Box w="100%">
+          <Box w="100%" paddingTop="65px">
+            <Box>
+              <Box w="100%" textAlign="center">
+                <Titles>Contato</Titles>
               </Box>
-              <Box w="100%">
-                <Divider />
-                <Box h="150" m="15px 0" w="100%" textAlign="center">
-                  <Box alignItems="center" display="flex">
-                    <BsLinkedin size="20px" />
-                    <NormalText>Linkedin</NormalText>
-                  </Box>
-                  <Box alignItems="center" display="flex">
-                    <BsLinkedin size="20px" />
-                    <NormalText>Linkedin</NormalText>
+              <SimpleGrid
+                gap="30px"
+                column={["2"]}
+                minChildWidth={"370px"}
+                justifyContent="center"
+                w="90%"
+                m="30px auto 0 auto"
+              >
+                <Box w="100%">
+                  <Divider />
+                  <Box h="150"></Box>
+                </Box>
+                <Box w="100%">
+                  <Divider />
+                  <Box h="150" m="15px 0" w="100%" textAlign="center">
+                    <Box alignItems="center" display="flex">
+                      <BsLinkedin size="20px" />
+                      <NormalText text={"Linkedin"} />
+                    </Box>
+                    <Box alignItems="center" display="flex">
+                      <BsLinkedin size="20px" />
+                      <NormalText text={"Linkedin"} />
+                    </Box>
                   </Box>
                 </Box>
+              </SimpleGrid>
+              <HStack
+                m="25px auto"
+                w="80%"
+                display="flex"
+                as="form"
+                onSubmit={() => formik.handleSubmit}
+              >
+                <SimpleGrid
+                  w="100%"
+                  gap={"20px"}
+                  columns={3}
+                  m="0 auto"
+                  justifyContent="center"
+                  minChildWidth="370px"
+                >
+                  <FormControl
+                    marginRight="15px"
+                    width="100%"
+                    m="0 auto"
+                    justifyContent="center"
+                  >
+                    <Input
+                      _focus={{ outline: "none" }}
+                      placeholder="Nome"
+                      name="name"
+                      onChange={formik.handleChange}
+                      value={formik.values.name}
+                    ></Input>
+                  </FormControl>
+                  <FormControl
+                    marginRight="15px"
+                    width="100%"
+                    m="0 auto"
+                    justifyContent="center"
+                  >
+                    <Input
+                      _focus={{ outline: "none" }}
+                      placeholder="Escreva um comentário"
+                      name="comment"
+                      onChange={formik.handleChange}
+                      value={formik.values.comment}
+                    ></Input>
+                  </FormControl>
+                  <Button
+                    _focus={{ outline: "none" }}
+                    type="submit"
+                    width="100%"
+                    m="0 auto"
+                    justifyContent="center"
+                  >
+                    Submit
+                  </Button>
+                </SimpleGrid>
+              </HStack>
+              <Box w="90%" m="0 auto" display="flex" flexWrap="wrap">
+                <SimpleGrid
+                  w="100%"
+                  column={"3"}
+                  gap={"25px"}
+                  minChildWidth="220px"
+                >
+                  {(comments ?? [] ?? data?.data.data).map((comment) => {
+                    return (
+                      <HStack display="block" m="2%" key={_.uniqueId()}>
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          borderBottom="1px solid rgba(115, 115, 115, 0.6)"
+                          justifyContent="space-between"
+                          w="100%"
+                        >
+                          <FiUser size="23" />
+                          <NormalText text={comment.name} />
+                        </Box>
+                        <Box>
+                          <NormalText text={comment.comment} />
+                        </Box>
+                      </HStack>
+                    );
+                  })}
+                </SimpleGrid>
               </Box>
-            </SimpleGrid>
-            <HStack
-              m="25px auto"
-              w="80%"
-              display="flex"
-              as="form"
-              onSubmit={() => formik.handleSubmit}
-            >
-              <SimpleGrid
-                w="100%"
-                gap={"20px"}
-                columns={3}
-                m="0 auto"
-                justifyContent="center"
-                minChildWidth="370px"
-              >
-                <FormControl
-                  marginRight="15px"
-                  width="100%"
-                  m="0 auto"
-                  justifyContent="center"
-                >
-                  <Input
-                    _focus={{ outline: "none" }}
-                    placeholder="Nome"
-                    name="name"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
-                  ></Input>
-                </FormControl>
-                <FormControl
-                  marginRight="15px"
-                  width="100%"
-                  m="0 auto"
-                  justifyContent="center"
-                >
-                  <Input
-                    _focus={{ outline: "none" }}
-                    placeholder="Escreva um comentário"
-                    name="comment"
-                    onChange={formik.handleChange}
-                    value={formik.values.comment}
-                  ></Input>
-                </FormControl>
-                <Button
-                  _focus={{ outline: "none" }}
-                  type="submit"
-                  width="100%"
-                  m="0 auto"
-                  justifyContent="center"
-                >
-                  Submit
-                </Button>
-              </SimpleGrid>
-            </HStack>
-            <Box w="90%" m="0 auto" display="flex" flexWrap="wrap">
-              <SimpleGrid
-                w="100%"
-                column={"3"}
-                gap={"25px"}
-                minChildWidth="220px"
-              >
-                {(comments ?? [] ?? data?.data.data).map((comment) => {
-                  return (
-                    <HStack display="block" m="2%" key={_.uniqueId()}>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        borderBottom="1px solid rgba(115, 115, 115, 0.6)"
-                        justifyContent="space-between"
-                        w="100%"
-                      >
-                        <FiUser size="23" />
-                        <NormalText>{comment.name}</NormalText>
-                      </Box>
-                      <Box>
-                        <NormalText>{comment.comment}</NormalText>
-                      </Box>
-                    </HStack>
-                  );
-                })}
-              </SimpleGrid>
             </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
-
-
-
     </>
   );
 }

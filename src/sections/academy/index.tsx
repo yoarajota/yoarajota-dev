@@ -97,9 +97,8 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
                       modal.onOpen();
                     },
                   }}
-                >
-                  {msg.academy_name}
-                </NormalText>
+                  text={msg.academy_name}
+                />
                 <BsInfoLg color={Colors.Gray} />
               </Box>
               <Box
@@ -121,12 +120,11 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
                       modal.onOpen();
                     },
                   }}
-                >
-                  {msg.academy_course}
-                </NormalText>
+                  text={msg.academy_course}
+                />
                 <BsInfoLg color={Colors.Gray} />
               </Box>
-              <NormalText>{msg.academy_start}</NormalText>
+              <NormalText text={msg.academy_start} />
             </Box>
             <Box marginTop="calc(2em - 10px)" w="50%">
               <InfinitySlideCarousel list={msg.academy_subjects_list} />
@@ -146,15 +144,15 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
       </Box>
       <Box id="academic-small" minH="20em" position="relative">
         <Box m="2em auto 0 auto" w="80%" textAlign="left" position="relative">
-          <NormalText>
-            <p
+          <NormalText text={msg.academy_name} />
+            {/* <p
               className="fit-content"
               onMouseLeave={() => dispatch({ type: ACADEMY, value: false })}
               onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}
             >
               {msg.academy_name}
-            </p>
-          </NormalText>
+            </p> */}
+          {/* </NormalText> */}
           <motion.div
             className="academy-extra-info"
             transition={{ type: "spring", mass: 0.4, delay: 0.1 }}
@@ -163,23 +161,23 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
             }
           >
             <NormalText customFontSize="0.95rem">
-              <div
+              {/* <div
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(msg.academy_extra_info),
                 }}
-              />
+              /> */}
             </NormalText>
           </motion.div>
-          <NormalText>
-            <p
+          <NormalText text={msg.academy_course}>
+            {/* <p
               className="fit-content"
               onMouseLeave={() => dispatch({ type: COURSE, value: false })}
               onMouseEnter={() => dispatch({ type: COURSE, value: true })}
             >
               {msg.academy_course}
-            </p>
+            </p> */}
           </NormalText>
-          <motion.div
+          {/* <motion.div
             className="academy-extra-info"
             transition={{ type: "spring", mass: 0.4, delay: 0.1 }}
             animate={
@@ -193,8 +191,8 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
                 }}
               />
             </NormalText>
-          </motion.div>
-          <NormalText>{msg.academy_start}</NormalText>
+          </motion.div> */}
+          <NormalText text={msg.academy_start} />
           <Box w="40%"></Box>
         </Box>
         <Box w="25%"></Box>

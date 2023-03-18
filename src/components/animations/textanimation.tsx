@@ -3,9 +3,9 @@ import NormalText from "../typography/normaltext";
 import Titles from "../typography/titles";
 
 function TextAnimation(props: {
-  text: string
-  title?: boolean | null,
-  size?: string
+  text: string;
+  title?: boolean | null;
+  size?: string;
 }) {
   return (
     <motion.div
@@ -15,9 +15,9 @@ function TextAnimation(props: {
       transition={{ duration: 0.3 }}
     >
       {!props.title ? (
-        <NormalText customFontSize={null}>{props.text}</NormalText>
+        <NormalText text={props.text}></NormalText>
       ) : (
-          <Titles size={props.size}>{props.text}</Titles>
+        <Titles size={props.size}>{props.text}</Titles>
       )}
     </motion.div>
   );

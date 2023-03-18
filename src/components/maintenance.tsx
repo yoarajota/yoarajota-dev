@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FiAlertTriangle } from "react-icons/fi";
 import NormalText from "./typography/normaltext";
 import { LanguageContext } from "components/contexts/language";
@@ -10,6 +10,10 @@ import { Colors } from "asset/enums";
 function Maintenance() {
   const { msg } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState<boolean>(true);
+
+  useEffect(() => {
+    setIsOpen(!localStorage.getItem("meintenance"));
+  }, []);
 
   return (
     <AnimatePresence>
@@ -23,17 +27,17 @@ function Maintenance() {
           }}
           className="maintenance-wrap"
         >
-          <Box onClick={() => {
-            setIsOpen(false);
-          }}>
+          <Box
+            onClick={() => {
+              localStorage.setItem("meintenance", "1");
+              setIsOpen(false);
+            }}
+          >
             <Box>
               <FiAlertTriangle />
             </Box>
-            <NormalText customColor={Colors.Black}>{msg?.alert}</NormalText>
-            <Box
-              _hover={{ opacity: 0.6 }}
-
-            >
+            <NormalText customColor={Colors.Black} text={msg?.alert} />
+            <Box _hover={{ opacity: 0.6 }}>
               <GrFormClose />
             </Box>
           </Box>

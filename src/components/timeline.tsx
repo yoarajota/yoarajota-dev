@@ -1,8 +1,4 @@
-import {
-  Box,
-  Tooltip
-} from "@chakra-ui/react";
-
+import { Box, Tooltip } from "@chakra-ui/react";
 
 import { Colors } from "asset/enums";
 import { keyable, Timeline } from "asset/types";
@@ -10,13 +6,16 @@ import _ from "lodash";
 import { useCallback } from "react";
 import TimeLinePoints from "./animations/timelinePoints";
 
-function Timeline({ data, setInfo, scrollYProgress }: Timeline) {
-  const handleInfo = useCallback((val:keyable) => {
-    setInfo((p: Array<any>) => {
-      if (_.isEqual(p, val)) return {};
-      return val;
-    });
-  }, [setInfo]);
+function Timeline({ data, setInfo, scrollYProgress, info }: Timeline) {
+  const handleInfo = useCallback(
+    (val: keyable) => {
+      setInfo((p: Array<any>) => {
+        if (_.isEqual(p, val)) return {};
+        return val;
+      });
+    },
+    [setInfo]
+  );
 
   return (
     <Box
@@ -40,8 +39,18 @@ function Timeline({ data, setInfo, scrollYProgress }: Timeline) {
 
       {data?.map((item, index) => {
         return (
-          <TimeLinePoints index={index} key={index} scrollYProgress={scrollYProgress} sWidth={item.progress}>
-            <Tooltip hasArrow label={`${item.level}  - ${item.popover_text}`} bg={Colors.Black} color={Colors.Gray}>
+          <TimeLinePoints
+            index={index}
+            key={_.uniqueId()}
+            scrollYProgress={scrollYProgress}
+            sWidth={item.progress}
+          >
+            <Tooltip
+              hasArrow
+              label={`${item.level}  - ${item.popover_text}`}
+              bg={Colors.Black}
+              color={Colors.Gray}
+            >
               <Box
                 onClick={() => {
                   handleInfo(item);
@@ -49,12 +58,14 @@ function Timeline({ data, setInfo, scrollYProgress }: Timeline) {
                 cursor="pointer"
                 w="20px"
                 h="20px"
-                overflow='hidden'
+                overflow="hidden"
                 minWidth="20px"
                 border={`2px solid ${Colors.Black}`}
                 borderRadius="360px"
                 backgroundColor={Colors.Orange}
-                transform="scale(1, 1)"
+                transform={
+                  info.id === item.id ? "scale(1.3, 1.3)" : "scale(1, 1)"
+                }
                 _hover={{
                   transform: "scale(1.3, 1.3)",
                 }}

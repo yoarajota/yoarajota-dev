@@ -24,10 +24,11 @@ export interface Children {
     children: React.ReactNode
 }
 
-export type defaultText = Info & Children & {
+export type defaultText = Info & {
     customColor?: string,
     functions?: keyable
     size?: string
+    text?: string | Array<string>
 }
 
 export type linkText = defaultText & {
@@ -58,7 +59,7 @@ export type SlideLeft = Children & Slide
 
 export type TimeLinePoints = Children & scrollYProgress & {
     sWidth: string,
-    index: number
+    index: number,
 }
 
 export type Levelers = {
@@ -97,6 +98,7 @@ export type Section = scrollYProgress & {
 export type Timeline = scrollYProgress & {
     data: Array<any>,
     setInfo: React.Dispatch<SetStateAction<Array[]>>,
+    info: keyable
 }
 
 export type DefaultAnimatedContainerType = Children & {
