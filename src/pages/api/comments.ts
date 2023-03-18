@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
-import { defaultResponse } from "../../src/api/assset/types";
+import { defaultResponse } from "asset/types";
 import Comments from "./models/Comments";
 
 export default async function handler(

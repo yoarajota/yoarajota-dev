@@ -5,19 +5,18 @@ import {
   FormControl,
   HStack,
   Input,
-  InputGroup,
   SimpleGrid,
-  Text,
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import Titles from "../../src/components/typography/titles";
+import Titles from "../../components/typography/titles";
 import { FiUser } from "react-icons/fi";
 import { useQuery } from "react-query";
 import { BsLinkedin } from "react-icons/bs";
-import NormalText from "../../src/components/typography/normaltext";
+import NormalText from "../../components/typography/normaltext";
+import _ from "lodash";
 
 function Extra() {
   const toast = useToast();
@@ -34,7 +33,7 @@ function Extra() {
     if (!isLoading) {
       setComments(data?.data.data);
     }
-  }, [isLoading]);
+  }, [data?.data.data, isLoading]);
 
   const formik = useFormik({
     initialValues: {
@@ -170,7 +169,7 @@ function Extra() {
               >
                 {(comments ?? [] ?? data?.data.data).map((comment) => {
                   return (
-                    <HStack display="block" m="2%">
+                    <HStack display="block" m="2%" key={_.uniqueId()}>
                       <Box
                         display="flex"
                         alignItems="center"

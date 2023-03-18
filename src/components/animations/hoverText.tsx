@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
+import { Children } from "asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
-import { Children } from "../../assset/types";
 
 function HoverText({ children }: Children) {
   return (
