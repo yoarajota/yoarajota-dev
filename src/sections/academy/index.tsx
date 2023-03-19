@@ -1,6 +1,4 @@
-import {
-  Box, Center,
-} from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import { useContext, useEffect, useReducer, useState } from "react";
 import Titles from "../../components/typography/titles";
 import api from "../../api/axios";
@@ -15,16 +13,16 @@ import InfinitySlideCarousel from "components/infinitySlideCarousel";
 import { Colors } from "asset/enums";
 import InfinityBoxSlideCarousel from "components/infinityBoxSlideCarousel";
 import LinkText from "components/typography/linkText";
-import { BsInfoLg } from "react-icons/bs"
+import { BsInfoLg } from "react-icons/bs";
 
-const ACADEMY = 1
-const COURSE = 2
+const ACADEMY = 1;
+const COURSE = 2;
 const reducer = (state: keyable, action: keyable) => {
   switch (action.type) {
     case ACADEMY:
-      return { ...state, academy: action.value }
+      return { ...state, academy: action.value };
     case COURSE:
-      return { ...state, course: action.value }
+      return { ...state, course: action.value };
     default:
       return state;
   }
@@ -43,7 +41,10 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
 
   const [info, setInfo] = useState<Info>({});
   const [fetched, setFetched] = useState<boolean>(false);
-  const [hovered, dispatch] = useReducer(reducer, { academy: false, course: false });
+  const [hovered, dispatch] = useReducer(reducer, {
+    academy: false,
+    course: false,
+  });
 
   useEffect(() => {
     if (callApi && !fetched) {
@@ -60,7 +61,7 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hookedYPosition]);
 
   return (
@@ -142,63 +143,6 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
           ))}
         </Center>
       </Box>
-      <Box id="academic-small" minH="20em" position="relative">
-        <Box m="2em auto 0 auto" w="80%" textAlign="left" position="relative">
-          <NormalText text={msg.academy_name} />
-            {/* <p
-              className="fit-content"
-              onMouseLeave={() => dispatch({ type: ACADEMY, value: false })}
-              onMouseEnter={() => dispatch({ type: ACADEMY, value: true })}
-            >
-              {msg.academy_name}
-            </p> */}
-          {/* </NormalText> */}
-          <motion.div
-            className="academy-extra-info"
-            transition={{ type: "spring", mass: 0.4, delay: 0.1 }}
-            animate={
-              hovered.academy ? { maxHeight: "15em" } : { maxHeight: "0em" }
-            }
-          >
-            <NormalText customFontSize="0.95rem">
-              {/* <div
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(msg.academy_extra_info),
-                }}
-              /> */}
-            </NormalText>
-          </motion.div>
-          <NormalText text={msg.academy_course}>
-            {/* <p
-              className="fit-content"
-              onMouseLeave={() => dispatch({ type: COURSE, value: false })}
-              onMouseEnter={() => dispatch({ type: COURSE, value: true })}
-            >
-              {msg.academy_course}
-            </p> */}
-          </NormalText>
-          {/* <motion.div
-            className="academy-extra-info"
-            transition={{ type: "spring", mass: 0.4, delay: 0.1 }}
-            animate={
-              hovered.course ? { maxHeight: "15em" } : { maxHeight: "0em" }
-            }
-          >
-            <NormalText customFontSize="0.95rem">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(msg.academy_course_info),
-                }}
-              />
-            </NormalText>
-          </motion.div> */}
-          <NormalText text={msg.academy_start} />
-          <Box w="40%"></Box>
-        </Box>
-        <Box w="25%"></Box>
-      </Box>
-
-      <Box minH="14em"></Box>
     </Box>
   );
 }
