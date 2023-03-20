@@ -48,7 +48,7 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.15}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={0} motioned={motioned}>
+      <AnimatedContainer end={3} motioned={motioned}>
         <Academy
           modal={{ isOpen, onClose, onOpen, setModalData }}
           scrollYProgress={motioned}

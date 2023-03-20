@@ -28,7 +28,7 @@ const reducer = (state: keyable, action: keyable) => {
   }
 };
 
-function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
+function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
   const { lang, msg } = useContext(LanguageContext);
 
   const { data, refetch } = useQuery(
@@ -41,10 +41,6 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
 
   const [info, setInfo] = useState<Info>({});
   const [fetched, setFetched] = useState<boolean>(false);
-  const [hovered, dispatch] = useReducer(reducer, {
-    academy: false,
-    course: false,
-  });
 
   useEffect(() => {
     if (callApi && !fetched) {
@@ -78,7 +74,7 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
             display="flex"
             borderBottom={`1px dotted ${Colors.Purple}`}
           >
-            <Box marginTop="2em" w="50%" textAlign="left" position="relative">
+            <motion.div className="first-container-academy">
               <Box
                 cursor="pointer"
                 marginBottom="0.5em"
@@ -126,7 +122,7 @@ function Academy({ callApi, hookedYPosition, modal }: AcademyType) {
                 <BsInfoLg color={Colors.Gray} />
               </Box>
               <NormalText text={msg.academy_start} />
-            </Box>
+            </motion.div>
             <Box marginTop="calc(2em - 10px)" w="50%">
               <InfinitySlideCarousel list={msg.academy_subjects_list} />
             </Box>

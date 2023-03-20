@@ -78,11 +78,16 @@
   flex-direction: column;
 }
 
-#academic-big>div>div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.first-container-academy {
+  margin-top: 2em;
+  width: 50%;
+  text-align: left; 
+  position: relative;
+}
+
+.second-container-academy {
+  margin-top: calc(2em - 10px);
+  width: 50%;
 }
 
 #academic-small {
@@ -225,6 +230,13 @@
 }
 
 @media only screen and (max-width: 968px) {
+  #academic-big>div>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
   #academic-big>div {
     flex-direction: column;
   }
