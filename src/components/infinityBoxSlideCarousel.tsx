@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import { motion } from "framer-motion";
 import { wrap } from "popmotion";
-import { BiDownArrow, BiUpArrow } from "react-icons/bi";
+import { BiDownArrow, BiLeftArrow, BiRightArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
 import Titles from "./typography/titles";
 import NormalText from "./typography/normaltext";
@@ -88,7 +88,7 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
     return (
         <Box textAlign='center' display='flex' justifyContent='center' alignItems='center' gap='20px'>
             <Box color={Colors.Orange} onClick={() => { paginate(1) }}>
-                <BiUpArrow />
+                <BiLeftArrow />
             </Box>
             <Box overflow="hidden" width='50em' justifyContent='center' display='flex'>
                 <AnimatePresence exitBeforeEnter>
@@ -140,7 +140,7 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                 </AnimatePresence>
             </Box>
             <Box color={Colors.Orange} onClick={() => { paginate(-1) }}>
-                <BiDownArrow />
+                <BiRightArrow />
             </Box>
         </Box>
     );

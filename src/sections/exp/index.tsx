@@ -47,7 +47,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   }, [hookedYPosition]);
 
   return (
-    <Box w="100%" textAlign="center" minHeight="100vh">
+    <Box w="100%" textAlign="center" minHeight="80vh">
       <Box paddingTop="65px">
         <Titles>Experiência Profissional</Titles>
       </Box>

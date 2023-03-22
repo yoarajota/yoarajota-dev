@@ -8,12 +8,13 @@ import { motion } from "framer-motion";
 import _ from "lodash";
 import { LanguageContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
-import DOMPurify from "isomorphic-dompurify";
 import InfinitySlideCarousel from "components/infinitySlideCarousel";
 import { Colors } from "asset/enums";
 import InfinityBoxSlideCarousel from "components/infinityBoxSlideCarousel";
 import LinkText from "components/typography/linkText";
 import { BsInfoLg } from "react-icons/bs";
+import FadeInContainer from "components/animations/fadeInContainer";
+import PopInContainer from "components/animations/popInContainer";
 
 const ACADEMY = 1;
 const COURSE = 2;
@@ -67,70 +68,71 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <Box
-            w="100%"
-            h="fit-content"
-            paddingBottom="3em"
-            display="flex"
-            borderBottom={`1px dotted ${Colors.Purple}`}
+          <FadeInContainer
+            end={5} motioned={scrollYProgress} 
+            classes="wrap-itens-academy"
           >
-            <motion.div className="first-container-academy">
-              <Box
-                cursor="pointer"
-                marginBottom="0.5em"
-                display="flex"
-                alignItems="center"
-                gap={"0.7em"}
-                className="underline"
-                w="fit-content"
-              >
-                <NormalText
-                  functions={{
-                    onClick: () => {
-                      modal.setModalData({
-                        title: msg.academy_name,
-                        text: msg.academy_extra_info,
-                      });
-                      modal.onOpen();
-                    },
-                  }}
-                  text={msg.academy_name}
-                />
-                <BsInfoLg color={Colors.Gray} />
-              </Box>
-              <Box
-                cursor="pointer"
-                marginBottom="0.5em"
-                display="flex"
-                alignItems="center"
-                gap={"0.7em"}
-                className="underline"
-                w="fit-content"
-              >
-                <NormalText
-                  functions={{
-                    onClick: () => {
-                      modal.setModalData({
-                        title: msg.academy_course,
-                        text: msg.academy_course_info,
-                      });
-                      modal.onOpen();
-                    },
-                  }}
-                  text={msg.academy_course}
-                />
-                <BsInfoLg color={Colors.Gray} />
-              </Box>
-              <NormalText text={msg.academy_start} />
-            </motion.div>
+            <Box className="first-container-academy">
+                <Box
+                  cursor="pointer"
+                  marginBottom="0.5em"
+                  display="flex"
+                  alignItems="center"
+                  gap={"0.7em"}
+                  className="underline"
+                  w="fit-content"
+                >
+                  <NormalText
+                    functions={{
+                      onClick: () => {
+                        modal.setModalData({
+                          title: msg.academy_name,
+                          text: msg.academy_extra_info,
+                        });
+                        modal.onOpen();
+                      },
+                    }}
+                    text={msg.academy_name}
+                  />
+                  <BsInfoLg color={Colors.Gray} />
+                </Box>
+                <Box
+                  cursor="pointer"
+                  marginBottom="0.5em"
+                  display="flex"
+                  alignItems="center"
+                  gap={"0.7em"}
+                  className="underline"
+                  w="fit-content"
+                >
+                  <NormalText
+                    functions={{
+                      onClick: () => {
+                        modal.setModalData({
+                          title: msg.academy_course,
+                          text: msg.academy_course_info,
+                        });
+                        modal.onOpen();
+                      },
+                    }}
+                    text={msg.academy_course}
+                  />
+                  <BsInfoLg color={Colors.Gray} />
+                </Box>
+                <NormalText text={msg.academy_start} />
+            </Box>
             <Box marginTop="calc(2em - 10px)" w="50%">
               <InfinitySlideCarousel list={msg.academy_subjects_list} />
             </Box>
-          </Box>
+          </FadeInContainer>
         </Box>
-        <InfinityBoxSlideCarousel
-          list={["AA", "BB", "CC", "DD", "EE", "FF", "GG"]}
-        />
+        <Box overflow='hidden' h='fit-content'>
+          <PopInContainer end={5} motioned={scrollYProgress}>
+            <InfinityBoxSlideCarousel
+              list={["AA", "BB", "CC", "DD", "EE", "FF", "GG"]}
+            />
+          </PopInContainer>
+        </Box>
         <Center gap="2em" p="0 0 1em 0" m={"0 0 1em 0"}>
           {["asçlkdaçslkdsalçd", "çlaskdçlsakçldsa"].map((a: any, i) => (
             <Center key={_.uniqueId() + "link"}>

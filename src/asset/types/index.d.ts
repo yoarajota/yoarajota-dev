@@ -103,7 +103,8 @@ export type Timeline = scrollYProgress & {
 
 export type DefaultAnimatedContainerType = Children & {
     motioned: MotionValue<number>
-    end: number
+    end: number,
+    classes?: string
 }
 
 export type ImageAndButtonType = {

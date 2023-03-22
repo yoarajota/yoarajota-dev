@@ -42,3 +42,24 @@ export function createArrayAnimatedContainer(end: number): keyable {
   }
   return { pixels, opacityValue, motionValueArray };
 }
+
+export function createArrayPopInContainer(end: number, from: number): keyable {
+  let pixels: Array<number> = [];
+  let motionValueArray: Array<number> = [];
+  for (let i = 0; i < 20; i++) {
+    if (i === end + 1) {
+      pixels.push(from/2);
+    } else if (i > end) {
+      pixels.push(0);
+    } else {
+      pixels.push(from);
+    }
+
+    motionValueArray.push(
+      parseFloat(
+        ((motionValueArray[motionValueArray.length - 1] ?? 0) + 0.05).toFixed(2)
+      )
+    );
+  }
+  return { pixels, motionValueArray };
+}

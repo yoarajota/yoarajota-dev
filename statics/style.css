@@ -474,3 +474,15 @@ body::-webkit-scrollbar {
 .wrap-box-carousel {
   height: 15em;
 }
+
+.wrap-itens-academy {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 3em;
+  display: flex;
+  border-bottom: 1px dotted var(--purple)
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

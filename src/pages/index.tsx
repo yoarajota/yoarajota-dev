@@ -48,7 +48,7 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.15}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={3} motioned={motioned}>
+      <AnimatedContainer end={4} motioned={motioned}>
         <Academy
           modal={{ isOpen, onClose, onOpen, setModalData }}
           scrollYProgress={motioned}
@@ -56,7 +56,7 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.35}
         />
       </AnimatedContainer>
-      <FadeInContainer end={6} motioned={motioned}>
+      <FadeInContainer end={8} motioned={motioned}>
         <Tec />
       </FadeInContainer>
 
