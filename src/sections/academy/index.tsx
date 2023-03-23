@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { AcademyType, Info, keyable } from "../../asset/types";
 import { motion } from "framer-motion";
 import _ from "lodash";
-import { LanguageContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
 import InfinitySlideCarousel from "components/infinitySlideCarousel";
 import { Colors } from "asset/enums";
@@ -30,7 +30,7 @@ const reducer = (state: keyable, action: keyable) => {
 };
 
 function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
-  const { lang, msg } = useContext(LanguageContext);
+  const { lang, msg, innerWidth } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
     "academy",
@@ -68,8 +68,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer
-            end={5} motioned={scrollYProgress} 
+          <FadeInContainer end={innerWidth < 860 ? 7 : 5} motioned={scrollYProgress}
             classes="wrap-itens-academy"
           >
             <Box className="first-container-academy">
@@ -127,7 +126,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
           </FadeInContainer>
         </Box>
         <Box overflow='hidden' h='fit-content'>
-          <PopInContainer end={5} motioned={scrollYProgress}>
+          <PopInContainer end={innerWidth < 860 ? 7 : 5} motioned={scrollYProgress}>
             <InfinityBoxSlideCarousel
               list={["AA", "BB", "CC", "DD", "EE", "FF", "GG"]}
             />

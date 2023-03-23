@@ -8,13 +8,13 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { LanguageContext } from "./contexts/language";
+import { ClientContext } from "./contexts/language";
 
 const Values = ["pt-BR", "en-US"];
 
 function LanguagePop() {
   const inputRef = React.createRef<HTMLInputElement>();
-  const { lang, changeLanguage } = useContext(LanguageContext);
+  const { lang, changeLanguage } = useContext(ClientContext);
   const [state, setState] = useState<string>(lang);
 
   const handleClick = useCallback(() => {

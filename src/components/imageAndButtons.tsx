@@ -5,11 +5,11 @@ import { SiLinkedin } from "react-icons/si";
 import api from "../api/axios";
 import { AiOutlineFilePdf } from "react-icons/ai";
 import { ImageAndButtonType } from "asset/types";
-import { LanguageContext } from "./contexts/language";
+import { ClientContext } from "./contexts/language";
 import { motion } from "framer-motion";
 
 function ImageAndButtons({ idString }: ImageAndButtonType) {
-  const { lang } = useContext(LanguageContext);
+  const { lang } = useContext(ClientContext);
   const [hovered, setHovered] = useState(false);
 
   const handleDownload = useCallback(() => {

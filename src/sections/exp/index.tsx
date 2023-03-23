@@ -11,11 +11,11 @@ import TextAnimation from "../../components/animations/textanimation";
 import { Section, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
-import { LanguageContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/language";
 import NormalText from "components/typography/normaltext";
 
 function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
-  const { lang } = useContext(LanguageContext);
+  const { lang } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
     "exp",
