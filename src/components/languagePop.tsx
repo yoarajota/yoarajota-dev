@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { ClientContext } from "./contexts/language";
+import { ClientContext } from "./contexts/client";
 
 const Values = ["pt-BR", "en-US"];
 

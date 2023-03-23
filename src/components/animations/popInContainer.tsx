@@ -1,5 +1,5 @@
 import { DefaultAnimatedContainerType } from "asset/types";
-import { ClientContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/client";
 import { createArrayPopInContainer } from "components/helpers";
 import { useTransform, motion } from "framer-motion";
 import { useContext, useMemo } from "react";

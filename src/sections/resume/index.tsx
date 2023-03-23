@@ -1,6 +1,6 @@
 import { Box, Center, Image } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
-import { ClientContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/client";
 import { useContext } from "react";
 import Skills from "../../components/skills";
 import Titles from "../../components/typography/titles";

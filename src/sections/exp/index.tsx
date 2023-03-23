@@ -11,7 +11,7 @@ import TextAnimation from "../../components/animations/textanimation";
 import { Section, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
-import { ClientContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 
 function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {

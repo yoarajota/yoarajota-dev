@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { FiAlertTriangle } from "react-icons/fi";
 import NormalText from "./typography/normaltext";
-import { ClientContext } from "components/contexts/language";
+import { ClientContext } from "components/contexts/client";
 import { GrFormClose } from "react-icons/gr";
 import { Colors } from "asset/enums";
 
