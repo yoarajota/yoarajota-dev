@@ -3,7 +3,7 @@ import Exp from "../../src/sections/exp";
 import Tec from "../../src/sections/tec";
 import Resume from "../../src/sections/resume";
 import Scrollbar from "../../src/components/scrollbar";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
@@ -12,12 +12,14 @@ import Academy from "sections/academy";
 import ModalWrap from "components/modal";
 import Maintenance from "components/maintenance";
 import { keyable } from "asset/types";
+import { ClientContext } from "components/contexts/client";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { innerHeight } = useContext(ClientContext);
 
   const { scrollYProgress } = useScroll({
     target: wrap,
@@ -48,7 +50,7 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.15}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={4} motioned={motioned}>
+      <AnimatedContainer end={innerHeight < 700 ? 6 : 4} motioned={motioned}>
         <Academy
           modal={{ isOpen, onClose, onOpen, setModalData }}
           scrollYProgress={motioned}
@@ -56,7 +58,7 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.35}
         />
       </AnimatedContainer>
-      <FadeInContainer end={8} motioned={motioned}>
+      <FadeInContainer end={innerHeight < 700 ? 11 : 8} motioned={motioned}>
         <Tec />
       </FadeInContainer>
 

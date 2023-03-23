@@ -30,7 +30,7 @@ const reducer = (state: keyable, action: keyable) => {
 };
 
 function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
-  const { lang, msg, innerWidth } = useContext(ClientContext);
+  const { lang, msg, innerWidth, innerHeight } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
     "academy",
@@ -68,7 +68,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer end={innerWidth < 860 ? 7 : 5} motioned={scrollYProgress}
+          <FadeInContainer end={innerWidth < 860 ? (innerHeight < 700 ? 8 : 7) : 5} motioned={scrollYProgress}
             classes="wrap-itens-academy"
           >
             <Box className="first-container-academy">
@@ -126,7 +126,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
           </FadeInContainer>
         </Box>
         <Box overflow='hidden' h='fit-content'>
-          <PopInContainer end={innerWidth < 860 ? 7 : 5} motioned={scrollYProgress}>
+          <PopInContainer end={innerWidth < 860 ? (innerHeight < 700 ? 9 : 7) : 5} motioned={scrollYProgress}>
             <InfinityBoxSlideCarousel
               list={["AA", "BB", "CC", "DD", "EE", "FF", "GG"]}
             />

@@ -12,7 +12,7 @@ export default function handler(
         {
           title: "Estudante Autodidata",
           time: "12 19 - ∞",
-          progress: "3%",
+          progress: "8%",
           id: 1,
           text1:
             "Mesmo desde pequeno por dentro da tecnologia, foi o começo do estudo da programação. Desdobrando-se para estudar tecnologia durante o tempo livre, baseado em material gratuito na Internet.",
@@ -26,7 +26,7 @@ export default function handler(
         {
           title: "Includer Tecnologia",
           time: "04 22 - xx xx",
-          progress: "20%",
+          progress: "25%",
           id: 2,
           text1:
             "Primeiro emprego como desenvolvedor. A Includer Tecnologia é uma startup localizada em Bento Gonçalves - RS, focada no desenvolvimento de soluções empresariais",

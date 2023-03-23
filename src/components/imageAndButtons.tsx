@@ -13,8 +13,6 @@ function ImageAndButtons({ idString }: ImageAndButtonType) {
   const [hovered, setHovered] = useState(false);
 
   const handleDownload = useCallback(() => {
-    console.log(lang);
-
     api
       .get("api/download", {
         params: { lang },
