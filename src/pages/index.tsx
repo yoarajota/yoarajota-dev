@@ -43,7 +43,7 @@ export default function Home() {
       <Scrollbar scrollY={scrollYProgress} />
       <LanguagePop />
       <Resume />
-      <AnimatedContainer end={0} motioned={motioned}>
+      <AnimatedContainer end={innerHeight < 700 ? 2 : 0} motioned={motioned}>
         <Exp
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}
