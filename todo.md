@@ -19,7 +19,9 @@
 <p> phill 413 </p>
 <p> end box carousel </p>
 <p> deploy vercel </p>
-<p> transform the language context to generic context </p>
+<p> transform the language context to generic context ✅ </p>
+<p> keep testing mobo </p>
+<p> study chakra performance </p>
 
 texts;
 
