@@ -1,11 +1,10 @@
-import { Box, Center, Image } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
 import { useContext } from "react";
 import Skills from "../../components/skills";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
-import DOMPurify from "isomorphic-dompurify";
 import NormalText from "components/typography/normaltext";
 import { motion } from "framer-motion";
 import ImageAndButtons from "components/imageAndButtons";

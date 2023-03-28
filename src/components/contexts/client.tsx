@@ -34,7 +34,15 @@ export const ClientContextProvider = ({ children }: Children) => {
   }, []);
 
   return (
-    <ClientContext.Provider value={{ msg, changeLanguage, lang, innerWidth: windowValues.innerWidth, innerHeight: windowValues.innerHeight }}>
+    <ClientContext.Provider
+      value={{
+        msg,
+        changeLanguage,
+        lang,
+        innerWidth: windowValues.innerWidth,
+        innerHeight: windowValues.innerHeight,
+      }}
+    >
       {children}
     </ClientContext.Provider>
   );

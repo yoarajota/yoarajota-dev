@@ -1,11 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React, {
-  LegacyRef,
-  MutableRefObject,
   useCallback,
   useContext,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import { ClientContext } from "./contexts/client";
