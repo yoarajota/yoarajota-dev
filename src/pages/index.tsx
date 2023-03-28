@@ -19,7 +19,7 @@ export default function Home() {
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { innerHeight } = useContext(ClientContext);
+  const { innerHeight, innerWidth } = useContext(ClientContext);
 
   const { scrollYProgress } = useScroll({
     target: wrap,
