@@ -1,10 +1,6 @@
 import { keyable } from "asset/types";
-import { useContext } from "react";
-import { ClientContext } from "./contexts/client";
 
-export function createArraysTimeLinePoints(end: string): Array<any> {
-  const { innerHeight } = useContext(ClientContext);
-
+export function createArraysTimeLinePoints(end: string, innerHeight: number): Array<any> {
   var set: Array<number> = [0];
   while (!set.includes(1)) {
     set.push(parseFloat((set[set.length - 1] + 0.05).toFixed(2)));
