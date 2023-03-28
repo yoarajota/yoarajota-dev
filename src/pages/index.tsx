@@ -40,10 +40,10 @@ export default function Home() {
   return (
     <Box ref={wrap} position="relative">
       <Maintenance />
-      <Scrollbar scrollY={scrollYProgress} />
+      {innerWidth > 767 && <Scrollbar scrollY={scrollYProgress} />}
       <LanguagePop />
       <Resume />
-      <AnimatedContainer end={innerHeight < 700 ? 2 : 0} motioned={motioned}>
+      <AnimatedContainer end={innerWidth < 700 ? 2 : 0} motioned={motioned}>
         <Exp
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}

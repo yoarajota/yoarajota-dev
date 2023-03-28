@@ -9,8 +9,20 @@ export const ClientContextProvider = ({ children }: Children) => {
   const [lang, setLang] = useState<string>(["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US');
   const [windowValues, setWindowValues] = useState<keyable>({});
   useEffect(() => {
-    setWindowValues({innerWidth: window.innerWidth, innerHeight: window.innerHeight})
-  }, [])
+    setWindowValues({
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    });
+  }, []);
+  const handleResize = () =>
+    setWindowValues({
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    });
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   useEffect(() => {
     setMsg(Messages[["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
