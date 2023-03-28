@@ -14,15 +14,15 @@ export const ClientContextProvider = ({ children }: Children) => {
       innerHeight: window.innerHeight,
     });
   }, []);
-  const handleResize = () =>
-    setWindowValues({
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight,
-    });
   useEffect(() => {
+    const handleResize = () =>
+      setWindowValues({
+        innerWidth: window.innerWidth,
+        innerHeight: window.innerHeight,
+      });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+  }, []);
 
   useEffect(() => {
     setMsg(Messages[["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);

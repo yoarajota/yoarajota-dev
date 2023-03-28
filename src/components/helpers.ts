@@ -1,7 +1,7 @@
 import { keyable } from "asset/types";
 
 export function createArraysTimeLinePoints(end: string, innerHeight: number): Array<any> {
-  var set: Array<number> = [0];
+  let set: Array<number> = [0];
   while (!set.includes(1)) {
     set.push(parseFloat((set[set.length - 1] + 0.05).toFixed(2)));
   }

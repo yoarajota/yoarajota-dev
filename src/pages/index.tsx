@@ -4,7 +4,7 @@ import Tec from "../../src/sections/tec";
 import Resume from "../../src/sections/resume";
 import Scrollbar from "../../src/components/scrollbar";
 import { useContext, useEffect, useRef, useState } from "react";
-import { useScroll, motion, useTransform, useSpring } from "framer-motion";
+import { useScroll, useSpring } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
 import LanguagePop from "components/languagePop";

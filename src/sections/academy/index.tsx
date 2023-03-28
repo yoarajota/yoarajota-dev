@@ -1,10 +1,9 @@
 import { Box, Center } from "@chakra-ui/react";
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Titles from "../../components/typography/titles";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import { AcademyType, Info, keyable } from "../../asset/types";
-import { motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";

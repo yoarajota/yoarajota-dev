@@ -1,11 +1,11 @@
 import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
 import { createArraysTimeLinePoints } from "components/helpers";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useContext, useEffect, useMemo } from "react";
-import { TimeLinePoints } from "../../asset/types";
+import { motion, useTransform } from "framer-motion";
+import { useContext, useMemo } from "react";
+import { TimeLinePointsType } from "../../asset/types";
 
-function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePoints) {
+function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePointsType) {
   const { innerHeight } = useContext(ClientContext);
   const arr = useMemo(() => createArraysTimeLinePoints(sWidth, innerHeight), [sWidth, innerHeight]);
 

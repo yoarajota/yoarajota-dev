@@ -235,15 +235,12 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   #academic-big>div {
     flex-direction: column;
-  }
-
-  #academic-big>div>div {
-    margin-right: auto;
-    margin-left: auto;
   }
 }
 

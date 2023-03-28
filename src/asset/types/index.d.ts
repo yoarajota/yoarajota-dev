@@ -57,7 +57,7 @@ interface Width {
 
 export type SlideLeft = Children & Slide
 
-export type TimeLinePoints = Children & scrollYProgress & {
+export type TimeLinePointsType = Children & scrollYProgress & {
     sWidth: string,
     index: number,
 }
