@@ -67,7 +67,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer end={innerWidth < 860 ? (innerHeight < 700 ? 8 : 7) : 5} motioned={scrollYProgress}
+          <FadeInContainer delay={1} end={innerWidth < 860 ? (innerHeight < 700 ? 8 : 7) : 5} motioned={scrollYProgress}
             classes="wrap-itens-academy"
           >
             <Box className="first-container-academy">

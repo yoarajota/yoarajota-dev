@@ -1,7 +1,11 @@
 import { keyable } from "asset/types";
+import { useContext } from "react";
+import { ClientContext } from "./contexts/client";
 
-export function createArraysTimeLinePoints(end: string, innerHeight: number): Array<any> {
-  let set: Array<number> = [0];
+export function createArraysTimeLinePoints(end: string): Array<any> {
+  const { innerHeight } = useContext(ClientContext);
+
+  var set: Array<number> = [0];
   while (!set.includes(1)) {
     set.push(parseFloat((set[set.length - 1] + 0.05).toFixed(2)));
   }
@@ -18,15 +22,15 @@ export function createArraysTimeLinePoints(end: string, innerHeight: number): Ar
   return [set, arr];
 }
 
-export function createArrayAnimatedContainer(end: number): keyable {
+export function createArrayAnimatedContainer(end: number, delay: number = 0): keyable {
   let pixels: Array<string> = [];
   let opacityValue: Array<string> = [];
   let motionValueArray: Array<number> = [];
   for (let i = 0; i < 20; i++) {
-    if (i === end + 1) {
+    if (i - delay === end + 1) {
       pixels.push("-50%");
       opacityValue.push("0.5");
-    } else if (i > end) {
+    } else if (i - delay > end) {
       pixels.push("0%");
       opacityValue.push("1");
     } else {
