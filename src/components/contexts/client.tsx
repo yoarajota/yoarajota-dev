@@ -13,24 +13,30 @@ export const ClientContextProvider = ({ children }: Children) => {
       innerWidth: window.innerWidth,
       innerHeight: window.innerHeight,
     });
-  }, []);
-  useEffect(() => {
+
+    let storageLang = localStorage.getItem('lang');
+    if (storageLang) {
+      setLang(storageLang)
+    }
+    
+    setMsg(Messages[storageLang ? storageLang : ["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
+
     const handleResize = () =>
       setWindowValues({
         innerWidth: window.innerWidth,
         innerHeight: window.innerHeight,
       });
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    setMsg(Messages[["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
-  }, []);
-
   const changeLanguage = useCallback((value: string) => {
+    console.log(value, 'aaa')
+
     setLang(value);
     setMsg(Messages[value]);
+    localStorage.setItem('lang', value)
   }, []);
 
   return (

@@ -2,21 +2,18 @@ import { Box } from "@chakra-ui/react";
 import React, {
   useCallback,
   useContext,
-  useState,
 } from "react";
 import { ClientContext } from "./contexts/client";
 
-const Values = ["pt-BR", "en-US"];
+const VALUES = ["pt-BR", "en-US"];
 
 function LanguagePop() {
   const inputRef = React.createRef<HTMLInputElement>();
   const { lang, changeLanguage } = useContext(ClientContext);
-  const [state, setState] = useState<string>(lang);
 
   const handleClick = useCallback(() => {
-    setState(Values[Number(state === "pt-BR")]);
-    changeLanguage(Values[Number(state === "pt-BR")])
-  }, [changeLanguage, state]);
+    changeLanguage(VALUES[Number(lang === "pt-BR")])
+  }, [changeLanguage, lang]);
 
   return (
     <Box
@@ -35,7 +32,7 @@ function LanguagePop() {
         }}
       >
         <input
-          defaultChecked={state !== "pt-BR"}
+          defaultChecked={lang !== "pt-BR"}
           type="checkbox"
           className="checkbox"
           id="check"

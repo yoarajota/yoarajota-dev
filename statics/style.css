@@ -81,7 +81,7 @@
 .first-container-academy {
   margin-top: 2em;
   width: 50%;
-  text-align: left; 
+  text-align: left;
   position: relative;
 }
 
@@ -238,7 +238,7 @@
     margin-right: auto;
     margin-left: auto;
   }
-  
+
   #academic-big>div {
     flex-direction: column;
   }
@@ -431,7 +431,7 @@ body::-webkit-scrollbar {
   content: "pt-BR";
   position: absolute;
   top: 2px;
-  left: 2px;
+  left: 1px;
   width: 42.5px;
   height: 26px;
   color: var(--gray);
@@ -447,7 +447,7 @@ body::-webkit-scrollbar {
 #switch .checkbox:checked+.knobs:before {
   color: var(--black);
   content: "en-US";
-  left: 40px;
+  left: 41px;
   background-color: var(--gray);
 }
 
