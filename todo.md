@@ -23,6 +23,8 @@
 <p> keep testing mobo </p>
 <p> study chakra performance </p>
 <p> file names </p>
+<p> comments </p>
+<p> contact </p>
 
 texts;
 
