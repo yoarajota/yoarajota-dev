@@ -82,10 +82,6 @@ export type Scrollbar = {
   scrollY: MotionValue<number>;
 };
 
-export type Nodes = {
-  tech: integer;
-};
-
 interface scrollYProgress {
     scrollYProgress: MotionValue<number>
 }

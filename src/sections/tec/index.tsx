@@ -8,17 +8,14 @@ function Tec() {
       <Box w="100%" paddingTop="5em" textAlign="center">
         <Titles>Principais Tecnologias</Titles>
         <Box w="100%" flexDirection="column" display="flex">
-          {[1, 2].map((i) => (
             <Box
-              key={i + "tec"}
               position="relative"
-              h="100vh"
+              h="200vh"
               m="0 auto"
               width="70%"
             >
-              <Nodes tech={i} />
+              <Nodes />
             </Box>
-          ))}
         </Box>
       </Box>
     </>

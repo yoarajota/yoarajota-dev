@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-
+import React, {useMemo } from "react";
 import ReactFlow, {
   ReactFlowInstance,
   ReactFlowProvider,
@@ -12,32 +11,46 @@ import InitialElementsLaravel from "../../statics/inital-elements-laravel"
 import InitialEdgesLaravel from '../../statics/inital-edges-laravel'
 import NodeText from "./nodes/nodeText";
 import NodeHead from "./nodes/nodeHead";
-import { Nodes } from "asset/types";
-
-const Nodes = ({ tech }: Nodes) => {
+const Nodes = () => {
   const onLoad = (reactFlowInstance: ReactFlowInstance) => {
     reactFlowInstance.fitView();
   };
   const nodeTypes = useMemo(() => ({ NodeText: NodeText, NodeHead: NodeHead }), []);
 
-  const nodes = tech === 1 ? InitialElementsReactJs : InitialElementsLaravel; 
-  const edges = tech === 1 ? InitialEdgesReactJs : InitialEdgesLaravel; 
+  const { allNodes, allEdges } = useMemo(() => {
+    for (let item of InitialElementsLaravel) {
+      item.position.y += 330;
+      item.id = "l-" + item.id;
+    }
+
+    for (let item of InitialElementsReactJs) {
+      item.position.y -= 300;
+    }
+
+    for (let item of InitialEdgesLaravel) {
+      item.source = "l-" + item.source;
+      item.target = "l-" + item.target;
+    }
+
+    return {
+      allNodes: InitialElementsReactJs.concat(InitialElementsLaravel),
+      allEdges: InitialEdgesReactJs.concat(InitialEdgesLaravel),
+    };
+  }, []);
   
   return (
-    <>
       <ReactFlowProvider>
         <ReactFlow
           className="react-flow-provider"
           onInit={onLoad}
           defaultPosition={[100, 100]}
           maxZoom={1}
-          nodes={nodes}
+          nodes={allNodes}
           connectionLineType={ConnectionLineType.Bezier}
-          edges={edges}
+          edges={allEdges}
           nodeTypes={nodeTypes}
         />
       </ReactFlowProvider>
-    </>
   );
 };
 
