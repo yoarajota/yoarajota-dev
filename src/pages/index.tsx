@@ -13,6 +13,9 @@ import ModalWrap from "components/modal";
 import Maintenance from "components/maintenance";
 import { keyable } from "asset/types";
 import { ClientContext } from "components/contexts/client";
+import Objectives from "sections/objectives";
+import Interest from "sections/interest";
+import Phill413 from "sections/phill413";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -61,7 +64,11 @@ export default function Home() {
       <FadeInContainer end={innerHeight < 700 ? 11 : 8} motioned={motioned}>
         <Tec />
       </FadeInContainer>
-
+      <AnimatedContainer end={innerHeight < 700 ? 19 : 17} motioned={motioned}>
+        <Objectives />
+        <Interest />
+      </AnimatedContainer>
+      <Phill413 />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

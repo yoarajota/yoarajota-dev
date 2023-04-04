@@ -70,6 +70,12 @@ export type Levelers = {
     extraDelay?: number,
 }
 
+export type CardsType = {
+    title: string,
+    desc: string,
+    size?: string
+}
+
 
 export type CustomNodes = customFontSize & {
     targetPosition: Position;

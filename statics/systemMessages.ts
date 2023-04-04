@@ -37,6 +37,8 @@ const Messages: keyable = {
       "Desenvolvimentos de Sistemas",
       "Programação para Dispositivos Móveis",
     ],
+    objectives_title: "Objetivos",
+    interest_title: "Interesses"
   },
   "en-US": {
     alert:
@@ -74,6 +76,8 @@ const Messages: keyable = {
       "System Development",
       "Mobile Development",
     ],
+    objectives_title: "Objectives",
+    interest_title: "Interests"
   },
 };
 

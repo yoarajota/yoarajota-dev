@@ -8,7 +8,7 @@
 <p> education section </p>
 <p> tech section part of random stuffs </p>
 <p> pt-br and english ✅ </p>
-<p> objetivos </p>
+<p> objetivos ✅ </p>
 <p> passar static p dentro do src </p>
 <p> easteregg </p>
 <p> file names camelCase </p>
@@ -17,14 +17,15 @@
 <p> new resume layout ✅ </p> 
 <p> infinite scroll ✅ </p>
 <p> phill 413 </p>
-<p> end box carousel </p>
-<p> deploy vercel </p>
+<p> end box carousel ✅ </p>
+<p> deploy vercel ✅</p>
 <p> transform the language context to generic context ✅ </p>
 <p> keep testing mobo </p>
 <p> study chakra performance </p>
 <p> file names </p>
 <p> comments </p>
 <p> contact </p>
+<p> use show/hide chakra </p>
 
 texts;
 
