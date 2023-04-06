@@ -27,6 +27,7 @@
 <p> contact </p>
 <p> use show/hide chakra </p>
 <p> nextjs render bug </p>
+<p> make textes </p>
 
 texts;
 
