@@ -16,9 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
         <ClientContextProvider>
-          <div style={{ visibility: mounted ? 'visible' : 'hidden' }}>
+          {/* <div style={{ visibility: mounted ? 'visible' : 'hidden' }}> */}
             <Component {...pageProps} />
-          </div>
+          {/* </div> */}
         </ClientContextProvider>
       </ChakraProvider>
     </QueryClientProvider>

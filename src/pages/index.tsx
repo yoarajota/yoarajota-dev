@@ -16,6 +16,7 @@ import { ClientContext } from "components/contexts/client";
 import Objectives from "sections/objectives";
 import Interest from "sections/interest";
 import Phill413 from "sections/phill413";
+import Contact from "sections/contact";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -69,6 +70,7 @@ export default function Home() {
         <Interest />
       </AnimatedContainer>
       <Phill413 />
+      <Contact />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

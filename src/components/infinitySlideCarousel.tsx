@@ -1,22 +1,14 @@
 import { Box } from "@chakra-ui/react";
 import { Carousel, keyable } from "asset/types";
 import {
-  animate,
   AnimatePresence,
-  useAnimationControls,
-  useScroll,
 } from "framer-motion";
 import _ from "lodash";
 import React, {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import { motion } from "framer-motion";
 import { wrap } from "popmotion";
-import { dir } from "console";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
 import NormalText from "./typography/normaltext";
@@ -109,17 +101,17 @@ function InfinitySlideCarousel({ list }: Carousel) {
                     [-2, 2].includes(index)
                       ? "exit3"
                       : [-1, 1].includes(index)
-                      ? "exit"
-                      : "exit2"
+                        ? "exit"
+                        : "exit2"
                   }
                   className="box-carousel"
                   style={index === 0 ? {} : { scale: 0.9 }}
                   onClick={
                     [-1, 1].includes(index)
                       ? () => {
-                          paginate(index);
-                        }
-                      : () => {}
+                        paginate(index);
+                      }
+                      : () => { }
                   }
                 >
                   {list && (
@@ -128,8 +120,8 @@ function InfinitySlideCarousel({ list }: Carousel) {
                         list[imageIndex + index]
                           ? list[imageIndex + index]
                           : list[
-                              (list.length + index + imageIndex) % list.length
-                            ]
+                          (list.length + index + imageIndex) % list.length
+                          ]
                       )}
                     />
                   )}

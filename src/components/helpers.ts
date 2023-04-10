@@ -22,7 +22,7 @@ export function createArrayAnimatedContainer(end: number, delay: number = 0): ke
   let pixels: Array<string> = [];
   let opacityValue: Array<string> = [];
   let motionValueArray: Array<number> = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 40; i++) {
     if (i - delay === end + 1) {
       pixels.push("-50%");
       opacityValue.push("0.5");
@@ -46,7 +46,7 @@ export function createArrayAnimatedContainer(end: number, delay: number = 0): ke
 export function createArrayPopInContainer(end: number, from: number): keyable {
   let pixels: Array<number> = [];
   let motionValueArray: Array<number> = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 40; i++) {
     if (i === end + 1) {
       pixels.push(from/2);
     } else if (i > end) {
