@@ -28,7 +28,7 @@
 <p> use show/hide chakra </p>
 <p> nextjs render bug </p>
 <p> make textes </p>
-
+<p> npm install --save @iconscout/react-unicons-solid  || https://github.com/Iconscout/react-unicons-solid </p>
 texts;
 
 ptbr
