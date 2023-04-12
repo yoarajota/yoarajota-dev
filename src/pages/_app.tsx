@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // const [mounted, setMounted] = useState(false)
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [])
 
   return (
     <QueryClientProvider client={queryClient}>
