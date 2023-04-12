@@ -30,7 +30,7 @@
 <p> make textes </p>
 <p> npm install --save @iconscout/react-unicons-solid  || https://github.com/Iconscout/react-unicons-solid </p>
 texts;
-
+<p> concact card download clickable </p>
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
 Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP com um sistema web complexo. 
