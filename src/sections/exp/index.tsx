@@ -8,13 +8,13 @@ import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
-import { Section, Info } from "../../asset/types";
+import { Info, ExpType } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 
-function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
+function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpType) {
   const { lang } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
@@ -37,9 +37,9 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   }, [callApi, fetched, refetch]);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) < 0.175) {
+    if ((hookedYPosition ?? 0) < middleOfScreen) {
       setInfo({});
-    } else if ((hookedYPosition ?? 0) > 0.175 && _.isEmpty(info)) {
+    } else if ((hookedYPosition ?? 0) > middleOfScreen && _.isEmpty(info)) {
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
@@ -47,7 +47,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition }: Section) {
   }, [hookedYPosition]);
 
   return (
-    <Box w="100%" textAlign="center" minHeight="80vh">
+    <Box w="100%" textAlign="center" minHeight="100vh">
       <Box paddingTop="65px">
         <Titles>Experiência Profissional</Titles>
       </Box>

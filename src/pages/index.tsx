@@ -4,7 +4,7 @@ import Tec from "../../src/sections/tec";
 import Resume from "../../src/sections/resume";
 import Scrollbar from "../../src/components/scrollbar";
 import { useContext, useEffect, useRef, useState } from "react";
-import { useScroll, useSpring } from "framer-motion";
+import { useScroll, useSpring, useTransform } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
 import LanguagePop from "components/languagePop";
@@ -20,6 +20,7 @@ import Contact from "sections/contact";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,15 +31,26 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-  let motioned = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.0001,
-    restSpeed: 1,
-  });
+  const calcPercentageWithoutResumeSection = ( ref.current?.offsetHeight ?? 1) / (wrap.current?.offsetHeight  ?? 1);
+  const sum = useTransform(
+    scrollYProgress,
+    (value) => value + calcPercentageWithoutResumeSection
+  )
+
+  const motioned = useSpring(
+    sum,
+    {
+      stiffness: 120,
+      damping: 30,
+      restDelta: 0.0001,
+      restSpeed: 1,
+    }
+  );
 
   useEffect(() => {
-    scrollYProgress.onChange((v) => setHookedYPosition(v));
+    scrollYProgress.onChange((v) => {
+      setHookedYPosition(v);
+    });
   }, [scrollYProgress]);
 
   return (
@@ -46,12 +58,15 @@ export default function Home() {
       <Maintenance />
       {innerWidth > 767 && <Scrollbar scrollY={scrollYProgress} />}
       <LanguagePop />
-      <Resume />
-      <AnimatedContainer end={innerWidth < 700 ? 2 : 0} motioned={motioned}>
+      <Box ref={ref}>
+        <Resume />
+      </Box>
+      <AnimatedContainer end={innerWidth < 700 ? 4 : 2} motioned={motioned}>
         <Exp
+          middleOfScreen={calcPercentageWithoutResumeSection}
           scrollYProgress={motioned}
           hookedYPosition={hookedYPosition}
-          callApi={(hookedYPosition ?? 0) > 0.15}
+          callApi={true}
         />
       </AnimatedContainer>
       <AnimatedContainer end={innerHeight < 700 ? 6 : 4} motioned={motioned}>

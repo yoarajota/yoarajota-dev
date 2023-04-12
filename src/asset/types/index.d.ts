@@ -97,6 +97,10 @@ export type Section = scrollYProgress & {
     hookedYPosition?: number
 }
 
+export type ExpType = Section & {
+    middleOfScreen: number
+}
+
 export type Timeline = scrollYProgress & {
     data: Array<any>,
     setInfo: React.Dispatch<SetStateAction<Array[]>>,

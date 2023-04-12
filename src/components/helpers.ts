@@ -40,6 +40,7 @@ export function createArrayAnimatedContainer(end: number, delay: number = 0): ke
       )
     );
   }
+
   return { pixels, opacityValue, motionValueArray };
 }
 
