@@ -32,8 +32,6 @@ export const ClientContextProvider = ({ children }: Children) => {
   }, []);
 
   const changeLanguage = useCallback((value: string) => {
-    console.log(value, 'aaa')
-
     setLang(value);
     setMsg(Messages[value]);
     localStorage.setItem('lang', value)
