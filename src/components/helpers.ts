@@ -8,7 +8,7 @@ export function createArraysTimeLinePoints(end: string, innerHeight: number): Ar
 
   let arr: Array<string> = [];
   set.forEach((val, index) => {
-    if (index > (innerHeight < 700 ? 5 : 3)) {
+    if (index > (innerHeight < 700 ? 7 : 5)) {
       arr.push(end);
     } else {
       arr.push("0%");

@@ -43,6 +43,8 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
+
+    console.log(hookedYPosition, middleOfScreen);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hookedYPosition]);
 
