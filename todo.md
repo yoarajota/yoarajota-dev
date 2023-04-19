@@ -33,6 +33,7 @@ texts;
 <p> concact card download clickable </p>
 <!-- <p> about page -  <p> React Unicons Solid by <a href="https://iconscout.com/">IconScout</a> react flow -->
 <p> Avoid an excessive DOM size </p>
+<p> possible composition </p>
 
 
 ptbr
