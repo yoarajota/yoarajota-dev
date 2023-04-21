@@ -34,7 +34,7 @@ texts;
 <!-- <p> about page -  <p> React Unicons Solid by <a href="https://iconscout.com/">IconScout</a> react flow -->
 <p> Avoid an excessive DOM size </p>
 <p> possible composition </p>
-
+reduce dom elements
 
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
