@@ -23,6 +23,7 @@ export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
+  const [arrEnd, setArrEnd] = useState<Array<number>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { innerHeight, innerWidth } = useContext(ClientContext);
 
@@ -31,7 +32,7 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-  const calcPercentageWithoutResumeSection = ( ref.current?.offsetHeight ?? 1) / (wrap.current?.offsetHeight  ?? 1);
+  const calcPercentageWithoutResumeSection = ( ref.current?.offsetHeight ?? 0.001) / (wrap.current?.offsetHeight  ?? 1);
   const sum = useTransform(
     scrollYProgress,
     (value) => value + calcPercentageWithoutResumeSection
@@ -53,6 +54,18 @@ export default function Home() {
     });
   }, [scrollYProgress]);
 
+
+  useEffect(() => {
+    if (innerWidth < 425) {
+      setArrEnd([3, 5, 8, 13]);
+    }else if (innerWidth < 768) {
+      setArrEnd([1, 3, 8, 17]);
+    } else if (innerWidth < 1440) {
+      setArrEnd([2, 4, 9, 15]);
+    }
+    setArrEnd([1, 5, 9, 16]);
+  }, [innerWidth]);
+
   return (
     <Box ref={wrap} position="relative">
       <Maintenance />
@@ -61,7 +74,7 @@ export default function Home() {
       <Box ref={ref}>
         <Resume />
       </Box>
-      <AnimatedContainer end={innerWidth < 700 ? 4 : 2} motioned={motioned}>
+      <AnimatedContainer end={arrEnd[0]} motioned={motioned}>
         <Exp
           middleOfScreen={calcPercentageWithoutResumeSection}
           scrollYProgress={motioned}
@@ -69,7 +82,7 @@ export default function Home() {
           callApi={true}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={innerHeight < 700 ? 6 : 4} motioned={motioned}>
+      <AnimatedContainer end={arrEnd[1]} motioned={motioned}>
         <Academy
           modal={{ isOpen, onClose, onOpen, setModalData }}
           scrollYProgress={motioned}
@@ -77,10 +90,10 @@ export default function Home() {
           callApi={(hookedYPosition ?? 0) > 0.35}
         />
       </AnimatedContainer>
-      <FadeInContainer end={innerHeight < 700 ? 11 : 8} motioned={motioned}>
+      <FadeInContainer end={arrEnd[2]} motioned={motioned}>
         <Tec />
       </FadeInContainer>
-      <AnimatedContainer end={innerHeight < 700 ? 19 : 17} motioned={motioned}>
+      <AnimatedContainer end={arrEnd[3]} motioned={motioned}>
         <Objectives />
         <Interest />
       </AnimatedContainer>

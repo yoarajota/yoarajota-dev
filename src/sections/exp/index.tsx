@@ -44,7 +44,6 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
       if (a) setInfo(a[a.length - 1]);
     }
 
-    console.log(hookedYPosition, middleOfScreen);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hookedYPosition]);
 
