@@ -1,5 +1,5 @@
 import { Box, Button, Image } from "@chakra-ui/react";
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Colors } from "asset/enums";
 import { SiLinkedin } from "react-icons/si";
 import api from "../api/axios";

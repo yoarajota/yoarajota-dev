@@ -6,7 +6,7 @@ import _ from "lodash";
 import { useContext } from "react";
 
 function Interest() {
-    const { msg } = useContext(ClientContext);
+    const { msg, innerWidth } = useContext(ClientContext);
 
     return (
       <Box w="100%" textAlign="center">
@@ -15,7 +15,7 @@ function Interest() {
         </Box>
         <Box>
           <SimpleGrid
-            columns={[2, 2, 2]}
+            columns={innerWidth < 768 ? [1, 1, 1] : [2, 2, 2]}
             justifyContent="center"
             spacing={1}
             w="65%"

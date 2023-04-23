@@ -24,9 +24,9 @@ export default function Home() {
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
   const [arrEnd, setArrEnd] = useState<Array<number>>([]);
+  const [willShow, setWillShow] = useState<Array<boolean>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { innerHeight, innerWidth } = useContext(ClientContext);
-
+  const { innerWidth } = useContext(ClientContext);
   const { scrollYProgress } = useScroll({
     target: wrap,
     offset: ["start start", "end end"],
@@ -51,19 +51,24 @@ export default function Home() {
   useEffect(() => {
     scrollYProgress.onChange((v) => {
       setHookedYPosition(v);
+      // const numTrue = Math.floor(v * 5);
+      // const arr = new Array(numTrue).fill(true);
+      // arr.push(...new Array(5 - numTrue).fill(false));
+      // setWillShow(arr)
     });
   }, [scrollYProgress]);
 
+  useEffect(() => {
+    console.log(willShow)
+  }, [willShow]);
 
   useEffect(() => {
-    if (innerWidth < 425) {
-      setArrEnd([3, 5, 8, 13]);
-    }else if (innerWidth < 768) {
-      setArrEnd([1, 3, 8, 17]);
+    setArrEnd([2, 5, 8, 16]);
+    if (innerWidth < 768) {
+      setArrEnd([2, 5, 9, 14]);
     } else if (innerWidth < 1440) {
-      setArrEnd([2, 4, 9, 15]);
+      setArrEnd([1, 4, 9, 15]);
     }
-    setArrEnd([1, 5, 9, 16]);
   }, [innerWidth]);
 
   return (
@@ -82,23 +87,29 @@ export default function Home() {
           callApi={true}
         />
       </AnimatedContainer>
-      <AnimatedContainer end={arrEnd[1]} motioned={motioned}>
-        <Academy
-          modal={{ isOpen, onClose, onOpen, setModalData }}
-          scrollYProgress={motioned}
-          hookedYPosition={hookedYPosition}
-          callApi={(hookedYPosition ?? 0) > 0.35}
-        />
-      </AnimatedContainer>
-      <FadeInContainer end={arrEnd[2]} motioned={motioned}>
-        <Tec />
-      </FadeInContainer>
-      <AnimatedContainer end={arrEnd[3]} motioned={motioned}>
-        <Objectives />
-        <Interest />
-      </AnimatedContainer>
+      {willShow[0] && (
+        <AnimatedContainer end={arrEnd[1]} motioned={motioned}>
+          <Academy
+            modal={{ isOpen, onClose, onOpen, setModalData }}
+            scrollYProgress={motioned}
+            hookedYPosition={hookedYPosition}
+            callApi={(hookedYPosition ?? 0) > 0.35}
+          />
+        </AnimatedContainer>
+      )}
+      {willShow[1] && (
+        <FadeInContainer end={arrEnd[2]} motioned={motioned}>
+          <Tec />
+        </FadeInContainer>
+      )}
+      {willShow[2] && (
+        <AnimatedContainer end={arrEnd[3]} motioned={motioned}>
+          <Objectives />
+          <Interest />
+        </AnimatedContainer>
+      )}
       <Phill413 />
-      <Contact />
+      {willShow[3] && <Contact />}
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

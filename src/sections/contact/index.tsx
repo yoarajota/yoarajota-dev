@@ -3,18 +3,19 @@ import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 import Titles from "components/typography/titles";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { BiWorld } from "react-icons/bi";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
+import { FiDownload, FiMail } from "react-icons/fi";
 
 function Contact() {
   const { innerWidth } = useContext(ClientContext);
 
-  const cSpan1 = innerWidth < 720 ? 2 : 2;
-  const cSpan2 = innerWidth < 720 ? 2 : 3;
-  const end = innerWidth < 720 ? 2 : 1;
-  const h = innerWidth < 720 ? "auto" : "25em";
+  const text = innerWidth < 764 ? "bg" : "md";
+  const size = innerWidth < 764 ? "4em" : "3em";
+  const cSpan2 = innerWidth < 764 ? 2 : 3;
+  const end = innerWidth < 764 ? 2 : 1;
+  const h = innerWidth < 764 ? "auto" : "25em";
   const stl = {
     display: "flex",
     alignItems: "center",
@@ -26,29 +27,31 @@ function Contact() {
     <Box
       w="100%"
       minHeight="80vh"
-      //   display="flex"
       alignItems="center"
       justifyContent="center"
       textAlign="center"
     >
-      <Box paddingTop="65px">
+      <Box paddingTop="55px">
         <Titles>Contact</Titles>
       </Box>
-      <Box>
-        <NormalText text="Download" />
+      <Box padding="65px 0 10px 0" {...stl}>
+        <Box display="flex" gap="0.5em" cursor="pointer">
+          <NormalText text="Download" />
+          <FiDownload color="var(--gray)" size="1.3em" />
+        </Box>
       </Box>
       <Grid
         m="0 auto"
         w="42%"
-        templateRows={innerWidth < 700 ? "repeat(6, 1fr)" : "repeat(2, 1fr)"}
-        templateColumns={innerWidth < 700 ? "repeat(2, 1fr)" : "repeat(5, 1fr)"}
+        templateRows={innerWidth < 764 ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
+        templateColumns={innerWidth < 764 ? "repeat(2, 1fr)" : "repeat(5, 1fr)"}
         gap={4}
-        minW={innerWidth < 700 ? "95%" : "34.375em"}
+        minW={innerWidth < 764 ? "95%" : "33.375em"}
         border={`2px solid ${Colors.Orange}`}
         borderRadius="2.5em"
         h={h}
       >
-        <GridItem {...stl} colSpan={cSpan1}>
+        <GridItem {...stl} colSpan={2}>
           <Image
             margin={"0 auto"}
             alt="picture of João Vítor Sberse"
@@ -58,23 +61,29 @@ function Contact() {
             border="2px solid var(--orange)"
           />
         </GridItem>
-        <GridItem textAlign="center" {...stl} colSpan={cSpan2}>
-          <Titles size="md">João Vítor Basso Sberse</Titles>
+        <GridItem
+          flexDirection="column"
+          textAlign="center"
+          {...stl}
+          colSpan={cSpan2}
+        >
+          <Titles size={text}>João Vítor Basso Sberse</Titles>
+          <NormalText text="Developer" />
         </GridItem>
         <GridItem {...stl} colSpan={1}>
-          <FiMail size="3em" />
+          <FiMail size={size} />
         </GridItem>
         <GridItem {...stl} colSpan={1}>
-          <BsLinkedin size="3em" />
+          <BsLinkedin size={size} />
         </GridItem>
         <GridItem {...stl} colSpan={1}>
-          <BsWhatsapp size="3em" />
+          <BsWhatsapp size={size} />
         </GridItem>
         <GridItem {...stl} colSpan={1}>
-          <BsGithub size="3em" />
+          <BsGithub size={size} />
         </GridItem>
         <GridItem {...stl} colSpan={end}>
-          <BiWorld size="3em" />
+          <BiWorld size={size} />
         </GridItem>
       </Grid>
     </Box>

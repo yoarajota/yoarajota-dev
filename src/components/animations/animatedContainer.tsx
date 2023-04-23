@@ -15,7 +15,13 @@ function AnimatedContainer({
   const x = useTransform(motioned, motionValueArray, pixels);
   const opacity = useTransform(motioned, motionValueArray, opacityValue);
 
-  return <motion.div style={{ x, opacity }}>{children}</motion.div>;
+  return (
+    <motion.div
+      style={{ x, opacity }}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 export default AnimatedContainer;

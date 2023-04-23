@@ -6,7 +6,11 @@ export const ClientContext = createContext<keyable>({});
 
 export const ClientContextProvider = ({ children }: Children) => {
   const [msg, setMsg] = useState<keyable>({});
-  const [lang, setLang] = useState<string>(["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US');
+  const [lang, setLang] = useState<string>(
+    ["pt-BR", "en-US"].includes(global.navigator?.language)
+      ? global.navigator?.language
+      : "en-US"
+  );
   const [windowValues, setWindowValues] = useState<keyable>({});
   useEffect(() => {
     setWindowValues({
@@ -14,12 +18,20 @@ export const ClientContextProvider = ({ children }: Children) => {
       innerHeight: window.innerHeight,
     });
 
-    let storageLang = localStorage.getItem('lang');
+    let storageLang = localStorage.getItem("lang");
     if (storageLang) {
-      setLang(storageLang)
+      setLang(storageLang);
     }
-    
-    setMsg(Messages[storageLang ? storageLang : ["pt-BR", "en-US"].includes(global.navigator?.language) ? global.navigator?.language : 'en-US']);
+
+    setMsg(
+      Messages[
+        storageLang
+          ? storageLang
+          : ["pt-BR", "en-US"].includes(global.navigator?.language)
+          ? global.navigator?.language
+          : "en-US"
+      ]
+    );
 
     const handleResize = () =>
       setWindowValues({
@@ -34,7 +46,7 @@ export const ClientContextProvider = ({ children }: Children) => {
   const changeLanguage = useCallback((value: string) => {
     setLang(value);
     setMsg(Messages[value]);
-    localStorage.setItem('lang', value)
+    localStorage.setItem("lang", value);
   }, []);
 
   return (
