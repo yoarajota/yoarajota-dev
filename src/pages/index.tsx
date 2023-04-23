@@ -24,7 +24,7 @@ export default function Home() {
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
   const [arrEnd, setArrEnd] = useState<Array<number>>([]);
-  const [willShow, setWillShow] = useState<Array<boolean>>([]);
+  // const [willShow, setWillShow] = useState<Array<boolean>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { innerWidth } = useContext(ClientContext);
   const { scrollYProgress } = useScroll({
@@ -58,9 +58,9 @@ export default function Home() {
     });
   }, [scrollYProgress]);
 
-  useEffect(() => {
-    console.log(willShow)
-  }, [willShow]);
+  // useEffect(() => {
+  //   console.log(willShow)
+  // }, [willShow]);
 
   useEffect(() => {
     setArrEnd([2, 5, 8, 16]);
