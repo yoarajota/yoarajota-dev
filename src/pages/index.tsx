@@ -87,7 +87,7 @@ export default function Home() {
           callApi={true}
         />
       </AnimatedContainer>
-      {willShow[0] && (
+      {/* {willShow[0] && ( */}
         <AnimatedContainer end={arrEnd[1]} motioned={motioned}>
           <Academy
             modal={{ isOpen, onClose, onOpen, setModalData }}
@@ -96,20 +96,20 @@ export default function Home() {
             callApi={(hookedYPosition ?? 0) > 0.35}
           />
         </AnimatedContainer>
-      )}
-      {willShow[1] && (
+      {/* )} */}
+      {/* {willShow[1] && ( */}
         <FadeInContainer end={arrEnd[2]} motioned={motioned}>
           <Tec />
         </FadeInContainer>
-      )}
-      {willShow[2] && (
+      {/* )} */}
+      {/* {willShow[2] && ( */}
         <AnimatedContainer end={arrEnd[3]} motioned={motioned}>
           <Objectives />
           <Interest />
         </AnimatedContainer>
-      )}
+      {/* )} */}
       <Phill413 />
-      {willShow[3] && <Contact />}
+      <Contact />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );
