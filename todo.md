@@ -34,7 +34,7 @@ texts;
 <!-- <p> about page -  <p> React Unicons Solid by <a href="https://iconscout.com/">IconScout</a> react flow -->
 <p> Avoid an excessive DOM size </p>
 <p> possible composition </p>
-reduce dom elements
+reduce dom elements /// i have no idea how to do it in format that animations is seted
 
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
