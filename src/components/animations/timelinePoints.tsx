@@ -1,6 +1,6 @@
 import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
-import { createArraysTimeLinePoints } from "components/helpers";
+import { createArraysTimeLinePoints } from "helpers/helpers";
 import { motion, useTransform } from "framer-motion";
 import { useContext, useMemo } from "react";
 import { TimeLinePointsType } from "../../asset/types";

@@ -433,7 +433,6 @@ body::-webkit-scrollbar {
   top: 2px;
   left: 1px;
   width: 42.5px;
-  height: 26px;
   color: var(--gray);
   font-size: 10px;
   font-weight: bold;

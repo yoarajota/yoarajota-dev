@@ -1,5 +1,5 @@
 import { DefaultAnimatedContainerType } from "asset/types";
-import { createArrayAnimatedContainer } from "components/helpers";
+import { createArrayAnimatedContainer } from "helpers/helpers";
 import { useTransform, motion } from "framer-motion";
 import { useMemo } from "react";
 

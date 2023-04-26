@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Tooltip } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { keyable } from "asset/types";
 import LevelersData from "../../statics/levelersData";
@@ -32,6 +32,15 @@ function Skills() {
             title={i.title}
           />
         ))}
+
+        <Box display="flex" gap="15px">
+          <Tooltip  width="15px" h="15px" bg="red" label="Hover me">
+            a
+          </Tooltip>
+          <Tooltip  width="15px" h="15px" bg="red" label="Hover me">
+            b
+          </Tooltip>
+        </Box>
       </Box>
     </>
   );
