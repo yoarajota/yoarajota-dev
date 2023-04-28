@@ -2,6 +2,8 @@ import { keyable } from "asset/types";
 
 const Messages: keyable = {
   "pt-BR": {
+    subtitle_work: "Anos usando profissionalmente",
+    subtitle_study: "Anos estudando",
     alert:
       "Por favor, note que esta página está em construção e pode estar incompleta ou sujeita a alterações.",
     resume_text: [
@@ -41,6 +43,8 @@ const Messages: keyable = {
     interest_title: "Interesses"
   },
   "en-US": {
+    subtitle_work: "Years using professionally",
+    subtitle_study: "Years of studying",
     alert:
       "This webpage is currently under construction and may be incomplete or subject to changes.",
     resume_text: [

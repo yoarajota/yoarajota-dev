@@ -1,6 +1,13 @@
 import { keyable } from "asset/types";
 
-export function createArraysTimeLinePoints(end: string, innerHeight: number): Array<any> {
+export function createArraysTimeLinePoints(end: string, innerWidth: number): Array<any> {
+  let gap = 1;
+  if (innerWidth < 768) {
+    gap = 5;
+  } else {
+    gap = 4;
+  }
+
   var set: Array<number> = [0];
   while (!set.includes(1)) {
     set.push(parseFloat((set[set.length - 1] + 0.05).toFixed(2)));
@@ -8,7 +15,7 @@ export function createArraysTimeLinePoints(end: string, innerHeight: number): Ar
 
   let arr: Array<string> = [];
   set.forEach((val, index) => {
-    if (index > (innerHeight < 700 ? 7 : 5)) {
+    if (index > gap) {
       arr.push(end);
     } else {
       arr.push("0%");

@@ -4,6 +4,8 @@
   --black: #0d0d0d;
   --gray: #737373;
   --darkPurple: #1a202c;
+  --study: #3b578e;
+  --work: #44090e;
 }
 
 @font-face {
@@ -303,14 +305,14 @@ body::-webkit-scrollbar {
 
 .ll {
   margin-top: 1px;
-  background-color: rgb(117, 77, 69);
+  background-color: var(--work);
   height: 23px;
   position: absolute;
   z-index: 2;
 }
 
 .second-level {
-  background-color: rgb(14, 114, 5);
+  background-color: var(--study);
   z-index: 1;
 }
 
@@ -430,8 +432,8 @@ body::-webkit-scrollbar {
   justify-content: center;
   content: "pt-BR";
   position: absolute;
-  top: 2px;
-  left: 1px;
+  top: 0px;
+  left: 0px;
   width: 42.5px;
   color: var(--gray);
   font-size: 10px;

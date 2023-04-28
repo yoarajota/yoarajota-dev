@@ -2,12 +2,15 @@ import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
 import { createArraysTimeLinePoints } from "helpers/helpers";
 import { motion, useTransform } from "framer-motion";
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { TimeLinePointsType } from "../../asset/types";
 
 function TimeLinePoints({ index, sWidth, children, scrollYProgress }: TimeLinePointsType) {
-  const { innerHeight } = useContext(ClientContext);
-  const arr = useMemo(() => createArraysTimeLinePoints(sWidth, innerHeight), [sWidth, innerHeight]);
+  const { innerWidth } = useContext(ClientContext);
+  const arr = useMemo(
+    () => createArraysTimeLinePoints(sWidth, innerWidth),
+    [sWidth, innerWidth]
+  );
 
   const transition = {
     type: "tween",

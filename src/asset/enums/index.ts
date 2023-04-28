@@ -3,5 +3,7 @@ export enum Colors {
     Purple = 'var(--purple)',
     Black = 'var(--black)',
     Gray = 'var(--gray)',
-    DarkPurple = 'var(--darkPurple)'
+    DarkPurple = 'var(--darkPurple)',
+    Study = 'var(--study)',
+    Work = 'var(--work)'
 }
