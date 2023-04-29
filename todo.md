@@ -1,4 +1,4 @@
-# todo
+se# todo
  
 <p> end the conversion of the nodes do typescript ✅ </p>
 <p> animate the sections ✅ </p>
@@ -20,7 +20,7 @@
 <p> end box carousel ✅ </p>
 <p> deploy vercel ✅</p>
 <p> transform the language context to generic context ✅ </p>
-<p> keep testing mobo </p>
+<p> keep testing mobo ✅ </p>
 <p> study chakra performance </p>
 <p> file names </p>
 <p> comments </p>
