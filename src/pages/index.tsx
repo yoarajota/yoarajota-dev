@@ -51,10 +51,6 @@ export default function Home() {
   useEffect(() => {
     scrollYProgress.onChange((v) => {
       setHookedYPosition(v);
-      // const numTrue = Math.floor(v * 5);
-      // const arr = new Array(numTrue).fill(true);
-      // arr.push(...new Array(5 - numTrue).fill(false));
-      // setWillShow(arr)
     });
   }, [scrollYProgress]);
 
@@ -63,11 +59,12 @@ export default function Home() {
   // }, [willShow]);
 
   useEffect(() => {
-    setArrEnd([2, 5, 8, 16]);
     if (innerWidth < 768) {
       setArrEnd([2, 5, 9, 14]);
     } else if (innerWidth < 1440) {
       setArrEnd([1, 4, 9, 15]);
+    } else {
+      setArrEnd([2, 5, 8, 16]);
     }
   }, [innerWidth]);
 

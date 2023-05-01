@@ -30,6 +30,19 @@ const reducer = (state: keyable, action: keyable) => {
 
 function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
   const { lang, msg, innerWidth, innerHeight } = useContext(ClientContext);
+  const [animationValue, setAnimationValue] = useState<number>(1);
+
+  useEffect(() => {
+    if (innerWidth < 860) {
+      if (innerHeight < 700) {
+        setAnimationValue(9);
+      } else {
+        setAnimationValue(7);
+      }
+    } else {
+      setAnimationValue(5);
+    }
+  }, [innerHeight, innerWidth]);
 
   const { data, refetch } = useQuery(
     "academy",
@@ -67,7 +80,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer delay={1} end={innerWidth < 860 ? (innerHeight < 700 ? 8 : 7) : 5} motioned={scrollYProgress}
+          <FadeInContainer delay={1} end={animationValue} motioned={scrollYProgress}
             classes="wrap-itens-academy"
           >
             <Box className="first-container-academy">
@@ -125,7 +138,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
           </FadeInContainer>
         </Box>
         <Box overflow='hidden' h='fit-content'>
-          <PopInContainer end={innerWidth < 860 ? (innerHeight < 700 ? 9 : 7) : 5} motioned={scrollYProgress}>
+          <PopInContainer end={animationValue} motioned={scrollYProgress}>
             <InfinityBoxSlideCarousel
               list={["AA", "BB", "CC", "DD", "EE", "FF", "GG"]}
             />
