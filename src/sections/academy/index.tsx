@@ -34,11 +34,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
 
   useEffect(() => {
     if (innerWidth < 860) {
-      if (innerHeight < 700) {
-        setAnimationValue(9);
-      } else {
-        setAnimationValue(7);
-      }
+      setAnimationValue(6);
     } else {
       setAnimationValue(5);
     }
