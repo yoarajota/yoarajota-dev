@@ -37,6 +37,7 @@ texts;
 <p> reduce dom elements </p> /// i have no idea how to do it in format that animations is seted
 <p> colors of skills </p>
 <p> remove animation skill tec </p>
+<p> framer next interation </p>
 
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
