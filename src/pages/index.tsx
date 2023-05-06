@@ -17,6 +17,7 @@ import Objectives from "sections/objectives";
 import Interest from "sections/interest";
 import Phill413 from "sections/phill413";
 import Contact from "sections/contact";
+import Projects from "sections/projects";
 
 export default function Home() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -107,6 +108,7 @@ export default function Home() {
       {/* )} */}
       <Phill413 />
       <Contact />
+      <Projects />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

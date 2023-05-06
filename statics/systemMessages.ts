@@ -13,8 +13,10 @@ const Messages: keyable = {
       " ",
       "Entenda um pouco melhor de mim;",
     ],
+    projects_title: "Projetos",
     tech_title: "Tecnologias",
     exp_title: "Experiências",
+    tec_title: "Principais Tecnologias",
     academy_title: "Vida Acadêmica",
     academy_name: "🎓 Instituto Federal do Rio Grande do Sul",
     academy_extra_info: [
@@ -54,8 +56,10 @@ const Messages: keyable = {
       " ",
       "Know me better;",
     ],
+    projects_title: "Projects",
     tech_title: "Technologies",
     exp_title: "Experiences",
+    tec_title: "Principal Technologies",
     academy_title: "Academic Background",
     academy_name: "🎓 Instituto Federal do Rio Grande do Sul",
     academy_extra_info: [
