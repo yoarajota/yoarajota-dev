@@ -1,7 +1,7 @@
 :root {
   --orange: #d99e6a;
   --purple: #4B4453;
-  --black: #0d0d0d;
+  --black:  #0d0d0d;
   --gray: #737373;
   --darkPurple: #1a202c;
   --study: #3b578e;
@@ -246,11 +246,15 @@
   }
 }
 
+html {
+  background-color: var(--black);
+}
+
 #__next,
 body {
   outline: none;
   margin: 0;
-  background-color: #0d0d0d;
+  background-color: var(--black);
   scrollbar-width: thin;
 }
 
@@ -263,7 +267,7 @@ body::-webkit-scrollbar {
   height: 25px;
   background-color: rgb(75, 68, 83);
   display: flex;
-  border: 1px solid #0d0d0d;
+  border: 1px solid var(--black);
   border-radius: 0px 4px 4px 0px;
   z-index: 0;
 }
@@ -300,7 +304,7 @@ body::-webkit-scrollbar {
 }
 
 .lfs2:not(:last-child) {
-  border-right: 4px solid #0d0d0d;
+  border-right: 4px solid var(--black);
 }
 
 .ll {
@@ -317,7 +321,7 @@ body::-webkit-scrollbar {
 }
 
 .lfs:not(:last-child) {
-  border-right: 4px solid #0d0d0d;
+  border-right: 4px solid var(--black);
 }
 
 .lt {
