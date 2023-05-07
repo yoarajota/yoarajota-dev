@@ -14,6 +14,8 @@ function Resume() {
 
   return (
     <motion.div
+      className="resume-animation-div"
+      initial={{ y: 20, opacity: 0 }}
       animate={{ y: ["-400px", "0px"], opacity: [0, 1] }}
       style={{ width: "100%", backgroundColor: Colors.Black }}
     >
@@ -61,4 +63,4 @@ function Resume() {
   );
 }
 
-export default Resume;
+export default Resume; 

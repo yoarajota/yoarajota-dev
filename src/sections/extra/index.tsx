@@ -26,7 +26,7 @@ function Extra() {
     () => {
       return axios.get("api/comments");
     },
-    { staleTime: 1000 * 60 * 10 }
+    { staleTime: 600000 }
   );
 
   useEffect(() => {

@@ -20,6 +20,7 @@ function Maintenance() {
       {isOpen && (
         <motion.div
           exit={{ y: ["0px", "-200px"] }}
+          initial={{ y: -200, opacity: 0 }}
           animate={{
             y: ["-200px", "0px"],
             opacity: [0, 1],

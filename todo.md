@@ -39,6 +39,9 @@ texts;
 <p> remove animation skill tec </p>
 <p> framer next interation </p>
 
+<p> req apolo graphql </p>
+<p> get ssp </p>
+
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
 Atualmente trazendo inovação, inteligência e alta performance no ramo de ERP com um sistema web complexo. 

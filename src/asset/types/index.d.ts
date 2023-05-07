@@ -129,3 +129,7 @@ export type ModalType = ModalProps & {
 export type AcademyType = Section & {
     modal: keyable
 }
+
+export type LanguagesIconsType = {
+    language: string
+}
