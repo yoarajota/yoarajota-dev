@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Image, List, ListItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, List, ListItem } from "@chakra-ui/react";
 import Titles from "../../components/typography/titles";
 import { ClientContext } from "components/contexts/client";
 import { useContext, useEffect, useState } from "react";
@@ -94,7 +94,7 @@ function Projects() {
         borderRadius="8px"
       >
         <GridItem
-          rowSpan={gridConfig.rowSpan[0]}
+          rowSpan={gridConfig?.rowSpan?.[0]}
           colSpan={2}
           borderRight={`1px solid  ${Colors.Orange}`}
           overflowY="scroll"
@@ -135,9 +135,9 @@ function Projects() {
             })}
           </List>
         </GridItem>
-        <GridItem colSpan={gridConfig.rowSpan[1]} />
-        <GridItem colSpan={gridConfig.rowSpan[2]} />
-        <GridItem colSpan={gridConfig.rowSpan[3]} />
+        <GridItem colSpan={gridConfig?.rowSpan?.[1]} />
+        <GridItem colSpan={gridConfig?.rowSpan?.[2]} />
+        <GridItem colSpan={gridConfig?.rowSpan?.[3]} />
       </Grid>
     </Box>
   );
