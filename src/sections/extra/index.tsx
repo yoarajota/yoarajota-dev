@@ -74,7 +74,7 @@ function Extra() {
           <Box w="100%" paddingTop="65px">
             <Box>
               <Box w="100%" textAlign="center">
-                <Titles>Contato</Titles>
+                <Titles text="Contato" />
               </Box>
               <SimpleGrid
                 gap="30px"

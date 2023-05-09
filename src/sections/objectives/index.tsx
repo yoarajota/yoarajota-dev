@@ -10,7 +10,7 @@ function Objectives() {
 
     return <Box w="100%" textAlign="center">
         <Box paddingTop="65px">
-            <Titles>{msg?.objectives_title}</Titles>
+            <Titles text={msg?.objectives_title} />
         </Box>
         <Box>
             <SimpleGrid columns={[1, null, 3]} justifyContent='center' spacing={14} w="90%" m='0 auto'>

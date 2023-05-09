@@ -50,7 +50,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
   return (
     <Box w="100%" textAlign="center" minHeight="100vh">
       <Box paddingTop="65px">
-        <Titles>Experiência Profissional</Titles>
+        <Titles text="Experiência Profissional" />
       </Box>
       <Box w="100%">
         <Box h="110px" w="100%">

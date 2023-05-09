@@ -11,7 +11,7 @@ function Interest() {
     return (
       <Box w="100%" textAlign="center">
         <Box paddingTop="85px">
-          <Titles>{msg?.interest_title}</Titles>
+          <Titles text={msg?.interest_title} />
         </Box>
         <Box>
           <SimpleGrid

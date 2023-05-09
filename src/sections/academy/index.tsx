@@ -72,7 +72,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
   return (
     <Box w="100%" textAlign="center">
       <Box paddingTop="65px">
-        <Titles>{msg.academy_title}</Titles>
+        <Titles text={msg.academy_title} />
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">

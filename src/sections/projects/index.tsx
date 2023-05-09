@@ -9,8 +9,7 @@ import NormalText from "components/typography/normaltext";
 import { Colors } from "asset/enums";
 import { DiPhp, DiPython, DiJavascript1 } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";
-import { ImBlocked } from "react-icons/im";
-import { BiInfoCircle } from "react-icons/bi";
+import { ImBlocked, ImInfo } from "react-icons/im";
 import _ from "lodash";
 import config from "../../../config.json";
 
@@ -31,6 +30,7 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
 function Projects() {
   const { msg, innerWidth } = useContext(ClientContext);
   const [gridConfig, setGridConfig] = useState<keyable>([]);
+  const [currentRepo, setCurrentRepo] = useState<keyable>([]);
 
   useEffect(() => {
     if (innerWidth < 860) {
@@ -82,7 +82,7 @@ function Projects() {
 
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
-      <Titles>{msg.projects_title}</Titles>
+      <Titles text={msg.projects_title} />
       <Grid
         margin="3em auto 0 auto"
         w="80%"
@@ -114,7 +114,7 @@ function Projects() {
           <List textAlign="left">
             {data?.map((i: keyable) => {
               return (
-                <Box
+                <ListItem
                   p="0 10px"
                   display="flex"
                   borderBottom={`1px solid  ${Colors.Orange}`}
@@ -122,22 +122,28 @@ function Projects() {
                   alignItems="center"
                   justifyContent="space-between"
                   h="2em"
+                  opacity={i.blocked ? 0.5 : 1}
+                  onClick={() => {setCurrentRepo(i)}}
                 >
                   <NormalText customColor={Colors.Orange} text={i.name} />
                   <Box display="flex" alignItems="center" gap="1em">
                     <LanguagesIcons language={i.language} />
                     <Box>
-                      {i.blocked ? <ImBlocked /> : <BiInfoCircle size="" />}
+                      {i.blocked ? <ImBlocked color={Colors.Orange} /> : <ImInfo color={Colors.Orange} />}
                     </Box>
                   </Box>
-                </Box>
+                </ListItem>
               );
             })}
           </List>
         </GridItem>
-        <GridItem colSpan={gridConfig?.rowSpan?.[1]} />
-        <GridItem colSpan={gridConfig?.rowSpan?.[2]} />
-        <GridItem colSpan={gridConfig?.rowSpan?.[3]} />
+        <GridItem colSpan={gridConfig?.rowSpan?.[1]}>
+          <Titles text={currentRepo.name} />
+        </GridItem>
+        <GridItem colSpan={gridConfig?.rowSpan?.[2]}>
+        </GridItem>
+        <GridItem colSpan={gridConfig?.rowSpan?.[3]}>
+        </GridItem>
       </Grid>
     </Box>
   );

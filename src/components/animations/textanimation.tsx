@@ -17,7 +17,7 @@ function TextAnimation(props: {
       {!props.title ? (
         <NormalText text={props.text}></NormalText>
       ) : (
-        <Titles size={props.size}>{props.text}</Titles>
+          <Titles size={props.size} text={props.text} />
       )}
     </motion.div>
   );

@@ -25,7 +25,7 @@ function Resume() {
             <Yj indexPage={true} />
           </Center>
           <Center className="header-center-box" textAlign="center">
-            <Titles>João Vítor Basso Sberse</Titles>
+            <Titles text="João Vítor Basso Sberse" />
           </Center>
         </Box>
         <ImageAndButtons idString="outside-image" />

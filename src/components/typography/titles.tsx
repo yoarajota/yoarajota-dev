@@ -3,7 +3,7 @@ import { Colors } from "asset/enums";
 import React from "react";
 import { defaultText } from "../../asset/types";
 
-function Titles({ size = 'bg', children }: defaultText) {
+function Titles({ size = 'bg', text }: defaultText) {
   return (
     <>
       <Heading
@@ -13,7 +13,7 @@ function Titles({ size = 'bg', children }: defaultText) {
         fontFamily="Ubuntu"
         m="0px"
       >
-        {children}
+        {text}
       </Heading>
     </>
   );

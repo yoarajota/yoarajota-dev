@@ -9,7 +9,7 @@ function Tec() {
 
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
-      <Titles>{msg.tec_title}</Titles>
+      <Titles text={msg.tec_title} />
       <Box w="100%" flexDirection="column" display="flex">
         <Box
           position="relative"

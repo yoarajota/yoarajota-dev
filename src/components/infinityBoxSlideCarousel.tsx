@@ -119,14 +119,14 @@ function InfinityBoxSlideCarousel({ list }: Carousel) {
                                         border={`1px solid ${Colors.Purple}`}
                                     >
                                         <Box border={`1px solid ${Colors.Purple}`} borderLeft='none' borderRight='none' p='1% 0'>
-                                            <Titles size='esm'>
+                                            {/* <Titles size='esm'> */}
                                                 {list &&
                                                     (list[imageIndex + index]
                                                         ? list[imageIndex + index]
                                                         : list[
                                                         (list.length + index + imageIndex) % list.length
                                                         ])}
-                                            </Titles>
+                                            {/* </Titles> */}
                                         </Box>
                                         <Box h='80%' p='0.5em' display='flex'>
                                                 {list &&

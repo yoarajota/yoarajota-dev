@@ -21,7 +21,7 @@ function Cards({ title, desc, size }: CardsType) {
 
     return (
         <Box p={p} >
-            <Titles size="esm" fontSize='xl'>{title}</Titles>
+            <Titles size="esm" fontSize='xl' text={title} />
             <NormalText text={desc} />
         </Box>
     )

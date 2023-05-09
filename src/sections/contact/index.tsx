@@ -32,7 +32,7 @@ function Contact() {
       textAlign="center"
     >
       <Box paddingTop="55px">
-        <Titles>Contact</Titles>
+        <Titles text={"Contact"} />
       </Box>
       <Box padding="65px 0 10px 0" {...stl}>
         <Box display="flex" gap="0.5em" cursor="pointer">
@@ -67,7 +67,7 @@ function Contact() {
           {...stl}
           colSpan={cSpan2}
         >
-          <Titles size={text}>João Vítor Basso Sberse</Titles>
+          <Titles size={text} text="João Vítor Basso Sberse" />
           <NormalText text="Developer" />
         </GridItem>
         <GridItem {...stl} colSpan={1}>

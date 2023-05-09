@@ -19,7 +19,7 @@ function ModalWrap({ isOpen, onClose, data }: ModalType) {
         <Modal isOpen={isOpen} isCentered size='xl' onClose={onClose}>
             <ModalOverlay />
             <ModalContent backgroundColor={Colors.Black}>
-                <ModalHeader><Titles size='esm'>{data?.title}</Titles></ModalHeader>
+                <ModalHeader><Titles size='esm' text={data?.title} /></ModalHeader>
                 <ModalCloseButton color={Colors.Orange} />
                 <ModalBody>
                     <NormalText text={data?.text} />
