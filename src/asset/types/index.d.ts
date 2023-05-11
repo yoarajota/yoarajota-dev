@@ -16,6 +16,28 @@ export interface keyable {
     [key: string]: any
 }
 
+export type ContactConfig = {
+    text: string,
+    size: string,
+    cSpan2: number,
+    end: number,
+    h: string,
+}
+
+export type ProjectGridConfig = {
+    templateRows: string,
+    templateColumns: string,
+    colSpan: Array<number>,
+    rowSpan: Array<number>,
+}
+
+export type SystemConfig = {
+    contact: ContactConfig,
+    home: Array<number>,
+    project: ProjectGridConfig,
+    academy: number
+}
+
 interface Info {
     customFontSize?: number | string | null,
 }

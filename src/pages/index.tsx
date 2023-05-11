@@ -24,9 +24,8 @@ export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
   const [hookedYPosition, setHookedYPosition] = useState<number>();
   const [modalData, setModalData] = useState<keyable>({});
-  const [arrEnd, setArrEnd] = useState<Array<number>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { innerWidth } = useContext(ClientContext);
+  const { innerWidth, systemConfig: { home } } = useContext(ClientContext);
   const { scrollYProgress } = useScroll({
     target: wrap,
     offset: ["start start", "end end"],
@@ -54,16 +53,6 @@ export default function Home() {
     });
   }, [scrollYProgress]);
 
-  useEffect(() => {
-    if (innerWidth < 768) {
-      setArrEnd([2, 5, 9, 14]);
-    } else if (innerWidth < 1440) {
-      setArrEnd([1, 4, 9, 15]);
-    } else {
-      setArrEnd([2, 5, 8, 16]);
-    }
-  }, [innerWidth]);
-
   return (
     <Box ref={wrap} position="relative">
       <Maintenance />
@@ -72,7 +61,7 @@ export default function Home() {
       <Box ref={ref}>
         <Resume />
       </Box>
-      <AnimatedContainer end={arrEnd[0]} motioned={motioned}>
+      <AnimatedContainer end={home[0]} motioned={motioned}>
         <Exp
           middleOfScreen={calcPercentageWithoutResumeSection}
           scrollYProgress={motioned}
@@ -81,7 +70,7 @@ export default function Home() {
         />
       </AnimatedContainer>
       {/* {willShow[0] && ( */}
-        <AnimatedContainer end={arrEnd[1]} motioned={motioned}>
+        <AnimatedContainer end={home[1]} motioned={motioned}>
           <Academy
             modal={{ isOpen, onClose, onOpen, setModalData }}
             scrollYProgress={motioned}
@@ -91,12 +80,12 @@ export default function Home() {
         </AnimatedContainer>
       {/* )} */}
       {/* {willShow[1] && ( */}
-        <FadeInContainer end={arrEnd[2]} motioned={motioned}>
+        <FadeInContainer end={home[2]} motioned={motioned}>
           <Tec />
         </FadeInContainer>
       {/* )} */}
       {/* {willShow[2] && ( */}
-        <AnimatedContainer end={arrEnd[3]} motioned={motioned}>
+        <AnimatedContainer end={home[3]} motioned={motioned}>
           <Objectives />
           <Interest />
         </AnimatedContainer>

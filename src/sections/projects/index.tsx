@@ -27,26 +27,12 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-function Projects() {
-  const { msg, innerWidth } = useContext(ClientContext);
-  const [gridConfig, setGridConfig] = useState<keyable>([]);
+function Project() {
+  const { msg, systemConfig: { project} } = useContext(ClientContext);
   const [currentRepo, setCurrentRepo] = useState<keyable>([]);
 
-  useEffect(() => {
-    if (innerWidth < 860) {
-      setGridConfig({});
-    } else {
-      setGridConfig({
-        templateRows: "repeat(2, 1fr)",
-        templateColumns: "repeat(8, 1fr)",
-        colSpan: [2, 3, 3, 6],
-        rowSpan: [2],
-      });
-    }
-  }, [innerWidth]);
-
   const { data, refetch } = useQuery(
-    "projects",
+    "project",
     () => {
       return axios
         .get("https://api.github.com/users/yoarajota/repos")
@@ -82,7 +68,7 @@ function Projects() {
 
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
-      <Titles text={msg.projects_title} />
+      <Titles text={msg.project_title} />
       <Grid
         margin="3em auto 0 auto"
         w="80%"
@@ -94,7 +80,7 @@ function Projects() {
         borderRadius="8px"
       >
         <GridItem
-          rowSpan={gridConfig?.rowSpan?.[0]}
+          rowSpan={project.rowSpan?.[0]}
           colSpan={2}
           borderRight={`1px solid  ${Colors.Orange}`}
           overflowY="scroll"
@@ -123,7 +109,7 @@ function Projects() {
                   justifyContent="space-between"
                   h="2em"
                   opacity={i.blocked ? 0.5 : 1}
-                  onClick={() => {setCurrentRepo(i)}}
+                  onClick={() => { setCurrentRepo(i) }}
                 >
                   <NormalText customColor={Colors.Orange} text={i.name} />
                   <Box display="flex" alignItems="center" gap="1em">
@@ -137,16 +123,16 @@ function Projects() {
             })}
           </List>
         </GridItem>
-        <GridItem colSpan={gridConfig?.rowSpan?.[1]}>
+        <GridItem colSpan={project.rowSpan?.[1]}>
           <Titles text={currentRepo.name} />
         </GridItem>
-        <GridItem colSpan={gridConfig?.rowSpan?.[2]}>
+        <GridItem colSpan={project.rowSpan?.[2]}>
         </GridItem>
-        <GridItem colSpan={gridConfig?.rowSpan?.[3]}>
+        <GridItem colSpan={project.rowSpan?.[3]}>
         </GridItem>
       </Grid>
     </Box>
   );
 }
 
-export default Projects;
+export default Project;
