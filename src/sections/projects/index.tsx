@@ -1,7 +1,7 @@
-import { Box, Grid, GridItem, List, ListItem } from "@chakra-ui/react";
+import { Badge, Box, Button, Grid, GridItem, Link, List, ListItem } from "@chakra-ui/react";
 import Titles from "../../components/typography/titles";
 import { ClientContext } from "components/contexts/client";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import axios from "api/axios";
 import { useQuery } from "react-query";
 import { keyable, LanguagesIconsType } from "asset/types";
@@ -12,6 +12,7 @@ import { SiTypescript } from "react-icons/si";
 import { ImBlocked, ImInfo } from "react-icons/im";
 import _ from "lodash";
 import config from "../../../config.json";
+import { AiFillGithub } from "react-icons/ai";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -28,8 +29,8 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
 };
 
 function Project() {
-  const { msg, systemConfig: { project} } = useContext(ClientContext);
-  const [currentRepo, setCurrentRepo] = useState<keyable>([]);
+  const { msg, systemConfig: { project } } = useContext(ClientContext);
+  const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
   const { data, refetch } = useQuery(
     "project",
@@ -37,21 +38,24 @@ function Project() {
       return axios
         .get("https://api.github.com/users/yoarajota/repos")
         .then((res) => {
+          res.data.forEach(function (obj: keyable) {
+            obj.blocked = !config["repos-to-show"].includes(obj.name) ? 1 : 0;
+          });
+
           res.data.sort(function (a: keyable, b: keyable) {
-            if (!config["repos-to-show"].includes(a.name)) {
-              a.blocked = 1;
+            if (a.blocked !== b.blocked) {
+              return a.blocked ? 1 : -1;
             }
 
             const x = a.created_at;
             const y = b.created_at;
 
-            return x < y ? 1 : x > y ? -1 : 0;
+            return x < y ? 1 : -1;
           });
-
           return res.data;
         });
     },
-    { staleTime: 600000, enabled: false }
+    { staleTime: 600000 }
   );
 
   const [fetched, setFetched] = useState(false);
@@ -66,22 +70,34 @@ function Project() {
     // }, [callApi, fetched, refetch]);
   }, [fetched, refetch]);
 
+  useEffect(() => {
+    console.log(currentRepo)
+  }, [currentRepo])
+
+  const handle = useCallback((i: keyable) => {
+    if (i.blocked) {
+      setCurrentRepo({})
+    } else {
+      setCurrentRepo(i)
+    }
+  }, [])
+
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
-      <Titles text={msg.project_title} />
+      <Titles text={msg.projects_title} />
       <Grid
         margin="3em auto 0 auto"
         w="80%"
         h="300px"
         templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(8, 1fr)"
+        templateColumns="repeat(6, 1fr)"
         gap={4}
         border={`1px solid  ${Colors.Orange}`}
         borderRadius="8px"
       >
         <GridItem
           rowSpan={project.rowSpan?.[0]}
-          colSpan={2}
+          colSpan={project.colSpan[0]}
           borderRight={`1px solid  ${Colors.Orange}`}
           overflowY="scroll"
           scrollSnapType="y"
@@ -109,9 +125,12 @@ function Project() {
                   justifyContent="space-between"
                   h="2em"
                   opacity={i.blocked ? 0.5 : 1}
-                  onClick={() => { setCurrentRepo(i) }}
+                  onClick={() => { handle(i) }}
+                  overflow="hidden"
+                  wordBreak="normal"
+                  height="2.1em"
                 >
-                  <NormalText customColor={Colors.Orange} text={i.name} />
+                  <NormalText customColor={Colors.Orange} text={i.name} functions={{ w: "65%" }} />
                   <Box display="flex" alignItems="center" gap="1em">
                     <LanguagesIcons language={i.language} />
                     <Box>
@@ -123,12 +142,27 @@ function Project() {
             })}
           </List>
         </GridItem>
-        <GridItem colSpan={project.rowSpan?.[1]}>
-          <Titles text={currentRepo.name} />
+        <GridItem p="1em" colSpan={project.colSpan?.[1]}>
+          {!_.isEmpty(currentRepo) && (
+            <Box display="flex" gap="0.5em" flexDirection="column" justifyContent="center">
+              <Titles size="sm" text={currentRepo.name} />
+              <Box h="2em" w="2em" m="0 auto">
+                <Link href={currentRepo.html_url} target="_blank">
+                  <AiFillGithub size="2em" color={Colors.Gray} />
+                </Link>
+              </Box>
+            </Box>
+          )}
         </GridItem>
-        <GridItem colSpan={project.rowSpan?.[2]}>
-        </GridItem>
-        <GridItem colSpan={project.rowSpan?.[3]}>
+        <GridItem colSpan={project.colSpan?.[2]}>
+          <Box>
+            {!_.isEmpty(currentRepo) && (
+              <Box>
+                <NormalText text={currentRepo.description} />
+                <Badge bg={Colors.Orange} color={Colors.Black}><Link href={currentRepo.html_url + "#readme"} target="link">Read me</Link></Badge>
+              </Box>
+            )}
+          </Box>
         </GridItem>
       </Grid>
     </Box>

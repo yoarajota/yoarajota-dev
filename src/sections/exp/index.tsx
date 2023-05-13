@@ -22,7 +22,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
     () => {
       return api.get("api/exp");
     },
-    { staleTime: 600000, enabled: false }
+    { staleTime: 600000 }
   );
 
   const [info, setInfo] = useState<Info>({});

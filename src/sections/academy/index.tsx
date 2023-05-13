@@ -36,7 +36,7 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
     () => {
       return api.get("api/acad");
     },
-    { staleTime: 600000, enabled: false }
+    { staleTime: 600000 }
   );
 
   const [info, setInfo] = useState<Info>({});

@@ -15,6 +15,7 @@ function NormalText({
     <>
       {displayText.map((i) => (
         <Text
+          h="100%"
           key={_.uniqueId()}
           color={customColor}
           {...functions}

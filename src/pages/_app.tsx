@@ -1,6 +1,7 @@
 import "../../statics/style.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
 import type { AppProps } from "next/app";
 import { ClientContextProvider } from "components/contexts/client";
 
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {/* <div style={{ visibility: mounted ? 'visible' : 'hidden' }}> */}
             <Component {...pageProps} />
           {/* </div> */}
+          <ReactQueryDevtools initialIsOpen={false} />
         </ClientContextProvider>
       </ChakraProvider>
     </QueryClientProvider>

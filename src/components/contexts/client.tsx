@@ -87,15 +87,15 @@ export const ClientContextProvider = ({ children }: Children) => {
         contact: {
           text: "bg",
           size: "4em",
-          cSpan2: 2,
-          end: 2,
+          cSpan2: 3,
+          end: 1,
           h: "auto",
         },
         home: [1, 4, 9, 15],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
-          colSpan: [2, 3, 3, 6],
+          colSpan: [2, 4, 4],
           rowSpan: [2],
         },
         academy: 5
@@ -105,15 +105,15 @@ export const ClientContextProvider = ({ children }: Children) => {
         contact: {
           text: "bg",
           size: "4em",
-          cSpan2: 2,
-          end: 2,
+          cSpan2: 3,
+          end: 1,
           h: "auto",
         },
         home: [2, 5, 8, 16],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
-          colSpan: [2, 3, 3, 6],
+          colSpan: [2, 4, 4],
           rowSpan: [2],
         },
         academy: 5
