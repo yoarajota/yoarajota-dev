@@ -38,9 +38,9 @@ texts;
 <p> colors of skills </p>
 <p> remove animation skill tec </p>
 <p> framer next interation </p>
-
 <p> req apolo graphql </p>
 <p> get ssp </p>
+<p> academy section review systemconfig </p>
 
 ptbr
 Desenvolvedor Full Stack proficiente em tecnologias de front-end e server-side.
