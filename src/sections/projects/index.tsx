@@ -1,4 +1,13 @@
-import { Badge, Box, Button, Grid, GridItem, Link, List, ListItem } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  Link,
+  List,
+  ListItem,
+} from "@chakra-ui/react";
 import Titles from "../../components/typography/titles";
 import { ClientContext } from "components/contexts/client";
 import { useCallback, useContext, useEffect, useState } from "react";
@@ -13,6 +22,7 @@ import { ImBlocked, ImInfo } from "react-icons/im";
 import _ from "lodash";
 import config from "../../../config.json";
 import { AiFillGithub } from "react-icons/ai";
+import { BiBorderBottom } from "react-icons/bi";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -29,7 +39,10 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
 };
 
 function Project() {
-  const { msg, systemConfig: { project } } = useContext(ClientContext);
+  const {
+    msg,
+    systemConfig: { project },
+  } = useContext(ClientContext);
   const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
   const { data, refetch } = useQuery(
@@ -71,16 +84,16 @@ function Project() {
   }, [fetched, refetch]);
 
   useEffect(() => {
-    console.log(currentRepo)
-  }, [currentRepo])
+    console.log(currentRepo);
+  }, [currentRepo]);
 
   const handle = useCallback((i: keyable) => {
     if (i.blocked) {
-      setCurrentRepo({})
+      setCurrentRepo({});
     } else {
-      setCurrentRepo(i)
+      setCurrentRepo(i);
     }
-  }, [])
+  }, []);
 
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
@@ -89,7 +102,7 @@ function Project() {
         margin="3em auto 0 auto"
         w="80%"
         h="300px"
-        templateRows="repeat(2, 1fr)"
+        templateRows="repeat(3, 1fr)"
         templateColumns="repeat(6, 1fr)"
         gap={4}
         border={`1px solid  ${Colors.Orange}`}
@@ -125,16 +138,26 @@ function Project() {
                   justifyContent="space-between"
                   h="2em"
                   opacity={i.blocked ? 0.5 : 1}
-                  onClick={() => { handle(i) }}
+                  onClick={() => {
+                    handle(i);
+                  }}
                   overflow="hidden"
                   wordBreak="normal"
                   height="2.1em"
                 >
-                  <NormalText customColor={Colors.Orange} text={i.name} functions={{ w: "65%" }} />
+                  <NormalText
+                    customColor={Colors.Orange}
+                    text={i.name}
+                    functions={{ w: "65%" }}
+                  />
                   <Box display="flex" alignItems="center" gap="1em">
                     <LanguagesIcons language={i.language} />
                     <Box>
-                      {i.blocked ? <ImBlocked color={Colors.Orange} /> : <ImInfo color={Colors.Orange} />}
+                      {i.blocked ? (
+                        <ImBlocked color={Colors.Orange} />
+                      ) : (
+                        <ImInfo color={Colors.Orange} />
+                      )}
                     </Box>
                   </Box>
                 </ListItem>
@@ -142,27 +165,48 @@ function Project() {
             })}
           </List>
         </GridItem>
-        <GridItem p="1em" colSpan={project.colSpan?.[1]}>
+        <GridItem p="1em" colSpan={project.colSpan?.[1]} position="relative">
           {!_.isEmpty(currentRepo) && (
-            <Box display="flex" gap="0.5em" flexDirection="column" justifyContent="center">
+            <Box
+              display="flex"
+              gap="0.5em"
+              flexDirection="column"
+              justifyContent="center"
+            >
               <Titles size="sm" text={currentRepo.name} />
               <Box h="2em" w="2em" m="0 auto">
-                <Link href={currentRepo.html_url} target="_blank">
+                <Link
+                  href={currentRepo.html_url}
+                  target="_blank"
+                  position="absolute"
+                  right={0}
+                  top={0}
+                  borderLeft={`1px solid ${Colors.Orange}`}
+                  borderBottom={`1px solid ${Colors.Orange}`}
+                  borderBottomStartRadius="8px"
+                  p="5px"
+                >
                   <AiFillGithub size="2em" color={Colors.Gray} />
                 </Link>
               </Box>
             </Box>
           )}
         </GridItem>
-        <GridItem colSpan={project.colSpan?.[2]}>
-          <Box>
-            {!_.isEmpty(currentRepo) && (
-              <Box>
+        <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[1]}>
+          {!_.isEmpty(currentRepo) && (
+            <Box h="100%">
+              <Box h="85%">
                 <NormalText text={currentRepo.description} />
-                <Badge bg={Colors.Orange} color={Colors.Black}><Link href={currentRepo.html_url + "#readme"} target="link">Read me</Link></Badge>
               </Box>
-            )}
-          </Box>
+              <Box h="15%">
+                <Badge bg={Colors.Orange} color={Colors.Black}>
+                  <Link href={currentRepo.html_url + "#readme"} target="link">
+                    Read me
+                  </Link>
+                </Badge>
+              </Box>
+            </Box>
+          )}
         </GridItem>
       </Grid>
     </Box>

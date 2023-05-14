@@ -96,7 +96,7 @@ export const ClientContextProvider = ({ children }: Children) => {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
           colSpan: [2, 4, 4],
-          rowSpan: [2],
+          rowSpan: [3, 2],
         },
         academy: 5
       }
@@ -114,7 +114,7 @@ export const ClientContextProvider = ({ children }: Children) => {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
           colSpan: [2, 4, 4],
-          rowSpan: [2],
+          rowSpan: [3, 2],
         },
         academy: 5
       };
