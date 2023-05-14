@@ -11,6 +11,11 @@ export const ClientContextProvider = ({ children }: Children) => {
       cSpan2: 0,
       end: 0,
       h: "",
+      grid: {
+        templateRows: "",
+        templateColumns: "",
+        minW: "",
+      },
     },
     home: [],
     project: {
@@ -19,7 +24,7 @@ export const ClientContextProvider = ({ children }: Children) => {
       colSpan: [],
       rowSpan: [],
     },
-    academy: 0
+    academy: 0,
   });
 
   const [msg, setMsg] = useState<keyable>({});
@@ -44,9 +49,9 @@ export const ClientContextProvider = ({ children }: Children) => {
 
     setMsg(
       Messages[
-      storageLang
-        ? storageLang
-        : ["pt-BR", "en-US"].includes(global.navigator?.language)
+        storageLang
+          ? storageLang
+          : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -72,6 +77,11 @@ export const ClientContextProvider = ({ children }: Children) => {
           cSpan2: 2,
           end: 2,
           h: "auto",
+          grid: {
+            templateRows: "repeat(1, 1fr)",
+            templateColumns: "repeat(2, 1fr)",
+            minW: "95%",
+          },
         },
         home: [2, 5, 9, 14],
         project: {
@@ -80,16 +90,21 @@ export const ClientContextProvider = ({ children }: Children) => {
           colSpan: [],
           rowSpan: [],
         },
-        academy: 6
+        academy: 6,
       };
     } else if (innerWidth < 1440) {
       mountObj = {
         contact: {
           text: "bg",
-          size: "4em",
+          size: "3em",
           cSpan2: 3,
           end: 1,
           h: "auto",
+          grid: {
+            templateRows: "repeat(2, 1fr)",
+            templateColumns: "repeat(5, 1fr)",
+            minW: "33.375em",
+          },
         },
         home: [1, 4, 9, 15],
         project: {
@@ -98,16 +113,21 @@ export const ClientContextProvider = ({ children }: Children) => {
           colSpan: [2, 4, 4],
           rowSpan: [3, 2],
         },
-        academy: 5
-      }
+        academy: 5,
+      };
     } else {
       mountObj = {
         contact: {
           text: "bg",
-          size: "4em",
+          size: "3em",
           cSpan2: 3,
           end: 1,
           h: "auto",
+          grid: {
+            templateRows: "repeat(2, 1fr)",
+            templateColumns: "repeat(5, 1fr)",
+            minW: "33.375em",
+          },
         },
         home: [2, 5, 8, 16],
         project: {
@@ -116,7 +136,7 @@ export const ClientContextProvider = ({ children }: Children) => {
           colSpan: [2, 4, 4],
           rowSpan: [3, 2],
         },
-        academy: 5
+        academy: 5,
       };
     }
 
@@ -125,7 +145,7 @@ export const ClientContextProvider = ({ children }: Children) => {
     }
 
     setSystemConfig(mountObj);
-  }, [innerWidth])
+  }, [innerWidth]);
 
   const changeLanguage = useCallback((value: string) => {
     setLang(value);
@@ -141,7 +161,7 @@ export const ClientContextProvider = ({ children }: Children) => {
         lang,
         innerWidth,
         innerHeight,
-        systemConfig
+        systemConfig,
       }}
     >
       {children}

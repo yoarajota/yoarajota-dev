@@ -22,6 +22,7 @@ export type ContactConfig = {
     cSpan2: number,
     end: number,
     h: string,
+    grid: keyable
 }
 
 export type ProjectGridConfig = {
@@ -140,9 +141,15 @@ export type ImageAndButtonType = {
     idString?: string
 }
 
-export type Carousel = {
-    list: Array<string | ReactNode>
+type boxSlideCarousel = {
+    title: string,
+    text: string,
+    inst: string
 }
+
+export type Carousel = {
+  list: Array<string | boxSlideCarousel | ReactNode>;
+};
 
 export type ModalType = ModalProps & {
     data?: keyable

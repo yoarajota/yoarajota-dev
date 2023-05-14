@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import _ from "lodash";
 import { defaultText } from "../../asset/types";
@@ -15,7 +15,7 @@ function NormalText({
     <>
       {displayText.map((i) => (
         <Text
-          h="100%"
+          h="fit-content"
           key={_.uniqueId()}
           color={customColor}
           {...functions}

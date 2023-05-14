@@ -10,7 +10,18 @@ import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FiDownload, FiMail } from "react-icons/fi";
 
 function Contact() {
-    const { innerWidth, systemConfig: { contact: { h, cSpan2, text, size, end } } } = useContext(ClientContext);
+    const {
+      systemConfig: {
+        contact: {
+          h,
+          cSpan2,
+          text,
+          size,
+          end,
+          grid: { templateRows, templateColumns, minW },
+        },
+      },
+    } = useContext(ClientContext);
 
     const stl = {
         display: "flex",
@@ -39,10 +50,10 @@ function Contact() {
             <Grid
                 m="0 auto"
                 w="42%"
-                templateRows={innerWidth < 764 ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
-                templateColumns={innerWidth < 764 ? "repeat(2, 1fr)" : "repeat(5, 1fr)"}
+                templateRows={templateRows}
+                templateColumns={templateColumns}
                 gap={4}
-                minW={innerWidth < 764 ? "95%" : "33.375em"}
+                minW={minW}
                 border={`2px solid ${Colors.Orange}`}
                 borderRadius="2.5em"
                 h={h}

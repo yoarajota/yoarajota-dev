@@ -54,7 +54,7 @@ export default function Home() {
   }, [scrollYProgress]);
 
   return (
-    <Box ref={wrap} position="relative">
+    <Box ref={wrap} position="relative" paddingBottom="8em">
       <Maintenance />
       {innerWidth > 767 && <Scrollbar scrollY={scrollYProgress} />}
       <LanguagePop />
