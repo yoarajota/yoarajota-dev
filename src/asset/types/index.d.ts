@@ -108,7 +108,7 @@ export type CustomNodes = customFontSize & {
 };
 
 export type Scrollbar = {
-  scrollY: MotionValue<number>;
+    scrollY: MotionValue<number>;
 };
 
 interface scrollYProgress {
@@ -141,14 +141,18 @@ export type ImageAndButtonType = {
     idString?: string
 }
 
-type boxSlideCarousel = {
+export type BoxSlideCarousel = {
     title: string,
     text: string,
     inst: string
 }
 
+export type CarouselBox = {
+    list: Array<BoxSlideCarousel>;
+}
+
 export type Carousel = {
-  list: Array<string | boxSlideCarousel | ReactNode>;
+    list: Array<string | ReactNode>;
 };
 
 export type ModalType = ModalProps & {

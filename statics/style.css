@@ -489,3 +489,10 @@ body::-webkit-scrollbar {
 .overflow-hidden {
   overflow: hidden;
 }
+
+.project-title-wrap {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+  justify-content: center;
+}

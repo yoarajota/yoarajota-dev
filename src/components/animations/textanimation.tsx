@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import _ from "lodash";
 import NormalText from "../typography/normaltext";
 import Titles from "../typography/titles";
 
@@ -13,11 +14,12 @@ function TextAnimation(props: {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ duration: 0.3 }}
+      key={_.uniqueId("text-animated-")}
     >
       {!props.title ? (
         <NormalText text={props.text}></NormalText>
       ) : (
-          <Titles size={props.size} text={props.text} />
+        <Titles size={props.size} text={props.text} />
       )}
     </motion.div>
   );

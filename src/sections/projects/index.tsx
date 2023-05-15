@@ -22,7 +22,7 @@ import { ImBlocked, ImInfo } from "react-icons/im";
 import _ from "lodash";
 import config from "../../../config.json";
 import { AiFillGithub } from "react-icons/ai";
-import { BiBorderBottom } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -167,11 +167,11 @@ function Project() {
         </GridItem>
         <GridItem p="1em" colSpan={project.colSpan?.[1]} position="relative">
           {!_.isEmpty(currentRepo) && (
-            <Box
-              display="flex"
-              gap="0.5em"
-              flexDirection="column"
-              justifyContent="center"
+            <motion.div
+              className="project-title-wrap"
+              initial={{ x: 20, }}
+              animate={{ x: 0, }}
+              key={currentRepo.id}
             >
               <Titles size="sm" text={currentRepo.name} />
               <Box h="2em" w="2em" m="0 auto">
@@ -189,13 +189,13 @@ function Project() {
                   <AiFillGithub size="2em" color={Colors.Gray} />
                 </Link>
               </Box>
-            </Box>
+            </motion.div>
           )}
         </GridItem>
         <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[1]}>
           {!_.isEmpty(currentRepo) && (
             <Box h="100%">
-              <Box h="85%">
+              <Box h="85%" w="80%">
                 <NormalText text={currentRepo.description} />
               </Box>
               <Box h="15%">

@@ -71,6 +71,7 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
                 className="container-mediaquery-responsive-display"
                 animate={{ opacity: [0, 1] }}
                 exit={{ opacity: 0 }}
+                key={_.uniqueId()}
               >
                 <Box
                   className="box-text-child"
