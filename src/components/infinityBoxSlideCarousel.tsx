@@ -1,4 +1,4 @@
-import { Box, List, ListItem } from "@chakra-ui/react";
+import { Box, Divider, List, ListItem, Popover, Tooltip } from "@chakra-ui/react";
 import { Carousel, CarouselBox, keyable } from "asset/types";
 import {
     AnimatePresence,
@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { wrap } from "popmotion";
 import { BiLeftArrow, BiRightArrow, BiUpArrow } from "react-icons/bi";
+import { HiAcademicCap } from "react-icons/hi";
 import { Colors } from "asset/enums";
 import NormalText from "./typography/normaltext";
 import Titles from "./typography/titles";
@@ -132,24 +133,37 @@ function InfinityBoxSlideCarousel({ list }: CarouselBox) {
                                                                     (list.length + index + imageIndex) %
                                                                     list.length
                                                                 ]?.title
-
                                                             : ""
                                                     )
                                                 }
                                             />
                                         </Box>
-                                        <Box h="80%" p="0.5em" display="flex">
+                                        <Box h="80%" p="0.5em" display="flex" flexDirection="column" gap="0.2em">
                                             {list && (
-                                                <NormalText
-                                                    text={String(
+                                                <>
+                                                    <Tooltip label={
                                                         list[imageIndex + index]
-                                                            ? list[imageIndex + index]
+                                                            ? list[imageIndex + index].inst
                                                             : list[
-                                                            (list.length + index + imageIndex) %
-                                                            list.length
-                                                            ]
-                                                    )}
-                                                />
+                                                                (list.length + index + imageIndex) %
+                                                                list.length
+                                                            ].inst
+                                                    }>
+                                                        <Box m="0 auto">
+                                                            <HiAcademicCap size="1.3em" color={Colors.Gray} />
+                                                        </Box>
+                                                    </Tooltip>
+                                                    <NormalText
+                                                        text={String(
+                                                            list[imageIndex + index]
+                                                                ? list[imageIndex + index].text
+                                                                : list[
+                                                                    (list.length + index + imageIndex) %
+                                                                    list.length
+                                                                ].text
+                                                        )}
+                                                    />
+                                                </>
                                             )}
                                         </Box>
                                     </Box>

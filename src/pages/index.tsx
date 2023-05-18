@@ -90,7 +90,7 @@ export default function Home() {
           <Interest />
         </AnimatedContainer>
       {/* )} */}
-      <Phill413 />
+      {/* <Phill413 /> */}
       <Contact />
       <Projects />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />

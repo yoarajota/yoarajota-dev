@@ -167,45 +167,62 @@ function Project() {
         </GridItem>
         <GridItem p="1em" colSpan={project.colSpan?.[1]} position="relative">
           {!_.isEmpty(currentRepo) && (
-            <motion.div
+            <Box
               className="project-title-wrap"
-              initial={{ x: 20, }}
-              animate={{ x: 0, }}
-              key={currentRepo.id}
             >
-              <Titles size="sm" text={currentRepo.name} />
+              <motion.div
+                initial={{ x: 20, }}
+                animate={{ x: 0, }}
+                key={'title-' + currentRepo.id}
+              >
+                <Titles size="sm" text={currentRepo.name} />
+              </motion.div>
               <Box h="2em" w="2em" m="0 auto">
-                <Link
-                  href={currentRepo.html_url}
-                  target="_blank"
-                  position="absolute"
-                  right={0}
-                  top={0}
-                  borderLeft={`1px solid ${Colors.Orange}`}
-                  borderBottom={`1px solid ${Colors.Orange}`}
-                  borderBottomStartRadius="8px"
-                  p="5px"
+                <motion.div
+                  initial={{ opacity: 0, }}
+                  animate={{ opacity: 1, }}
+                  key={"son-" + currentRepo.id}
                 >
-                  <AiFillGithub size="2em" color={Colors.Gray} />
-                </Link>
+                  <Link
+                    href={currentRepo.html_url}
+                    target="_blank"
+                    position="absolute"
+                    right={0}
+                    top={0}
+                    borderLeft={`1px solid ${Colors.Orange}`}
+                    borderBottom={`1px solid ${Colors.Orange}`}
+                    borderBottomStartRadius="8px"
+                    p="5px"
+                  >
+                    <AiFillGithub size="2em" color={Colors.Gray} />
+                  </Link>
+                </motion.div>
               </Box>
-            </motion.div>
+            </Box>
           )}
         </GridItem>
         <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[1]}>
           {!_.isEmpty(currentRepo) && (
-            <Box h="100%">
-              <Box h="85%" w="80%">
-                <NormalText text={currentRepo.description} />
+            <motion.div
+              initial={{ x: 20, }}
+              animate={{ x: 0, }}
+              key={'description-' + currentRepo.id}
+              className="project-desc-wrap"
+            >
+              <Box h="100%">
+
+                <Box h="85%" w="80%">
+                  <NormalText text={currentRepo.description} />
+                </Box>
+                <Box h="15%">
+                  <Badge bg={Colors.Orange} color={Colors.Black}>
+                    <Link href={currentRepo.html_url + "#readme"} target="link">
+                      Read me
+                    </Link>
+                  </Badge>
+                </Box>
               </Box>
-              <Box h="15%">
-                <Badge bg={Colors.Orange} color={Colors.Black}>
-                  <Link href={currentRepo.html_url + "#readme"} target="link">
-                    Read me
-                  </Link>
-                </Badge>
-              </Box>
-            </Box>
+            </motion.div>
           )}
         </GridItem>
       </Grid>

@@ -496,3 +496,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   justify-content: center;
 }
+
+.project-desc-wrap {
+  height: 100%;
+}

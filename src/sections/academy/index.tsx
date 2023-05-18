@@ -15,19 +15,6 @@ import { BsInfoLg } from "react-icons/bs";
 import FadeInContainer from "components/animations/fadeInContainer";
 import PopInContainer from "components/animations/popInContainer";
 
-const ACADEMY = 1;
-const COURSE = 2;
-const reducer = (state: keyable, action: keyable) => {
-  switch (action.type) {
-    case ACADEMY:
-      return { ...state, academy: action.value };
-    case COURSE:
-      return { ...state, course: action.value };
-    default:
-      return state;
-  }
-};
-
 function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
   const { lang, msg, systemConfig: { academy } } = useContext(ClientContext);
 
@@ -131,13 +118,10 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
           <PopInContainer end={academy} motioned={scrollYProgress}>
             <InfinityBoxSlideCarousel
               list={[
-                { title: "Web Development", inst: "", text: ""},
-                { title: "Javascript", inst: "", text: ""},
-                { title: "Database", inst: "", text: ""},
-                { title: "Javascript Fundamentals", inst: "", text: ""},
-                { title: "EE", inst: "", text: ""},
-                { title: "FF", inst: "", text: ""},
-                { title: "GG", inst: "", text: ""},
+                { title: "Web Development", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
+                { title: "Javascript", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
+                { title: "Database", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
+                { title: "Javascript Fundamentals", inst: "Grasshopper", text: ""},
               ]}
             />
           </PopInContainer>
