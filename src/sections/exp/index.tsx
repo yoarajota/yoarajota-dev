@@ -14,8 +14,8 @@ import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 
-function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpType) {
-  const { lang } = useContext(ClientContext);
+function Exp() {
+  const { lang, scrollYProgress, hookedYPosition, calcPercentageWithoutResumeSection } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
     "exp",
@@ -29,22 +29,22 @@ function Exp({ callApi, scrollYProgress, hookedYPosition, middleOfScreen }: ExpT
   const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
-    if (callApi && !fetched) {
+    if (true && !fetched) {
       refetch().then(() => {
         setFetched(true);
       });
     }
-  }, [callApi, fetched, refetch]);
+  }, [fetched, refetch]);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) < middleOfScreen) {
+    if ((hookedYPosition ?? 0) < calcPercentageWithoutResumeSection) {
       setInfo({});
-    } else if ((hookedYPosition ?? 0) > middleOfScreen && _.isEmpty(info)) {
+    } else if ((hookedYPosition ?? 0) > calcPercentageWithoutResumeSection && _.isEmpty(info)) {
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hookedYPosition]);
 
   return (

@@ -15,8 +15,8 @@ import { BsInfoLg } from "react-icons/bs";
 import FadeInContainer from "components/animations/fadeInContainer";
 import PopInContainer from "components/animations/popInContainer";
 
-function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyType) {
-  const { lang, msg, systemConfig: { academy } } = useContext(ClientContext);
+function Academy({ modal }: AcademyType) {
+  const { lang, msg, systemConfig: { academy }, hookedYPosition, scrollYProgress } = useContext(ClientContext);
 
   const { data, refetch } = useQuery(
     "academy",
@@ -30,12 +30,12 @@ function Academy({ callApi, hookedYPosition, scrollYProgress, modal }: AcademyTy
   const [fetched, setFetched] = useState<boolean>(false);
 
   useEffect(() => {
-    if (callApi && !fetched) {
+    if ((hookedYPosition ?? 0) > 0.35 && !fetched) {
       refetch().then(() => {
         setFetched(true);
       });
     }
-  }, [callApi, fetched, refetch]);
+  }, [(hookedYPosition ?? 0) > 0.35, fetched, refetch]);
 
   useEffect(() => {
     if ((hookedYPosition ?? 0) < 0.4) {

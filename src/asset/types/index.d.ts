@@ -115,14 +115,6 @@ interface scrollYProgress {
     scrollYProgress: MotionValue<number>
 }
 
-export type Section = scrollYProgress & {
-    callApi: boolean
-    hookedYPosition?: number
-}
-
-export type ExpType = Section & {
-    middleOfScreen: number
-}
 
 export type Timeline = scrollYProgress & {
     data: Array<any>,
@@ -159,7 +151,7 @@ export type ModalType = ModalProps & {
     data?: keyable
 }
 
-export type AcademyType = Section & {
+export type AcademyType = {
     modal: keyable
 }
 
