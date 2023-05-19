@@ -8,7 +8,7 @@ import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
 import TextAnimation from "../../components/animations/textanimation";
-import { Info, ExpType } from "../../asset/types";
+import { Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
