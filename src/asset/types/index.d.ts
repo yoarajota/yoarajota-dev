@@ -123,7 +123,6 @@ export type Timeline = scrollYProgress & {
 }
 
 export type DefaultAnimatedContainerType = Children & {
-    motioned: MotionValue<number>
     end: number,
     delay?: number,
     classes?: string,

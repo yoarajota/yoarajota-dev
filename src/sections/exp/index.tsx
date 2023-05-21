@@ -1,6 +1,4 @@
-import {
-  Box,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import Titles from "../../components/typography/titles";
@@ -13,9 +11,21 @@ import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
+import { useTriggerState } from "react-trigger-state";
 
 function Exp() {
-  const { lang, scrollYProgress, hookedYPosition, calcPercentageWithoutResumeSection } = useContext(ClientContext);
+  const { lang, calcPercentageWithoutResumeSection } =
+    useContext(ClientContext);
+  const [hookedYPosition, x] = useTriggerState({
+    name: "hookedYPosition",
+  });
+  const [scrollYProgress, xx] = useTriggerState({
+    name: "scrollYProgress",
+  });
+
+  useEffect(() => {
+    console.log(scrollYProgress)
+  }, [scrollYProgress]);
 
   const { data, refetch } = useQuery(
     "exp",
@@ -39,7 +49,10 @@ function Exp() {
   useEffect(() => {
     if ((hookedYPosition ?? 0) < calcPercentageWithoutResumeSection) {
       setInfo({});
-    } else if ((hookedYPosition ?? 0) > calcPercentageWithoutResumeSection && _.isEmpty(info)) {
+    } else if (
+      (hookedYPosition ?? 0) > calcPercentageWithoutResumeSection &&
+      _.isEmpty(info)
+    ) {
       let a = data?.data.data[lang];
       if (a) setInfo(a[a.length - 1]);
     }
@@ -107,7 +120,7 @@ function Exp() {
                   position="absolute"
                 ></Box>
                 <motion.div exit={{ opacity: 0 }}>
-                  <Box marginTop='1em'>
+                  <Box marginTop="1em">
                     <NormalText customFontSize="28px" text={info.time} />
                   </Box>
                 </motion.div>

@@ -14,9 +14,17 @@ import LinkText from "components/typography/linkText";
 import { BsInfoLg } from "react-icons/bs";
 import FadeInContainer from "components/animations/fadeInContainer";
 import PopInContainer from "components/animations/popInContainer";
+import { useTriggerState } from "react-trigger-state";
 
 function Academy({ modal }: AcademyType) {
-  const { lang, msg, systemConfig: { academy }, hookedYPosition, scrollYProgress } = useContext(ClientContext);
+  const {
+    lang,
+    msg,
+    systemConfig: { academy },
+  } = useContext(ClientContext);
+  const [hookedYPosition, setHookedYPosition] = useTriggerState({
+    name: "hookedYPosition",
+  });
 
   const { data, refetch } = useQuery(
     "academy",
@@ -35,7 +43,7 @@ function Academy({ modal }: AcademyType) {
         setFetched(true);
       });
     }
-  }, [(hookedYPosition ?? 0) > 0.35, fetched, refetch]);
+  }, [fetched, hookedYPosition, refetch]);
 
   useEffect(() => {
     if ((hookedYPosition ?? 0) < 0.4) {
@@ -54,12 +62,7 @@ function Academy({ modal }: AcademyType) {
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer
-            delay={1}
-            end={academy}
-            motioned={scrollYProgress}
-            classes="wrap-itens-academy"
-          >
+          <FadeInContainer delay={1} end={academy} classes="wrap-itens-academy">
             <Box className="first-container-academy">
               <Box
                 cursor="pointer"
@@ -115,13 +118,29 @@ function Academy({ modal }: AcademyType) {
           </FadeInContainer>
         </Box>
         <Box overflow="hidden" h="fit-content">
-          <PopInContainer end={academy} motioned={scrollYProgress}>
+          <PopInContainer end={academy}>
             <InfinityBoxSlideCarousel
               list={[
-                { title: "Web Development", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
-                { title: "Javascript", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
-                { title: "Database", inst: "Instituo Federal do Rio Grande do Sul", text: ""},
-                { title: "Javascript Fundamentals", inst: "Grasshopper", text: ""},
+                {
+                  title: "Web Development",
+                  inst: "Instituo Federal do Rio Grande do Sul",
+                  text: "",
+                },
+                {
+                  title: "Javascript",
+                  inst: "Instituo Federal do Rio Grande do Sul",
+                  text: "",
+                },
+                {
+                  title: "Database",
+                  inst: "Instituo Federal do Rio Grande do Sul",
+                  text: "",
+                },
+                {
+                  title: "Javascript Fundamentals",
+                  inst: "Grasshopper",
+                  text: "",
+                },
               ]}
             />
           </PopInContainer>

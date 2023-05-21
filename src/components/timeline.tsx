@@ -5,8 +5,13 @@ import { keyable, Timeline } from "asset/types";
 import _ from "lodash";
 import { useCallback } from "react";
 import TimeLinePoints from "./animations/timelinePoints";
+import { useTriggerState } from "react-trigger-state";
 
-function Timeline({ data, setInfo, scrollYProgress, info }: Timeline) {
+function Timeline({ data, setInfo, info }: Timeline) {
+  const [scrollYProgress, x] = useTriggerState({
+    name: "scrollYProgress",
+  });
+
   const handleInfo = useCallback(
     (val: keyable) => {
       setInfo((p: Array<any>) => {
