@@ -1,45 +1,18 @@
 import { Children, keyable, SystemConfig } from "asset/types";
-import { useScroll, useSpring, useTransform } from "framer-motion";
-import { createContext, useCallback, useEffect, useRef, useState } from "react";
+import { MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Messages from "../../../statics/systemMessages";
 
 export const ClientContext = createContext<keyable>({});
 export const ClientContextProvider = ({ children }: Children) => {
-  const wrap = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
-  const [hookedYPosition, setHookedYPosition] = useState<number>();
-
-  const { scrollYProgress } = useScroll({
-    target: wrap,
-    offset: ["start start", "end end"],
-  });
-
-  const calcPercentageWithoutResumeSection = (ref.current?.offsetHeight ?? 0.001) / (wrap.current?.offsetHeight ?? 1);
-  const sum = useTransform(
-    scrollYProgress,
-    (value) => value + calcPercentageWithoutResumeSection
-  )
-
-  const motioned = useSpring(
-    sum,
-    {
-      stiffness: 120,
-      damping: 30,
-      restDelta: 0.0001,
-      restSpeed: 1,
-    }
-  );
-
-  useEffect(() => {
-    scrollYProgress.onChange((v) => {
-      setHookedYPosition(v);
-    });
-  }, [scrollYProgress]);
-
-
-
-
-
 
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
@@ -86,9 +59,9 @@ export const ClientContextProvider = ({ children }: Children) => {
 
     setMsg(
       Messages[
-      storageLang
-        ? storageLang
-        : ["pt-BR", "en-US"].includes(global.navigator?.language)
+        storageLang
+          ? storageLang
+          : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -190,24 +163,19 @@ export const ClientContextProvider = ({ children }: Children) => {
     localStorage.setItem("lang", value);
   }, []);
 
+  const memo = useMemo(
+    () => ({
+      msg,
+      changeLanguage,
+      lang,
+      innerWidth,
+      innerHeight,
+      systemConfig,
+      ref,
+    }),
+    [changeLanguage, innerHeight, innerWidth, lang, msg, systemConfig]
+  );
   return (
-    <ClientContext.Provider
-      value={{
-        msg,
-        changeLanguage,
-        lang,
-        innerWidth,
-        innerHeight,
-        systemConfig,
-        wrap,
-        ref,
-        scrollYProgress,
-        motioned,
-        calcPercentageWithoutResumeSection,
-        hookedYPosition
-      }}
-    >
-      {children}
-    </ClientContext.Provider>
+    <ClientContext.Provider value={memo}>{children}</ClientContext.Provider>
   );
 };

@@ -15,47 +15,41 @@ import { keyable } from "asset/types";
 import { ClientContext } from "components/contexts/client";
 import Objectives from "sections/objectives";
 import Interest from "sections/interest";
-import Phill413 from "sections/phill413";
 import Contact from "sections/contact";
 import Projects from "sections/projects";
+import ScrollPosition from "components/scrollPosition";
 
 export default function Home() {
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { innerWidth, systemConfig: { home }, wrap, ref, scrollYProgress, motioned, calcPercentageWithoutResumeSection } = useContext(ClientContext);
+  const {
+    innerWidth,
+    systemConfig: { home },
+    ref,
+  } = useContext(ClientContext);
 
   return (
-    <Box ref={wrap} position="relative" paddingBottom="8em">
+    <Box position="relative" paddingBottom="8em">
+      <ScrollPosition />
       <Maintenance />
-      {innerWidth > 767 && <Scrollbar scrollY={scrollYProgress} />}
+      {innerWidth > 767 && <Scrollbar />}
       <LanguagePop />
       <Box ref={ref}>
         <Resume />
       </Box>
-      <AnimatedContainer end={home[0]} motioned={motioned}>
-        <Exp
-          // callApi={true}
-        />
+      <AnimatedContainer end={home[0]}>
+        <Exp />
       </AnimatedContainer>
-      {/* {willShow[0] && ( */}
-      <AnimatedContainer end={home[1]} motioned={motioned}>
-        <Academy
-          modal={{ isOpen, onClose, onOpen, setModalData }}
-        />
+      <AnimatedContainer end={home[1]}>
+        <Academy modal={{ isOpen, onClose, onOpen, setModalData }} />
       </AnimatedContainer>
-      {/* )} */}
-      {/* {willShow[1] && ( */}
-      <FadeInContainer end={home[2]} motioned={motioned}>
+      <FadeInContainer end={home[2]}>
         <Tec />
       </FadeInContainer>
-      {/* )} */}
-      {/* {willShow[2] && ( */}
-      <AnimatedContainer end={home[3]} motioned={motioned}>
+      <AnimatedContainer end={home[3]}>
         <Objectives />
         <Interest />
       </AnimatedContainer>
-      {/* )} */}
-      {/* <Phill413 /> */}
       <Contact />
       <Projects />
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />

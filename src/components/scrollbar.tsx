@@ -1,16 +1,19 @@
 import { Box } from "@chakra-ui/react";
 import { useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { Scrollbar } from "../asset/types";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Colors } from "asset/enums";
+import { useTriggerState } from "react-trigger-state";
 
-function Scrollbar({ scrollY }: Scrollbar) {
+function Scrollbar() {
+  const [scrollYProgress, x] = useTriggerState({
+    name: "scrollYProgress",
+  });
   const scroll = useRef<HTMLDivElement>(null);
-  scrollY = useSpring(scrollY, {
+  const scrollY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
   const top = useTransform(scrollY, [0, 1], ["0%", "100%"]);
 
@@ -24,7 +27,12 @@ function Scrollbar({ scrollY }: Scrollbar) {
         display="flex"
         justifyContent="center"
       >
-        <Box w={"3px"} h={"75vh"} borderRadius="360px" bgColor={Colors.Purple}></Box>
+        <Box
+          w={"3px"}
+          h={"75vh"}
+          borderRadius="360px"
+          bgColor={Colors.Purple}
+        ></Box>
 
         <motion.div
           ref={scroll}
