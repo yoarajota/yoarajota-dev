@@ -13,6 +13,7 @@ import Messages from "../../../statics/systemMessages";
 export const ClientContext = createContext<keyable>({});
 export const ClientContextProvider = ({ children }: Children) => {
   const ref = useRef<HTMLDivElement>(null);
+  const wrap = useRef<HTMLDivElement>(null);
 
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
@@ -172,6 +173,7 @@ export const ClientContextProvider = ({ children }: Children) => {
       innerHeight,
       systemConfig,
       ref,
+      wrap,
     }),
     [changeLanguage, innerHeight, innerWidth, lang, msg, systemConfig]
   );

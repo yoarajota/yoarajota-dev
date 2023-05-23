@@ -5,8 +5,7 @@ import { useTriggerState } from "react-trigger-state";
 import { ClientContext } from "./contexts/client";
 
 function ScrollPosition() {
-  const wrap = useRef<HTMLDivElement>(null);
-  const { ref } = useContext(ClientContext);
+  const { wrap } = useContext(ClientContext);
 
   const { scrollYProgress } = useScroll({
     target: wrap,
@@ -23,31 +22,11 @@ function ScrollPosition() {
     initial: scrollYProgress,
   });
 
-  const [iii, setMotioned] = useTriggerState({
-    name: "motioned",
-    initial: new MotionValue(),
-  });
-
-  const calcPercentageWithoutResumeSection =
-    (ref.current?.offsetHeight ?? 0.001) / (wrap.current?.offsetHeight ?? 1);
-  const sum = useTransform(
-    scrollYProgress,
-    (value) => value + calcPercentageWithoutResumeSection
-  );
-
-  setMotioned(
-    useSpring(sum, {
-      stiffness: 120,
-      damping: 30,
-      restDelta: 0.0001,
-      restSpeed: 1,
-    })
-  );
-
   useEffect(() => {
     const a = scrollYProgress.onChange((v) => {
       setHookedYPosition(v);
     });
+
     const b = scrollYProgress.onChange(() => {
       setScrollYProgressTriggerState(scrollYProgress);
     });
@@ -56,9 +35,9 @@ function ScrollPosition() {
       a();
       b();
     };
-  }, []);
+  }, [scrollYProgress, setHookedYPosition, setScrollYProgressTriggerState]);
 
-  return <Box w="100%" h="100%" bg="red" position="absolute"></Box>;
+  return <Box ref={wrap} w="100%" h="100%" position="absolute"></Box>;
 }
 
 export default ScrollPosition;

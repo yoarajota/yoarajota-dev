@@ -14,18 +14,10 @@ import NormalText from "components/typography/normaltext";
 import { useTriggerState } from "react-trigger-state";
 
 function Exp() {
-  const { lang, calcPercentageWithoutResumeSection } =
-    useContext(ClientContext);
+  const { lang, calcPercentageWithoutResumeSection } = useContext(ClientContext);
   const [hookedYPosition, x] = useTriggerState({
     name: "hookedYPosition",
   });
-  const [scrollYProgress, xx] = useTriggerState({
-    name: "scrollYProgress",
-  });
-
-  useEffect(() => {
-    console.log(scrollYProgress)
-  }, [scrollYProgress]);
 
   const { data, refetch } = useQuery(
     "exp",
@@ -69,7 +61,6 @@ function Exp() {
         <Box h="110px" w="100%">
           <Timeline
             info={info}
-            scrollYProgress={scrollYProgress}
             data={data?.data.data[lang]}
             setInfo={setInfo}
           />
