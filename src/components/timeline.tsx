@@ -8,10 +8,6 @@ import TimeLinePoints from "./animations/timelinePoints";
 import { useTriggerState } from "react-trigger-state";
 
 function Timeline({ data, setInfo, info }: Timeline) {
-  const [scrollYProgress, x] = useTriggerState({
-    name: "scrollYProgress",
-  });
-
   const handleInfo = useCallback(
     (val: keyable) => {
       setInfo((p: Array<any>) => {
@@ -47,7 +43,6 @@ function Timeline({ data, setInfo, info }: Timeline) {
           <TimeLinePoints
             index={index}
             key={_.uniqueId()}
-            scrollYProgress={scrollYProgress}
             sWidth={item.progress}
           >
             <Tooltip
