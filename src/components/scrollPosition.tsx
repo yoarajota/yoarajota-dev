@@ -37,7 +37,7 @@ function ScrollPosition() {
     };
   }, [scrollYProgress, setHookedYPosition, setScrollYProgressTriggerState]);
 
-  return <Box ref={wrap} w="100%" h="100%" position="absolute"></Box>;
+  return <Box ref={wrap} w="100%" h="100%" position="absolute" zIndex="hide"></Box>;
 }
 
 export default ScrollPosition;

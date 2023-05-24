@@ -14,10 +14,13 @@ import NormalText from "components/typography/normaltext";
 import { useTriggerState } from "react-trigger-state";
 
 function Exp() {
-  const { lang, calcPercentageWithoutResumeSection } = useContext(ClientContext);
+  const { lang } = useContext(ClientContext);
+  const [info, setInfo] = useState<Info>({});
+  const [fetched, setFetched] = useState(false);
   const [hookedYPosition, x] = useTriggerState({
     name: "hookedYPosition",
   });
+
 
   const { data, refetch } = useQuery(
     "exp",
@@ -27,8 +30,6 @@ function Exp() {
     { staleTime: 600000 }
   );
 
-  const [info, setInfo] = useState<Info>({});
-  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
     if (true && !fetched) {
@@ -39,10 +40,10 @@ function Exp() {
   }, [fetched, refetch]);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) < calcPercentageWithoutResumeSection) {
+    if ((hookedYPosition ?? 0) < 0.1) {
       setInfo({});
     } else if (
-      (hookedYPosition ?? 0) > calcPercentageWithoutResumeSection &&
+      (hookedYPosition ?? 0) > 0.1 &&
       _.isEmpty(info)
     ) {
       let a = data?.data.data[lang];
