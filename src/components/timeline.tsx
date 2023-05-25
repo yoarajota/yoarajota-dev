@@ -5,7 +5,6 @@ import { keyable, Timeline } from "asset/types";
 import _ from "lodash";
 import { useCallback } from "react";
 import TimeLinePoints from "./animations/timelinePoints";
-import { useTriggerState } from "react-trigger-state";
 
 function Timeline({ data, setInfo, info }: Timeline) {
   const handleInfo = useCallback(

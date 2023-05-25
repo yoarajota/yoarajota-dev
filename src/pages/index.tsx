@@ -18,6 +18,7 @@ import Interest from "sections/interest";
 import Contact from "sections/contact";
 import Projects from "sections/projects";
 import ScrollPosition from "components/scrollPosition";
+import Titles from "components/typography/titles";
 
 export default function Home() {
   const [modalData, setModalData] = useState<keyable>({});
@@ -30,16 +31,17 @@ export default function Home() {
 
   return (
     <Box position="relative" paddingBottom="8em">
-      <ScrollPosition />
+      <Titles text="stand by" />
+      {/* <ScrollPosition />
       <Maintenance />
       {innerWidth > 767 && <Scrollbar />}
-      <LanguagePop />
       <Box ref={ref}>
         <Resume />
       </Box>
       <AnimatedContainer end={home[0]}>
         <Exp />
-      </AnimatedContainer>
+      </AnimatedContainer> */}
+      {/* <LanguagePop />
       <AnimatedContainer end={home[1]}>
         <Academy modal={{ isOpen, onClose, onOpen, setModalData }} />
       </AnimatedContainer>
@@ -52,7 +54,7 @@ export default function Home() {
       </AnimatedContainer>
       <Contact />
       <Projects />
-      <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
+      <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} /> */}
     </Box>
   );
 }

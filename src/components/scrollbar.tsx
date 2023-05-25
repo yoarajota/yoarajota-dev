@@ -3,14 +3,10 @@ import { useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Colors } from "asset/enums";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 
 function Scrollbar() {
-  const [scrollYProgress, x] = useTriggerState({
-    name: "scrollYProgress",
-  });
-
-  const scrollY = useSpring(scrollYProgress, {
+  const scrollY = useSpring(stateStorage.get("scrollYProgress"), {
     stiffness: 100,
     damping: 20,
     restDelta: 0.001,

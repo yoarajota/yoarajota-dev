@@ -11,16 +11,17 @@ import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 
 function Exp() {
   const { lang } = useContext(ClientContext);
   const [info, setInfo] = useState<Info>({});
   const [fetched, setFetched] = useState(false);
-  const [hookedYPosition, x] = useTriggerState({
-    name: "hookedYPosition",
-  });
-
+  // const [hookedYPosition, x] = useTriggerState({
+  //   name: "hookedYPosition",
+  // });
+  const hookedYPosition = stateStorage.get("hookedYPosition")
+  console.log(hookedYPosition)
 
   const { data, refetch } = useQuery(
     "exp",

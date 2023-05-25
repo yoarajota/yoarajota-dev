@@ -3,7 +3,7 @@ import { keyable } from "asset/types";
 export function createArraysTimeLinePoints(end: string, innerWidth: number): Array<any> {
   let gap = 1;
   if (innerWidth < 768) {
-    gap = 5;
+    gap = 3;
   } else {
     gap = 4;
   }

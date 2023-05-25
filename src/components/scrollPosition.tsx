@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useContext, useRef, useEffect } from "react";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 import { ClientContext } from "./contexts/client";
 
 function ScrollPosition() {
@@ -12,30 +12,21 @@ function ScrollPosition() {
     offset: ["start start", "end end"],
   });
 
-  const [i, setHookedYPosition] = useTriggerState({
-    name: "hookedYPosition",
-    initial: 0,
-  });
-
-  const [ii, setScrollYProgressTriggerState] = useTriggerState({
-    name: "scrollYProgress",
-    initial: scrollYProgress,
-  });
-
+  stateStorage.set("scrollYProgress", scrollYProgress);
   useEffect(() => {
     const a = scrollYProgress.onChange((v) => {
-      setHookedYPosition(v);
+      stateStorage.set("hookedYPosition", v);
     });
 
-    const b = scrollYProgress.onChange(() => {
-      setScrollYProgressTriggerState(scrollYProgress);
-    });
+    // const b = scrollYProgress.onChange(() => {
+    //   stateStorage.set("scrollYProgress", scrollYProgress);
+    // });
 
     return () => {
       a();
-      b();
+      // b();
     };
-  }, [scrollYProgress, setHookedYPosition, setScrollYProgressTriggerState]);
+  }, [scrollYProgress]);
 
   return <Box ref={wrap} w="100%" h="100%" position="absolute" zIndex="hide"></Box>;
 }

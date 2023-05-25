@@ -1,8 +1,8 @@
 import { DefaultAnimatedContainerType } from "asset/types";
 import { createArrayAnimatedContainer } from "helpers/helpers";
-import { useTransform, motion, useSpring } from "framer-motion";
+import { useTransform, motion, useSpring, MotionValue, useMotionValue } from "framer-motion";
 import { useMemo, useEffect, useContext } from "react";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 import { ClientContext } from "components/contexts/client";
 
 function AnimatedContainer({ children, end }: DefaultAnimatedContainerType) {
@@ -12,17 +12,14 @@ function AnimatedContainer({ children, end }: DefaultAnimatedContainerType) {
     () => createArrayAnimatedContainer(end),
     [end]
   );
-  const [scrollYProgress, i] = useTriggerState({
-    name: "scrollYProgress",
-  });
 
   let result = useSpring(
     useTransform(
-      scrollYProgress,
+      stateStorage.get("scrollYProgress"),
       (value: number) =>
         value +
         (ref?.current?.offsetHeight ?? 0.001) /
-          (wrap?.current?.offsetHeight ?? 1)
+        (wrap?.current?.offsetHeight ?? 1)
     ),
     {
       stiffness: 120,
