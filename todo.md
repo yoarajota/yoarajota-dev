@@ -24,12 +24,9 @@ se# todo
 <p> study chakra performance </p>
 <p> file names </p>
 <p> comments </p>
-<p> contact </p>
-<p> use show/hide chakra </p>
-<p> nextjs render bug </p>
+<p> nextjs render bug ✅</p>
 <p> make textes </p>
-<p> npm install --save @iconscout/react-unicons-solid  || https://github.com/Iconscout/react-unicons-solid </p>
-texts;
+
 <p> concact card download clickable </p>
 <!-- <p> about page -  <p> React Unicons Solid by <a href="https://iconscout.com/">IconScout</a> react flow -->
 <p> Avoid an excessive DOM size </p>
@@ -37,7 +34,7 @@ texts;
 <p> reduce dom elements </p> /// i have no idea how to do it in format that animations is seted
 <p> colors of skills </p>
 <p> remove animation skill tec </p>
-<p> framer next interation </p>
+
 <p> req apolo graphql </p>
 <p> get ssp </p>
 <p> academy section review systemconfig </p>
