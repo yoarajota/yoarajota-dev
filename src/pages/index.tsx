@@ -31,8 +31,7 @@ export default function Home() {
 
   return (
     <Box position="relative" paddingBottom="8em">
-      <Titles text="stand by" />
-      {/* <ScrollPosition />
+      <ScrollPosition />
       <Maintenance />
       {innerWidth > 767 && <Scrollbar />}
       <Box ref={ref}>
@@ -40,8 +39,8 @@ export default function Home() {
       </Box>
       <AnimatedContainer end={home[0]}>
         <Exp />
-      </AnimatedContainer> */}
-      {/* <LanguagePop />
+      </AnimatedContainer>
+      <LanguagePop />
       <AnimatedContainer end={home[1]}>
         <Academy modal={{ isOpen, onClose, onOpen, setModalData }} />
       </AnimatedContainer>
@@ -54,7 +53,7 @@ export default function Home() {
       </AnimatedContainer>
       <Contact />
       <Projects />
-      <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} /> */}
+      <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );
 }

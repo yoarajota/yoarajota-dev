@@ -12,19 +12,18 @@ function ScrollPosition() {
     offset: ["start start", "end end"],
   });
 
+  const [ii, yy] = useTriggerState({
+    name: "scrollYProgress",
+    initial: scrollYProgress,
+  });
   stateStorage.set("scrollYProgress", scrollYProgress);
   useEffect(() => {
     const a = scrollYProgress.onChange((v) => {
       stateStorage.set("hookedYPosition", v);
     });
 
-    // const b = scrollYProgress.onChange(() => {
-    //   stateStorage.set("scrollYProgress", scrollYProgress);
-    // });
-
     return () => {
       a();
-      // b();
     };
   }, [scrollYProgress]);
 
