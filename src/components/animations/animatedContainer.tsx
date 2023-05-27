@@ -1,6 +1,12 @@
 import { DefaultAnimatedContainerType } from "asset/types";
 import { createArrayAnimatedContainer } from "helpers/helpers";
-import { useTransform, motion, useSpring, MotionValue, useMotionValue } from "framer-motion";
+import {
+  useTransform,
+  motion,
+  useSpring,
+  MotionValue,
+  useMotionValue,
+} from "framer-motion";
 import { useMemo, useEffect, useContext } from "react";
 import { stateStorage, useTriggerState } from "react-trigger-state";
 import { ClientContext } from "components/contexts/client";
@@ -19,7 +25,7 @@ function AnimatedContainer({ children, end }: DefaultAnimatedContainerType) {
       (value: number) =>
         value +
         (ref?.current?.offsetHeight ?? 0.001) /
-        (wrap?.current?.offsetHeight ?? 1)
+          (wrap?.current?.offsetHeight ?? 1)
     ),
     {
       stiffness: 120,

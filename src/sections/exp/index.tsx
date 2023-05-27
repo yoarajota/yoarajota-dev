@@ -1,6 +1,5 @@
 import { Box } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
-// import { useRouter } from "next/router";
 import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
 import api from "../../api/axios";
@@ -17,7 +16,7 @@ function Exp() {
   const { lang } = useContext(ClientContext);
   const [info, setInfo] = useState<Info>({});
   const [fetched, setFetched] = useState(false);
-  const hookedYPosition = stateStorage.get("hookedYPosition")
+  const scrollYProgress = stateStorage.get("scrollYProgress");
   const { data, refetch } = useQuery(
     "exp",
     () => {
@@ -25,7 +24,6 @@ function Exp() {
     },
     { staleTime: 600000 }
   );
-
 
   useEffect(() => {
     if (true && !fetched) {
@@ -36,18 +34,16 @@ function Exp() {
   }, [fetched, refetch]);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) < 0.1) {
-      setInfo({});
-    } else if (
-      (hookedYPosition ?? 0) > 0.1 &&
-      _.isEmpty(info)
-    ) {
-      let a = data?.data.data[lang];
-      if (a) setInfo(a[a.length - 1]);
-    }
-
+    scrollYProgress.onChange((hookedYPosition: number) => {
+      if ((hookedYPosition ?? 0) < 0.1) {
+        setInfo({});
+      } else if ((hookedYPosition ?? 0) > 0.1 && _.isEmpty(info)) {
+        let a = data?.data.data[lang];
+        if (a) setInfo(a[a.length - 1]);
+      }
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hookedYPosition]);
+  }, [scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center" minHeight="100vh">

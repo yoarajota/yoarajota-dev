@@ -3,12 +3,12 @@ import { keyable } from "asset/types";
 export function createArraysTimeLinePoints(end: string, innerWidth: number): Array<any> {
   let gap = 1;
   if (innerWidth < 768) {
-    gap = 3;
+    gap = 1;
   } else {
-    gap = 4;
+    gap = 2;
   }
 
-  var set: Array<number> = [0];
+  let set: Array<number> = [0];
   while (!set.includes(1)) {
     set.push(parseFloat((set[set.length - 1] + 0.05).toFixed(2)));
   }

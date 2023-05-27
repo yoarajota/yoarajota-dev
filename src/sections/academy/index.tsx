@@ -14,7 +14,7 @@ import LinkText from "components/typography/linkText";
 import { BsInfoLg } from "react-icons/bs";
 import FadeInContainer from "components/animations/fadeInContainer";
 import PopInContainer from "components/animations/popInContainer";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage } from "react-trigger-state";
 
 function Academy({ modal }: AcademyType) {
   const {
@@ -22,9 +22,7 @@ function Academy({ modal }: AcademyType) {
     msg,
     systemConfig: { academy },
   } = useContext(ClientContext);
-  const [hookedYPosition, setHookedYPosition] = useTriggerState({
-    name: "hookedYPosition",
-  });
+  const scrollYProgress = stateStorage.get("scrollYProgress");
 
   const { data, refetch } = useQuery(
     "academy",
@@ -38,22 +36,22 @@ function Academy({ modal }: AcademyType) {
   const [fetched, setFetched] = useState<boolean>(false);
 
   useEffect(() => {
-    if ((hookedYPosition ?? 0) > 0.35 && !fetched) {
-      refetch().then(() => {
-        setFetched(true);
-      });
-    }
-  }, [fetched, hookedYPosition, refetch]);
-
-  useEffect(() => {
-    if ((hookedYPosition ?? 0) < 0.4) {
-      setInfo({});
-    } else if ((hookedYPosition ?? 0) > 0.4 && _.isEmpty(info)) {
-      let a = data?.data.data[lang];
-      if (a) setInfo(a[a.length - 1]);
-    }
+    scrollYProgress.onChange((hookedYPosition: number) => {
+      if ((hookedYPosition ?? 0) > 0.35 && !fetched) {
+        refetch().then(() => {
+          setFetched(true);
+        });
+      } else if (fetched) {
+        if ((hookedYPosition ?? 0) < 0.4) {
+          setInfo({});
+        } else if ((hookedYPosition ?? 0) > 0.4 && _.isEmpty(info)) {
+          let a = data?.data.data[lang];
+          if (a) setInfo(a[a.length - 1]);
+        }
+      }
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hookedYPosition]);
+  }, [scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center">

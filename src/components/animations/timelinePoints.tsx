@@ -7,23 +7,14 @@ import { TimeLinePointsType } from "../../asset/types";
 import { stateStorage, useTriggerState } from "react-trigger-state";
 
 function TimeLinePoints({ index, sWidth, children }: TimeLinePointsType) {
-  const [scrollYProgress, x] = useTriggerState({
-    name: "scrollYProgress",
-  });
-
   const { innerWidth } = useContext(ClientContext);
   const arr = createArraysTimeLinePoints(sWidth, innerWidth);
   const transition = {
     type: "tween",
-    stiffness: 120,
+    stiffness: 140,
   };
 
-  const width = useSpring(useTransform(scrollYProgress, arr[0], arr[1]), {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.0001,
-    restSpeed: 1,
-  });
+  const width = useTransform(stateStorage.get("scrollYProgress"), arr[0], arr[1])
 
   return (
     <motion.div
