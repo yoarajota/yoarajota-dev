@@ -1,43 +1,38 @@
-se# todo
- 
-<p> end the conversion of the nodes do typescript ✅ </p>
-<p> animate the sections ✅ </p>
-<p> make a custom scrollbar on the right ✅ </p>
-<p> -> make the design better ✅ </p>
-<p> github api section </p>
-<p> education section </p>
-<p> tech section part of random stuffs </p>
-<p> pt-br and english ✅ </p>
-<p> objetivos ✅ </p>
-<p> passar static p dentro do src </p>
-<p> easteregg </p>
-<p> file names camelCase </p>
-<p> make the request messages have the 2 languages </p>
-<p> projects section </p>
-<p> new resume layout ✅ </p> 
-<p> infinite scroll ✅ </p>
-<p> phill 413 </p>
-<p> end box carousel ✅ </p>
-<p> deploy vercel ✅</p>
-<p> transform the language context to generic context ✅ </p>
-<p> keep testing mobo ✅ </p>
-<p> study chakra performance </p>
-<p> file names </p>
-<p> comments </p>
-<p> nextjs render bug ✅</p>
-<p> make textes </p>
+## TODO
 
-<p> concact card download clickable </p>
-<!-- <p> about page -  <p> React Unicons Solid by <a href="https://iconscout.com/">IconScout</a> react flow -->
-<p> Avoid an excessive DOM size </p>
-<p> possible composition </p>
-<p> reduce dom elements </p> /// i have no idea how to do it in format that animations is seted
-<p> colors of skills </p>
-<p> remove animation skill tec </p>
-
-<p> req apolo graphql </p>
-<p> get ssp </p>
-<p> academy section review systemconfig </p>
-
-
-chakra try themes
+- [x] Convert the nodes to TypeScript
+- [x] Animate the sections
+- [x] Create a custom scrollbar on the right
+- [x] Improve the design
+- [ ] GitHub API section
+- [ ] Education section
+- [ ] Tech section as part of random stuff
+- [x] Add support for both Portuguese (pt-br) and English
+- [x] Objectives
+- [ ] Pass static p inside the src
+- [ ] Easter egg
+- [ ] Change file names to camelCase
+- [ ] Make the request messages available in both languages
+- [ ] Projects section
+- [x] New resume layout
+- [x] Implement infinite scroll
+- [ ] Add "Phill 413"
+- [x] Finish the box carousel
+- [x] Deploy to Vercel
+- [x] Transform the language context to a generic context
+- [x] Keep testing on mobile
+- [ ] Study Chakra performance
+- [ ] Update file names
+- [ ] Add comments
+- [x] Fix Next.js render bug
+- [ ] Create textes
+- [ ] Make contact card download clickable
+- [ ] Avoid excessive DOM size
+- [ ] Explore possible composition techniques
+- [ ] Reduce DOM elements
+- [ ] Choose colors for skills
+- [ ] Remove animation for skill tech
+- [ ] Implement Apollo GraphQL requests
+- [ ] Implement Server-Side Rendering (SSR)
+- [ ] Review the system configuration for the academy section
+- [ ] Try Chakra themes
