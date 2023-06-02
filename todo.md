@@ -4,16 +4,16 @@
 - [x] Animate the sections
 - [x] Create a custom scrollbar on the right
 - [x] Improve the design
-- [ ] GitHub API section
-- [ ] Education section
+- [x] GitHub API section
+- [x] Education section
 - [ ] Tech section as part of random stuff
 - [x] Add support for both Portuguese (pt-br) and English
 - [x] Objectives
-- [ ] Pass static p inside the src
+- [ ] Pass static to inside the src
 - [ ] Easter egg
 - [ ] Change file names to camelCase
 - [ ] Make the request messages available in both languages
-- [ ] Projects section
+- [x] Projects section
 - [x] New resume layout
 - [x] Implement infinite scroll
 - [ ] Add "Phill 413"
