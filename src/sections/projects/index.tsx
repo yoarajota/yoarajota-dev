@@ -23,6 +23,7 @@ import _ from "lodash";
 import config from "../../../config.json";
 import { AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
+import ScaleAnimation from "components/animations/scaleAnimation";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -130,21 +131,14 @@ function Project() {
             {data?.map((i: keyable) => {
               return (
                 <ListItem
-                  p="0 10px"
-                  display="flex"
-                  borderBottom={`1px solid  ${Colors.Orange}`}
-                  key={_.uniqueId()}
-                  alignItems="center"
-                  justifyContent="space-between"
-                  h="2em"
-                  opacity={i.blocked ? 0.5 : 1}
-                  onClick={() => {
-                    handle(i);
-                  }}
-                  overflow="hidden"
-                  wordBreak="normal"
-                  height="2.1em"
+                borderBottom={`1px solid  ${Colors.Orange}`}
+                key={_.uniqueId()}
+                opacity={i.blocked ? 0.5 : 1}
+                onClick={() => {
+                  handle(i);
+                }}
                 >
+                  <ScaleAnimation className={`list-item-project ${i.blocked && 'blocked-item'}`} scale={0.98}>
                   <NormalText
                     customColor={Colors.Orange}
                     text={i.name}
@@ -160,6 +154,8 @@ function Project() {
                       )}
                     </Box>
                   </Box>
+                  </ScaleAnimation>
+
                 </ListItem>
               );
             })}
@@ -167,20 +163,18 @@ function Project() {
         </GridItem>
         <GridItem p="1em" colSpan={project.colSpan?.[1]} position="relative">
           {!_.isEmpty(currentRepo) && (
-            <Box
-              className="project-title-wrap"
-            >
+            <Box className="project-title-wrap">
               <motion.div
-                initial={{ x: 20, }}
-                animate={{ x: 0, }}
-                key={'title-' + currentRepo.id}
+                initial={{ x: 20 }}
+                animate={{ x: 0 }}
+                key={"title-" + currentRepo.id}
               >
                 <Titles size="sm" text={currentRepo.name} />
               </motion.div>
               <Box h="2em" w="2em" m="0 auto">
                 <motion.div
-                  initial={{ opacity: 0, }}
-                  animate={{ opacity: 1, }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   key={"son-" + currentRepo.id}
                 >
                   <Link
@@ -204,14 +198,13 @@ function Project() {
         <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[1]}>
           {!_.isEmpty(currentRepo) && (
             <motion.div
-              initial={{ x: 20, }}
-              animate={{ x: 0, }}
-              key={'description-' + currentRepo.id}
+              initial={{ x: 20 }}
+              animate={{ x: 0 }}
+              key={"description-" + currentRepo.id}
               className="project-desc-wrap"
             >
               <Box h="100%">
-
-                <Box h="85%" w="80%">
+                <Box h="85%" w="80%" m="0 auto">
                   <NormalText text={currentRepo.description} />
                 </Box>
                 <Box h="15%">

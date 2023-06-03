@@ -37,7 +37,7 @@ function Skills() {
         />
       ))}
 
-      <motion.div animate={{ opacity: [0, 1], y: [-15, 1, 0], scale: [1.2, 0.975, 1] }} transition={{ times: [0, 0.9, 1], duration: 1, delay: 1 }} className="skills-dots">
+      <motion.div animate={{ opacity: [0, 1], scale: [1.1, 0.975, 1] }} transition={{ times: [0, 0.9, 1], duration: 1, delay: 1 }} className="skills-dots">
         <Tooltip label={msg.subtitle_study}>
           <Box bg={Colors.Study} h="1em" borderRadius="full" w="1em" />
         </Tooltip>

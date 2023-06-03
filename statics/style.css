@@ -510,3 +510,19 @@ body::-webkit-scrollbar {
 .contact-buttons {
   cursor: pointer;
 }
+
+.list-item-project {
+  align-items: center;
+  justify-content: space-between;
+  height: 2em;
+  padding: 0 10px;
+  display: flex;
+  overflow: hidden;
+  word-break: normal;
+  height: 2.1em;
+  cursor: pointer;
+}
+
+.blocked-item {
+  cursor: auto;
+}
