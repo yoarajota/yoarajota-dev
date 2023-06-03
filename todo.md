@@ -32,7 +32,6 @@
 - [ ] Reduce DOM elements
 - [ ] Choose colors for skills
 - [x] Remove animation for skill tech
-- [ ] Implement Apollo GraphQL requests
 - [ ] Implement Server-Side Rendering (SSR)
 - [ ] Review the system configuration for the academy section
 - [ ] Try Chakra themes
