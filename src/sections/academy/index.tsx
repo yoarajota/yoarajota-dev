@@ -56,7 +56,7 @@ function Academy({ modal }: AcademyType) {
   return (
     <Box w="100%" textAlign="center">
       <Box paddingTop="65px">
-        <Titles text={msg.academy_title} />
+        <Titles text={msg?.academy_title} />
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
@@ -75,13 +75,13 @@ function Academy({ modal }: AcademyType) {
                   functions={{
                     onClick: () => {
                       modal.setModalData({
-                        title: msg.academy_name,
-                        text: msg.academy_extra_info,
+                        title: msg?.academy_name,
+                        text: msg?.academy_extra_info,
                       });
                       modal.onOpen();
                     },
                   }}
-                  text={msg.academy_name}
+                  text={msg?.academy_name}
                 />
                 <BsInfoLg color={Colors.Gray} />
               </Box>
@@ -98,20 +98,20 @@ function Academy({ modal }: AcademyType) {
                   functions={{
                     onClick: () => {
                       modal.setModalData({
-                        title: msg.academy_course,
-                        text: msg.academy_course_info,
+                        title: msg?.academy_course,
+                        text: msg?.academy_course_info,
                       });
                       modal.onOpen();
                     },
                   }}
-                  text={msg.academy_course}
+                  text={msg?.academy_course}
                 />
                 <BsInfoLg color={Colors.Gray} />
               </Box>
-              <NormalText text={msg.academy_start} />
+              <NormalText text={msg?.academy_start} />
             </Box>
             <Box marginTop="calc(2em - 10px)" w="50%">
-              <InfinitySlideCarousel list={msg.academy_subjects_list} />
+              <InfinitySlideCarousel list={msg?.academy_subjects_list} />
             </Box>
           </FadeInContainer>
         </Box>

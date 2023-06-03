@@ -1,5 +1,4 @@
 import { Children, keyable, SystemConfig } from "asset/types";
-import { MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   createContext,
   useCallback,
@@ -8,13 +7,15 @@ import {
   useRef,
   useState,
 } from "react";
-import Messages from "../../../statics/systemMessages";
+import { useQuery } from "react-query";
+import api from '../../api/axios'
 
 export const ClientContext = createContext<keyable>({});
 export const ClientContextProvider = ({ children }: Children) => {
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
-
+  const [msg, setMsg] = useState<keyable>({});
+  const [{ innerHeight, innerWidth }, setWindowValues] = useState<keyable>({});
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
       text: "",
@@ -37,15 +38,19 @@ export const ClientContextProvider = ({ children }: Children) => {
     },
     academy: 0,
   });
-
-  const [msg, setMsg] = useState<keyable>({});
-  const [{ innerHeight, innerWidth }, setWindowValues] = useState<keyable>({});
-
   const [lang, setLang] = useState<string>(
     ["pt-BR", "en-US"].includes(global.navigator?.language)
       ? global.navigator?.language
       : "en-US"
   );
+  const { data } = useQuery(
+    "messages",
+    () => {
+      return api.get("api/messages");
+    },
+    { staleTime: 600000 }
+  );
+  const messages = data?.data?.data
 
   useEffect(() => {
     setWindowValues({
@@ -59,10 +64,10 @@ export const ClientContextProvider = ({ children }: Children) => {
     }
 
     setMsg(
-      Messages[
-        storageLang
-          ? storageLang
-          : ["pt-BR", "en-US"].includes(global.navigator?.language)
+      messages?.[
+      storageLang
+        ? storageLang
+        : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -76,7 +81,7 @@ export const ClientContextProvider = ({ children }: Children) => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [messages]);
 
   useEffect(() => {
     let mountObj: SystemConfig;
@@ -160,7 +165,7 @@ export const ClientContextProvider = ({ children }: Children) => {
 
   const changeLanguage = useCallback((value: string) => {
     setLang(value);
-    setMsg(Messages[value]);
+    setMsg(messages?.[value]);
     localStorage.setItem("lang", value);
   }, []);
 

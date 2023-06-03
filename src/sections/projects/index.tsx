@@ -98,7 +98,7 @@ function Project() {
 
   return (
     <Box w="100%" paddingTop="5em" textAlign="center">
-      <Titles text={msg.projects_title} />
+      <Titles text={msg?.projects_title} />
       <Grid
         margin="3em auto 0 auto"
         w="80%"
