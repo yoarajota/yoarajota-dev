@@ -44,7 +44,12 @@ interface Info {
 }
 
 export interface Children {
-    children: React.ReactNode
+    children: React.ReactNode | ReactElement<any, string | JSXElementConstructor<any>>
+}
+
+export type ScaleAnimation = Children & {
+    scale: number,
+    className?: string
 }
 
 export type defaultText = Info & {

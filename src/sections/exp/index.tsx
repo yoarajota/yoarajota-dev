@@ -4,7 +4,7 @@ import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
-import TextAnimation from "../../components/animations/textanimation";
+import TextAnimation from "../../components/animations/textAnimation";
 import { Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";

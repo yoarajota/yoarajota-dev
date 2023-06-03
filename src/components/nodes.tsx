@@ -5,10 +5,10 @@ import ReactFlow, {
   ConnectionLineType
 } from "react-flow-renderer";
 
-import InitialElementsReactJs from "../../statics/initial-elements-react-js";
-import InitialEdgesReactJs from '../../statics/initial-edges-react-js'
-import InitialElementsLaravel from "../../statics/inital-elements-laravel"
-import InitialEdgesLaravel from '../../statics/inital-edges-laravel'
+import InitialElementsReactJs from "../../statics/initialElementsReactJs";
+import InitialEdgesReactJs from '../../statics/initialEdgesReactJs'
+import InitialElementsLaravel from "../../statics/initalElementsLaravel"
+import InitialEdgesLaravel from '../../statics/initalEdgesLaravel'
 import NodeText from "./nodes/nodeText";
 import NodeHead from "./nodes/nodeHead";
 const Nodes = () => {

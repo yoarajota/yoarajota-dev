@@ -18,7 +18,7 @@ const InitialElementsLaravel: Node<any>[] = [
       label: "Laravel",
       xp: "1",
       lvl: "2",
-      img: LaravelSvg,
+      Img: LaravelSvg,
     },
     position: { x: 1180, y: 100 },
   },

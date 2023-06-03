@@ -14,7 +14,7 @@ const InitialElementsReactJs: Node<any>[] = [
       label: "React JS",
       xp: '1',
       lvl: '2',
-      img: ReactSvg
+      Img: ReactSvg
     },
     position: { x: 1180, y: 100 }
   },

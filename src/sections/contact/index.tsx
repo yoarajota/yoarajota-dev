@@ -1,26 +1,27 @@
 import { Box, Grid, GridItem, Image } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
-import { ContactConfig, keyable } from "asset/types";
+import ScaleAnimation from "components/animations/scaleAnimation";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 import Titles from "components/typography/titles";
-import { useContext, useEffect, useRef, useState } from "react";
+import React, { cloneElement, useContext } from "react";
 import { BiWorld } from "react-icons/bi";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FiDownload, FiMail } from "react-icons/fi";
 
+
 function Contact() {
     const {
-      systemConfig: {
-        contact: {
-          h,
-          cSpan2,
-          text,
-          size,
-          end,
-          grid: { templateRows, templateColumns, minW },
+        systemConfig: {
+            contact: {
+                h,
+                cSpan2,
+                text,
+                size,
+                end,
+                grid: { templateRows, templateColumns, minW },
+            },
         },
-      },
     } = useContext(ClientContext);
 
     const stl = {
@@ -54,8 +55,9 @@ function Contact() {
                 templateColumns={templateColumns}
                 gap={4}
                 minW={minW}
-                border={`2px solid ${Colors.Orange}`}
-                borderRadius="2.5em"
+                padding="0.35em 0.75em"
+                border={`1px solid ${Colors.Orange}`}
+                borderRadius="1.5em"
                 h={h}
             >
                 <GridItem {...stl} colSpan={2}>
@@ -78,19 +80,29 @@ function Contact() {
                     <NormalText text="Developer" />
                 </GridItem>
                 <GridItem {...stl} colSpan={1}>
-                    <FiMail size={size} />
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                        <FiMail size={size} />
+                    </ScaleAnimation>
                 </GridItem>
                 <GridItem {...stl} colSpan={1}>
-                    <BsLinkedin size={size} />
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                        <BsLinkedin size={size} />
+                    </ScaleAnimation>
                 </GridItem>
                 <GridItem {...stl} colSpan={1}>
-                    <BsWhatsapp size={size} />
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                        <BsWhatsapp size={size} />
+                    </ScaleAnimation>
                 </GridItem>
                 <GridItem {...stl} colSpan={1}>
-                    <BsGithub size={size} />
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                        <BsGithub size={size} />
+                    </ScaleAnimation>
                 </GridItem>
                 <GridItem {...stl} colSpan={end}>
-                    <BiWorld size={size} />
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                        <BiWorld size={size} />
+                    </ScaleAnimation>
                 </GridItem>
             </Grid>
         </Box>

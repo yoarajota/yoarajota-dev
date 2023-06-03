@@ -1,7 +1,7 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import PulseAnimation from "./animations/pulseAnimation";
 import NextLink from "next/link";
-import RainbowAnimation from "./animations/rainbowanimation";
+import RainbowAnimation from "./animations/rainbowAnimation";
 import { yjLogotipo } from "../asset/types";
 import { Colors } from "asset/enums";
 

@@ -31,7 +31,7 @@
 - [ ] Explore possible composition techniques
 - [ ] Reduce DOM elements
 - [ ] Choose colors for skills
-- [ ] Remove animation for skill tech
+- [x] Remove animation for skill tech
 - [ ] Implement Apollo GraphQL requests
 - [ ] Implement Server-Side Rendering (SSR)
 - [ ] Review the system configuration for the academy section
