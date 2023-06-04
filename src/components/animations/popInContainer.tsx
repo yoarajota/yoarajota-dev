@@ -9,6 +9,7 @@ function PopInContainer({
   classes,
   children,
   end,
+  container = true
 }: DefaultAnimatedContainerType) {
   const { ref, wrap } = useContext(ClientContext);
   const { pixels, motionValueArray } = useMemo(

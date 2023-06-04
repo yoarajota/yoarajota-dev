@@ -430,11 +430,10 @@ body::-webkit-scrollbar {
 }
 
 
-#switch .knobs:before {
+.knobs:before {
   display: flex;
   align-items: center;
   justify-content: center;
-  content: "pt-BR";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -448,13 +447,22 @@ body::-webkit-scrollbar {
   /* padding: 9px 4px; */
   border-radius: 7px;
   transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  content: "pt-BR";
 }
 
-#switch .checkbox:checked+.knobs:before {
+.checkbox:checked+.knobs:before {
   color: var(--black);
-  content: "en-US";
   left: 41px;
   background-color: var(--gray);
+  content: "en-US";
+}
+
+#switch2 .knobs:before {
+  content: "OFF";
+}
+
+#switch2 .checkbox:checked+.onoff:before {
+  content: "ON";
 }
 
 .academy-extra-info {

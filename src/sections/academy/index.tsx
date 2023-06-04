@@ -60,7 +60,7 @@ function Academy({ modal }: AcademyType) {
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer delay={1} end={academy} classes="wrap-itens-academy">
+          <FadeInContainer container={false} delay={1} end={academy} classes="wrap-itens-academy">
             <Box className="first-container-academy">
               <Box
                 cursor="pointer"

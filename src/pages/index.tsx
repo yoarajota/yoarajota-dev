@@ -7,7 +7,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
-import LanguagePop from "components/languagePop";
+import Popup from "components/popup";
 import Academy from "sections/academy";
 import ModalWrap from "components/modal";
 import Maintenance from "components/maintenance";
@@ -40,7 +40,7 @@ export default function Home() {
       <AnimatedContainer end={home[0]}>
         <Exp />
       </AnimatedContainer>
-      <LanguagePop />
+      <Popup />
       <AnimatedContainer end={home[1]}>
         <Academy modal={{ isOpen, onClose, onOpen, setModalData }} />
       </AnimatedContainer>

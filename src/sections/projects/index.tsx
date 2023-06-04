@@ -142,7 +142,7 @@ function Project() {
                   <NormalText
                     customColor={Colors.Orange}
                     text={i.name}
-                    functions={{ w: "65%" }}
+                    functions={{ w: "65%", h: "-webkit-fill-available" }}
                   />
                   <Box display="flex" alignItems="center" gap="1em">
                     <LanguagesIcons language={i.language} />
@@ -219,6 +219,9 @@ function Project() {
           )}
         </GridItem>
       </Grid>
+      <motion.div animate={{height: ["0", "fit-content"]}}>
+
+      </motion.div>
     </Box>
   );
 }

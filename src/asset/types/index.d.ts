@@ -131,6 +131,7 @@ export type DefaultAnimatedContainerType = Children & {
     end: number,
     delay?: number,
     classes?: string,
+    container?: boolean
 }
 
 export type ImageAndButtonType = {

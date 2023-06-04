@@ -8,13 +8,15 @@ import {
   useState,
 } from "react";
 import { useQuery } from "react-query";
-import api from '../../api/axios'
+import api from "../../api/axios";
 
 export const ClientContext = createContext<keyable>({});
 export const ClientContextProvider = ({ children }: Children) => {
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [msg, setMsg] = useState<keyable>({});
+  const [disabledAnimationsContainers, setDisabledAnimationsContainers] =
+    useState<boolean>(false);
   const [{ innerHeight, innerWidth }, setWindowValues] = useState<keyable>({});
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
@@ -50,7 +52,7 @@ export const ClientContextProvider = ({ children }: Children) => {
     },
     { staleTime: 600000 }
   );
-  const messages = data?.data?.data
+  const messages = data?.data?.data;
 
   useEffect(() => {
     setWindowValues({
@@ -65,9 +67,9 @@ export const ClientContextProvider = ({ children }: Children) => {
 
     setMsg(
       messages?.[
-      storageLang
-        ? storageLang
-        : ["pt-BR", "en-US"].includes(global.navigator?.language)
+        storageLang
+          ? storageLang
+          : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -179,8 +181,18 @@ export const ClientContextProvider = ({ children }: Children) => {
       systemConfig,
       ref,
       wrap,
+      setDisabledAnimationsContainers,
+      disabledAnimationsContainers,
     }),
-    [changeLanguage, innerHeight, innerWidth, lang, msg, systemConfig]
+    [
+      changeLanguage,
+      innerHeight,
+      innerWidth,
+      lang,
+      msg,
+      systemConfig, 
+      disabledAnimationsContainers,
+    ]
   );
   return (
     <ClientContext.Provider value={memo}>{children}</ClientContext.Provider>

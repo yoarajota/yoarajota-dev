@@ -12,7 +12,7 @@ import { stateStorage, useTriggerState } from "react-trigger-state";
 import { ClientContext } from "components/contexts/client";
 
 function AnimatedContainer({ children, end }: DefaultAnimatedContainerType) {
-  const { ref, wrap } = useContext(ClientContext);
+  const { ref, wrap, disabledAnimationsContainers } = useContext(ClientContext);
 
   const { pixels, opacityValue, motionValueArray } = useMemo(
     () => createArrayAnimatedContainer(end),
@@ -38,7 +38,11 @@ function AnimatedContainer({ children, end }: DefaultAnimatedContainerType) {
   const x = useTransform(result, motionValueArray, pixels);
   const opacity = useTransform(result, motionValueArray, opacityValue);
 
-  return <motion.div style={{ x, opacity }}>{children}</motion.div>;
+  return (
+    <motion.div style={disabledAnimationsContainers ? {} : { x, opacity }}>
+      {children}
+    </motion.div>
+  );
 }
 
 export default AnimatedContainer;
