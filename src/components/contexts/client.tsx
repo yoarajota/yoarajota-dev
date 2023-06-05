@@ -15,8 +15,8 @@ export const ClientContextProvider = ({ children }: Children) => {
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [msg, setMsg] = useState<keyable>({});
-  const [disabledAnimationsContainers, setDisabledAnimationsContainers] =
-    useState<boolean>(false);
+  const [animationContainers, setAnimationContainers] =
+    useState<boolean>(true);
   const [{ innerHeight, innerWidth }, setWindowValues] = useState<keyable>({});
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
@@ -63,6 +63,11 @@ export const ClientContextProvider = ({ children }: Children) => {
     let storageLang = localStorage.getItem("lang");
     if (storageLang) {
       setLang(storageLang);
+    }
+
+    let storageAnimation = localStorage.getItem("animation");
+    if (storageAnimation) {
+      setAnimationContainers(!!parseInt(storageAnimation));
     }
 
     setMsg(
@@ -165,11 +170,14 @@ export const ClientContextProvider = ({ children }: Children) => {
     setSystemConfig(mountObj);
   }, [innerWidth]);
 
-  const changeLanguage = useCallback((value: string) => {
-    setLang(value);
-    setMsg(messages?.[value]);
-    localStorage.setItem("lang", value);
-  }, []);
+  const changeLanguage = useCallback(
+    (value: string) => {
+      setLang(value);
+      setMsg(messages?.[value]);
+      localStorage.setItem("lang", value);
+    },
+    [messages]
+  );
 
   const memo = useMemo(
     () => ({
@@ -181,8 +189,8 @@ export const ClientContextProvider = ({ children }: Children) => {
       systemConfig,
       ref,
       wrap,
-      setDisabledAnimationsContainers,
-      disabledAnimationsContainers,
+      setAnimationContainers,
+      animationContainers,
     }),
     [
       changeLanguage,
@@ -190,8 +198,8 @@ export const ClientContextProvider = ({ children }: Children) => {
       innerWidth,
       lang,
       msg,
-      systemConfig, 
-      disabledAnimationsContainers,
+      systemConfig,
+      animationContainers,
     ]
   );
   return (

@@ -12,7 +12,7 @@ function FadeInContainer({
   end,
   container = true
 }: DefaultAnimatedContainerType) {
-  const { ref, wrap, disabledAnimationsContainers } = useContext(ClientContext);
+  const { ref, wrap } = useContext(ClientContext);
   const { opacityValue, motionValueArray } = useMemo(
     () => createArrayAnimatedContainer(end, delay),
     [end, delay]
@@ -43,7 +43,7 @@ function FadeInContainer({
   return (
     <motion.div
       className={classes}
-      style={!container || !disabledAnimationsContainers ? { opacity } : {}}
+      style={!container ? { opacity } : {}}
     >
       {children}
     </motion.div>

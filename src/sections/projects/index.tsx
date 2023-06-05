@@ -131,31 +131,36 @@ function Project() {
             {data?.map((i: keyable) => {
               return (
                 <ListItem
-                borderBottom={`1px solid  ${Colors.Orange}`}
-                key={_.uniqueId()}
-                opacity={i.blocked ? 0.5 : 1}
-                onClick={() => {
-                  handle(i);
-                }}
+                  borderBottom={`1px solid  ${Colors.Orange}`}
+                  key={_.uniqueId()}
+                  opacity={i.blocked ? 0.5 : 1}
+                  onClick={() => {
+                    handle(i);
+                  }}
+                  overflow="hidden"
                 >
-                  <ScaleAnimation className={`list-item-project ${i.blocked && 'blocked-item'}`} scale={0.98}>
-                  <NormalText
-                    customColor={Colors.Orange}
-                    text={i.name}
-                    functions={{ w: "65%", h: "-webkit-fill-available" }}
-                  />
-                  <Box display="flex" alignItems="center" gap="1em">
-                    <LanguagesIcons language={i.language} />
-                    <Box>
-                      {i.blocked ? (
-                        <ImBlocked color={Colors.Orange} />
-                      ) : (
-                        <ImInfo color={Colors.Orange} />
-                      )}
+                  <ScaleAnimation
+                    className={`list-item-project ${
+                      i.blocked && "blocked-item"
+                    }`}
+                    scale={0.98}
+                  >
+                    <NormalText
+                      customColor={Colors.Orange}
+                      text={i.name}
+                      functions={{ w: "65%", h: "-webkit-fill-available" }}
+                    />
+                    <Box display="flex" alignItems="center" gap="1em">
+                      <LanguagesIcons language={i.language} />
+                      <Box>
+                        {i.blocked ? (
+                          <ImBlocked color={Colors.Orange} />
+                        ) : (
+                          <ImInfo color={Colors.Orange} />
+                        )}
+                      </Box>
                     </Box>
-                  </Box>
                   </ScaleAnimation>
-
                 </ListItem>
               );
             })}
@@ -219,9 +224,7 @@ function Project() {
           )}
         </GridItem>
       </Grid>
-      <motion.div animate={{height: ["0", "fit-content"]}}>
-
-      </motion.div>
+      <motion.div animate={{ height: ["0", "fit-content"] }}></motion.div>
     </Box>
   );
 }

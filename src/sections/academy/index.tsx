@@ -60,7 +60,12 @@ function Academy({ modal }: AcademyType) {
       </Box>
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
-          <FadeInContainer container={false} delay={1} end={academy} classes="wrap-itens-academy">
+          <FadeInContainer
+            container={false}
+            delay={1}
+            end={academy}
+            classes="wrap-itens-academy"
+          >
             <Box className="first-container-academy">
               <Box
                 cursor="pointer"
@@ -74,11 +79,11 @@ function Academy({ modal }: AcademyType) {
                 <NormalText
                   functions={{
                     onClick: () => {
-                      modal.setModalData({
+                      modal?.setModalData({
                         title: msg?.academy_name,
                         text: msg?.academy_extra_info,
                       });
-                      modal.onOpen();
+                      modal?.onOpen();
                     },
                   }}
                   text={msg?.academy_name}
@@ -97,11 +102,11 @@ function Academy({ modal }: AcademyType) {
                 <NormalText
                   functions={{
                     onClick: () => {
-                      modal.setModalData({
+                      modal?.setModalData({
                         title: msg?.academy_course,
                         text: msg?.academy_course_info,
                       });
-                      modal.onOpen();
+                      modal?.onOpen();
                     },
                   }}
                   text={msg?.academy_course}

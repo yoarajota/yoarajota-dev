@@ -157,7 +157,7 @@ export type ModalType = ModalProps & {
 }
 
 export type AcademyType = {
-    modal: keyable
+    modal?: keyable
 }
 
 export type LanguagesIconsType = {

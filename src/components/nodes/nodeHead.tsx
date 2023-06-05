@@ -11,8 +11,6 @@ function NodeHead({ selectable, targetPosition, sourcePosition, data: { customFo
     title = true
   }
 
-  console.log(Img);
-
   return (
     <>
       <Box

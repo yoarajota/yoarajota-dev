@@ -42,8 +42,7 @@ function Exp() {
         if (a) setInfo(a[a.length - 1]);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrollYProgress]);
+  }, [data?.data.data, info, lang, scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center" minHeight="100vh">
