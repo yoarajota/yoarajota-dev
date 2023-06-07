@@ -11,7 +11,7 @@
 - [x] Objectives
 - [ ] Pass static to inside the src
 - [ ] Easter egg
-- [ ] Change file names to camelCase
+- [x] Change file names to camelCase
 - [ ] Make the request messages available in both languages
 - [x] Projects section
 - [x] New resume layout
