@@ -27,33 +27,32 @@ function Objectives() {
       <Box paddingTop="65px">
         <Titles text={msg?.objectives_title} />
       </Box>
-      <Box>
-        <SimpleGrid
-          columns={[1, null, 3]}
-          justifyContent="center"
-          spacing={14}
-          w="90%"
-          m="0 auto"
-          h="10em"
-        >
-          <AnimatePresence exitBeforeEnter>
-            {showCards &&
-              [1, 2, 3].map((i, k) => (
-                <motion.div
-                  exit={{ y: [0, -20], opacity: [1, 0] }}
-                  animate={{ y: [-20, 0], opacity: [0, 1] }}
-                  transition={{ delay: k * 0.15 }}
-                  key={_.uniqueId()}
-                >
-                  <Cards
-                    title="Save Money"
-                    desc="You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process"
-                  />
-                </motion.div>
-              ))}
-          </AnimatePresence>
-        </SimpleGrid>
-      </Box>
+      <SimpleGrid
+        columns={[1, null, 3]}
+        justifyContent="center"
+        spacing={14}
+        w="90%"
+        m="3em auto 0 auto"
+        h="10em"
+      >
+        <AnimatePresence exitBeforeEnter>
+          {showCards &&
+            [1, 2, 3].map((i, k) => (
+              <motion.div
+                initial={{ opacity: 0 }}
+                exit={{ y: [0, -20], opacity: [1, 0] }}
+                animate={{ y: [-20, 0], opacity: [0, 1] }}
+                transition={{ delay: k * 0.15 }}
+                key={_.uniqueId()}
+              >
+                <Cards
+                  title="Save Money"
+                  desc="You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process"
+                />
+              </motion.div>
+            ))}
+        </AnimatePresence>
+      </SimpleGrid>
     </Box>
   );
 }
