@@ -62,14 +62,14 @@ export default function Home() {
       },
       {
         comp: [Contact],
-        container: { type: AnimatedContainer, props: { end: home[3] } },
+        container: { type: AnimatedContainer, props: { end: home[4] } },
         props: {},
         comp_name: ["Contact"],
         container_name: "container-" + c++,
       },
       {
         comp: [Projects],
-        container: { type: AnimatedContainer, props: { end: home[3] } },
+        container: { type: AnimatedContainer, props: { end: home[5] } },
         props: {},
         comp_name: ["Projects"],
         container_name: "container-" + c++,

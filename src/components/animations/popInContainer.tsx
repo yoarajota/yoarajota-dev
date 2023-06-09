@@ -9,12 +9,14 @@ function PopInContainer({
   classes,
   children,
   end,
-  container = true
+  container = true,
+  delay, 
+  from = 200
 }: DefaultAnimatedContainerType) {
   const { ref, wrap } = useContext(ClientContext);
   const { pixels, motionValueArray } = useMemo(
-    () => createArrayPopInContainer(end, 200),
-    [end]
+    () => createArrayPopInContainer(end, from, delay),
+    [delay, end, from]
   );
   const [scrollYProgress, i] = useTriggerState({
     name: "scrollYProgress",
@@ -39,7 +41,7 @@ function PopInContainer({
   const y = useTransform(result, motionValueArray, pixels);
 
   return (
-    <motion.div className={classes} style={{ y }}>
+    <motion.div className={classes} style={{ y }} transition={{ delay }}>
       {children}
     </motion.div>
   );

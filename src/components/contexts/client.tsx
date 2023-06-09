@@ -106,7 +106,7 @@ export const ClientContextProvider = ({ children }: Children) => {
             minW: "95%",
           },
         },
-        home: [2, 5, 9, 14],
+        home: [2, 5, 9, 14, 18],
         project: {
           templateRows: "",
           templateColumns: "",
@@ -129,7 +129,7 @@ export const ClientContextProvider = ({ children }: Children) => {
             minW: "33.375em",
           },
         },
-        home: [1, 4, 9, 15],
+        home: [1, 4, 9, 14, 16, 19],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
@@ -152,7 +152,7 @@ export const ClientContextProvider = ({ children }: Children) => {
             minW: "33.375em",
           },
         },
-        home: [2, 5, 8, 16],
+        home: [2, 5, 8, 15, 17, 19],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",

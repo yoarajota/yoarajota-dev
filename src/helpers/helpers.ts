@@ -1,6 +1,9 @@
 import { keyable } from "asset/types";
 
-export function createArraysTimeLinePoints(end: string, innerWidth: number): Array<any> {
+export function createArraysTimeLinePoints(
+  end: string,
+  innerWidth: number
+): Array<any> {
   let gap = 1;
   if (innerWidth < 768) {
     gap = 1;
@@ -25,7 +28,10 @@ export function createArraysTimeLinePoints(end: string, innerWidth: number): Arr
   return [set, arr];
 }
 
-export function createArrayAnimatedContainer(end: number, delay: number = 0): keyable {
+export function createArrayAnimatedContainer(
+  end: number,
+  delay: number = 0
+): keyable {
   let pixels: Array<string> = [];
   let opacityValue: Array<string> = [];
   let motionValueArray: Array<number> = [];
@@ -51,13 +57,18 @@ export function createArrayAnimatedContainer(end: number, delay: number = 0): ke
   return { pixels, opacityValue, motionValueArray };
 }
 
-export function createArrayPopInContainer(end: number, from: number): keyable {
+export function createArrayPopInContainer(
+  end: number,
+  from: number,
+  delay: number = 0,
+  final: number = 40
+): keyable {
   let pixels: Array<number> = [];
   let motionValueArray: Array<number> = [];
-  for (let i = 0; i < 40; i++) {
-    if (i === end + 1) {
-      pixels.push(from/2);
-    } else if (i > end) {
+  for (let i = 0; i < final; i++) {
+    if (i - delay === end + 1) {
+      pixels.push(from / 2);
+    } else if (i - delay > end) {
       pixels.push(0);
     } else {
       pixels.push(from);
