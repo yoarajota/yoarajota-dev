@@ -43,7 +43,7 @@ function Objectives() {
                 exit={{ y: [0, -20], opacity: [1, 0] }}
                 animate={{ y: [-20, 0], opacity: [0, 1] }}
                 transition={{ delay: k * 0.15 }}
-                key={_.uniqueId()}
+                key={"card-objectives-" + _.uniqueId()}
               >
                 <Cards
                   title="Save Money"

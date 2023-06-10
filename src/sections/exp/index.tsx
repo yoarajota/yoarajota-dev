@@ -4,13 +4,13 @@ import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
 import api from "../../api/axios";
 import { useQuery } from "react-query";
-import TextAnimation from "../../components/animations/textAnimation";
 import { Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 import { stateStorage } from "react-trigger-state";
+import TextAnimation from "components/animations/textAnimation";
 
 function Exp() {
   const { lang } = useContext(ClientContext);

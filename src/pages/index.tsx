@@ -77,9 +77,7 @@ export default function Home() {
     ];
   }, [c, home, isOpen, onClose, onOpen]);
 
-  useEffect(() => {
-    console.log(animationContainers);
-  }, [animationContainers]);
+  console.log("r")
 
   return (
     <Box position="relative" paddingBottom="8em">
