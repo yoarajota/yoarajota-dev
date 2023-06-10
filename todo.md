@@ -16,7 +16,7 @@
 - [x] Projects section
 - [x] New resume layout
 - [x] Implement infinite scroll
-- [ ] Add "Phill 413"
+- [x] Add "Phill 413"
 - [x] Finish the box carousel
 - [x] Deploy to Vercel
 - [x] Transform the language context to a generic context
