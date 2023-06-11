@@ -56,7 +56,7 @@ export default function Home() {
       {
         comp: [Interest, Objectives],
         container: { type: AnimatedContainer, props: { end: home[3] } },
-        props: {},
+        props: { end: home[3] },
         comp_name: ["Objectives"],
         container_name: "container-" + c++,
       },

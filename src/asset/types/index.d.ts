@@ -166,6 +166,10 @@ export type LanguagesIconsType = {
 }
 
 export type FadeFromTop = Children & {
-    delay: number,
+    delay?: number,
     key?: string
+}
+
+export type endProp = {
+    end?: number
 }

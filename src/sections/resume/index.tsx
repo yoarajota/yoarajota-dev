@@ -8,6 +8,7 @@ import Yj from "../../components/yj";
 import NormalText from "components/typography/normaltext";
 import { motion } from "framer-motion";
 import ImageAndButtons from "components/imageAndButtons";
+import FadeInFromTop from "components/animations/fadeInFromTop";
 
 function Resume() {
   const { msg } = useContext(ClientContext);
@@ -39,19 +40,18 @@ function Resume() {
               <Box w="100%">
                 <Box m="10% 5%" w="90%">
                   {msg?.resume_text && (
-                    <>
+                    <FadeInFromTop>
                       <Box
                         w="100%"
                         fontSize="1.125em"
                         fontFamily="Ubuntu"
                         color={Colors.Gray}
-                        // textAlign="center"
                         minHeight="26vh"
                         textAlign="left"
                       >
                         <NormalText text={msg?.resume_text} />
                       </Box>
-                    </>
+                    </FadeInFromTop>
                   )}
                 </Box>
               </Box>

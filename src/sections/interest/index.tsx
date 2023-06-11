@@ -7,8 +7,10 @@ import { useContext, useEffect, useState } from "react";
 import { stateStorage } from "react-trigger-state";
 import { AnimatePresence, motion } from "framer-motion";
 import FadeInFromTop from "components/animations/fadeInFromTop";
+import FadeInContainer from "components/animations/fadeInContainer";
+import { endProp } from "asset/types";
 
-function Interest() {
+function Interest({ end }: endProp) {
   const { msg, innerWidth } = useContext(ClientContext);
   const [showCards, setShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
@@ -26,7 +28,9 @@ function Interest() {
   return (
     <Box w="100%" textAlign="center">
       <Box paddingTop="85px">
-        <Titles text={msg?.interest_title} />
+        <FadeInContainer end={(end ?? 0) + 1}>
+          <Titles text={msg?.interest_title} />
+        </FadeInContainer>
       </Box>
       <SimpleGrid
         columns={innerWidth < 768 ? [1, 1, 1] : [2, 2, 2]}

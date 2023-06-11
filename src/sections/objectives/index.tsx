@@ -7,8 +7,10 @@ import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { stateStorage } from "react-trigger-state";
 import FadeInFromTop from "components/animations/fadeInFromTop";
+import FadeInContainer from "components/animations/fadeInContainer";
+import { endProp } from "asset/types";
 
-function Objectives() {
+function Objectives({ end }: endProp) {
   const { msg } = useContext(ClientContext);
   const [showCards, setShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
@@ -25,7 +27,9 @@ function Objectives() {
   return (
     <Box w="100%" textAlign="center">
       <Box paddingTop="65px">
-        <Titles text={msg?.objectives_title} />
+        <FadeInContainer end={(end ?? 0) + 1}>
+          <Titles text={msg?.objectives_title} />
+        </FadeInContainer>
       </Box>
       <SimpleGrid
         columns={[1, null, 3]}
