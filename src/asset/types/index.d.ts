@@ -164,3 +164,8 @@ export type AcademyType = {
 export type LanguagesIconsType = {
     language: string
 }
+
+export type FadeFromTop = Children & {
+    delay: number,
+    key?: string
+}

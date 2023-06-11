@@ -6,6 +6,7 @@ import _ from "lodash";
 import { useContext, useEffect, useState } from "react";
 import { stateStorage } from "react-trigger-state";
 import { AnimatePresence, motion } from "framer-motion";
+import FadeInFromTop from "components/animations/fadeInFromTop";
 
 function Interest() {
   const { msg, innerWidth } = useContext(ClientContext);
@@ -14,9 +15,9 @@ function Interest() {
 
   useEffect(() => {
     scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) < 0.78) {
+      if ((hookedYPosition ?? 0) < 0.75) {
         setShowCards(false);
-      } else if ((hookedYPosition ?? 0) > 0.78 && !showCards) {
+      } else if ((hookedYPosition ?? 0) > 0.75 && !showCards) {
         setShowCards(true);
       }
     });
@@ -37,23 +38,17 @@ function Interest() {
       >
         <AnimatePresence exitBeforeEnter>
           {showCards && [1, 2, 3, 4].map((i, k) => (
-            <motion.div
-              initial={{ opacity: 0 }}
-              exit={{ y: [0, -20], opacity: [1, 0] }}
-              animate={{ y: [-20, 0], opacity: [0, 1] }}
-              transition={{ delay: k * 0.15 }}
-              key={'card-interests-' + _.uniqueId()}
-            >
+            <FadeInFromTop delay={k * 0.15} key={_.uniqueId('card-interests-')}>
               <Cards
                 size="sm"
                 title="Save Money"
                 desc="You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process"
               />
-            </motion.div>
+            </FadeInFromTop>
           ))}
-        </AnimatePresence>
+        </AnimatePresence >
       </SimpleGrid>
-    </Box>
+    </Box >
   );
 }
 export default Interest;

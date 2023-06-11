@@ -6,17 +6,17 @@ import _ from "lodash";
 import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { stateStorage } from "react-trigger-state";
+import FadeInFromTop from "components/animations/fadeInFromTop";
 
 function Objectives() {
   const { msg } = useContext(ClientContext);
   const [showCards, setShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
-
   useEffect(() => {
     scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) < 0.75) {
+      if ((hookedYPosition ?? 0) < 0.78) {
         setShowCards(false);
-      } else if ((hookedYPosition ?? 0) > 0.75 && !showCards) {
+      } else if ((hookedYPosition ?? 0) > 0.78 && !showCards) {
         setShowCards(true);
       }
     });
@@ -38,18 +38,12 @@ function Objectives() {
         <AnimatePresence exitBeforeEnter>
           {showCards &&
             [1, 2, 3].map((i, k) => (
-              <motion.div
-                initial={{ opacity: 0 }}
-                exit={{ y: [0, -20], opacity: [1, 0] }}
-                animate={{ y: [-20, 0], opacity: [0, 1] }}
-                transition={{ delay: k * 0.15 }}
-                key={"card-objectives-" + _.uniqueId()}
-              >
+              <FadeInFromTop delay={k * 0.15} key={_.uniqueId("card-objectives-")}>
                 <Cards
                   title="Save Money"
                   desc="You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process"
                 />
-              </motion.div>
+              </FadeInFromTop>
             ))}
         </AnimatePresence>
       </SimpleGrid>

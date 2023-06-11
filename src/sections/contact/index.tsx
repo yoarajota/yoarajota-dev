@@ -4,11 +4,21 @@ import ScaleAnimation from "components/animations/scaleAnimation";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normaltext";
 import Titles from "components/typography/titles";
-import React, { cloneElement, useContext } from "react";
+import React, { cloneElement, useContext, useEffect, useState } from "react";
 import { BiWorld } from "react-icons/bi";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FiDownload, FiMail } from "react-icons/fi";
+import { stateStorage } from "react-trigger-state";
+import { AnimatePresence, motion } from "framer-motion";
+import _ from "lodash";
+import FadeInFromTop from "components/animations/fadeInFromTop";
 
+const stl = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: Colors.Orange,
+};
 
 function Contact() {
     const {
@@ -24,12 +34,20 @@ function Contact() {
         },
     } = useContext(ClientContext);
 
-    const stl = {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: Colors.Orange,
-    };
+    const [showButtons, setShowButtons] = useState<boolean>(false);
+    const scrollYProgress = stateStorage.get("scrollYProgress");
+    useEffect(() => {
+        scrollYProgress.onChange((hookedYPosition: number) => {
+            if ((hookedYPosition ?? 0) < 0.86) {
+                setShowButtons(false);
+            } else if ((hookedYPosition ?? 0) > 0.86 && !showButtons) {
+                setShowButtons(true);
+            }
+        });
+    }, [scrollYProgress, showButtons]);
+
+
+    const Icons = [FiMail, BsLinkedin, BsWhatsapp, BsGithub, BiWorld];
 
     return (
         <Box
@@ -79,31 +97,17 @@ function Contact() {
                     <Titles size={text} text="João Vítor Basso Sberse" />
                     <NormalText text="Developer" />
                 </GridItem>
-                <GridItem {...stl} colSpan={1}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
-                        <FiMail size={size} />
-                    </ScaleAnimation>
-                </GridItem>
-                <GridItem {...stl} colSpan={1}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
-                        <BsLinkedin size={size} />
-                    </ScaleAnimation>
-                </GridItem>
-                <GridItem {...stl} colSpan={1}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
-                        <BsWhatsapp size={size} />
-                    </ScaleAnimation>
-                </GridItem>
-                <GridItem {...stl} colSpan={1}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
-                        <BsGithub size={size} />
-                    </ScaleAnimation>
-                </GridItem>
-                <GridItem {...stl} colSpan={end}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
-                        <BiWorld size={size} />
-                    </ScaleAnimation>
-                </GridItem>
+                <AnimatePresence exitBeforeEnter>
+                    {showButtons && Icons.map((Icon, k) =>
+                        <GridItem key={_.uniqueId("contact-buttons-")} {...stl} colSpan={1}>
+                            <FadeInFromTop delay={k * 0.15}>
+                                <ScaleAnimation scale={1.2} className="contact-buttons">
+                                    <Icon size={size} />
+                                </ScaleAnimation>
+                            </FadeInFromTop>
+                        </GridItem>
+                    )}
+                </AnimatePresence>
             </Grid>
         </Box>
     );
