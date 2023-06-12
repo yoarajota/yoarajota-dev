@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Colors } from "asset/enums";
 import { stateStorage } from "react-trigger-state";
+import FromRightPopupAnimation from "./animations/fromRightPopupAnimation";
 
 function Scrollbar() {
   const scrollY = useSpring(stateStorage.get("scrollYProgress"), {
@@ -15,23 +16,15 @@ function Scrollbar() {
   const top = useTransform(scrollY, [0, 1], ["0%", "100%"]);
 
   return (
-    <Box
-      position={"fixed"}
-      right={"15px"}
-      m={"12.5vh 0"}
-      zIndex={14}
-      display="flex"
-      justifyContent="center"
-    >
+    <FromRightPopupAnimation className="scrollbar-wrap">
       <Box
         w={"3px"}
         h={"75vh"}
         borderRadius="360px"
         bgColor={Colors.Purple}
-      ></Box>
-
+      />
       <motion.div className="scroll-bar-point" style={{ top }}></motion.div>
-    </Box>
+    </FromRightPopupAnimation>
   );
 }
 

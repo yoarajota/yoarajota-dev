@@ -47,9 +47,12 @@ export interface Children {
     children: React.ReactNode | ReactElement<any, string | JSXElementConstructor<any>>
 }
 
-export type ScaleAnimation = Children & {
-    scale: number,
+interface ClassName {
     className?: string
+}
+
+export type ScaleAnimation = Children & ClassName & {
+    scale: number,
 }
 
 export type defaultText = Info & {
@@ -165,11 +168,16 @@ export type LanguagesIconsType = {
     language: string
 }
 
-export type FadeFromTop = Children & {
-    delay?: number,
+interface Key {
     key?: string
+}
+
+export type FadeFromTop = Children & Key & {
+    delay?: number,
 }
 
 export type endProp = {
     end?: number
 }
+
+export type FromRightPopup = Children & ClassName & Key

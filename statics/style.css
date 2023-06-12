@@ -534,3 +534,21 @@ body::-webkit-scrollbar {
 .blocked-item {
   cursor: auto;
 }
+
+.popup-wrap {
+  position: fixed;
+  right: 6px;
+  top: 25px;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+}
+
+.scrollbar-wrap {
+  position: fixed;
+  right: 15px;
+  margin: 12.5vh 0;
+  z-index: 14;
+  display: flex;
+  justify-content: center
+}

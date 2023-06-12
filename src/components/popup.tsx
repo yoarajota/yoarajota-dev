@@ -1,6 +1,5 @@
-import { background, Box, Button, Tooltip } from "@chakra-ui/react";
+import { Box, Button, Tooltip } from "@chakra-ui/react";
 import React, { useCallback, useContext } from "react";
-import { DiReact } from "react-icons/di";
 import { ClientContext } from "./contexts/client";
 import {
   Popover,
@@ -11,8 +10,9 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 import { BsGear } from "react-icons/bs";
-import { motion } from "framer-motion";
 import { Colors } from "asset/enums";
+import { motion } from "framer-motion";
+import FromRightPopupAnimation from "./animations/fromRightPopupAnimation";
 
 const VALUES = ["pt-BR", "en-US"];
 
@@ -36,93 +36,85 @@ function Popup() {
   }, [setAnimationContainers]);
 
   return (
-    <>
-      <Box
-        position={"fixed"}
-        right={"6px"}
-        top={"25px"}
-        zIndex={15}
-        display="flex"
-        justifyContent="center"
-      >
-        <Popover placement="left-end">
-          <PopoverTrigger>
-            <Box cursor="pointer">
-              <motion.div whileHover={{ rotateZ: -90, scale: 1.1 }}>
-                <BsGear size="1.4em" color={Colors.Gray} />
-              </motion.div>
-            </Box>
-          </PopoverTrigger>
-          <PopoverContent
-            p="0 25px 0px 5px"
+    <FromRightPopupAnimation className="popup-wrap">
+      <Popover placement="left-end">
+        <PopoverTrigger>
+          <Box cursor="pointer">
+            <motion.div whileHover={{ rotateZ: -90, scale: 1.1 }}>
+              <BsGear size="1.4em" color={Colors.Gray} />
+            </motion.div>
+          </Box>
+        </PopoverTrigger>
+        <PopoverContent
+          p="0 25px 0px 5px"
+          w="fit-content"
+          bg={Colors.Black}
+          border={`2px solid ${Colors.Gray}`}
+        >
+          <PopoverCloseButton color={Colors.Gray} />
+          <PopoverBody
             w="fit-content"
-            bg={Colors.Black}
-            border={`2px solid ${Colors.Gray}`}
+            gap="0.3em"
+            display="flex"
+            flexDirection="column"
           >
-            <PopoverCloseButton color={Colors.Gray} />
-            <PopoverBody
-              w="fit-content"
-              gap="0.3em"
-              display="flex"
-              flexDirection="column"
+            <Tooltip
+              placement="left"
+              hasArrow
+              label="Língua da página"
+              bg={Colors.Black}
+              color={Colors.Gray}
             >
-              <Tooltip
-                placement="left"
-                hasArrow
-                label="Língua da página"
-                bg={Colors.Black}
-                color={Colors.Gray}
+              <div
+                className="button r"
+                id="switch"
+                onClick={() => {
+                  inputRef.current?.click();
+                }}
               >
-                <div
-                  className="button r"
-                  id="switch"
-                  onClick={() => {
-                    inputRef.current?.click();
-                  }}
-                >
-                  <input
-                    defaultChecked={lang !== "pt-BR"}
-                    type="checkbox"
-                    className="checkbox"
-                    id="check"
-                    ref={inputRef}
-                    onClick={handleClickLanguage}
-                  />
-                  <div className="knobs"></div>
-                  <div className="layer"></div>
-                </div>
-              </Tooltip>
-              <Tooltip
-                placement="left"
-                hasArrow
-                label="Ativar ou desativar animações das seções"
-                bg={Colors.Black}
-                color={Colors.Gray}
+                <input
+                  defaultChecked={lang !== "pt-BR"}
+                  type="checkbox"
+                  className="checkbox"
+                  id="check"
+                  ref={inputRef}
+                  onClick={handleClickLanguage}
+                />
+                <div className="knobs"></div>
+                <div className="layer"></div>
+              </div>
+            </Tooltip>
+            <Tooltip
+              placement="left"
+              hasArrow
+              label="Ativar ou desativar animações das seções"
+              bg={Colors.Black}
+              color={Colors.Gray}
+            >
+              <div
+                className="button r"
+                id="switch2"
+                onClick={() => {
+                  inputRef2.current?.click();
+                }}
               >
-                <div
-                  className="button r"
-                  id="switch2"
-                  onClick={() => {
-                    inputRef2.current?.click();
-                  }}
-                >
-                  <input
-                    defaultChecked={animationContainers}
-                    type="checkbox"
-                    className="checkbox"
-                    id="check2"
-                    ref={inputRef2}
-                    onClick={handleClickAnimation}
-                  />
-                  <div className="knobs onoff"></div>
-                  <div className="layer"></div>
-                </div>
-              </Tooltip>
-            </PopoverBody>
-          </PopoverContent>
-        </Popover>
-      </Box>
-    </>
+                <input
+                  defaultChecked={animationContainers}
+                  type="checkbox"
+                  className="checkbox"
+                  id="check2"
+                  ref={inputRef2}
+                  onClick={handleClickAnimation}
+                />
+                <div className="knobs onoff"></div>
+                <div className="layer"></div>
+              </div>
+            </Tooltip>
+          </PopoverBody>
+        </PopoverContent>
+      </Popover>
+    </FromRightPopupAnimation>
+
   );
 }
 

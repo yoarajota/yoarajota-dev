@@ -20,7 +20,7 @@ function ScrollPosition() {
   stateStorage.set("scrollYProgress", scrollYProgress);
 
   return (
-    <Box ref={wrap} w="100%" h="100%" position="absolute" zIndex="hide"></Box>
+    <Box ref={wrap} w="100%" h="100%" position="absolute" zIndex="hide" />
   );
 }
 
