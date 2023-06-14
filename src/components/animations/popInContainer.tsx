@@ -2,28 +2,25 @@ import { DefaultAnimatedContainerType } from "asset/types";
 import { createArrayPopInContainer } from "helpers/helpers";
 import { useTransform, motion, useSpring } from "framer-motion";
 import { useMemo, useContext } from "react";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 import { ClientContext } from "components/contexts/client";
 
 function PopInContainer({
   classes,
   children,
   end,
-  delay, 
-  from = 200
+  delay,
+  from = 200,
 }: DefaultAnimatedContainerType) {
   const { ref, wrap } = useContext(ClientContext);
   const { pixels, motionValueArray } = useMemo(
     () => createArrayPopInContainer(end, from, delay),
     [delay, end, from]
   );
-  const [scrollYProgress, i] = useTriggerState({
-    name: "scrollYProgress",
-  });
 
   let result = useSpring(
     useTransform(
-      scrollYProgress,
+      stateStorage.get("scrollYProgress"),
       (value: number) =>
         value +
         (ref?.current?.offsetHeight ?? 0.001) /

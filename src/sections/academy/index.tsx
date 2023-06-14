@@ -61,7 +61,6 @@ function Academy({ modal }: AcademyType) {
       <Box m="0 auto" w="80%">
         <Box id="academic-big" p="0 0 3em 0" position="relative">
           <FadeInContainer
-            container={false}
             delay={1}
             end={academy}
             classes="wrap-itens-academy"
