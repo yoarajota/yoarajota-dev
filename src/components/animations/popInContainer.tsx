@@ -9,7 +9,6 @@ function PopInContainer({
   classes,
   children,
   end,
-  container = true,
   delay, 
   from = 200
 }: DefaultAnimatedContainerType) {
