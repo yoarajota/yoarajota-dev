@@ -3,14 +3,13 @@ import { createArrayAnimatedContainer } from "helpers/helpers";
 import { useTransform, motion, useSpring } from "framer-motion";
 import { useMemo, useContext } from "react";
 import { ClientContext } from "components/contexts/client";
-import { useTriggerState } from "react-trigger-state";
+import { stateStorage, useTriggerState } from "react-trigger-state";
 
 function FadeInContainer({
   classes,
   children,
   delay,
   end,
-  container = true
 }: DefaultAnimatedContainerType) {
   const { ref, wrap } = useContext(ClientContext);
   const { opacityValue, motionValueArray } = useMemo(
@@ -18,13 +17,9 @@ function FadeInContainer({
     [end, delay]
   );
 
-  const [scrollYProgress, i] = useTriggerState({
-    name: "scrollYProgress",
-  });
-
   let result = useSpring(
     useTransform(
-      scrollYProgress,
+      stateStorage.get("scrollYProgress"),
       (value: number) =>
         value +
         (ref?.current?.offsetHeight ?? 0.001) /
@@ -41,10 +36,7 @@ function FadeInContainer({
   const opacity = useTransform(result, motionValueArray, opacityValue);
 
   return (
-    <motion.div
-      className={classes}
-      style={!container ? { opacity } : {}}
-    >
+    <motion.div className={classes} style={{ opacity }}>
       {children}
     </motion.div>
   );

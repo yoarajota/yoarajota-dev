@@ -89,22 +89,22 @@ export default function Home() {
 
       {!animationContainers
         ? components.map((comp) => {
-          return comp.comp.map((C, index) => (
-            <C key={comp.container_name[index]} {...comp.props} />
-          ));
-        })
+            return comp.comp.map((C, index) => (
+              <C key={comp.container_name[index]} {...comp.props} />
+            ));
+          })
         : components.map((comp) => {
-          return (
-            <comp.container.type
-              key={comp.container_name}
-              {...comp.container.props}
-            >
-              {comp.comp.map((C, index) => (
-                <C key={comp.container_name[index]} {...comp.props} />
-              ))}
-            </comp.container.type>
-          );
-        })}
+            return (
+              <comp.container.type
+                key={comp.container_name}
+                {...comp.container.props}
+              >
+                {comp.comp.map((C, index) => (
+                  <C key={comp.container_name[index]} {...comp.props} />
+                ))}
+              </comp.container.type>
+            );
+          })}
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

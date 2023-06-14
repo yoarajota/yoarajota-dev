@@ -134,7 +134,6 @@ export type DefaultAnimatedContainerType = Children & {
     end: number,
     delay?: number,
     classes?: string,
-    container?: boolean,
     from?: number
 }
 
