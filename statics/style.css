@@ -365,8 +365,8 @@ body::-webkit-scrollbar {
 }
 
 .react-flow-provider {
-  border-right: 1px dotted;
-  border-left: 1px dotted;
+  border-right: 4px dotted;
+  border-left: 4px dotted;
 }
 
 .scroll-bar-point {
