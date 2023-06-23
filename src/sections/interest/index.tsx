@@ -11,7 +11,13 @@ import FadeInContainer from "components/animations/fadeInContainer";
 import { endProp } from "asset/types";
 
 function Interest({ end }: endProp) {
-  const { msg, innerWidth } = useContext(ClientContext);
+  const {
+    msg,
+    innerWidth,
+    systemConfig: {
+      interests: { h },
+    },
+  } = useContext(ClientContext);
   const [showCards, setShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
 
@@ -38,7 +44,7 @@ function Interest({ end }: endProp) {
         spacing={7}
         w="65%"
         m="3em auto 0 auto"
-        h="20em"
+        h={h}
       >
         <AnimatePresence exitBeforeEnter>
           {showCards && [1, 2, 3, 4].map((i, k) => (

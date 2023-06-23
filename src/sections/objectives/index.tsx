@@ -11,7 +11,12 @@ import FadeInContainer from "components/animations/fadeInContainer";
 import { endProp } from "asset/types";
 
 function Objectives({ end }: endProp) {
-  const { msg } = useContext(ClientContext);
+  const {
+    msg,
+    systemConfig: {
+      objectives: { h },
+    },
+  } = useContext(ClientContext);
   const [showCards, setShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
   useEffect(() => {
@@ -37,7 +42,7 @@ function Objectives({ end }: endProp) {
         spacing={14}
         w="90%"
         m="3em auto 0 auto"
-        h="10em"
+        h={h}
       >
         <AnimatePresence exitBeforeEnter>
           {showCards &&

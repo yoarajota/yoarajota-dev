@@ -39,6 +39,12 @@ export const ClientContextProvider = ({ children }: Children) => {
       rowSpan: [],
     },
     academy: 0,
+    objectives: {
+      h: "",
+    },
+    interests: {
+      h: ""
+    }
   });
   const [lang, setLang] = useState<string>(
     ["pt-BR", "en-US"].includes(global.navigator?.language)
@@ -114,6 +120,12 @@ export const ClientContextProvider = ({ children }: Children) => {
           rowSpan: [],
         },
         academy: 6,
+        objectives: {
+          h: "35em"
+        },
+        interests: {
+          h: "50em"
+        }
       };
     } else if (innerWidth < 1440) {
       mountObj = {
@@ -137,6 +149,12 @@ export const ClientContextProvider = ({ children }: Children) => {
           rowSpan: [3, 2],
         },
         academy: 5,
+        objectives: {
+          h: "18em"
+        },
+        interests: {
+          h: "26em"
+        }
       };
     } else {
       mountObj = {
@@ -160,6 +178,12 @@ export const ClientContextProvider = ({ children }: Children) => {
           rowSpan: [3, 2],
         },
         academy: 5,
+        objectives: {
+          h: "10em"
+        },
+        interests: {
+          h: "20em"
+        }
       };
     }
 

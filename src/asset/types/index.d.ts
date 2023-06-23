@@ -32,11 +32,20 @@ export type ProjectGridConfig = {
     rowSpan: Array<number>,
 }
 
+export type ObjectivesConfig = {
+    h: string,
+}
+
+export type InterestsConfig = ObjectivesConfig & {
+}
+
 export type SystemConfig = {
     contact: ContactConfig,
     home: Array<number>,
     project: ProjectGridConfig,
-    academy: number
+    academy: number,
+    objectives: ObjectivesConfig,
+    interests: InterestsConfig,
 }
 
 interface Info {
