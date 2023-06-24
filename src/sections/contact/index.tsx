@@ -47,69 +47,83 @@ function Contact() {
     }, [scrollYProgress, showButtons]);
 
 
-    const Icons = [FiMail, BsLinkedin, BsWhatsapp, BsGithub, BiWorld];
+    const icons = [
+      { Icon: FiMail, href: "" },
+      { Icon: BsLinkedin, href: "" },
+      {
+        Icon: BsWhatsapp,
+        href: "https://wa.me/5554996448146?text=Olá,%20João!%20Gostaria%20de%20te%20conhecer%20um%20pouquinho%20melhor.%20Poderiamos%20conversar?",
+      },
+      { Icon: BsGithub, href: "" },
+      { Icon: BiWorld, href: "" },
+    ];
 
     return (
-        <Box
-            w="100%"
-            minHeight="80vh"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-        >
-            <Box paddingTop="55px">
-                <Titles text={"Contact"} />
-            </Box>
-            <Box padding="65px 0 10px 0" {...stl}>
-                <Box display="flex" gap="0.5em" cursor="pointer">
-                    <NormalText text="Download" />
-                    <FiDownload color="var(--gray)" size="1.3em" />
-                </Box>
-            </Box>
-            <Grid
-                m="0 auto"
-                w="42%"
-                templateRows={templateRows}
-                templateColumns={templateColumns}
-                gap={4}
-                minW={minW}
-                padding="0.35em 0.75em"
-                border={`1px solid ${Colors.Orange}`}
-                borderRadius="1.5em"
-                h={h}
-            >
-                <GridItem {...stl} colSpan={2}>
-                    <Image
-                        margin={"0 auto"}
-                        alt="picture of João Vítor Sberse"
-                        src={"images/me.jpg"}
-                        w="150px"
-                        borderRadius="999px"
-                        border="2px solid var(--orange)"
-                    />
-                </GridItem>
-                <GridItem
-                    flexDirection="column"
-                    textAlign="center"
-                    {...stl}
-                    colSpan={cSpan2}
-                >
-                    <Titles size={text} text="João Vítor Basso Sberse" />
-                    <NormalText text="Developer" />
-                </GridItem>
-                <AnimatePresence exitBeforeEnter>
-                    {showButtons && Icons.map((Icon, k) =>
-                        <GridItem key={_.uniqueId("contact-buttons-")} {...stl} colSpan={1}>
-                            <FadeInFromTop delay={k * 0.15}>
-                                <ScaleAnimation scale={1.2} className="contact-buttons">
-                                    <Icon size={size} />
-                                </ScaleAnimation>
-                            </FadeInFromTop>
-                        </GridItem>
-                    )}
-                </AnimatePresence>
-            </Grid>
+      <Box
+        w="100%"
+        minHeight="80vh"
+        alignItems="center"
+        justifyContent="center"
+        textAlign="center"
+      >
+        <Box paddingTop="55px">
+          <Titles text={"Contact"} />
         </Box>
+        <Box padding="65px 0 10px 0" {...stl}>
+          <Box display="flex" gap="0.5em" cursor="pointer">
+            <NormalText text="Download" />
+            <FiDownload color="var(--gray)" size="1.3em" />
+          </Box>
+        </Box>
+        <Grid
+          m="0 auto"
+          w="42%"
+          templateRows={templateRows}
+          templateColumns={templateColumns}
+          gap={4}
+          minW={minW}
+          padding="0.35em 0.75em"
+          border={`1px solid ${Colors.Orange}`}
+          borderRadius="1.5em"
+          h={h}
+        >
+          <GridItem {...stl} colSpan={2}>
+            <Image
+              margin={"0 auto"}
+              alt="picture of João Vítor Sberse"
+              src={"images/me.jpg"}
+              w="150px"
+              borderRadius="999px"
+              border="2px solid var(--orange)"
+            />
+          </GridItem>
+          <GridItem
+            flexDirection="column"
+            textAlign="center"
+            {...stl}
+            colSpan={cSpan2}
+          >
+            <Titles size={text} text="João Vítor Basso Sberse" />
+            <NormalText text="Developer" />
+          </GridItem>
+          <AnimatePresence exitBeforeEnter>
+            {showButtons &&
+              icons.map((icon, k) => (
+                <GridItem
+                  key={_.uniqueId("contact-buttons-")}
+                  {...stl}
+                  colSpan={1}
+                >
+                  <FadeInFromTop delay={k * 0.15}>
+                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                      <icon.Icon onClick={() => {window.open(icon?.href)}} size={size} />
+                    </ScaleAnimation>
+                  </FadeInFromTop>
+                </GridItem>
+              ))}
+          </AnimatePresence>
+        </Grid>
+      </Box>
     );
 }
 
