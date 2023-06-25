@@ -46,16 +46,28 @@ function Contact() {
         });
     }, [scrollYProgress, showButtons]);
 
-
     const icons = [
-      { Icon: FiMail, href: "" },
-      { Icon: BsLinkedin, href: "" },
+      { Icon: FiMail, href: "mailto:joaovbscontato@gmail.com", type: "mail" },
+      {
+        Icon: BsLinkedin,
+        href: "https://www.linkedin.com/in/joao-vitor-sberse/",
+        type: "redirect",
+      },
       {
         Icon: BsWhatsapp,
-        href: "https://wa.me/5554996448146?text=Olá,%20João!%20Gostaria%20de%20te%20conhecer%20um%20pouquinho%20melhor.%20Poderiamos%20conversar?",
+        href: "https://wa.me/5554996448146?text=Olá,%20João!%20Gostaria%20de%20lhe%20conhecer%20um%20pouquinho%20melhor.%20Poderiamos%20conversar?",
+        type: "redirect",
       },
-      { Icon: BsGithub, href: "" },
-      { Icon: BiWorld, href: "" },
+      {
+        Icon: BsGithub,
+        href: "https://github.com/yoarajota",
+        type: "redirect",
+      },
+      {
+        Icon: BiWorld,
+        href: "https://who-is-yoarajota.vercel.app",
+        type: "redirect",
+      },
     ];
 
     return (
@@ -116,7 +128,9 @@ function Contact() {
                 >
                   <FadeInFromTop delay={k * 0.15}>
                     <ScaleAnimation scale={1.2} className="contact-buttons">
-                      <icon.Icon onClick={() => {window.open(icon?.href)}} size={size} />
+                      <a rel="noreferrer" target="_blank" href={icon.href}>
+                        <icon.Icon size={size} />
+                      </a>
                     </ScaleAnimation>
                   </FadeInFromTop>
                 </GridItem>
