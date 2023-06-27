@@ -21,8 +21,8 @@
 - [x] Deploy to Vercel
 - [x] Transform the language context to a generic context
 - [x] Keep testing on mobile
-- [ ] Study Chakra performance
-- [ ] Update file names
+- [x] Study Chakra performance
+- [x] Update file names
 - [ ] Add comments
 - [x] Fix Next.js render bug
 - [ ] Create textes

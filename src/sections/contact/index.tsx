@@ -28,7 +28,6 @@ function Contact() {
                 cSpan2,
                 text,
                 size,
-                end,
                 grid: { templateRows, templateColumns, minW },
             },
         },
