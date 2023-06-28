@@ -153,7 +153,7 @@ export type ImageAndButtonType = {
 export type BoxSlideCarousel = {
     title: string,
     text: string,
-    inst: string
+    inst: string,
 }
 
 export type CarouselBox = {

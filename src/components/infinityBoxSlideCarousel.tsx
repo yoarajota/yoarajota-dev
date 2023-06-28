@@ -10,6 +10,7 @@ import { HiAcademicCap } from "react-icons/hi";
 import { Colors } from "asset/enums";
 import NormalText from "./typography/normaltext";
 import Titles from "./typography/titles";
+import ScaleAnimation from "./animations/scaleAnimation";
 
 function InfinityBoxSlideCarousel({ list }: CarouselBox) {
   const [page, setPage] = useState(0);
@@ -69,7 +70,9 @@ function InfinityBoxSlideCarousel({ list }: CarouselBox) {
           paginate(1);
         }}
       >
-        <BiLeftArrow />
+        <ScaleAnimation className="pointer" scale={1.3}>
+          <BiLeftArrow />
+        </ScaleAnimation>
       </Box>
       <Box
         overflow="hidden"
@@ -183,7 +186,9 @@ function InfinityBoxSlideCarousel({ list }: CarouselBox) {
           paginate(-1);
         }}
       >
-        <BiRightArrow />
+        <ScaleAnimation className="pointer" scale={1.3}>
+          <BiRightArrow />
+        </ScaleAnimation>
       </Box>
     </Box>
   );

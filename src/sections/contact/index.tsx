@@ -126,7 +126,7 @@ function Contact() {
                   colSpan={1}
                 >
                   <FadeInFromTop delay={k * 0.15}>
-                    <ScaleAnimation scale={1.2} className="contact-buttons">
+                    <ScaleAnimation scale={1.2} className="pointer">
                       <a rel="noreferrer" target="_blank" href={icon.href}>
                         <icon.Icon size={size} />
                       </a>

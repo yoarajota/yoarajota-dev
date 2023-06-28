@@ -515,7 +515,7 @@ body::-webkit-scrollbar {
   gap: 15px;
 }
 
-.contact-buttons {
+.pointer {
   cursor: pointer;
 }
 

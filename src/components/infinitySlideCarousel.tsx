@@ -12,6 +12,7 @@ import { wrap } from "popmotion";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
 import NormalText from "./typography/normaltext";
+import ScaleAnimation from "./animations/scaleAnimation";
 
 const TRANSITION = {
   duration: 0.1,
@@ -77,7 +78,9 @@ function InfinitySlideCarousel({ list }: Carousel) {
           paginate(1);
         }}
       >
-        <BiUpArrow />
+        <ScaleAnimation className="pointer" scale={1.2}>
+          <BiUpArrow />
+        </ScaleAnimation>
       </Box>
       <motion.div className="box-carousel-wrap">
         <AnimatePresence exitBeforeEnter>
@@ -101,17 +104,17 @@ function InfinitySlideCarousel({ list }: Carousel) {
                     [-2, 2].includes(index)
                       ? "exit3"
                       : [-1, 1].includes(index)
-                        ? "exit"
-                        : "exit2"
+                      ? "exit"
+                      : "exit2"
                   }
                   className="box-carousel"
                   style={index === 0 ? {} : { scale: 0.9 }}
                   onClick={
                     [-1, 1].includes(index)
                       ? () => {
-                        paginate(index);
-                      }
-                      : () => { }
+                          paginate(index);
+                        }
+                      : () => {}
                   }
                 >
                   {list && (
@@ -120,8 +123,8 @@ function InfinitySlideCarousel({ list }: Carousel) {
                         list[imageIndex + index]
                           ? list[imageIndex + index]
                           : list[
-                          (list.length + index + imageIndex) % list.length
-                          ]
+                              (list.length + index + imageIndex) % list.length
+                            ]
                       )}
                     />
                   )}
@@ -137,7 +140,9 @@ function InfinitySlideCarousel({ list }: Carousel) {
           paginate(-1);
         }}
       >
-        <BiDownArrow />
+        <ScaleAnimation className="pointer" scale={1.2}>
+          <BiDownArrow />
+        </ScaleAnimation>
       </Box>
     </Box>
   );
