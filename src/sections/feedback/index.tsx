@@ -12,20 +12,47 @@ import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
 import { BsFillPersonFill } from "react-icons/bs";
 import DButton from "components/typography/dbutton";
-import { useCallback, useState } from "react";
+import { ReducerWithoutAction, useCallback, useReducer, useState } from "react";
 import { keyable } from "asset/types";
+import api from "../../api/axios";
+import _ from "lodash";
+
+type Comment = {
+  name?: string;
+  comment: string;
+};
+
+const COMMENT = 1;
+const NAME = 2;
+
+const reduc = (state: Comment, action: keyable): Comment => {
+  if (action.type === COMMENT) {
+
+    return {
+      name: state.name,
+      comment: action.value,
+    };
+  }
+
+  return state
+};
 
 function Feedback() {
-  const [value, setValue] = useState<string>("");
+  const [value, dispatch] = useReducer(reduc, { comment: "", name: undefined });
+  const [allComments, setAllComents] = useState<Array<keyable | undefined>>([
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+  ]);
+
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
-  const handleChange = (event: keyable) => setValue(event.target.value);
+  const handleChange = (event: keyable) =>
+    dispatch({ state: event.target.value, type: COMMENT });
 
   const handle = useCallback(() => {
     setIsSubmiting(true);
-    setTimeout(() => {
-      setIsSubmiting(false);
-      setValue('');
-    }, 500);
+    api.post("api/exp", {});
   }, []);
 
   return (
@@ -40,7 +67,7 @@ function Feedback() {
       >
         <FormControl>
           <Input
-            value={value}
+            value={value.comment}
             onChange={handleChange}
             fontFamily="Ubuntu"
             variant="unstyled"
@@ -55,15 +82,22 @@ function Feedback() {
         </Box>
       </Center>
       <Center w="70%">
-        <Card variant="unstyled" background="transparent">
-          <CardBody display="flex" alignItems="center" gap="15px">
-            <BsFillPersonFill />
-            <NormalText
-              customFontSize="1rem"
-              text="View a summary of all your customers over the last month"
-            />
-          </CardBody>
-        </Card>
+        {!_.isEmpty(allComments) &&
+          allComments.map((i) => (
+            <Card
+              key={_.uniqueId("comment-card-")}
+              variant="unstyled"
+              background="transparent"
+            >
+              <CardBody display="flex" alignItems="center" gap="15px">
+                <BsFillPersonFill />
+                <NormalText
+                  customFontSize="1rem"
+                  text="View a summary of all your customers over the last month"
+                />
+              </CardBody>
+            </Card>
+          ))}
       </Center>
     </Center>
   );
