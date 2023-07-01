@@ -62,6 +62,8 @@ interface ClassName {
 
 export type ScaleAnimation = Children & ClassName & {
     scale: number,
+    functions?: keyable,
+    duration?: number
 }
 
 export type defaultText = Info & {
@@ -186,6 +188,13 @@ export type FadeFromTop = Children & Key & {
 
 export type endProp = {
     end?: number
+}
+
+export type ButtonType = customFontSize & {
+    customColor?: string,
+    onClick?: CallableFunction,
+    text: string,
+    type?: string,
 }
 
 export type FromRightPopup = Children & ClassName & Key

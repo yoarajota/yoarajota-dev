@@ -8,7 +8,7 @@ import { wrap } from "popmotion";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { HiAcademicCap } from "react-icons/hi";
 import { Colors } from "asset/enums";
-import NormalText from "./typography/normaltext";
+import NormalText from "./typography/normalText";
 import Titles from "./typography/titles";
 import ScaleAnimation from "./animations/scaleAnimation";
 

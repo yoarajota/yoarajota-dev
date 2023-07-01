@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { AcademyType, Info, keyable } from "../../asset/types";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
-import NormalText from "components/typography/normaltext";
+import NormalText from "components/typography/normalText";
 import InfinitySlideCarousel from "components/infinitySlideCarousel";
 import { Colors } from "asset/enums";
 import InfinityBoxSlideCarousel from "components/infinityBoxSlideCarousel";

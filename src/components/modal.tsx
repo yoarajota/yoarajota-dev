@@ -6,14 +6,12 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
   Link,
 } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { ModalType } from "asset/types";
-import DOMPurify from "isomorphic-dompurify";
 import { ClientContext } from "./contexts/client";
-import NormalText from "./typography/normaltext";
+import NormalText from "./typography/normalText";
 import Titles from "./typography/titles";
 import { useContext } from "react";
 

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Skills from "../../components/skills";
 import Titles from "../../components/typography/titles";
 import Yj from "../../components/yj";
-import NormalText from "components/typography/normaltext";
+import NormalText from "components/typography/normalText";
 import { motion } from "framer-motion";
 import ImageAndButtons from "components/imageAndButtons";
 import FadeInFromTop from "components/animations/fadeInFromTop";

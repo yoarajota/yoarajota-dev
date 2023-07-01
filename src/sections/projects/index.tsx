@@ -14,7 +14,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import axios from "api/axios";
 import { useQuery } from "react-query";
 import { keyable, LanguagesIconsType } from "asset/types";
-import NormalText from "components/typography/normaltext";
+import NormalText from "components/typography/normalText";
 import { Colors } from "asset/enums";
 import { DiPhp, DiPython, DiJavascript1 } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";

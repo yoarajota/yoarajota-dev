@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import _ from "lodash";
-import NormalText from "../typography/normaltext";
+import NormalText from "../typography/normalText";
 import Titles from "../typography/titles";
 
 function TextAnimation(props: {

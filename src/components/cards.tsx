@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react"
 import { CardsType } from "asset/types"
-import NormalText from "./typography/normaltext"
+import NormalText from "./typography/normalText"
 import Titles from "./typography/titles"
 
 function Cards({ title, desc, size }: CardsType) {

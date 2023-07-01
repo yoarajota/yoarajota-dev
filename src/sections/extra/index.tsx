@@ -15,7 +15,7 @@ import Titles from "../../components/typography/titles";
 import { FiUser } from "react-icons/fi";
 import { useQuery } from "react-query";
 import { BsLinkedin } from "react-icons/bs";
-import NormalText from "../../components/typography/normaltext";
+import NormalText from "../../components/typography/normalText";
 import _ from "lodash";
 
 function Extra() {

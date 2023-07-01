@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { wrap } from "popmotion";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { Colors } from "asset/enums";
-import NormalText from "./typography/normaltext";
+import NormalText from "./typography/normalText";
 import ScaleAnimation from "./animations/scaleAnimation";
 
 const TRANSITION = {

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import LevelersData from "../../statics/levelersData";
 import { ClientContext } from "./contexts/client";
 import Levelers from "./levelers";
-import NormalText from "./typography/normaltext";
+import NormalText from "./typography/normalText";
 import { motion } from "framer-motion";
 
 function Skills() {
