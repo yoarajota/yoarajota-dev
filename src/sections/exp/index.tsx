@@ -87,27 +87,13 @@ function Exp() {
                   <TextAnimation text={info.text3} />
                 </Box>
               </motion.div>
-              <Box
-                position="sticky"
-                bottom="0"
-                w="100%"
-                justifyContent="center"
-              >
-                <Box
-                  w="100%"
-                  h="100%"
-                  filter="blur(4px)"
-                  opacity="0.8"
-                  backgroundColor="#0d0d0d"
-                  zIndex={-1}
-                  position="absolute"
-                ></Box>
-                <motion.div exit={{ opacity: 0 }}>
-                  <Box marginTop="1em">
-                    <NormalText customFontSize="28px" text={info.time} />
-                  </Box>
-                </motion.div>
-              </Box>
+              <motion.div exit={{ opacity: 0 }}>
+                <NormalText
+                  functions={{ marginTop: "1em" }}
+                  customFontSize="28px"
+                  text={info.time}
+                />
+              </motion.div>
             </>
           )}
         </AnimatePresence>

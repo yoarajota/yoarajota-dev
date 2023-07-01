@@ -7,6 +7,7 @@ import {
   FormControl,
   Input,
   Spinner,
+  Textarea,
 } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
@@ -27,14 +28,13 @@ const NAME = 2;
 
 const reduc = (state: Comment, action: keyable): Comment => {
   if (action.type === COMMENT) {
-
     return {
       name: state.name,
       comment: action.value,
     };
   }
 
-  return state
+  return state;
 };
 
 function Feedback() {
@@ -55,32 +55,46 @@ function Feedback() {
     api.post("api/exp", {});
   }, []);
 
+  const defProp = {
+    w: "30%",
+    border: `1px solid ${Colors.Orange}`,
+    borderRadius: "5px",
+    color: Colors.Orange,
+    h: "35px",
+    _placeholder: { opacity: 0.4, color: Colors.Gray },
+  };
+
   return (
     <Center flexDirection="column">
-      <Center
-        w="30%"
-        border={`1px solid ${Colors.Orange}`}
-        borderRadius="5px"
-        p="3px 20px"
-        color={Colors.Orange}
-        h="35px"
-      >
-        <FormControl>
+      <FormControl>
+        <Center flexDirection="column" gap="1em">
           <Input
+            {...defProp}
+            p="3px 20px"
             value={value.comment}
             onChange={handleChange}
             fontFamily="Ubuntu"
             variant="unstyled"
+            placeholder="Nome (Opcional)"
+            />
+          <Textarea
+            {...defProp}
+            p="7px 20px"
+            value={value.comment}
+            onChange={handleChange}
+            fontFamily="Ubuntu"
+            variant="unstyled"
+            placeholder="Comment"
           />
-        </FormControl>
-        <Box p="0 0 0 15px" w="15%" display="flex" justifyContent="center">
-          {isSubmiting ? (
-            <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
-          ) : (
-            <DButton onClick={handle} text="Submit" type="submit" />
-          )}
-        </Box>
-      </Center>
+          <Box w="15%" display="flex" justifyContent="center">
+            {isSubmiting ? (
+              <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+            ) : (
+              <DButton onClick={handle} text="Submit" type="submit" />
+            )}
+          </Box>
+        </Center>
+      </FormControl>
       <Center w="70%">
         {!_.isEmpty(allComments) &&
           allComments.map((i) => (

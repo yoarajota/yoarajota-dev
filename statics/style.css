@@ -78,6 +78,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  text-align: justify;
 }
 
 .first-container-academy {
@@ -177,7 +178,7 @@
   }
 
   .box-text-child {
-    margin: 70px 15px 0 15px;
+    margin: 0px 15px 0 15px;
   }
 
   .header-container {

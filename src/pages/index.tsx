@@ -18,6 +18,7 @@ import Interest from "sections/interest";
 import Contact from "sections/contact";
 import Projects from "sections/projects";
 import ScrollPosition from "components/scrollPosition";
+import Feedback from "sections/feedback";
 
 export default function Home() {
   const [modalData, setModalData] = useState<keyable>({});
@@ -74,6 +75,13 @@ export default function Home() {
         comp_name: ["Projects"],
         container_name: "container-" + c++,
       },
+      // {
+      //   comp: [Feedback],
+      //   container: { type: AnimatedContainer, props: { end: home[6] } },
+      //   props: {},
+      //   comp_name: ["Feedback"],
+      //   container_name: "container-" + c++,
+      // },
     ];
   }, [c, home, isOpen, onClose, onOpen]);
 
