@@ -8,15 +8,17 @@ import {
   Input,
   Spinner,
   Textarea,
+  Tooltip,
 } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill, BsInfoLg } from "react-icons/bs";
 import DButton from "components/typography/dbutton";
-import { ReducerWithoutAction, useCallback, useReducer, useState } from "react";
+import { useCallback, useReducer, useState } from "react";
 import { keyable } from "asset/types";
 import api from "../../api/axios";
 import _ from "lodash";
+import { motion } from "framer-motion";
 
 type Comment = {
   name?: string;
@@ -39,6 +41,7 @@ const reduc = (state: Comment, action: keyable): Comment => {
 
 function Feedback() {
   const [value, dispatch] = useReducer(reduc, { comment: "", name: undefined });
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [allComments, setAllComents] = useState<Array<keyable | undefined>>([
     {
       text: "View a summary of all your customers over the last month",
@@ -52,7 +55,7 @@ function Feedback() {
 
   const handle = useCallback(() => {
     setIsSubmiting(true);
-    api.post("api/exp", {});
+    // api.post("api/exp", {});
   }, []);
 
   const defProp = {
@@ -65,9 +68,21 @@ function Feedback() {
   };
 
   return (
-    <Center flexDirection="column">
+    <Center flexDirection="column" marginTop="25px">
+      <DButton
+        onClick={() => setIsFormOpen((p: boolean) => !p)}
+        text="Escreva um comentário!"
+      />
       <FormControl>
-        <Center flexDirection="column" gap="1em">
+        <motion.div
+          className="comment-form"
+          animate={isFormOpen ? { maxHeight: "700px" } : { maxHeight: 0 }}
+        >
+      <Tooltip label="I have 15px arrow" placement="bottom">
+        <Box m="15px 0">
+          <BsInfoLg color={Colors.Gray} />
+        </Box>
+      </Tooltip>
           <Input
             {...defProp}
             p="3px 20px"
@@ -76,7 +91,7 @@ function Feedback() {
             fontFamily="Ubuntu"
             variant="unstyled"
             placeholder="Nome (Opcional)"
-            />
+          />
           <Textarea
             {...defProp}
             p="7px 20px"
@@ -93,7 +108,7 @@ function Feedback() {
               <DButton onClick={handle} text="Submit" type="submit" />
             )}
           </Box>
-        </Center>
+        </motion.div>
       </FormControl>
       <Center w="70%">
         {!_.isEmpty(allComments) &&

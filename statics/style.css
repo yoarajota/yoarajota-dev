@@ -553,3 +553,11 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center
 }
+
+.comment-form {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}

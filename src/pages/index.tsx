@@ -75,13 +75,13 @@ export default function Home() {
         comp_name: ["Projects"],
         container_name: "container-" + c++,
       },
-      // {
-      //   comp: [Feedback],
-      //   container: { type: AnimatedContainer, props: { end: home[6] } },
-      //   props: {},
-      //   comp_name: ["Feedback"],
-      //   container_name: "container-" + c++,
-      // },
+      {
+        comp: [Feedback],
+        container: { type: AnimatedContainer, props: { end: home[6] } },
+        props: {},
+        comp_name: ["Feedback"],
+        container_name: "container-" + c++,
+      },
     ];
   }, [c, home, isOpen, onClose, onOpen]);
 
