@@ -25,18 +25,14 @@ type Comment = {
   comment: string;
 };
 
-const COMMENT = 1;
-const NAME = 2;
-
+const NAME = 1;
+const COMMENT = 2;
 const reduc = (state: Comment, action: keyable): Comment => {
-  if (action.type === COMMENT) {
-    return {
-      name: state.name,
-      comment: action.value,
-    };
-  }
-
-  return state;
+  let isComment = action.type === COMMENT;
+  return {
+    name: !isComment ? action.value : state.name,
+    comment: isComment ? action.value : state.comment,
+  };
 };
 
 function Feedback() {
@@ -47,19 +43,47 @@ function Feedback() {
       text: "View a summary of all your customers over the last month",
       date: new Date(),
     },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
+    {
+      text: "View a summary of all your customers over the last month",
+      date: new Date(),
+    },
   ]);
 
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
-  const handleChange = (event: keyable) =>
-    dispatch({ state: event.target.value, type: COMMENT });
+  const handleChange = (value: string, type: number) =>
+    dispatch({ value, type });
 
   const handle = useCallback(() => {
-    setIsSubmiting(true);
-    // api.post("api/exp", {});
-  }, []);
+    // setIsSubmiting(true);
+    api
+      .post("api/comments", {...value, date: new Date()})
+      .then((res) => {})
+      .catch((err) => {});
+  }, [value]);
 
   const defProp = {
     w: "30%",
+    minW: "43.75em",
     border: `1px solid ${Colors.Orange}`,
     borderRadius: "5px",
     color: Colors.Orange,
@@ -78,16 +102,18 @@ function Feedback() {
           className="comment-form"
           animate={isFormOpen ? { maxHeight: "700px" } : { maxHeight: 0 }}
         >
-      <Tooltip label="I have 15px arrow" placement="bottom">
-        <Box m="15px 0">
-          <BsInfoLg color={Colors.Gray} />
-        </Box>
-      </Tooltip>
+          <Tooltip label="I have 15px arrow" placement="bottom">
+            <Box marginTop="15px">
+              <BsInfoLg color={Colors.Gray} />
+            </Box>
+          </Tooltip>
           <Input
             {...defProp}
             p="3px 20px"
-            value={value.comment}
-            onChange={handleChange}
+            value={value.name}
+            onChange={(e) => {
+              handleChange(e.target.value, NAME);
+            }}
             fontFamily="Ubuntu"
             variant="unstyled"
             placeholder="Nome (Opcional)"
@@ -96,12 +122,14 @@ function Feedback() {
             {...defProp}
             p="7px 20px"
             value={value.comment}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e.target.value, COMMENT);
+            }}
             fontFamily="Ubuntu"
             variant="unstyled"
             placeholder="Comment"
           />
-          <Box w="15%" display="flex" justifyContent="center">
+          <Box w="15%" h="40px" display="flex" justifyContent="center">
             {isSubmiting ? (
               <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
             ) : (
@@ -110,7 +138,7 @@ function Feedback() {
           </Box>
         </motion.div>
       </FormControl>
-      <Center w="70%">
+      <Center w="70%" flexDirection="column" gap="9px">
         {!_.isEmpty(allComments) &&
           allComments.map((i) => (
             <Card

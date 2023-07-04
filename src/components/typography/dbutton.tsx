@@ -16,7 +16,7 @@ function DButton({
       functions={{ whileTap: { scale: 1 } }}
       scale={1.1}
     >
-      <button onClick={onClick} type={type}>
+      <button onClick={onClick} type={type} className="dbutton">
         <Text
           fontFamily="Prompt"
           fontWeight={700}
