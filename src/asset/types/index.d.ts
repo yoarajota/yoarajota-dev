@@ -1,10 +1,11 @@
+import { EdgeConfigValue } from "@vercel/edge-config";
 import { MotionValue } from "framer-motion";
 import { ReactNode, RefObject } from "react";
 import { Position } from "react-flow-renderer";
 
 export type defaultResponse = {
     status: string,
-    data?: object | Array<any>,
+    data?: object | Array<any> | EdgeConfigValue,
     message?: string
 }
 
@@ -55,6 +56,10 @@ interface Info {
 export interface Children {
     children: React.ReactNode | ReactElement<any, string | JSXElementConstructor<any>>
 }
+
+export type Client = Children & {
+  messages: keyable;
+};
 
 interface ClassName {
     className?: string

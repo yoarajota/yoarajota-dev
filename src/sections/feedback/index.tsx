@@ -50,7 +50,6 @@ function Feedback() {
     data?.data?.data ?? []
   );
   useEffect(() => {
-    console.log(data?.data?.data)
     setAllComents(data?.data?.data);
   }, [data]);
 

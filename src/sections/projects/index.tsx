@@ -84,10 +84,6 @@ function Project() {
     // }, [callApi, fetched, refetch]);
   }, [fetched, refetch]);
 
-  useEffect(() => {
-    console.log(currentRepo);
-  }, [currentRepo]);
-
   const handle = useCallback((i: keyable) => {
     if (i.blocked) {
       setCurrentRepo({});
