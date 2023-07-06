@@ -13,7 +13,7 @@ import {
 import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
 import { BsFillPersonFill, BsInfoLg } from "react-icons/bs";
-import DButton from "components/typography/dbutton";
+import DButton from "components/typography/dButton";
 import { useCallback, useReducer, useState, useEffect } from "react";
 import { keyable } from "asset/types";
 import api from "../../api/axios";
