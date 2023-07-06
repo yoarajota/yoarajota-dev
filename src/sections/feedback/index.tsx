@@ -14,11 +14,12 @@ import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
 import { BsFillPersonFill, BsInfoLg } from "react-icons/bs";
 import DButton from "components/typography/dbutton";
-import { useCallback, useReducer, useState } from "react";
+import { useCallback, useReducer, useState, useEffect } from "react";
 import { keyable } from "asset/types";
 import api from "../../api/axios";
 import _ from "lodash";
 import { motion } from "framer-motion";
+import { useQuery } from "react-query";
 
 type Comment = {
   name?: string;
@@ -38,36 +39,21 @@ const reduc = (state: Comment, action: keyable): Comment => {
 function Feedback() {
   const [value, dispatch] = useReducer(reduc, { comment: "", name: undefined });
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
-  const [allComments, setAllComents] = useState<Array<keyable | undefined>>([
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
+  const { data } = useQuery(
+    "comments",
+    () => {
+      return api.get("api/comments");
     },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-    {
-      text: "View a summary of all your customers over the last month",
-      date: new Date(),
-    },
-  ]);
+    { staleTime: 600000 }
+  );
+  const [allComments, setAllComents] = useState<Array<keyable | undefined>>(
+    data?.data?.data ?? []
+  );
+  useEffect(() => {
+    console.log(data?.data?.data)
+    setAllComents(data?.data?.data);
+  }, [data]);
+
 
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
   const handleChange = (value: string, type: number) =>
@@ -76,7 +62,7 @@ function Feedback() {
   const handle = useCallback(() => {
     // setIsSubmiting(true);
     api
-      .post("api/comments", {...value, date: new Date()})
+      .post("api/comments", { ...value, date: new Date() })
       .then((res) => {})
       .catch((err) => {});
   }, [value]);
@@ -138,7 +124,12 @@ function Feedback() {
           </Box>
         </motion.div>
       </FormControl>
-      <Center w="70%" flexDirection="column" gap="9px">
+      <Center
+        flexDirection="column"
+        minW="43.75em"
+        alignItems="left"
+        gap="9px"
+      >
         {!_.isEmpty(allComments) &&
           allComments.map((i) => (
             <Card
@@ -148,10 +139,7 @@ function Feedback() {
             >
               <CardBody display="flex" alignItems="center" gap="15px">
                 <BsFillPersonFill />
-                <NormalText
-                  customFontSize="1rem"
-                  text="View a summary of all your customers over the last month"
-                />
+                <NormalText customFontSize="1rem" text={i?.comment} />
               </CardBody>
             </Card>
           ))}

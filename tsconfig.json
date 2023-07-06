@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.js"
-  ],
+, "lib/mongo/index.js"  ],
   "exclude": [
     "node_modules"
   ]
