@@ -85,6 +85,8 @@ export default function Home() {
     ];
   }, [c, home, isOpen, onClose, onOpen]);
 
+
+  
   return (
     <Box position="relative" paddingBottom="8em">
       <ScrollPosition />
