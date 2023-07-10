@@ -20,6 +20,8 @@ import api from "../../api/axios";
 import _ from "lodash";
 import { motion } from "framer-motion";
 import { useQuery } from "react-query";
+import FadeInContainer from "components/animations/fadeInContainer";
+import Titles from "components/typography/titles";
 
 type Comment = {
   name?: string;
@@ -53,7 +55,6 @@ function Feedback() {
     setAllComents(data?.data?.data);
   }, [data]);
 
-
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
   const handleChange = (value: string, type: number) =>
     dispatch({ value, type });
@@ -77,73 +78,81 @@ function Feedback() {
   };
 
   return (
-    <Center flexDirection="column" marginTop="25px">
-      <DButton
-        onClick={() => setIsFormOpen((p: boolean) => !p)}
-        text="Escreva um comentário!"
-      />
-      <FormControl>
-        <motion.div
-          className="comment-form"
-          animate={isFormOpen ? { maxHeight: "700px" } : { maxHeight: 0 }}
-        >
-          <Tooltip label="I have 15px arrow" placement="bottom">
-            <Box marginTop="15px">
-              <BsInfoLg color={Colors.Gray} />
-            </Box>
-          </Tooltip>
-          <Input
-            {...defProp}
-            p="3px 20px"
-            value={value.name}
-            onChange={(e) => {
-              handleChange(e.target.value, NAME);
-            }}
-            fontFamily="Ubuntu"
-            variant="unstyled"
-            placeholder="Nome (Opcional)"
+    <Box w="100%" textAlign="center" h="55vh">
+      <Box paddingTop="85px">
+        {/* <FadeInContainer end={(end ?? 0) + 1}> */}
+          <Titles text="Feedback" />
+        {/* </FadeInContainer> */}
+
+        <Center flexDirection="column" marginTop="25px">
+          <DButton
+            onClick={() => setIsFormOpen((p: boolean) => !p)}
+            text="Escreva um comentário!"
           />
-          <Textarea
-            {...defProp}
-            p="7px 20px"
-            value={value.comment}
-            onChange={(e) => {
-              handleChange(e.target.value, COMMENT);
-            }}
-            fontFamily="Ubuntu"
-            variant="unstyled"
-            placeholder="Comment"
-          />
-          <Box w="15%" h="40px" display="flex" justifyContent="center">
-            {isSubmiting ? (
-              <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
-            ) : (
-              <DButton onClick={handle} text="Submit" type="submit" />
-            )}
-          </Box>
-        </motion.div>
-      </FormControl>
-      <Center
-        flexDirection="column"
-        minW="43.75em"
-        alignItems="left"
-        gap="9px"
-      >
-        {!_.isEmpty(allComments) &&
-          allComments.map((i) => (
-            <Card
-              key={_.uniqueId("comment-card-")}
-              variant="unstyled"
-              background="transparent"
+          <FormControl>
+            <motion.div
+              className="comment-form"
+              animate={isFormOpen ? { maxHeight: "700px" } : { maxHeight: 0 }}
             >
-              <CardBody display="flex" alignItems="center" gap="15px">
-                <BsFillPersonFill />
-                <NormalText customFontSize="1rem" text={i?.comment} />
-              </CardBody>
-            </Card>
-          ))}
-      </Center>
-    </Center>
+              <Tooltip label="I have 15px arrow" placement="bottom">
+                <Box marginTop="15px">
+                  <BsInfoLg color={Colors.Gray} />
+                </Box>
+              </Tooltip>
+              <Input
+                {...defProp}
+                p="3px 20px"
+                value={value.name}
+                onChange={(e) => {
+                  handleChange(e.target.value, NAME);
+                }}
+                fontFamily="Ubuntu"
+                variant="unstyled"
+                placeholder="Nome (Opcional)"
+              />
+              <Textarea
+                {...defProp}
+                p="7px 20px"
+                value={value.comment}
+                onChange={(e) => {
+                  handleChange(e.target.value, COMMENT);
+                }}
+                fontFamily="Ubuntu"
+                variant="unstyled"
+                placeholder="Comment"
+              />
+              <Box w="15%" h="40px" display="flex" justifyContent="center">
+                {isSubmiting ? (
+                  <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+                ) : (
+                  <DButton onClick={handle} text="Submit" type="submit" />
+                )}
+              </Box>
+            </motion.div>
+          </FormControl>
+          <Center
+            flexDirection="column"
+            minW="43.75em"
+            alignItems="left"
+            gap="9px"
+          >
+            {!_.isEmpty(allComments) &&
+              allComments.map((i) => (
+                <Card
+                  key={_.uniqueId("comment-card-")}
+                  variant="unstyled"
+                  background="transparent"
+                >
+                  <CardBody display="flex" alignItems="center" gap="15px">
+                    <BsFillPersonFill />
+                    <NormalText customFontSize="1rem" text={i?.comment} />
+                  </CardBody>
+                </Card>
+              ))}
+          </Center>
+        </Center>
+      </Box>
+    </Box>
   );
 }
 

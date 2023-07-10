@@ -93,7 +93,7 @@ function Project() {
   }, []);
 
   return (
-    <Box w="100%" paddingTop="5em" textAlign="center">
+    <Box w="100%" paddingTop="1em" textAlign="center"  minHeight="100vh">
       <Titles text={msg?.projects_title} />
       <Grid
         margin="3em auto 0 auto"

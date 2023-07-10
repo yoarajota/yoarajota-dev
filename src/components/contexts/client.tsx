@@ -170,7 +170,7 @@ export const ClientContextProvider = ({ children }: Children) => {
             minW: "33.375em",
           },
         },
-        home: [2, 5, 8, 15, 18, 19],
+        home: [2, 5, 8, 15, 18, 19, 20],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
