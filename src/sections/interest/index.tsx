@@ -15,21 +15,21 @@ function Interest({ end }: endProp) {
     msg,
     innerWidth,
     systemConfig: {
-      interests: { h },
+      interests: { h, showCards },
     },
   } = useContext(ClientContext);
-  const [showCards, setShowCards] = useState<boolean>(false);
+  const [willShowCards, setWillShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
 
   useEffect(() => {
     scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) < 0.75) {
-        setShowCards(false);
-      } else if ((hookedYPosition ?? 0) > 0.75 && !showCards) {
-        setShowCards(true);
+      if ((hookedYPosition ?? 0) < showCards) {
+        setWillShowCards(false);
+      } else if ((hookedYPosition ?? 0) > showCards && !willShowCards) {
+        setWillShowCards(true);
       }
     });
-  }, [scrollYProgress, showCards]);
+  }, [scrollYProgress, willShowCards]);
 
   return (
     <Box w="100%" textAlign="center">
@@ -47,7 +47,7 @@ function Interest({ end }: endProp) {
         h={h}
       >
         <AnimatePresence exitBeforeEnter>
-          {showCards && [1, 2, 3, 4].map((i, k) => (
+          {willShowCards && [1, 2, 3, 4].map((i, k) => (
             <FadeInFromTop delay={k * 0.15} key={_.uniqueId('card-interests-')}>
               <Cards
                 size="sm"

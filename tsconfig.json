@@ -24,8 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js"
-, "lib/mongo/index.js"  ],
+    "next.config.js"  ],
   "exclude": [
     "node_modules"
   ]

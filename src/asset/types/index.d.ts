@@ -4,202 +4,212 @@ import { ReactNode, RefObject } from "react";
 import { Position } from "react-flow-renderer";
 
 export type defaultResponse = {
-    status: string,
-    data?: object | Array<any> | EdgeConfigValue,
-    message?: string
-}
+  status: string;
+  data?: object | Array<any> | EdgeConfigValue;
+  message?: string;
+};
 
 export type Info = {
-    [key: string]: any;
-}
+  [key: string]: any;
+};
 
 export interface keyable {
-    [key: string]: any
+  [key: string]: any;
 }
 
 export type ContactConfig = {
-    text: string,
-    size: string,
-    cSpan2: number,
-    end: number,
-    h: string,
-    grid: keyable
-}
+  text: string;
+  size: string;
+  cSpan2: number;
+  end: number;
+  h: string;
+  grid: keyable;
+};
 
 export type ProjectGridConfig = {
-    templateRows: string,
-    templateColumns: string,
-    colSpan: Array<number>,
-    rowSpan: Array<number>,
+  templateRows: string;
+  templateColumns: string;
+  colSpan: Array<number>;
+  rowSpan: Array<number>;
+};
+
+interface showCards {
+  showCards: number
 }
 
-export type ObjectivesConfig = {
-    h: string,
+interface h {
+  h: string;
 }
 
-export type InterestsConfig = ObjectivesConfig & {
-}
+export type ObjectivesConfig = showCards & h
+export type InterestsConfig = h & showCards
 
 export type SystemConfig = {
-    contact: ContactConfig,
-    home: Array<number>,
-    project: ProjectGridConfig,
-    academy: number,
-    objectives: ObjectivesConfig,
-    interests: InterestsConfig,
-}
+  contact: ContactConfig;
+  home: Array<number>;
+  project: ProjectGridConfig;
+  academy: number;
+  objectives: ObjectivesConfig;
+  interests: InterestsConfig;
+};
 
 interface Info {
-    customFontSize?: number | string | null,
+  customFontSize?: number | string | null;
 }
 
 export interface Children {
-    children: React.ReactNode | ReactElement<any, string | JSXElementConstructor<any>>
+  children:
+    | React.ReactNode
+    | ReactElement<any, string | JSXElementConstructor<any>>;
 }
+
+export type ClientContext = Children & {
+  messages: keyable;
+};
 
 export type Client = Children & {
   messages: keyable;
 };
 
 interface ClassName {
-    className?: string
+  className?: string;
 }
 
-export type ScaleAnimation = Children & ClassName & {
-    scale: number,
-    functions?: keyable,
-    duration?: number
-}
+export type ScaleAnimation = Children &
+  ClassName & {
+    scale: number;
+    functions?: keyable;
+    duration?: number;
+  };
 
 export type defaultText = Info & {
-    customColor?: string,
-    functions?: keyable
-    size?: string
-    text?: string | Array<string>
-}
+  customColor?: string;
+  functions?: keyable;
+  size?: string;
+  text?: string | Array<string>;
+};
 
 export type linkText = defaultText & {
-    link: string;
-}
+  link: string;
+};
 
 interface IndexPage {
-    indexPage?: boolean
+  indexPage?: boolean;
 }
 
 interface otherColor {
-    otherColor?: string,
+  otherColor?: string;
 }
 
-export type yjLogotipo = IndexPage & otherColor
+export type yjLogotipo = IndexPage & otherColor;
 
-export type RainbowAnimation = Children & otherColor
+export type RainbowAnimation = Children & otherColor;
 
 interface Slide {
-    howFar: number,
-    delay?: number
+  howFar: number;
+  delay?: number;
 }
 interface Width {
-    width: string
+  width: string;
 }
 
-export type SlideLeft = Children & Slide
+export type SlideLeft = Children & Slide;
 
 export type TimeLinePointsType = Children & {
-    sWidth: string,
-    index: number,
-}
+  sWidth: string;
+  index: number;
+};
 
 export type Levelers = {
-    xp: number,
-    lvl: number,
-    index: number,
-    title: string
-    extraDelay?: number,
-}
+  xp: number;
+  lvl: number;
+  index: number;
+  title: string;
+  extraDelay?: number;
+};
 
 export type CardsType = {
-    title: string,
-    desc: string,
-    size?: string
-}
-
+  title: string;
+  desc: string;
+  size?: string;
+};
 
 export type CustomNodes = customFontSize & {
-    targetPosition: Position;
-    sourcePositon: Position;
-    data: keyable;
-    selectable: boolean;
+  targetPosition: Position;
+  sourcePositon: Position;
+  data: keyable;
+  selectable: boolean;
 };
 
 export type Scrollbar = {
-    scrollY: MotionValue<number>;
+  scrollY: MotionValue<number>;
 };
 
 interface scrollYProgress {
-    scrollYProgress: MotionValue<number>
+  scrollYProgress: MotionValue<number>;
 }
-
 
 export type Timeline = {
-    data: Array<any>,
-    setInfo: React.Dispatch<SetStateAction<Array[]>>,
-    info: keyable
-}
+  data: Array<any>;
+  setInfo: React.Dispatch<SetStateAction<Array[]>>;
+  info: keyable;
+};
 
 export type DefaultAnimatedContainerType = Children & {
-    end: number,
-    delay?: number,
-    classes?: string,
-    from?: number
-}
+  end: number;
+  delay?: number;
+  classes?: string;
+  from?: number;
+};
 
 export type ImageAndButtonType = {
-    idString?: string
-}
+  idString?: string;
+};
 
 export type BoxSlideCarousel = {
-    title: string,
-    text: string,
-    inst: string,
-}
+  title: string;
+  text: string;
+  inst: string;
+};
 
 export type CarouselBox = {
-    list: Array<BoxSlideCarousel>;
-}
+  list: Array<BoxSlideCarousel>;
+};
 
 export type Carousel = {
-    list: Array<string | ReactNode>;
+  list: Array<string | ReactNode>;
 };
 
 export type ModalType = ModalProps & {
-    data?: keyable
-}
+  data?: keyable;
+};
 
 export type AcademyType = {
-    modal?: keyable
-}
+  modal?: keyable;
+};
 
 export type LanguagesIconsType = {
-    language: string
-}
+  language: string;
+};
 
 interface Key {
-    key?: string
+  key?: string;
 }
 
-export type FadeFromTop = Children & Key & {
-    delay?: number,
-}
+export type FadeFromTop = Children &
+  Key & {
+    delay?: number;
+  };
 
 export type endProp = {
-    end?: number
-}
+  end?: number;
+};
 
 export type ButtonType = customFontSize & {
-    customColor?: string,
-    onClick?: CallableFunction,
-    text: string,
-    type?: string,
-}
+  customColor?: string;
+  onClick?: CallableFunction;
+  text: string;
+  type?: string;
+};
 
-export type FromRightPopup = Children & ClassName & Key
+export type FromRightPopup = Children & ClassName & Key;

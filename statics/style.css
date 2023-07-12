@@ -348,7 +348,7 @@ body::-webkit-scrollbar {
 }
 
 .yj-logo {
-  font-family: "UnifrakturCook";
+  font-family: "UnifrakturCook", "Prompt", sans-serif;
   font-weight: bold;
 }
 
@@ -523,7 +523,6 @@ body::-webkit-scrollbar {
 .list-item-project {
   align-items: center;
   justify-content: space-between;
-  height: 2em;
   padding: 0 10px;
   display: flex;
   overflow: hidden;

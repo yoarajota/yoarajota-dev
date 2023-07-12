@@ -1,12 +1,12 @@
 import { Box, Tooltip } from "@chakra-ui/react";
 
 import { Colors } from "asset/enums";
-import { keyable, Timeline } from "asset/types";
+import { keyable, Timeline as TType } from "asset/types";
 import _ from "lodash";
 import { useCallback } from "react";
 import TimeLinePoints from "./animations/timelinePoints";
 
-function Timeline({ data, setInfo, info }: Timeline) {
+function Timeline({ data, setInfo, info }: TType) {
   const handleInfo = useCallback(
     (val: keyable) => {
       setInfo((p: Array<any>) => {

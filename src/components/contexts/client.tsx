@@ -1,4 +1,8 @@
-import { Children, keyable, SystemConfig } from "asset/types";
+import {
+  ClientContext as ClientContexType,
+  keyable,
+  SystemConfig,
+} from "asset/types";
 import {
   createContext,
   useCallback,
@@ -7,16 +11,16 @@ import {
   useRef,
   useState,
 } from "react";
-import { useQuery } from "react-query";
-import api from "../../api/axios";
 
 export const ClientContext = createContext<keyable>({});
-export const ClientContextProvider = ({ children }: Children) => {
+export const ClientContextProvider = ({
+  children,
+  messages,
+}: ClientContexType) => {
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [msg, setMsg] = useState<keyable>({});
-  const [animationContainers, setAnimationContainers] =
-    useState<boolean>(true);
+  const [animationContainers, setAnimationContainers] = useState<boolean>(true);
   const [{ innerHeight, innerWidth }, setWindowValues] = useState<keyable>({});
   const [systemConfig, setSystemConfig] = useState<SystemConfig>({
     contact: {
@@ -41,24 +45,18 @@ export const ClientContextProvider = ({ children }: Children) => {
     academy: 0,
     objectives: {
       h: "",
+      showCards: 0,
     },
     interests: {
-      h: ""
-    }
+      h: "",
+      showCards: 0
+    },
   });
   const [lang, setLang] = useState<string>(
     ["pt-BR", "en-US"].includes(global.navigator?.language)
       ? global.navigator?.language
       : "en-US"
   );
-  const { data } = useQuery(
-    "messages",
-    () => {
-      return api.get("api/messages");
-    },
-    { staleTime: 600000 }
-  );
-  const messages = data?.data?.data;
 
   useEffect(() => {
     setWindowValues({
@@ -121,11 +119,13 @@ export const ClientContextProvider = ({ children }: Children) => {
         },
         academy: 6,
         objectives: {
-          h: "35em"
+          h: "35em",
+          showCards: 0.65,
         },
         interests: {
-          h: "50em"
-        }
+          h: "50em",
+          showCards: 0.75,
+        },
       };
     } else if (innerWidth < 1440) {
       mountObj = {
@@ -150,14 +150,17 @@ export const ClientContextProvider = ({ children }: Children) => {
         },
         academy: 5,
         objectives: {
-          h: "18em"
+          h: "18em",
+          showCards: 0.65,
         },
         interests: {
-          h: "26em"
-        }
+          h: "26em",
+          showCards: 0.75,
+        },
       };
     } else {
       mountObj = {
+        home: [1, 3, 6, 10, 15, 16, 19],
         contact: {
           text: "bg",
           size: "3em",
@@ -170,20 +173,21 @@ export const ClientContextProvider = ({ children }: Children) => {
             minW: "33.375em",
           },
         },
-        home: [2, 5, 8, 15, 18, 19, 20],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
           colSpan: [2, 4, 4],
           rowSpan: [3, 2],
         },
-        academy: 5,
+        academy: 4,
         objectives: {
-          h: "10em"
+          h: "10em",
+          showCards: 0.65,
         },
         interests: {
-          h: "20em"
-        }
+          showCards: 0.60,
+          h: "20em",
+        },
       };
     }
 
