@@ -1,7 +1,6 @@
 import {
   Badge,
   Box,
-  Button,
   Grid,
   GridItem,
   Link,
@@ -39,25 +38,15 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-export const getStaticProps = async (p: any) => {
-  return {
-    props: {
-      config: await createClient(process.env.EDGE_CONFIG).get(
-        "repos-to-show"
-      ),
-    },
-  };
+type Prop = {
+  config?: Array<string>;
 };
 
-type Prop = {
-  config?: Array<string>
-}
-
-function Project({ config }: Prop) {
-  console.log(config)
+export default function Project() {
   const {
     msg,
     systemConfig: { project },
+    config,
   } = useContext(ClientContext);
   const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
@@ -228,5 +217,3 @@ function Project({ config }: Prop) {
     </Box>
   );
 }
-
-export default Project;

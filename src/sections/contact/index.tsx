@@ -64,7 +64,7 @@ function Contact() {
       },
       {
         Icon: BiWorld,
-        href: "https://yoarajota-dev.vercel.app",
+        href: "https://yoarajota.vercel.app",
         type: "redirect",
       },
     ];

@@ -148,7 +148,7 @@ function Feedback() {
             onClick={() =>
               dispatchConstructorFeedbackSection({ type: FORM_OPEN })
             }
-            text="Escreva um comentário!"
+            text={msg.feedback_write_button}
           />
           <FormControl>
             <motion.div
@@ -174,7 +174,7 @@ function Feedback() {
                 }}
                 fontFamily="Ubuntu"
                 variant="unstyled"
-                placeholder="Nome (Opcional)"
+                placeholder={msg.feedback_name_input}
               />
               <Textarea
                 {...defProp}
@@ -185,13 +185,13 @@ function Feedback() {
                 }}
                 fontFamily="Ubuntu"
                 variant="unstyled"
-                placeholder="Comment"
+                placeholder={msg.feedback_comment_input}
               />
               <Box w="15%" h="40px" display="flex" justifyContent="center">
                 {isSubmiting ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
                 ) : (
-                  <DButton onClick={submit} text="Submit" type="submit" />
+                  <DButton onClick={submit} text="Submit" type={msg.feedback_submit} />
                 )}
               </Box>
             </motion.div>

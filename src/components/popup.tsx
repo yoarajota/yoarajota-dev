@@ -36,7 +36,7 @@ function Popup() {
   }, [setAnimationContainers]);
 
   return (
-    <FromRightPopupAnimation className="popup-wrap">
+    <FromRightPopupAnimation keyProp="popup" className="popup-wrap">
       <Popover placement="left-end">
         <PopoverTrigger>
           <Box cursor="pointer">

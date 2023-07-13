@@ -64,7 +64,7 @@ export interface Children {
 }
 
 export type ClientContext = Children & {
-  messages: keyable;
+  json: keyable;
 };
 
 export type Client = Children & {
@@ -192,12 +192,13 @@ export type LanguagesIconsType = {
   language: string;
 };
 
-interface Key {
-  key?: string;
+
+interface KeyProp {
+  keyProp?: string;
 }
 
 export type FadeFromTop = Children &
-  Key & {
+  KeyProp & {
     delay?: number;
   };
 
@@ -212,4 +213,4 @@ export type ButtonType = customFontSize & {
   type?: string;
 };
 
-export type FromRightPopup = Children & ClassName & Key;
+export type FromRightPopup = Children & ClassName & KeyProp;

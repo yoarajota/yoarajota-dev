@@ -16,7 +16,7 @@ function Scrollbar() {
   const top = useTransform(scrollY, [0, 1], ["0%", "100%"]);
 
   return (
-    <FromRightPopupAnimation className="scrollbar-wrap">
+    <FromRightPopupAnimation keyProp="scroll-bar" className="scrollbar-wrap">
       <Box
         w={"3px"}
         h={"75vh"}

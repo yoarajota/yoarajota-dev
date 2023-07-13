@@ -15,8 +15,10 @@ import {
 export const ClientContext = createContext<keyable>({});
 export const ClientContextProvider = ({
   children,
-  messages,
+  json,
 }: ClientContexType) => {
+  console.log(json)
+  const { system_messages: messages, repos_to_show: config } = json;
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [msg, setMsg] = useState<keyable>({});
@@ -219,6 +221,7 @@ export const ClientContextProvider = ({
       wrap,
       setAnimationContainers,
       animationContainers,
+      config,
     }),
     [
       changeLanguage,
@@ -228,6 +231,7 @@ export const ClientContextProvider = ({
       msg,
       systemConfig,
       animationContainers,
+      config,
     ]
   );
   return (
