@@ -20,10 +20,10 @@ import { DiPhp, DiPython, DiJavascript1 } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";
 import { ImBlocked, ImInfo } from "react-icons/im";
 import _ from "lodash";
-import config from "../../../config.json";
 import { AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import ScaleAnimation from "components/animations/scaleAnimation";
+import { createClient } from "@vercel/edge-config";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -39,7 +39,22 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-function Project() {
+export const getStaticProps = async (p: any) => {
+  return {
+    props: {
+      config: await createClient(process.env.EDGE_CONFIG).get(
+        "repos-to-show"
+      ),
+    },
+  };
+};
+
+type Prop = {
+  config?: Array<string>
+}
+
+function Project({ config }: Prop) {
+  console.log(config)
   const {
     msg,
     systemConfig: { project },
@@ -53,7 +68,7 @@ function Project() {
         .get("https://api.github.com/users/yoarajota/repos")
         .then((res) => {
           res.data.forEach(function (obj: keyable) {
-            obj.blocked = !config["repos-to-show"].includes(obj.name) ? 1 : 0;
+            obj.blocked = !config?.includes(obj.name) ? 1 : 0;
           });
 
           res.data.sort(function (a: keyable, b: keyable) {
@@ -93,7 +108,7 @@ function Project() {
   }, []);
 
   return (
-    <Box w="100%" paddingTop="1em" textAlign="center"  minHeight="100vh">
+    <Box w="100%" paddingTop="1em" textAlign="center" minHeight="60vh">
       <Titles text={msg?.projects_title} />
       <Grid
         margin="3em auto 0 auto"
@@ -111,17 +126,6 @@ function Project() {
           borderRight={`1px solid  ${Colors.Orange}`}
           overflowY="scroll"
           scrollSnapType="y"
-          css={{
-            "&::-webkit-scrollbar": {
-              width: "3px",
-            },
-            "&::-webkit-scrollbar-track": {
-              width: "6px",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              background: Colors.Orange,
-            },
-          }}
         >
           <List textAlign="left">
             {data?.map((i: keyable) => {

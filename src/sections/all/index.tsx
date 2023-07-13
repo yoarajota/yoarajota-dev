@@ -21,7 +21,7 @@ import Scrollbar from "components/scrollbar";
 import Exp from "sections/exp";
 import Tec from "sections/tec";
 
-export default function All({ messages }: any) {
+export default function All() {
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -78,7 +78,7 @@ export default function All({ messages }: any) {
       },
       {
         comp: [Feedback],
-        container: { type: AnimatedContainer, props: { end: home[6] } },
+        container: { type: FadeInContainer, props: { end: home[6] } },
         props: {},
         comp_name: ["Feedback"],
         container_name: "container-" + c++,

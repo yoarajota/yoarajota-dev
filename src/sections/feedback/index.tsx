@@ -1,10 +1,11 @@
 import {
   Box,
-  Button,
   Card,
   CardBody,
   Center,
   FormControl,
+  Grid,
+  GridItem,
   Input,
   Spinner,
   Textarea,
@@ -14,23 +15,29 @@ import { Colors } from "asset/enums";
 import NormalText from "components/typography/normalText";
 import { BsFillPersonFill, BsInfoLg } from "react-icons/bs";
 import DButton from "components/typography/dButton";
-import { useCallback, useReducer, useState, useEffect } from "react";
+import { useCallback, useReducer, useContext, useEffect } from "react";
 import { keyable } from "asset/types";
 import api from "../../api/axios";
 import _ from "lodash";
 import { motion } from "framer-motion";
 import { useQuery } from "react-query";
-import FadeInContainer from "components/animations/fadeInContainer";
 import Titles from "components/typography/titles";
+import { ClientContext } from "components/contexts/client";
 
 type Comment = {
   name?: string;
   comment: string;
 };
 
+const INITIAL_COMMENT = { comment: "", name: undefined };
 const NAME = 1;
 const COMMENT = 2;
-const reduc = (state: Comment, action: keyable): Comment => {
+const RESET = 3;
+const r1 = (state: Comment, action: keyable): Comment => {
+  if (action.type === RESET) {
+    return INITIAL_COMMENT;
+  }
+
   let isComment = action.type === COMMENT;
   return {
     name: !isComment ? action.value : state.name,
@@ -38,9 +45,29 @@ const reduc = (state: Comment, action: keyable): Comment => {
   };
 };
 
+type Constructor = {
+  isFormOpen: boolean;
+  allComments: Array<keyable | undefined>;
+  isSubmiting: boolean;
+};
+
+const FORM_OPEN = 1;
+const ALL_COMENTS = 2;
+const SUBMITING = 3;
+const r2 = (state: Constructor, action: keyable): Constructor => {
+  switch (action.type) {
+    case FORM_OPEN:
+      return { ...state, isFormOpen: !state.isFormOpen };
+    case ALL_COMENTS:
+      return action.function(state);
+    case SUBMITING:
+      return { ...state, isSubmiting: !state.isSubmiting };
+    default:
+      return state;
+  }
+};
+
 function Feedback() {
-  const [value, dispatch] = useReducer(reduc, { comment: "", name: undefined });
-  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const { data } = useQuery(
     "comments",
     () => {
@@ -48,23 +75,55 @@ function Feedback() {
     },
     { staleTime: 600000 }
   );
-  const [allComments, setAllComents] = useState<Array<keyable | undefined>>(
-    data?.data?.data ?? []
-  );
+  const [value, dispatch] = useReducer(r1, INITIAL_COMMENT);
+  const [
+    { isFormOpen, allComments, isSubmiting },
+    dispatchConstructorFeedbackSection,
+  ] = useReducer(r2, {
+    isFormOpen: false,
+    allComments: data?.data?.data ?? [],
+    isSubmiting: false,
+  });
+  const { msg } = useContext(ClientContext);
+
   useEffect(() => {
-    setAllComents(data?.data?.data);
+    dispatchConstructorFeedbackSection({
+      type: COMMENT,
+      function: (prev: Constructor) => {
+        return { ...prev, allComments: data?.data?.data };
+      },
+    });
   }, [data]);
 
-  const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
+
   const handleChange = (value: string, type: number) =>
     dispatch({ value, type });
 
-  const handle = useCallback(() => {
-    // setIsSubmiting(true);
-    api
-      .post("api/comments", { ...value, date: new Date() })
-      .then((res) => {})
+  const submit = useCallback(async () => {
+    if (!value.comment) {
+      return;
+    }
+
+    dispatchConstructorFeedbackSection({ type: SUBMITING });
+
+    let obj = { ...value, date: new Date(), new: 1 };
+
+    await api
+      .post("api/comments", obj)
+      .then((res) => {
+        dispatch({ type: RESET });
+        dispatchConstructorFeedbackSection({
+          type: COMMENT,
+          function: (prev: Constructor) => {
+            return { ...prev, allComments: [...prev.allComments, obj] };
+          },
+        });
+      })
       .catch((err) => {});
+    dispatchConstructorFeedbackSection({ type: SUBMITING });
   }, [value]);
 
   const defProp = {
@@ -78,31 +137,38 @@ function Feedback() {
   };
 
   return (
-    <Box w="100%" textAlign="center" h="55vh">
+    <Box w="100%" textAlign="center" h="60vh">
       <Box paddingTop="85px">
         {/* <FadeInContainer end={(end ?? 0) + 1}> */}
-          <Titles text="Feedback" />
+        <Titles text="Feedback" />
         {/* </FadeInContainer> */}
 
         <Center flexDirection="column" marginTop="25px">
           <DButton
-            onClick={() => setIsFormOpen((p: boolean) => !p)}
+            onClick={() =>
+              dispatchConstructorFeedbackSection({ type: FORM_OPEN })
+            }
             text="Escreva um comentário!"
           />
           <FormControl>
             <motion.div
               className="comment-form"
+              initial={{ maxHeight: 0 }}
               animate={isFormOpen ? { maxHeight: "700px" } : { maxHeight: 0 }}
             >
-              <Tooltip label="I have 15px arrow" placement="bottom">
+              <Tooltip
+                marginTop="15px"
+                label={msg?.feedback_info}
+                placement="bottom"
+              >
                 <Box marginTop="15px">
-                  <BsInfoLg color={Colors.Gray} />
+                  <BsInfoLg color={Colors.Orange} />
                 </Box>
               </Tooltip>
               <Input
                 {...defProp}
                 p="3px 20px"
-                value={value.name}
+                value={value.name ?? ""}
                 onChange={(e) => {
                   handleChange(e.target.value, NAME);
                 }}
@@ -125,31 +191,59 @@ function Feedback() {
                 {isSubmiting ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
                 ) : (
-                  <DButton onClick={handle} text="Submit" type="submit" />
+                  <DButton onClick={submit} text="Submit" type="submit" />
                 )}
               </Box>
             </motion.div>
           </FormControl>
-          <Center
-            flexDirection="column"
-            minW="43.75em"
-            alignItems="left"
-            gap="9px"
+          <motion.div
+            className="comments-section"
+            initial={{ height: "300px" }}
+            animate={isFormOpen ? { height: "90px" } : { height: "300px" }}
           >
             {!_.isEmpty(allComments) &&
               allComments.map((i) => (
-                <Card
+                <motion.div
+                  initial={{ y: 0 }}
+                  animate={i?.new ? { y: [12, 0] } : {}}
                   key={_.uniqueId("comment-card-")}
-                  variant="unstyled"
-                  background="transparent"
                 >
-                  <CardBody display="flex" alignItems="center" gap="15px">
-                    <BsFillPersonFill />
-                    <NormalText customFontSize="1rem" text={i?.comment} />
-                  </CardBody>
-                </Card>
+                  <Card variant="unstyled" background="transparent">
+                    <CardBody
+                      display="flex"
+                      flexDirection="column"
+                      alignItems="left"
+                    >
+                      <Grid
+                        templateRows="repeat(2, 1fr)"
+                        templateColumns="repeat(12, 1fr)"
+                        textAlign="left"
+                      >
+                        <GridItem
+                          alignItems="center"
+                          rowSpan={2}
+                          colSpan={1}
+                          display="flex"
+                          justifyContent="center"
+                        >
+                          <BsFillPersonFill size="2em" color={Colors.Orange} />
+                        </GridItem>
+                        <GridItem colSpan={11}>
+                          <NormalText
+                            customColor={Colors.Orange}
+                            customFontSize="1rem"
+                            text={i?.name ? i?.name : msg?.feedback_anonymous}
+                          />
+                        </GridItem>
+                        <GridItem colSpan={11}>
+                          <NormalText customFontSize="1rem" text={i?.comment} />
+                        </GridItem>
+                      </Grid>
+                    </CardBody>
+                  </Card>
+                </motion.div>
               ))}
-          </Center>
+          </motion.div>
         </Center>
       </Box>
     </Box>

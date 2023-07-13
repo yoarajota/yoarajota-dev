@@ -72,7 +72,7 @@ function Contact() {
     return (
       <Box
         w="100%"
-        minHeight="100vh"
+        minHeight="80vh"
         alignItems="center"
         justifyContent="center"
         textAlign="center"

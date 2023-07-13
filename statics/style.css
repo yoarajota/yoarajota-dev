@@ -566,3 +566,27 @@ body::-webkit-scrollbar {
   padding: 3px 16px;
   border-radius: 7px;
 }
+
+.comments-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  flex-direction: column;
+  min-width: 43.75em;
+  align-items: left;
+  gap: 9px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  width: 3px !important;
+}
+
+*::-webkit-scrollbar-track {
+  width: 6px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--orange) !important;
+}

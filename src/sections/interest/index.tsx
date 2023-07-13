@@ -29,10 +29,10 @@ function Interest({ end }: endProp) {
         setWillShowCards(true);
       }
     });
-  }, [scrollYProgress, willShowCards]);
+  }, [scrollYProgress, showCards, willShowCards]);
 
   return (
-    <Box w="100%" textAlign="center">
+    <Box w="100%" textAlign="center" minH="60vh">
       <Box paddingTop="85px">
         <FadeInContainer end={(end ?? 0) + 1}>
           <Titles text={msg?.interest_title} />

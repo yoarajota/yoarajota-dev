@@ -30,7 +30,7 @@ function Objectives({ end }: endProp) {
   }, [scrollYProgress, showCards]);
 
   return (
-    <Box w="100%" textAlign="center">
+    <Box w="100%" textAlign="center" minH="40vh">
       <Box paddingTop="65px">
         <FadeInContainer end={(end ?? 0) + 1}>
           <Titles text={msg?.objectives_title} />

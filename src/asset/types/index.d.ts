@@ -34,15 +34,15 @@ export type ProjectGridConfig = {
 };
 
 interface showCards {
-  showCards: number
+  showCards: number;
 }
 
 interface h {
   h: string;
 }
 
-export type ObjectivesConfig = showCards & h
-export type InterestsConfig = h & showCards
+export type ObjectivesConfig = showCards & h;
+export type InterestsConfig = h & showCards;
 
 export type SystemConfig = {
   contact: ContactConfig;
