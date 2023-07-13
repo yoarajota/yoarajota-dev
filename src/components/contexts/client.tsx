@@ -17,7 +17,6 @@ export const ClientContextProvider = ({
   children,
   json,
 }: ClientContexType) => {
-  console.log(json)
   const { system_messages: messages, repos_to_show: config } = json;
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
@@ -143,14 +142,14 @@ export const ClientContextProvider = ({
             minW: "33.375em",
           },
         },
-        home: [1, 4, 9, 14, 16, 19],
+        home: [0, 3, 9, 14, 16, 19],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
           colSpan: [2, 4, 4],
           rowSpan: [3, 2],
         },
-        academy: 5,
+        academy: 3,
         objectives: {
           h: "18em",
           showCards: 0.65,

@@ -55,7 +55,6 @@ function Extra() {
           actions.resetForm();
         })
         .catch((err) => {
-          console.log(err);
           toast({
             title: "Erro!",
             description: err.response.data.message,

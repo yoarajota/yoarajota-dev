@@ -95,10 +95,6 @@ function Feedback() {
     });
   }, [data]);
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
-
   const handleChange = (value: string, type: number) =>
     dispatch({ value, type });
 
@@ -113,7 +109,7 @@ function Feedback() {
 
     await api
       .post("api/comments", obj)
-      .then((res) => {
+      .then(() => {
         dispatch({ type: RESET });
         dispatchConstructorFeedbackSection({
           type: COMMENT,

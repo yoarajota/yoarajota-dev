@@ -4,7 +4,6 @@ import _ from "lodash";
 import React from "react";
 
 function FromRightPopupAnimation({ children, className, keyProp }: FromRightPopup) {
-  console.log(className, keyProp);
   return (
     <motion.div
       key={keyProp ?? _.uniqueId("from-right-popup-animation-")}
