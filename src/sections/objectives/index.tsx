@@ -14,20 +14,20 @@ function Objectives({ end }: endProp) {
   const {
     msg,
     systemConfig: {
-      objectives: { h },
+      objectives: { h, showCards },
     },
   } = useContext(ClientContext);
-  const [showCards, setShowCards] = useState<boolean>(false);
+  const [willShowCards, setWillShowCards] = useState<boolean>(false);
   const scrollYProgress = stateStorage.get("scrollYProgress");
   useEffect(() => {
     scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) < 0.78) {
-        setShowCards(false);
-      } else if ((hookedYPosition ?? 0) > 0.78 && !showCards) {
-        setShowCards(true);
+      if ((hookedYPosition ?? 0) < showCards) {
+        setWillShowCards(false);
+      } else if ((hookedYPosition ?? 0) > showCards && !willShowCards) {
+        setWillShowCards(true);
       }
     });
-  }, [scrollYProgress, showCards]);
+  }, [scrollYProgress, willShowCards, showCards]);
 
   return (
     <Box w="100%" textAlign="center" minH="40vh">
@@ -45,7 +45,7 @@ function Objectives({ end }: endProp) {
         h={h}
       >
         <AnimatePresence exitBeforeEnter>
-          {showCards &&
+          {willShowCards &&
             [1, 2, 3].map((i, k) => (
               <FadeInFromTop delay={k * 0.15} key={_.uniqueId("card-objectives-")}>
                 <Cards

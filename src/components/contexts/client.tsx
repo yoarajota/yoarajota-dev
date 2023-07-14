@@ -142,7 +142,7 @@ export const ClientContextProvider = ({
             minW: "33.375em",
           },
         },
-        home: [0, 3, 9, 14, 16, 19],
+        home: [0, 3, 6, 11, 16, 19],
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
@@ -150,13 +150,13 @@ export const ClientContextProvider = ({
           rowSpan: [3, 2],
         },
         academy: 3,
-        objectives: {
-          h: "18em",
-          showCards: 0.65,
-        },
         interests: {
           h: "26em",
-          showCards: 0.75,
+          showCards: 0.60,
+        },
+        objectives: {
+          h: "18em",
+          showCards: 0.67,
         },
       };
     } else {
