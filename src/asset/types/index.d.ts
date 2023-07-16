@@ -17,7 +17,7 @@ export interface keyable {
   [key: string]: any;
 }
 
-export type ContactConfig = {
+export type ContactConfig = showCards & {
   text: string;
   size: string;
   cSpan2: number;

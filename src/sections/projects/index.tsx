@@ -182,7 +182,7 @@ export default function Project() {
                     borderBottomStartRadius="8px"
                     p="5px"
                   >
-                    <AiFillGithub size="2em" color={Colors.Gray} />
+                    <AiFillGithub size="2em" color={Colors.Orange} />
                   </Link>
                 </motion.div>
               </Box>

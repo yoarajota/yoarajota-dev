@@ -24,6 +24,7 @@ function Contact() {
     const {
         systemConfig: {
             contact: {
+                showCards,
                 h,
                 cSpan2,
                 text,
@@ -37,9 +38,9 @@ function Contact() {
     const scrollYProgress = stateStorage.get("scrollYProgress");
     useEffect(() => {
         scrollYProgress.onChange((hookedYPosition: number) => {
-            if ((hookedYPosition ?? 0) < 0.86) {
+            if ((hookedYPosition ?? 0) < showCards) {
                 setShowButtons(false);
-            } else if ((hookedYPosition ?? 0) > 0.86 && !showButtons) {
+            } else if ((hookedYPosition ?? 0) > showCards && !showButtons) {
                 setShowButtons(true);
             }
         });

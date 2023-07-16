@@ -30,6 +30,7 @@ export const ClientContextProvider = ({
       cSpan2: 0,
       end: 0,
       h: "",
+      showCards: 0.67,
       grid: {
         templateRows: "",
         templateColumns: "",
@@ -105,6 +106,7 @@ export const ClientContextProvider = ({
           cSpan2: 2,
           end: 2,
           h: "auto",
+          showCards: 0.67,
           grid: {
             templateRows: "repeat(1, 1fr)",
             templateColumns: "repeat(2, 1fr)",
@@ -136,6 +138,7 @@ export const ClientContextProvider = ({
           cSpan2: 3,
           end: 1,
           h: "auto",
+          showCards: 0.67,
           grid: {
             templateRows: "repeat(2, 1fr)",
             templateColumns: "repeat(5, 1fr)",
@@ -162,18 +165,6 @@ export const ClientContextProvider = ({
     } else {
       mountObj = {
         home: [1, 3, 6, 10, 15, 16, 19],
-        contact: {
-          text: "bg",
-          size: "3em",
-          cSpan2: 3,
-          end: 1,
-          h: "auto",
-          grid: {
-            templateRows: "repeat(2, 1fr)",
-            templateColumns: "repeat(5, 1fr)",
-            minW: "33.375em",
-          },
-        },
         project: {
           templateRows: "repeat(2, 1fr)",
           templateColumns: "repeat(8, 1fr)",
@@ -181,13 +172,26 @@ export const ClientContextProvider = ({
           rowSpan: [3, 2],
         },
         academy: 4,
-        objectives: {
-          h: "10em",
-          showCards: 0.65,
-        },
         interests: {
           showCards: 0.60,
           h: "20em",
+        },
+        objectives: {
+          h: "10em",
+          showCards: 0.67,
+        },
+        contact: {
+          text: "bg",
+          size: "3em",
+          cSpan2: 3,
+          end: 1,
+          h: "auto",
+          showCards: 0.77,
+          grid: {
+            templateRows: "repeat(2, 1fr)",
+            templateColumns: "repeat(5, 1fr)",
+            minW: "33.375em",
+          },
         },
       };
     }
