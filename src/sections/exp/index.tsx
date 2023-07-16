@@ -70,16 +70,18 @@ function Exp() {
                 key={_.uniqueId()}
               >
                 <Box
+                  p="0 7.5px"
                   className="box-text-child"
                   w="100%"
                   justifyContent="center"
                 >
                   <TextAnimation text={info.text1} />
                 </Box>
-                <Box m="0 15px" w="100%" justifyContent="center">
+                <Box p="0 7.5px" w="100%" justifyContent="center">
                   <TextAnimation text={info.text2} />
                 </Box>
                 <Box
+                  p="0 7.5px"
                   className="box-text-child"
                   w="100%"
                   justifyContent="center"

@@ -22,6 +22,7 @@ function Academy({ modal }: AcademyType) {
     msg,
     systemConfig: { academy },
   } = useContext(ClientContext);
+
   const scrollYProgress = stateStorage.get("scrollYProgress");
 
   const { data, refetch } = useQuery(

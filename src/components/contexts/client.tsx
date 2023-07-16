@@ -100,6 +100,22 @@ export const ClientContextProvider = ({
     let mountObj: SystemConfig;
     if (innerWidth < 764) {
       mountObj = {
+        home: [1, 4, 7, 11, 16, 17, 20],
+        project: {
+          templateRows: "",
+          templateColumns: "",
+          colSpan: [],
+          rowSpan: [],
+        },
+        academy: 5,
+        objectives: {
+          h: "35em",
+          showCards: 0.70,
+        },
+        interests: {
+          h: "50em",
+          showCards: 0.60,
+        },
         contact: {
           text: "bg",
           size: "4em",
@@ -112,22 +128,6 @@ export const ClientContextProvider = ({
             templateColumns: "repeat(2, 1fr)",
             minW: "95%",
           },
-        },
-        home: [2, 5, 9, 14, 18],
-        project: {
-          templateRows: "",
-          templateColumns: "",
-          colSpan: [],
-          rowSpan: [],
-        },
-        academy: 6,
-        objectives: {
-          h: "35em",
-          showCards: 0.65,
-        },
-        interests: {
-          h: "50em",
-          showCards: 0.75,
         },
       };
     } else if (innerWidth < 1440) {
@@ -196,9 +196,9 @@ export const ClientContextProvider = ({
       };
     }
 
-    if (innerWidth < 860) {
-      mountObj.academy = 6;
-    }
+    // if (innerWidth < 860) {
+    //   mountObj.academy = 6;
+    // }
 
     setSystemConfig(mountObj);
   }, [innerWidth]);
