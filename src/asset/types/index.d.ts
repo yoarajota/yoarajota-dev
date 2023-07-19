@@ -1,5 +1,6 @@
 import { EdgeConfigValue } from "@vercel/edge-config";
 import { MotionValue } from "framer-motion";
+import { JwtPayload } from "jsonwebtoken";
 import { ReactNode, RefObject } from "react";
 import { Position } from "react-flow-renderer";
 
@@ -7,6 +8,7 @@ export type defaultResponse = {
   status: string;
   data?: object | Array<any> | EdgeConfigValue;
   message?: string;
+  token?: string
 };
 
 export type Info = {
@@ -214,3 +216,12 @@ export type ButtonType = customFontSize & {
 };
 
 export type FromRightPopup = Children & ClassName & KeyProp;
+
+export type Credentials = {
+  password: string,
+  email: sring
+}
+
+interface DecodedToken extends JwtPayload {
+  remote_address: string
+}
