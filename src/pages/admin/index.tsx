@@ -37,11 +37,13 @@ const Form = ({ onClose }: keyable) => {
     return <FormControl display="flex" alignItems="center" flexDirection="column" gap="1em">
         <Input color={Colors.Gray} placeholder="Email" variant="unstyled" value={credentials.email} onChange={(e) => setCredentials((prev) => ({ ...prev, email: e.target.value }))} />
         <Input color={Colors.Gray} type="password" placeholder="Password" variant="unstyled" value={credentials.password} onChange={(e) => setCredentials((prev) => ({ ...prev, password: e.target.value }))} />
-        {credentials.loading ? (
-            <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
-        ) : (
-            <DButton customFontSize="0.9rem" onClick={login} type="submit" text="Submit" />
-        )}
+        <Box h="40px">
+            {credentials.loading ? (
+                <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+            ) : (
+                <DButton customFontSize="0.9rem" onClick={login} type="submit" text="Submit" />
+            )}
+        </Box>
     </FormControl>
 }
 

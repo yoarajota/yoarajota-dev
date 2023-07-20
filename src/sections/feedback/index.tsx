@@ -135,9 +135,7 @@ function Feedback() {
   return (
     <Box w="100%" textAlign="center" h="60vh">
       <Box paddingTop="85px">
-        {/* <FadeInContainer end={(end ?? 0) + 1}> */}
         <Titles text="Feedback" />
-        {/* </FadeInContainer> */}
 
         <Center flexDirection="column" marginTop="25px">
           <DButton
@@ -187,7 +185,7 @@ function Feedback() {
                 {isSubmiting ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
                 ) : (
-                  <DButton onClick={submit} text="msg.feedback_submit" type="submit" />
+                  <DButton onClick={submit} text={msg.feedback_submit} type="submit" />
                 )}
               </Box>
             </motion.div>
@@ -214,9 +212,9 @@ function Feedback() {
                         templateRows="repeat(2, 1fr)"
                         templateColumns="repeat(12, 1fr)"
                         textAlign="left"
+                        gridTemplateRows="40px"
                       >
                         <GridItem
-                          alignItems="center"
                           rowSpan={2}
                           colSpan={1}
                           display="flex"
@@ -231,7 +229,7 @@ function Feedback() {
                             text={i?.name ? i?.name : msg?.feedback_anonymous}
                           />
                         </GridItem>
-                        <GridItem colSpan={11}>
+                        <GridItem colSpan={11} maxW="700px">
                           <NormalText customFontSize="1rem" text={i?.comment} />
                         </GridItem>
                       </Grid>
