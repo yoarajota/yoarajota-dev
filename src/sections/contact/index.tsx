@@ -29,6 +29,7 @@ function Contact() {
                 cSpan2,
                 text,
                 size,
+                end,
                 grid: { templateRows, templateColumns, minW },
             },
         },
@@ -120,11 +121,16 @@ function Contact() {
           </GridItem>
           <AnimatePresence exitBeforeEnter>
             {showButtons &&
-              icons.map((icon, k) => (
-                <GridItem
+              icons.map((icon, k) => {
+                let colSpan = 1
+                if (icons.length === k + 1) {
+                  colSpan = end;
+                }
+
+                return <GridItem
                   key={_.uniqueId("contact-buttons-")}
                   {...stl}
-                  colSpan={1}
+                  colSpan={colSpan}
                 >
                   <FadeInFromTop delay={k * 0.15}>
                     <ScaleAnimation scale={1.2} className="pointer">
@@ -134,7 +140,8 @@ function Contact() {
                     </ScaleAnimation>
                   </FadeInFromTop>
                 </GridItem>
-              ))}
+              }
+              )}
           </AnimatePresence>
         </Grid>
       </Box>

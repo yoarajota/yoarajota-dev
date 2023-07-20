@@ -31,6 +31,8 @@ async function handler(
         },
     )
 
+    await res.revalidate('/')
+    await res.revalidate('/admin')
     return res.status(200).json({ status: "success" });
 }
 

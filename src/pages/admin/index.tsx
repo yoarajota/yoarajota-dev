@@ -6,9 +6,11 @@ import React, { useState, useEffect, useCallback } from "react";
 import api from "../../api/axios";
 import DButton from "components/typography/dButton";
 import { Colors } from "asset/enums";
-import Titles from "components/typography/titles";
 import { verifyToken } from "helpers/login";
 import { motion } from 'framer-motion'
+import JSONInput from "react-json-editor-ajrm";
+import { localeEn } from '../../../statics/localeEn'
+import Titles from "components/typography/titles";
 
 export const getStaticProps = async () => {
     return {
@@ -17,7 +19,6 @@ export const getStaticProps = async () => {
         },
     };
 };
-
 
 const Form = ({ onClose }: keyable) => {
     const [credentials, setCredentials] = useState<keyable>({ email: "", password: "", loading: false })
@@ -35,7 +36,7 @@ const Form = ({ onClose }: keyable) => {
 
     return <FormControl display="flex" alignItems="center" flexDirection="column" gap="1em">
         <Input color={Colors.Gray} placeholder="Email" variant="unstyled" value={credentials.email} onChange={(e) => setCredentials((prev) => ({ ...prev, email: e.target.value }))} />
-        <Input color={Colors.Gray} placeholder="Password" variant="unstyled" value={credentials.password} onChange={(e) => setCredentials((prev) => ({ ...prev, password: e.target.value }))} />
+        <Input color={Colors.Gray} type="password" placeholder="Password" variant="unstyled" value={credentials.password} onChange={(e) => setCredentials((prev) => ({ ...prev, password: e.target.value }))} />
         {credentials.loading ? (
             <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
         ) : (
@@ -48,6 +49,7 @@ export default function Admin({ json }: keyable) {
     const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true })
     const [state, setState] = useState<keyable>(json)
     const [opacity, setOpacity] = useState<number>(0)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
         setOpacity(1)
@@ -60,48 +62,18 @@ export default function Admin({ json }: keyable) {
         isAuthenticated()
     }, [])
 
-    function handleChange(value: any, trace: any) {
-        setState((prev) => {
-            let clone = _.clone(prev)
-            _.set(clone, trace, value);
-            return clone;
-        })
-    }
-
-    function sendAtt() {
-        api.post('api/config', state, {
+    async function sendAtt() {
+        setIsLoading(true)
+        await api.post('api/config', state, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             }
+        }).catch(() => {
+
         })
+        setIsLoading(false)
     }
-
-    function renderData(data: any, trace: Array<string | number> = []) {
-        if (Array.isArray(data)) {
-            return <Box display="flex" gap="25px">
-                {data.map((item, index) => {
-                    let nTrace = [...trace]
-                    nTrace.push(index)
-                    return <Box key={index}>{renderData(item, nTrace)}</Box>
-                })}
-            </Box>
-        }
-
-        if (typeof data === 'object' && data !== null) {
-            return Object.entries(data).map(([key, value]) => {
-                let nTrace = [...trace]
-                nTrace.push(key)
-
-                return <Box key={key}>
-                    <strong>{key}:</strong> {renderData(value, nTrace)}
-                </Box>
-            });
-        }
-
-        return <Input value={data} onChange={(e) => handleChange(e.target.value, trace)} />;
-    }
-
 
     return (
         <Box color="white">
@@ -118,9 +90,20 @@ export default function Admin({ json }: keyable) {
                 </ModalContent>
             </Modal>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity }}>
-                <FormControl>
-                    <DButton type="submit" onClick={sendAtt} text="Save changes" />
-                    {renderData(state)}
+                <FormControl display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap="10px" marginTop="10px">
+                    <Box h="40px">
+                        {isLoading ? (
+                            <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+                        ) : (
+                            <DButton type="submit" onClick={sendAtt} text="Save changes" />
+                        )}
+                    </Box>
+                    <JSONInput
+                        locale={localeEn}
+                        onBlur={(val: keyable) => { setState(val.jsObject) }}
+                        placeholder={state}
+                        id={_.uniqueId('json-input-id')}
+                    />
                 </FormControl>
             </motion.div>
         </Box>

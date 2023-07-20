@@ -103,8 +103,8 @@ export default function Project() {
         margin="3em auto 0 auto"
         w="80%"
         h="300px"
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(6, 1fr)"
+        templateRows={project.templateRows}
+        templateColumns={project.templateColumns}
         gap={4}
         border={`1px solid  ${Colors.Orange}`}
         borderRadius="8px"
@@ -129,9 +129,8 @@ export default function Project() {
                   overflow="hidden"
                 >
                   <ScaleAnimation
-                    className={`list-item-project ${
-                      i.blocked && "blocked-item"
-                    }`}
+                    className={`list-item-project ${i.blocked && "blocked-item"
+                      }`}
                     scale={0.98}
                   >
                     <NormalText
@@ -155,7 +154,7 @@ export default function Project() {
             })}
           </List>
         </GridItem>
-        <GridItem p="1em" colSpan={project.colSpan?.[1]} position="relative">
+        <GridItem p="1em" colSpan={project.colSpan?.[1]} rowSpan={project.rowSpan?.[1]} position="relative">
           {!_.isEmpty(currentRepo) && (
             <Box className="project-title-wrap">
               <motion.div
@@ -165,7 +164,7 @@ export default function Project() {
               >
                 <Titles size="sm" text={currentRepo.name} />
               </motion.div>
-              <Box h="2em" w="2em" m="0 auto">
+              <Box m="0 auto">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -189,27 +188,25 @@ export default function Project() {
             </Box>
           )}
         </GridItem>
-        <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[1]}>
+        <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[2]} position="relative">
           {!_.isEmpty(currentRepo) && (
-            <motion.div
-              initial={{ x: 20 }}
-              animate={{ x: 0 }}
-              key={"description-" + currentRepo.id}
-              className="project-desc-wrap"
-            >
-              <Box h="100%">
-                <Box h="85%" w="80%" m="0 auto">
+            <>
+              <motion.div
+                initial={{ x: 20 }}
+                animate={{ x: 0 }}
+                key={"description-" + currentRepo.id}
+                className="project-desc-wrap"
+              >
+                <Box maxH="85%" w="80%" m="0 auto">
                   <NormalText text={currentRepo.description} />
                 </Box>
-                <Box h="15%">
-                  <Badge bg={Colors.Orange} color={Colors.Black}>
-                    <Link href={currentRepo.html_url + "#readme"} target="link">
-                      Read me
-                    </Link>
-                  </Badge>
-                </Box>
-              </Box>
-            </motion.div>
+              </motion.div>
+              <Badge width="84px" position="absolute" left="calc(50% - 42px)" bottom="12px" bg={Colors.Orange} color={Colors.Black}>
+                <Link href={currentRepo.html_url + "#readme"} target="link">
+                  Read me
+                </Link>
+              </Badge>
+            </>
           )}
         </GridItem>
       </Grid>

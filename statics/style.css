@@ -506,10 +506,6 @@ body::-webkit-scrollbar {
   justify-content: center;
 }
 
-.project-desc-wrap {
-  height: 100%;
-}
-
 .skills-dots {
   display: flex;
   margin-top: 1em;
