@@ -1,10 +1,19 @@
-import { Credentials } from "asset/types";
 import api from '../api/axios'
-import jwt from 'jsonwebtoken';
 
-export function verify(token: string) {
+export async function verifyToken(token: string) {
     try {
-        return jwt.verify(token, String(process.env.TOKEN_SECRET_KEY));
+        return await api.post("api/verify", null, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        }).then((res) => {
+            if (res.status === 200) {
+                return true
+            }
+        }).catch(() => {
+            return false;
+        })
     } catch (error) {
         return false;
     }

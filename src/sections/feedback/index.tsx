@@ -118,7 +118,7 @@ function Feedback() {
           },
         });
       })
-      .catch((err) => {});
+      .catch((err) => { });
     dispatchConstructorFeedbackSection({ type: SUBMITING });
   }, [value]);
 
@@ -187,7 +187,7 @@ function Feedback() {
                 {isSubmiting ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
                 ) : (
-                  <DButton onClick={submit} text="Submit" type={msg.feedback_submit} />
+                  <DButton onClick={submit} text="msg.feedback_submit" type="submit" />
                 )}
               </Box>
             </motion.div>
