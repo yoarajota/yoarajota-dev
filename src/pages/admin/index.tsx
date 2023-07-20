@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
 
 
 const Form = ({ onClose }: keyable) => {
-    const [credentials, setCredentials] = useState<keyable>({ email: "akJrT8XrDwvRk3k@example.com", password: "5zG@u7Q@9p" })
+    const [credentials, setCredentials] = useState<keyable>({ email: "", password: "" })
     const login = useCallback(() => {
         api.post("api/login", credentials).then((response) => {
             if (response.status === 200) {
