@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useCallbackRef, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, FormControl, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, Text, useCallbackRef, useDisclosure } from "@chakra-ui/react";
 import { createClient } from "@vercel/edge-config";
 import { keyable } from "asset/types";
 import _ from "lodash";
@@ -8,6 +8,7 @@ import DButton from "components/typography/dButton";
 import { Colors } from "asset/enums";
 import Titles from "components/typography/titles";
 import { verifyToken } from "helpers/login";
+import { motion } from 'framer-motion'
 
 export const getStaticProps = async () => {
     return {
@@ -19,36 +20,43 @@ export const getStaticProps = async () => {
 
 
 const Form = ({ onClose }: keyable) => {
-    const [credentials, setCredentials] = useState<keyable>({ email: "", password: "" })
-    const login = useCallback(() => {
-        api.post("api/login", credentials).then((response) => {
+    const [credentials, setCredentials] = useState<keyable>({ email: "", password: "", loading: false })
+    const login = useCallback(async () => {
+        setCredentials((prev) => ({ ...prev, loading: true }))
+        await api.post("api/login", credentials).then((response) => {
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token)
                 onClose()
             }
         }).catch((error) => {
-
         })
+        setCredentials((prev) => ({ ...prev, loading: false }))
     }, [credentials])
 
     return <FormControl display="flex" alignItems="center" flexDirection="column" gap="1em">
         <Input color={Colors.Gray} placeholder="Email" variant="unstyled" value={credentials.email} onChange={(e) => setCredentials((prev) => ({ ...prev, email: e.target.value }))} />
         <Input color={Colors.Gray} placeholder="Password" variant="unstyled" value={credentials.password} onChange={(e) => setCredentials((prev) => ({ ...prev, password: e.target.value }))} />
-        <DButton customFontSize="0.9rem" onClick={login} type="submit" text="Submit" />
+        {credentials.loading ? (
+            <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+        ) : (
+            <DButton customFontSize="0.9rem" onClick={login} type="submit" text="Submit" />
+        )}
     </FormControl>
 }
 
 export default function Admin({ json }: keyable) {
     const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true })
     const [state, setState] = useState<keyable>(json)
+    const [opacity, setOpacity] = useState<number>(0)
 
     useEffect(() => {
+        setOpacity(1)
+
         const isAuthenticated = async () => {
             if (await verifyToken(localStorage.getItem('token') ?? "")) {
                 onClose()
             }
         }
-
         isAuthenticated()
     }, [])
 
@@ -109,8 +117,12 @@ export default function Admin({ json }: keyable) {
                     </ModalBody>
                 </ModalContent>
             </Modal>
-            <Button onClick={sendAtt}>Save</Button>
-            {renderData(state)}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity }}>
+                <FormControl>
+                    <DButton type="submit" onClick={sendAtt} text="Save changes" />
+                    {renderData(state)}
+                </FormControl>
+            </motion.div>
         </Box>
     );
-}
+}   
