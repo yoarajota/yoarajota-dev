@@ -1,9 +1,7 @@
 import { Box, Center } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import Titles from "../../components/typography/titles";
-import api from "../../api/axios";
-import { useQuery } from "react-query";
-import { AcademyType, Info, keyable } from "../../asset/types";
+import { AcademyType, keyable } from "../../asset/types";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normalText";
@@ -18,41 +16,14 @@ import { stateStorage } from "react-trigger-state";
 
 function Academy({ modal }: AcademyType) {
   const {
-    lang,
     msg,
     systemConfig: { academy },
   } = useContext(ClientContext);
+  console.log(msg)
 
   const scrollYProgress = stateStorage.get("scrollYProgress");
 
-  const { data, refetch } = useQuery(
-    "academy",
-    () => {
-      return api.get("api/acad");
-    },
-    { staleTime: 600000 }
-  );
-
-  const [info, setInfo] = useState<Info>({});
   const [fetched, setFetched] = useState<boolean>(false);
-
-  useEffect(() => {
-    scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) > 0.35 && !fetched) {
-        refetch().then(() => {
-          setFetched(true);
-        });
-      } else if (fetched) {
-        if ((hookedYPosition ?? 0) < 0.4) {
-          setInfo({});
-        } else if ((hookedYPosition ?? 0) > 0.4 && _.isEmpty(info)) {
-          let a = data?.data.data[lang];
-          if (a) setInfo(a[a.length - 1]);
-        }
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center">
@@ -146,9 +117,9 @@ function Academy({ modal }: AcademyType) {
           </PopInContainer>
         </Box>
         <Center gap="2em" p="0 0 1em 0" m={"0 0 1em 0"}>
-          {["asdaskjdas", "çlaskdçlsakçldsa"].map((a: any, i) => (
-            <Center key={_.uniqueId() + "link"}>
-              <LinkText link="">{a}</LinkText>
+          {msg.academy_links?.map((link: keyable) => (
+            <Center key={_.uniqueId("link-")}>
+              <LinkText link={link.url}>{link.name}</LinkText>
             </Center>
           ))}
         </Center>

@@ -23,12 +23,12 @@ const Nodes = () => {
 
   const { allNodes, allEdges } = useMemo(() => {
     for (let item of InitialElementsLaravel) {
-      item.position.y += 190;
+      item.position.y += 340;
       item.id = "l-" + item.id;
     }
 
     for (let item of InitialElementsReactJs) {
-      item.position.y -= 160;
+      item.position.y -= 300;
     }
 
     for (let item of InitialEdgesLaravel) {
@@ -40,7 +40,7 @@ const Nodes = () => {
       allNodes: InitialElementsReactJs.concat(InitialElementsLaravel),
       allEdges: InitialEdgesReactJs.concat(InitialEdgesLaravel),
     };
-  }, []);
+  }, [InitialElementsLaravel, InitialEdgesLaravel]);
 
   return (
     <ReactFlowProvider>
