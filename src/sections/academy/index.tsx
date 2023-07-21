@@ -1,5 +1,5 @@
 import { Box, Center } from "@chakra-ui/react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Titles from "../../components/typography/titles";
 import { AcademyType, keyable } from "../../asset/types";
 import _ from "lodash";
@@ -12,18 +12,12 @@ import LinkText from "components/typography/linkText";
 import { BsInfoLg } from "react-icons/bs";
 import FadeInContainer from "components/animations/fadeInContainer";
 import PopInContainer from "components/animations/popInContainer";
-import { stateStorage } from "react-trigger-state";
 
 function Academy({ modal }: AcademyType) {
   const {
     msg,
     systemConfig: { academy },
   } = useContext(ClientContext);
-  console.log(msg)
-
-  const scrollYProgress = stateStorage.get("scrollYProgress");
-
-  const [fetched, setFetched] = useState<boolean>(false);
 
   return (
     <Box w="100%" textAlign="center">
