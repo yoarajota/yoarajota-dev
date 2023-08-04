@@ -1,12 +1,12 @@
 import { Box, useDisclosure } from "@chakra-ui/react";
-import React, { useMemo, useContext, useState } from "react";
+import React, { useMemo, useContext, useState, useCallback } from "react";
 import AnimatedContainer from "components/animations/animatedContainer";
 import FadeInContainer from "components/animations/fadeInContainer";
 import Popup from "components/popup";
 import Academy from "sections/academy";
 import ModalWrap from "components/modal";
 import Maintenance from "components/maintenance";
-import { keyable } from "asset/types";
+import { Comment, ExpData, keyable } from "asset/types";
 import {
   ClientContext,
 } from "components/contexts/client";
@@ -21,7 +21,10 @@ import Scrollbar from "components/scrollbar";
 import Exp from "sections/exp";
 import Tec from "sections/tec";
 
-export default function All() {
+
+type AllProps = { comments: Array<Comment>, exp: ExpData }
+
+export default function All({ comments, exp }: AllProps) {
   const [modalData, setModalData] = useState<keyable>({});
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -86,6 +89,26 @@ export default function All() {
     ];
   }, [c, home, isOpen, onClose, onOpen]);
 
+  const mountProps = useCallback((comp: keyable) => {
+    let expData = {} as ExpData;
+    if (comp.comp_name.includes("Exp")) {
+      expData = exp;
+    }
+    let feedbackData = [] as Array<Comment>;
+    if (comp.comp_name.includes("Feedback")) {
+      feedbackData = comments;
+    }
+    let projectData = [] as Array<keyable>;
+    if (comp.comp_name.includes("Projects")) {
+      projectData = comments;
+    }
+    return {
+      feedbackData,
+      expData,
+      projectData
+    }
+  }, [])
+
   return (
     <Box position="relative" paddingBottom="8em">
       <ScrollPosition />
@@ -98,22 +121,26 @@ export default function All() {
 
       {!animationContainers
         ? components.map((comp) => {
-            return comp.comp.map((C, index) => (
-              <C key={comp.container_name[index]} {...comp.props} />
-            ));
-          })
+          let { feedbackData, expData, projectData } = mountProps(comp)
+
+          return comp.comp.map((C, index) => (
+            <C projects={projectData} comments={feedbackData} exp={expData} key={comp.container_name[index]} {...comp.props} />
+          ));
+        })
         : components.map((comp) => {
-            return (
-              <comp.container.type
-                key={comp.container_name}
-                {...comp.container.props}
-              >
-                {comp.comp.map((C, index) => (
-                  <C key={comp.container_name[index]} {...comp.props} />
-                ))}
-              </comp.container.type>
-            );
-          })}
+          let { feedbackData, expData, projectData } = mountProps(comp)
+
+          return (
+            <comp.container.type
+              key={comp.container_name}
+              {...comp.container.props}
+            >
+              {comp.comp.map((C, index) => (
+                <C projects={projectData} comments={feedbackData} exp={expData} key={comp.container_name[index]} {...comp.props} />
+              ))}
+            </comp.container.type>
+          );
+        })}
       <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
     </Box>
   );

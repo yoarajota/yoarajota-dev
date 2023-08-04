@@ -225,3 +225,15 @@ export type Credentials = {
 interface DecodedToken extends JwtPayload {
   remote_address: string
 }
+
+export type Comment = {
+  name?: string;
+  comment: string;
+  new?: boolean
+};
+
+
+export type ExpData = {
+  "pt-BR": Array<keyable>,
+  "en-US": Array<keyable>,
+}

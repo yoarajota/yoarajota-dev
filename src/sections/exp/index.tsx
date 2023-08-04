@@ -1,48 +1,18 @@
 import { Box } from "@chakra-ui/react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
-import api from "../../api/axios";
-import { useQuery } from "react-query";
-import { Info } from "../../asset/types";
+import { ExpData, Info } from "../../asset/types";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normalText";
-import { stateStorage } from "react-trigger-state";
 import TextAnimation from "components/animations/textAnimation";
 
-function Exp() {
+type ExpProps = { exp: ExpData }
+function Exp({ exp }: ExpProps) {
   const { lang } = useContext(ClientContext);
   const [info, setInfo] = useState<Info>({});
-  const [fetched, setFetched] = useState(false);
-  const scrollYProgress = stateStorage.get("scrollYProgress");
-  const { data, refetch } = useQuery(
-    "exp",
-    () => {
-      return api.get("api/exp");
-    },
-    { staleTime: 600000 }
-  );
-
-  useEffect(() => {
-    if (true && !fetched) {
-      refetch().then(() => {
-        setFetched(true);
-      });
-    }
-  }, [fetched, refetch]);
-
-  useEffect(() => {
-    scrollYProgress.onChange((hookedYPosition: number) => {
-      if ((hookedYPosition ?? 0) < 0.1) {
-        setInfo({});
-      } else if ((hookedYPosition ?? 0) > 0.1 && _.isEmpty(info)) {
-        let a = data?.data.data[lang];
-        if (a) setInfo(a[a.length - 1]);
-      }
-    });
-  }, [data?.data.data, info, lang, scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center" minHeight="100vh">
@@ -53,7 +23,7 @@ function Exp() {
         <Box h="110px" w="100%">
           <Timeline
             info={info}
-            data={data?.data.data[lang]}
+            data={exp[lang as keyof ExpData]}
             setInfo={setInfo}
           />
         </Box>

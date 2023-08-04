@@ -16,18 +16,12 @@ import NormalText from "components/typography/normalText";
 import { BsFillPersonFill, BsInfoLg } from "react-icons/bs";
 import DButton from "components/typography/dButton";
 import { useCallback, useReducer, useContext, useEffect } from "react";
-import { keyable } from "asset/types";
+import { Comment, keyable } from "asset/types";
 import api from "../../api/axios";
 import _ from "lodash";
 import { motion } from "framer-motion";
-import { useQuery } from "react-query";
 import Titles from "components/typography/titles";
 import { ClientContext } from "components/contexts/client";
-
-type Comment = {
-  name?: string;
-  comment: string;
-};
 
 const INITIAL_COMMENT = { comment: "", name: undefined };
 const NAME = 1;
@@ -47,7 +41,7 @@ const r1 = (state: Comment, action: keyable): Comment => {
 
 type Constructor = {
   isFormOpen: boolean;
-  allComments: Array<keyable | undefined>;
+  allComments: Array<Comment>;
   isSubmiting: boolean;
 };
 
@@ -67,21 +61,16 @@ const r2 = (state: Constructor, action: keyable): Constructor => {
   }
 };
 
-function Feedback() {
-  const { data } = useQuery(
-    "comments",
-    () => {
-      return api.get("api/comments");
-    },
-    { staleTime: 600000 }
-  );
+
+type FeedbackProps = { comments: Array<Comment> }
+function Feedback({ comments }: FeedbackProps) {
   const [value, dispatch] = useReducer(r1, INITIAL_COMMENT);
   const [
     { isFormOpen, allComments, isSubmiting },
     dispatchConstructorFeedbackSection,
   ] = useReducer(r2, {
     isFormOpen: false,
-    allComments: data?.data?.data ?? [],
+    allComments: comments ?? [],
     isSubmiting: false,
   });
   const { msg } = useContext(ClientContext);
@@ -90,10 +79,10 @@ function Feedback() {
     dispatchConstructorFeedbackSection({
       type: COMMENT,
       function: (prev: Constructor) => {
-        return { ...prev, allComments: data?.data?.data };
+        return { ...prev, allComments: comments };
       },
     });
-  }, [data]);
+  }, [comments]);
 
   const handleChange = (value: string, type: number) =>
     dispatch({ value, type });

@@ -66,9 +66,7 @@ export default function handler(
         text3:
           "Gerenciamento de sprints pelo método SCRUM, e versionamento GIT feitos pelo suporte do sistema da Microsoft Azure Devops.",
         level: "Cargo Nível Junior",
-        popover_text:
-          "Marcando o ingresso no mercado de trabalho da programação.",
-
+        popover_text: "Marcando o ingresso no mercado de trabalho da programação.",
       }]
     }
   });

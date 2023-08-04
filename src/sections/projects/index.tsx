@@ -10,8 +10,6 @@ import {
 import Titles from "../../components/typography/titles";
 import { ClientContext } from "components/contexts/client";
 import { useCallback, useContext, useEffect, useState } from "react";
-import axios from "api/axios";
-import { useQuery } from "react-query";
 import { keyable, LanguagesIconsType } from "asset/types";
 import NormalText from "components/typography/normalText";
 import { Colors } from "asset/enums";
@@ -22,7 +20,6 @@ import _ from "lodash";
 import { AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import ScaleAnimation from "components/animations/scaleAnimation";
-import { createClient } from "@vercel/edge-config";
 
 const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   switch (language) {
@@ -38,55 +35,30 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-type Prop = {
-  config?: Array<string>;
-};
-
-export default function Project() {
+type ProjectProps = { projects: Array<keyable> }
+export default function Project({ projects }: ProjectProps) {
   const {
     msg,
     systemConfig: { project },
     config,
   } = useContext(ClientContext);
-  const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
-  const { data, refetch } = useQuery(
-    "project",
-    () => {
-      return axios
-        .get("https://api.github.com/users/yoarajota/repos")
-        .then((res) => {
-          res.data.forEach(function (obj: keyable) {
-            obj.blocked = !config?.includes(obj.name) ? 1 : 0;
-          });
+  projects.forEach(function (obj: keyable) {
+    obj.blocked = !config?.includes(obj.name) ? 1 : 0;
+  });
 
-          res.data.sort(function (a: keyable, b: keyable) {
-            if (a.blocked !== b.blocked) {
-              return a.blocked ? 1 : -1;
-            }
-
-            const x = a.created_at;
-            const y = b.created_at;
-
-            return x < y ? 1 : -1;
-          });
-          return res.data;
-        });
-    },
-    { staleTime: 600000 }
-  );
-
-  const [fetched, setFetched] = useState(false);
-
-  useEffect(() => {
-    // if (callApi && !fetched) {
-    if (true && !fetched) {
-      refetch().then(() => {
-        setFetched(true);
-      });
+  projects.sort(function (a: keyable, b: keyable) {
+    if (a.blocked !== b.blocked) {
+      return a.blocked ? 1 : -1;
     }
-    // }, [callApi, fetched, refetch]);
-  }, [fetched, refetch]);
+
+    const x = a.created_at;
+    const y = b.created_at;
+
+    return x < y ? 1 : -1;
+  });
+
+  const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
   const handle = useCallback((i: keyable) => {
     if (i.blocked) {
@@ -117,7 +89,7 @@ export default function Project() {
           scrollSnapType="y"
         >
           <List textAlign="left">
-            {data?.map((i: keyable) => {
+            {projects?.map((i: keyable) => {
               return (
                 <ListItem
                   borderBottom={`1px solid  ${Colors.Orange}`}

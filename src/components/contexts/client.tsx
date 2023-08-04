@@ -18,6 +18,7 @@ export const ClientContextProvider = ({
   json,
 }: ClientContexType) => {
   const { system_messages: messages, repos_to_show: config, system_config: systemConfigAll } = json;
+  
   const ref = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [msg, setMsg] = useState<keyable>({});

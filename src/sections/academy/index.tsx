@@ -1,5 +1,5 @@
 import { Box, Center } from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Titles from "../../components/typography/titles";
 import { AcademyType, keyable } from "../../asset/types";
 import _ from "lodash";
