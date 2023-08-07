@@ -1,6 +1,11 @@
+import { keyable } from "asset/types";
 import mongoose from "mongoose";
 
-console.log(`db start`)
+declare global {
+  module globalThis {
+    var mongoose: keyable;
+  }
+}
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -9,9 +14,6 @@ if (!MONGODB_URI) {
     "Please define the MONGODB_URI environment variable inside .env.local"
   );
 }
-
-
-console.log(`dbConnect`)
 
 let cached = global.mongoose;
 
@@ -22,6 +24,10 @@ if (!cached) {
 async function dbConnect() {
   if (cached.conn) {
     return cached.conn;
+  }
+
+  if (!MONGODB_URI) {
+    throw new Error("No MONGODB_URI provided!")
   }
 
   if (!cached.promise) {

@@ -15,6 +15,7 @@ export const ClientContextProvider = ({
     setAnimationContainers,
     animationContainers,
     innerWidth,
+    innerHeight
   },
   children,
 }: // }: ClientContexType) => {
@@ -73,6 +74,7 @@ keyable) => {
       animationContainers,
       config,
       innerWidth,
+      innerHeight
     ]
   );
   return (

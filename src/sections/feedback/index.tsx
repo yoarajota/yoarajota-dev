@@ -24,6 +24,12 @@ import _ from "lodash";
 import { motion } from "framer-motion";
 import Titles from "components/typography/titles";
 import { ClientContext } from "components/contexts/client";
+import { useRouter } from 'next/router';
+
+const router = useRouter();
+const refreshData = () => {
+  router.replace(router.asPath);
+}
 
 const INITIAL_COMMENT = { comment: "", name: undefined };
 const NAME = 1;
@@ -108,6 +114,7 @@ function Feedback({ comments }: FeedbackProps) {
             return { ...prev, allComments: [...prev.allComments, obj] };
           },
         });
+        refreshData()
       })
       .catch((err) => { });
     dispatchConstructorFeedbackSection({ type: SUBMITING });

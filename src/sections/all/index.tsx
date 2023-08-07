@@ -179,7 +179,8 @@ export default function All({ comments, exp, json, projects }: AllProps) {
     json,
     setAnimationContainers,
     animationContainers,
-    innerWidth
+    innerWidth,
+    innerHeight
   };
   return (
     <ClientContextProvider props={props}>
