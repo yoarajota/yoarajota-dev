@@ -18,7 +18,7 @@ function DButton({
     >
       <button onClick={onClick} type={type} className="dbutton">
         <Text
-          fontFamily="Prompt"
+          fontFamily="var(--prompt)"
           fontWeight={700}
           color={customColor}
           fontSize={customFontSize}

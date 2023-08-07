@@ -50,7 +50,7 @@ function NodeText({
             return (
               <>
                 <Text
-                  fontFamily="Ubuntu"
+                  fontFamily="var(--ubuntu)"
                   fontSize={customFontSize ? customFontSize : "24px"}
                   color={title ? Colors.Orange : Colors.Purple}
                 >
@@ -63,7 +63,7 @@ function NodeText({
           <Text
             m="0"
             p="5px"
-            fontFamily="Ubuntu"
+            fontFamily="var(--ubuntu)"
             fontSize={customFontSize ? customFontSize : "24px"}
             color={title ? Colors.Orange : Colors.Purple}
           >

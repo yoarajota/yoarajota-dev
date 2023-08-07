@@ -23,7 +23,7 @@ function NodeHead({ selectable, targetPosition, sourcePosition, data: { customFo
         <Text
           m="0"
           p="5px"
-          fontFamily="Ubuntu"
+          fontFamily="var(--ubuntu)"
           fontSize="26px"
           color={Colors.Orange}
         >

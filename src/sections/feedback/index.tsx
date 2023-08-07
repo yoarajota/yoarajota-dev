@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Card,
@@ -155,7 +157,7 @@ function Feedback({ comments }: FeedbackProps) {
                 onChange={(e) => {
                   handleChange(e.target.value, NAME);
                 }}
-                fontFamily="Ubuntu"
+                fontFamily="var(--ubuntu)"
                 variant="unstyled"
                 placeholder={msg.feedback_name_input}
               />
@@ -166,7 +168,7 @@ function Feedback({ comments }: FeedbackProps) {
                 onChange={(e) => {
                   handleChange(e.target.value, COMMENT);
                 }}
-                fontFamily="Ubuntu"
+                fontFamily="var(--ubuntu)"
                 variant="unstyled"
                 placeholder={msg.feedback_comment_input}
               />

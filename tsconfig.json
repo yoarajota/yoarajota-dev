@@ -18,13 +18,21 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": "./src",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js"  ],
+    "next.config.js",
+    ".next/types/**/*.ts", 
+    "src/lib/mongo/index.js"
+  ],
   "exclude": [
     "node_modules"
   ]

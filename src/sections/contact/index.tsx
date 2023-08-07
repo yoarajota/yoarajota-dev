@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Grid, GridItem, Image } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import ScaleAnimation from "components/animations/scaleAnimation";
@@ -45,7 +47,7 @@ function Contact() {
                 setShowButtons(true);
             }
         });
-    }, [scrollYProgress, showButtons]);
+    }, [scrollYProgress, showButtons, showCards]);
 
     const icons = [
       { Icon: FiMail, href: "mailto:joaovbscontato@gmail.com", type: "mail" },

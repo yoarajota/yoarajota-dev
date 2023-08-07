@@ -1,7 +1,7 @@
 import { defaultResponse, keyable } from "asset/types";
 import { NextApiRequest, NextApiResponse } from "next";
-import api from "../../api/axios"
-import isLoggedIn from "../../../lib/isLoggedIn";
+import api from "./../../api/axios"
+import isLoggedIn from "../../lib/isLoggedIn";
 
 async function handler(
     req: NextApiRequest,

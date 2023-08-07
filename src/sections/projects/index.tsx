@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Badge,
   Box,
@@ -35,7 +37,7 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-type ProjectProps = { projects: Array<keyable> }
+type ProjectProps = { projects: keyable }
 export default function Project({ projects }: ProjectProps) {
   const {
     msg,

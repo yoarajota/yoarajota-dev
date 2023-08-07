@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, HStack, SimpleGrid } from "@chakra-ui/react";
 import Cards from "components/cards";
 import { ClientContext } from "components/contexts/client";

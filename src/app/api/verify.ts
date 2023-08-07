@@ -1,6 +1,6 @@
 import { defaultResponse, keyable } from "asset/types";
 import { NextApiRequest, NextApiResponse } from "next";
-import isLoggedIn from "../../../lib/isLoggedIn";
+import isLoggedIn from "../../lib/isLoggedIn";
 
 async function handler(
     req: NextApiRequest,

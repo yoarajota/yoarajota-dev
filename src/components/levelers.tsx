@@ -35,7 +35,7 @@ function Levelers({ xp, lvl, title, index, extraDelay = 0 }: Levelers) {
       transition={{ delay: (index + extraDelay) / 8, ease: "circOut" }}
     >
       <Text
-        fontFamily={"Prompt"}
+        fontFamily="var(--prompt)"
         fontSize="16px"
         m="0px"
         className="geral-text"

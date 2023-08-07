@@ -10,7 +10,7 @@ function Yj({ otherColor, indexPage }: yjLogotipo) {
     <Heading
       m="0px"
       color={otherColor ? otherColor : Colors.Orange}
-      fontFamily="UnifrakturCook"
+      fontFamily="var(-unifrakturCook)"
       className="yj-logo"
       fontSize="48px"
     >

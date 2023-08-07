@@ -5,7 +5,7 @@ export default function Page() {
     const router = useRouter()
     useEffect(() => {
         router.push("/")
-    }, [])
+    }, [router])
 
     return (
         <>

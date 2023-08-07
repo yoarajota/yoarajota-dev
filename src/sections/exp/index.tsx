@@ -1,5 +1,7 @@
+"use client";
+
 import { Box } from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Titles from "../../components/typography/titles";
 import Timeline from "../../components/timeline";
 import { ExpData, Info } from "../../asset/types";
@@ -8,11 +10,24 @@ import _ from "lodash";
 import { ClientContext } from "components/contexts/client";
 import NormalText from "components/typography/normalText";
 import TextAnimation from "components/animations/textAnimation";
+import { stateStorage } from "react-trigger-state";
 
-type ExpProps = { exp: ExpData }
+type ExpProps = { exp: ExpData };
 function Exp({ exp }: ExpProps) {
   const { lang } = useContext(ClientContext);
   const [info, setInfo] = useState<Info>({});
+  const scrollYProgress = stateStorage.get("scrollYProgress");
+
+  useEffect(() => {
+    scrollYProgress.onChange((hookedYPosition: number) => {
+      if ((hookedYPosition ?? 0) < 0.1) {
+        setInfo({});
+      } else if ((hookedYPosition ?? 0) > 0.1 && _.isEmpty(info)) {
+        let a = exp[lang as keyof ExpData];
+        if (a) setInfo(a[a.length - 1]);
+      }
+    });
+  }, [exp, info, lang, scrollYProgress]);
 
   return (
     <Box w="100%" textAlign="center" minHeight="100vh">

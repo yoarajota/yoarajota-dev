@@ -9,7 +9,7 @@ function Titles({ size = "bg", text }: defaultText) {
       className={`title-${size}`}
       _focus={{ outline: "none", boxShadow: "none" }}
       color={Colors.Orange}
-      fontFamily="Ubuntu"
+      fontFamily="var(--ubuntu)"
       m="0px"
     >
       {text}

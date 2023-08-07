@@ -40,7 +40,7 @@ const Nodes = () => {
       allNodes: InitialElementsReactJs.concat(InitialElementsLaravel),
       allEdges: InitialEdgesReactJs.concat(InitialEdgesLaravel),
     };
-  }, [InitialElementsLaravel, InitialEdgesLaravel]);
+  }, []);
 
   return (
     <ReactFlowProvider>

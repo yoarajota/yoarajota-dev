@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Button,
@@ -8,7 +10,6 @@ import {
   SimpleGrid,
   useToast,
 } from "@chakra-ui/react";
-import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import Titles from "../../components/typography/titles";
@@ -16,6 +17,7 @@ import { FiUser } from "react-icons/fi";
 import { BsLinkedin } from "react-icons/bs";
 import NormalText from "../../components/typography/normalText";
 import _ from "lodash";
+import axios from "api/axios";
 
 // api/comments
 

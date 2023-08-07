@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Center } from "@chakra-ui/react";
 import { Colors } from "asset/enums";
 import { ClientContext } from "components/contexts/client";
@@ -44,7 +46,7 @@ function Resume() {
                       <Box
                         w="100%"
                         fontSize="1.125em"
-                        fontFamily="Ubuntu"
+                        fontFamily="var(--ubuntu)"
                         color={Colors.Gray}
                         minHeight="26vh"
                         textAlign="left"

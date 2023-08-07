@@ -237,3 +237,10 @@ export type ExpData = {
   "pt-BR": Array<keyable>,
   "en-US": Array<keyable>,
 }
+
+export type AllProps = {
+  comments: Array<Comment>;
+  exp: ExpData;
+  json: EdgeConfigItems;
+  projects: keyable;
+};

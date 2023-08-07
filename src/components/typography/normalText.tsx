@@ -22,7 +22,7 @@ function NormalText({
           fontSize={customFontSize}
           fontWeight="medium"
           letterSpacing="0.25px"
-          fontFamily="Ubuntu"
+          fontFamily="var(--ubuntu)"
         >
           {i}
         </Text>
