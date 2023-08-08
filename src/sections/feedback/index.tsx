@@ -26,11 +26,6 @@ import Titles from "components/typography/titles";
 import { ClientContext } from "components/contexts/client";
 import { useRouter } from 'next/router';
 
-const router = useRouter();
-const refreshData = () => {
-  router.replace(router.asPath);
-}
-
 const INITIAL_COMMENT = { comment: "", name: undefined };
 const NAME = 1;
 const COMMENT = 2;
@@ -72,6 +67,10 @@ const r2 = (state: Constructor, action: keyable): Constructor => {
 
 type FeedbackProps = { comments: Array<Comment> }
 function Feedback({ comments }: FeedbackProps) {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
   const [value, dispatch] = useReducer(r1, INITIAL_COMMENT);
   const [
     { isFormOpen, allComments, isSubmiting },
@@ -118,7 +117,7 @@ function Feedback({ comments }: FeedbackProps) {
       })
       .catch((err) => { });
     dispatchConstructorFeedbackSection({ type: SUBMITING });
-  }, [value]);
+  }, [value, refreshData]);
 
   const defProp = {
     w: "30%",
