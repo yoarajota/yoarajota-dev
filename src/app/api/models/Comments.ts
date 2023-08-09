@@ -1,8 +1,8 @@
 import mongoose, { model, Schema } from 'mongoose';
 
 interface Comm {
-    name: String,
-    comment: String,
+    name: string,
+    comment: string,
     date: Date
   }
 

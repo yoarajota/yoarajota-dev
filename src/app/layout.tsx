@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt, Ubuntu, UnifrakturCook } from "next/font/google";
 import React from "react";
+import "../../statics/style.css";
 
 const prompt = Prompt({
   weight: ["400", "500"],
