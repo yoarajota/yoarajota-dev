@@ -67,10 +67,10 @@ const r2 = (state: Constructor, action: keyable): Constructor => {
 
 type FeedbackProps = { comments: Array<Comment> }
 function Feedback({ comments }: FeedbackProps) {
-  const router = useRouter();
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
+  // const router = useRouter();
+  // const refreshData = () => {
+  //   router.replace(router.asPath);
+  // }
   const [value, dispatch] = useReducer(r1, INITIAL_COMMENT);
   const [
     { isFormOpen, allComments, isSubmiting },
@@ -113,11 +113,11 @@ function Feedback({ comments }: FeedbackProps) {
             return { ...prev, allComments: [...prev.allComments, obj] };
           },
         });
-        refreshData()
+        // refreshData()
       })
       .catch((err) => { });
     dispatchConstructorFeedbackSection({ type: SUBMITING });
-  }, [value, refreshData]);
+  }, [value]);
 
   const defProp = {
     w: "30%",
