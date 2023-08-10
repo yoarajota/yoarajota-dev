@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import mongoose from 'mongoose'
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json();
+  const { email, password  } = await req.json();
 
   try {
 
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     // }
 
     const token = jwt.sign(
-      { remote_address: req.socket.remoteAddress },
+      { remote_address: req.headers['x-real-ip' as keyof Headers] },
       String(TOKEN_SECRET_KEY),
       {
         expiresIn: "1h",
