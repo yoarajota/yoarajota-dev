@@ -1,13 +1,15 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
-import mongoose from "mongoose";
 import Credentials from "../models/Credentials";
+import dbConnect from "lib/dbConnect";
 
 export async function POST(req: NextRequest) {
   const { email, password } = await req.json();
 
   try {
+    await dbConnect()
+
     const foundUser = await Credentials.findOne({ username: email });
     const isPasswordMatch = await bcrypt.compare(password, foundUser.password);
 

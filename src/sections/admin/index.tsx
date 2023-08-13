@@ -49,7 +49,7 @@ const Form = ({ onClose }: keyable) => {
           onClose();
         }
       })
-      .catch((error) => {});
+      .catch((error) => { });
     setCredentials((prev) => ({ ...prev, loading: false }));
   }, [credentials, onClose]);
 
@@ -121,7 +121,7 @@ export default function Admin({ json }: keyable) {
           "Content-Type": "application/json",
         },
       })
-      .catch(() => {});
+      .catch(() => { });
     setIsLoading(false);
   }
 
@@ -155,21 +155,25 @@ export default function Admin({ json }: keyable) {
           gap="10px"
           marginTop="10px"
         >
-          <Box h="40px">
-            {isLoading ? (
-              <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
-            ) : (
-              <DButton type="submit" onClick={sendAtt} text="Save changes" />
-            )}
-          </Box>
-          <JSONInput
-            locale={localeEn}
-            onBlur={(val: keyable) => {
-              setState(val.jsObject);
-            }}
-            placeholder={state}
-            id={_.uniqueId("json-input-id")}
-          />
+          {!isOpen &&
+            <>
+              <Box h="40px">
+                {isLoading ? (
+                  <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
+                ) : (
+                  <DButton type="submit" onClick={sendAtt} text="Save changes" />
+                )}
+              </Box>
+              <JSONInput
+                locale={localeEn}
+                onBlur={(val: keyable) => {
+                  setState(val.jsObject);
+                }}
+                placeholder={state}
+                id={_.uniqueId("json-input-id")}
+              />
+            </>
+          }
         </FormControl>
       </motion.div>
     </Box>
