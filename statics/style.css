@@ -370,6 +370,7 @@ body::-webkit-scrollbar {
   color: white !important;
   border: 2px solid #4B4453;
   border-radius: 4px;
+  margin: 0 6px;
   opacity: 0.5;
 }
 
@@ -380,6 +381,7 @@ body::-webkit-scrollbar {
 .react-flow-provider {
   border-right: 4px dotted;
   border-left: 4px dotted;
+  border-color: var(--purple);
 }
 
 .scroll-bar-point {
