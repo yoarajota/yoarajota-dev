@@ -2,7 +2,9 @@
 
 import {
   Box,
+  Divider,
   FormControl,
+  HStack,
   Input,
   Modal,
   ModalBody,
@@ -10,6 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Spinner,
+  Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
 import { createClient } from "@vercel/edge-config";
@@ -23,7 +26,10 @@ import { verifyToken } from "helpers/login";
 import { motion } from "framer-motion";
 import JSONInput from "react-json-editor-ajrm";
 import { localeEn } from "../../../statics/localeEn";
+import axios from "../../api/axios";
+import ModalForm from "components/admin/ModalForm";
 import Titles from "components/typography/titles";
+import DataStack from "components/admin/DataStack";
 
 export const getStaticProps = async () => {
   return {
@@ -33,67 +39,9 @@ export const getStaticProps = async () => {
   };
 };
 
-const Form = ({ onClose }: keyable) => {
-  const [credentials, setCredentials] = useState<keyable>({
-    email: "",
-    password: "",
-    loading: false,
-  });
-  const login = useCallback(async () => {
-    setCredentials((prev) => ({ ...prev, loading: true }));
-    await api
-      .post("api/login", credentials)
-      .then((response) => {
-        if (response.status === 200) {
-          localStorage.setItem("token", response.data.token);
-          onClose();
-        }
-      })
-      .catch((error) => { });
-    setCredentials((prev) => ({ ...prev, loading: false }));
-  }, [credentials, onClose]);
-
-  return (
-    <FormControl
-      display="flex"
-      alignItems="center"
-      flexDirection="column"
-      gap="1em"
-    >
-      <Input
-        color={Colors.Gray}
-        placeholder="Email"
-        variant="unstyled"
-        value={credentials.email}
-        onChange={(e) =>
-          setCredentials((prev) => ({ ...prev, email: e.target.value }))
-        }
-      />
-      <Input
-        color={Colors.Gray}
-        type="password"
-        placeholder="Password"
-        variant="unstyled"
-        value={credentials.password}
-        onChange={(e) =>
-          setCredentials((prev) => ({ ...prev, password: e.target.value }))
-        }
-      />
-      <Box h="40px">
-        {credentials.loading ? (
-          <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
-        ) : (
-          <DButton
-            customFontSize="0.9rem"
-            onClick={login}
-            type="submit"
-            text="Submit"
-          />
-        )}
-      </Box>
-    </FormControl>
-  );
-};
+const Area = () => {
+  return <Textarea value={'olar'} />
+}
 
 export default function Admin({ json }: keyable) {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
@@ -125,6 +73,23 @@ export default function Admin({ json }: keyable) {
     setIsLoading(false);
   }
 
+  // const mongoDBData: any = {
+  //   "objectives": ["a", "b"]
+  // }
+
+  // const MongoDBDATA = () => {
+  //   let arrData = [];
+  //   for (let key in mongoDBData) {
+  //     let data = mongoDBData[key];
+  //     if (_.isArray(data)) {
+  //       arrData.push(<DataStack title={key} data={data} />);
+  //     } else {
+  //       arrData.push(<Area />);
+  //     }
+  //   }
+  //   return <>{...arrData}</>;
+  // }
+
   return (
     <Box color="white">
       <Modal
@@ -142,7 +107,7 @@ export default function Admin({ json }: keyable) {
             <Titles size="esm" text="Log in" />
           </ModalHeader>
           <ModalBody>
-            <Form onClose={onClose} />
+            <ModalForm onClose={onClose} />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -172,6 +137,8 @@ export default function Admin({ json }: keyable) {
                 placeholder={state}
                 id={_.uniqueId("json-input-id")}
               />
+              {/* <Divider /> */}
+              {/* <MongoDBDATA /> */}
             </>
           }
         </FormControl>

@@ -244,3 +244,8 @@ export type AllProps = {
   json: EdgeConfigItems;
   projects: keyable;
 };
+
+export type DataStackType = {
+  title: string,
+  data: Array<String>
+};
