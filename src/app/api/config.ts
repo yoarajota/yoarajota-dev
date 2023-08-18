@@ -1,8 +1,8 @@
 import { defaultResponse, keyable } from "asset/types";
 import { NextApiRequest, NextApiResponse } from "next";
 import api from "./../../api/axios"
-import isLoggedIn from "../../lib/isLoggedIn";
 
+// precisa de middleware
 async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Buffer | defaultResponse>
@@ -36,4 +36,4 @@ async function handler(
     return res.status(200).json({ status: "success" });
 }
 
-export default isLoggedIn(handler)
+export default handler
