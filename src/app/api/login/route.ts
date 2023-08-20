@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const { email, password } = await req.json();
 
   try {
-    await dbConnect()
+    await dbConnect();
 
     const foundUser = await Credentials.findOne({ username: email });
     const isPasswordMatch = await bcrypt.compare(password, foundUser.password);
@@ -32,12 +32,22 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    return NextResponse.json(
-      { status: "success", token },
+    const response = NextResponse.json(
+      { status: "success" },
       {
         status: 200,
       }
     );
+
+    // Then set a cookie
+    response.cookies.set({
+      name: "token",
+      value: token,
+      httpOnly: true,
+      maxAge: 60 * 60,
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { status: "error", message: "Error" },
