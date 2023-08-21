@@ -1,13 +1,7 @@
 import { Textarea } from "@chakra-ui/react";
 import { keyable } from "asset/types";
 import _ from "lodash";
-import {
-  createContext,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { createContext, useCallback, useMemo, useState } from "react";
 import DataStack from "./DataStack";
 
 const Area = () => {
@@ -22,24 +16,6 @@ const MongoDBDATA = ({ data }: { data: keyable }) => {
     setState((prev) => ({ ...prev, [key]: data }));
   }, []);
 
-  const Mapped = useCallback(() => {
-    let arrData = [];
-    for (let key in state) {
-      let d = state[key];
-      if (_.isArray(d)) {
-        arrData.push(<DataStack title={key} data={d} />);
-      } else {
-        arrData.push(<Area />);
-      }
-    }
-
-    return <>{...arrData}</>;
-  }, [state]);
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   const memo = useMemo(
     () => ({
       change,
@@ -47,9 +23,17 @@ const MongoDBDATA = ({ data }: { data: keyable }) => {
     [change]
   );
 
+  
   return (
     <MongoDBDataContext.Provider value={memo}>
-      <Mapped />
+      {Object.keys(state).map((key) => {
+        const d = state[key];
+        if (_.isArray(d)) {
+          return <DataStack key={key} title={key} data={d} />;
+        } else {
+          return <Area key={key} />;
+        }
+      })}
     </MongoDBDataContext.Provider>
   );
 };

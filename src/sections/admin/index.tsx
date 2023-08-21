@@ -4,31 +4,26 @@ import {
   Box,
   Divider,
   FormControl,
-  HStack,
-  Input,
   Modal,
   ModalBody,
   ModalContent,
   ModalHeader,
   ModalOverlay,
   Spinner,
-  Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
 import { createClient } from "@vercel/edge-config";
 import { keyable } from "asset/types";
 import _ from "lodash";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import api from "../../api/axios";
 import DButton from "components/typography/dButton";
 import { Colors } from "asset/enums";
-import { verifyToken } from "helpers/login";
 import { motion } from "framer-motion";
 import JSONInput from "react-json-editor-ajrm";
 import { localeEn } from "../../../statics/localeEn";
 import ModalForm from "components/admin/ModalForm";
 import Titles from "components/typography/titles";
-import DataStack from "components/admin/DataStack";
 import MongoDBDATA from "components/admin/MongoDBData";
 
 export const getStaticProps = async () => {
@@ -118,8 +113,8 @@ export default function Admin({ json, auth }: keyable) {
                 placeholder={state}
                 id={_.uniqueId("json-input-id")}
               />
-              {/* <Divider />
-              <MongoDBDATA data={mongoDBData}/> */}
+              <Divider />
+              <MongoDBDATA data={mongoDBData}/>
             </>
           )}
         </FormControl>

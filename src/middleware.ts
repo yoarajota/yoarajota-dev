@@ -51,17 +51,18 @@ async function middlewareTestToken(request: NextRequest) {
 
 async function middlewareAlreadyAuth(request: NextRequest) {
   const token = request.cookies?.get("token")?.value;
-  if (token) {
+  const auth = request.cookies?.get("auth")?.value;
+  if (token && !auth) {
     try {
       await jwtVerify(
         token,
         new TextEncoder().encode(String(process.env.TOKEN_SECRET_KEY))
       );
-      const response = NextResponse.next();
+      const response = NextResponse.redirect(request.url);
       response.cookies.set({
         name: "auth",
         value: "1",
-        maxAge: 10
+        maxAge: 10,
       });
       return response;
     } catch (error) {}

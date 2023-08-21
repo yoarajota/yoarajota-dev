@@ -8,8 +8,6 @@ export default async function Page(req: NextRequest) {
   const json = await createClient(process.env.EDGE_CONFIG).getAll();
   const auth = cookies().get("auth")?.value === "1";
 
-  console.log(auth, cookies().getAll())
-
   return (
     <Providers>
       <Admin json={json} auth={auth} />
