@@ -1,37 +1,20 @@
 ## TODO
-
-- [x] Convert the nodes to TypeScript
-- [x] Animate the sections
-- [x] Create a custom scrollbar on the right
-- [x] Improve the design
-- [x] GitHub API section
-- [x] Education section
 - [ ] Tech section as part of random stuff
-- [x] Add support for both Portuguese (pt-br) and English
-- [x] Objectives
 - [ ] Pass static to inside the src
 - [ ] Easter egg
-- [x] Change file names to camelCase
 - [ ] Make the request messages available in both languages
-- [x] Projects section
-- [x] New resume layout
-- [x] Implement infinite scroll
-- [x] Add "Phill 413"
-- [x] Finish the box carousel
-- [x] Deploy to Vercel
-- [x] Transform the language context to a generic context
-- [x] Keep testing on mobile
-- [x] Study Chakra performance
-- [x] Update file names
 - [ ] Add comments
-- [x] Fix Next.js render bug
 - [ ] Create textes
 - [ ] Make contact card download clickable
 - [ ] Avoid excessive DOM size
 - [ ] Explore possible composition techniques
 - [ ] Reduce DOM elements
 - [ ] Choose colors for skills
-- [x] Remove animation for skill tech
-- [ ] Implement Server-Side Rendering (SSR)
 - [ ] Review the system configuration for the academy section
 - [ ] Try Chakra themes
+
+
+// END
+- [ ] Textes
+- [ ] Change Project Section (Remove GITHUB API)
+- [ ] Download CONTACT
