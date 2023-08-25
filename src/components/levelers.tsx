@@ -1,31 +1,26 @@
+import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { Levelers } from "asset/types";
+import { Levelers as LevelersType } from "asset/types"; // Assuming this import is correctly defined
 import { motion } from "framer-motion";
 
-function Levelers({ xp, lvl, title, index, extraDelay = 0 }: Levelers) {
+function Levelers({
+  xp,
+  lvl,
+  title,
+  index,
+  extraDelay = 0
+}: LevelersType): JSX.Element {
   const xpResult = xp * 36;
   const lvlResult = lvl * 36;
 
-  const variants = {
-    i: {
-      display: "none",
-    },
-
-    a: {
-      display: "block",
-      width: xpResult,
-    },
+  const barVariants = {
+    initial: { display: "none" },
+    animate: { display: "block", width: xpResult }
   };
 
-  const variants2 = {
-    i: {
-      display: "none",
-    },
-
-    a: {
-      display: "block",
-      width: lvlResult,
-    },
+  const lvlBarVariants = {
+    initial: { display: "none" },
+    animate: { display: "block", width: lvlResult }
   };
 
   return (
@@ -44,33 +39,30 @@ function Levelers({ xp, lvl, title, index, extraDelay = 0 }: Levelers) {
       </Text>
       <Box marginBottom={"10px"}>
         <motion.div
-          initial="i"
-          animate="a"
-          variants={variants}
+          initial="initial"
+          animate="animate"
+          variants={barVariants}
           transition={{ duration: 2, ease: "easeInOut" }}
           className="ll"
         />
         <motion.div
-          initial="i"
-          animate="a"
-          variants={variants2}
+          initial="initial"
+          animate="animate"
+          variants={lvlBarVariants}
           transition={{ duration: 2, ease: "easeInOut" }}
           className="ll second-level"
         />
         <Box zIndex="3" w="180px" position="absolute" h="25px" display="flex">
-          <Box className="lfs"></Box>
-          <Box className="lfs"></Box>
-          <Box className="lfs"></Box>
-          <Box className="lfs"></Box>
-          <Box className="lfs"></Box>
+          {[1, 2, 3, 4, 5].map((number) => (
+            <Box key={number} className="lfs"></Box>
+          ))}
         </Box>
-
         <Box className="lf">
-          <Box className="lfs geral-text2"> 1</Box>
-          <Box className="lfs geral-text2"> 2</Box>
-          <Box className="lfs geral-text2"> 3</Box>
-          <Box className="lfs geral-text2"> 4</Box>
-          <Box className="lfs geral-text2"> 5</Box>
+          {[1, 2, 3, 4, 5].map((number) => (
+            <Box key={number} className="lfs geral-text2">
+              {number}
+            </Box>
+          ))}
         </Box>
       </Box>
     </motion.div>

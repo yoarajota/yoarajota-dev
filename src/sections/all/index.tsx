@@ -27,9 +27,8 @@ import Scrollbar from "components/scrollbar";
 import Exp from "sections/exp";
 import Tec from "sections/tec";
 import { useEffect } from "react";
-import { EdgeConfigItems } from "@vercel/edge-config";
 
-export default function All({ comments, exp, json, projects }: AllProps) {
+export default function All({ comments, json, information }: AllProps) {
   const {
     system_messages: messages,
     repos_to_show: config,
@@ -72,9 +71,9 @@ export default function All({ comments, exp, json, projects }: AllProps) {
 
     setMsg(
       messages?.[
-        storageLang
-          ? storageLang
-          : ["pt-BR", "en-US"].includes(global.navigator?.language)
+      storageLang
+        ? storageLang
+        : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -149,7 +148,7 @@ export default function All({ comments, exp, json, projects }: AllProps) {
     (comp: keyable) => {
       let expData = {} as ExpData;
       if (comp.comp_name.includes("Exp")) {
-        expData = exp;
+        expData = information.find((val) => val.name === "exp")?.data as ExpData;
       }
       let feedbackData = [] as Array<Comment>;
       if (comp.comp_name.includes("Feedback")) {
@@ -157,7 +156,8 @@ export default function All({ comments, exp, json, projects }: AllProps) {
       }
       let projectData = {} as keyable;
       if (comp.comp_name.includes("Projects")) {
-        projectData = projects;
+        console.log(typeof information.find((val) => val.name === "projects")?.data)
+        projectData = information.find((val) => val.name === "projects")?.data as Array<keyable>;
       }
       return {
         feedbackData,
@@ -165,7 +165,7 @@ export default function All({ comments, exp, json, projects }: AllProps) {
         projectData,
       };
     },
-    [comments, exp, projects]
+    [comments, information]
   );
 
   const props = {
@@ -195,38 +195,38 @@ export default function All({ comments, exp, json, projects }: AllProps) {
 
         {!animationContainers
           ? components.map((comp) => {
-              let { feedbackData, expData, projectData } = mountProps(comp);
+            let { feedbackData, expData, projectData } = mountProps(comp);
 
-              return comp.comp.map((C, index) => (
-                <C
-                  projects={projectData}
-                  comments={feedbackData}
-                  exp={expData}
-                  key={comp.container_name[index]}
-                  {...comp.props}
-                />
-              ));
-            })
+            return comp.comp.map((C, index) => (
+              <C
+                projects={projectData}
+                comments={feedbackData}
+                exp={expData}
+                key={comp.container_name[index]}
+                {...comp.props}
+              />
+            ));
+          })
           : components.map((comp) => {
-              let { feedbackData, expData, projectData } = mountProps(comp);
+            let { feedbackData, expData, projectData } = mountProps(comp);
 
-              return (
-                <comp.container.type
-                  key={comp.container_name}
-                  {...comp.container.props}
-                >
-                  {comp.comp.map((C, index) => (
-                    <C
-                      projects={projectData}
-                      comments={feedbackData}
-                      exp={expData}
-                      key={comp.container_name[index]}
-                      {...comp.props}
-                    />
-                  ))}
-                </comp.container.type>
-              );
-            })}
+            return (
+              <comp.container.type
+                key={comp.container_name}
+                {...comp.container.props}
+              >
+                {comp.comp.map((C, index) => (
+                  <C
+                    projects={projectData}
+                    comments={feedbackData}
+                    exp={expData}
+                    key={comp.container_name[index]}
+                    {...comp.props}
+                  />
+                ))}
+              </comp.container.type>
+            );
+          })}
         <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
       </Box>
     </ClientContextProvider>

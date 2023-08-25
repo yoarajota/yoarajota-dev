@@ -34,7 +34,7 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Admin({ json, auth }: keyable) {
+export default function Admin({ json, auth, information }: keyable) {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: !auth });
   const [state, setState] = useState<keyable>(json);
   const [opacity, setOpacity] = useState<number>(auth ? 1 : 0);
@@ -49,13 +49,9 @@ export default function Admin({ json, auth }: keyable) {
           "Content-Type": "application/json",
         },
       })
-      .catch(() => {});
+      .catch(() => { });
     setIsLoading(false);
   }
-
-  const mongoDBData: any = {
-    objectives: ["a", "b"],
-  };
 
   return (
     <Box color="white">
@@ -94,6 +90,14 @@ export default function Admin({ json, auth }: keyable) {
         >
           {!isOpen && (
             <>
+              <DButton
+                type="submit"
+                onClick={() => {
+
+                }}
+                text="Refetch"
+              />
+              <Divider />
               <Box h="40px">
                 {isLoading ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />
@@ -114,7 +118,7 @@ export default function Admin({ json, auth }: keyable) {
                 id={_.uniqueId("json-input-id")}
               />
               <Divider />
-              <MongoDBDATA data={mongoDBData}/>
+              <MongoDBDATA data={information} />
             </>
           )}
         </FormControl>

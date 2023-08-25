@@ -1,11 +1,11 @@
 :root {
   --orange: #d99e6a;
   --purple: #4B4453;
-  --black:  #0d0d0d;
+  --black: #0d0d0d;
   --gray: #737373;
   --darkPurple: #1a202c;
-  --study: #3b578e;
-  --work: #44090e;
+  --study: #7E675E;
+  --work: #8E8D8A;
 }
 
 * {
@@ -230,6 +230,10 @@ a {
 }
 
 @media only screen and (max-width: 767px) {
+  .title-esm {
+    font-size: 1rem !important;
+  }
+
   .box-text-child {
     margin: 15px 0;
   }
@@ -281,7 +285,7 @@ body::-webkit-scrollbar {
   background-color: rgb(75, 68, 83);
   display: flex;
   border: 1px solid var(--black);
-  border-radius: 0px 4px 4px 0px;
+  /* border-radius: 0px 4px 4px 0px; */
   z-index: 0;
 }
 
@@ -352,6 +356,8 @@ body::-webkit-scrollbar {
   font-family: var(--prompt), sans-serif;
   color: var(--black);
   font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1px;
 }
 
 .geral-text {

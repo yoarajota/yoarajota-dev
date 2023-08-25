@@ -20,7 +20,7 @@ const InitialElementsLaravel: Node<any>[] = [
       lvl: "2",
       Img: LaravelSvg,
     },
-    position: { x: 1180, y: 100 },
+    position: { x: 1180, y: (50 + 100) },
   },
   {
     id: "node-fundamental",
@@ -39,7 +39,7 @@ const InitialElementsLaravel: Node<any>[] = [
       biggerVariable: true,
       bottomSource: true,
     },
-    position: { x: 1200, y: 400 },
+    position: { x: 1200, y: (50 + 400) },
   },
   {
     id: "node-controllers",
@@ -56,7 +56,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Controllers",
     },
-    position: { x: 800, y: 400 },
+    position: { x: 800, y: (50 + 400) },
   },
   {
     id: "node-blade",
@@ -73,7 +73,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Blade",
     },
-    position: { x: 750, y: 460 },
+    position: { x: 750, y: (50 + 460) },
   },
   {
     id: "node-routing",
@@ -90,7 +90,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Routing",
     },
-    position: { x: 780, y: 520 },
+    position: { x: 780, y: (50 + 520) },
   },
   {
     id: "node-auth",
@@ -107,7 +107,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Auth Basics",
     },
-    position: { x: 840, y: 570 },
+    position: { x: 840, y: (50 + 570) },
   },
   {
     id: "node-route-parameters",
@@ -124,7 +124,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Parameters",
     },
-    position: { x: 400, y: 540 },
+    position: { x: 400, y: (50 + 540) },
   },
   {
     id: "node-route-groups",
@@ -141,7 +141,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Groups",
     },
-    position: { x: 450, y: 600 },
+    position: { x: 450, y: (50 + 600) },
   },
   {
     id: "node-crud",
@@ -157,7 +157,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "CRUD",
     },
-    position: { x: 1600, y: 400 },
+    position: { x: 1600, y: (50 + 400) },
   },
   {
     id: "node-forms",
@@ -173,7 +173,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Forms, Validation and Form Requests",
     },
-    position: { x: 1500, y: 340 },
+    position: { x: 1500, y: (50 + 340) },
   },
   {
     id: "node-relationships",
@@ -190,7 +190,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Relationships",
     },
-    position: { x: 1650, y: 460 },
+    position: { x: 1650, y: (50 + 460) },
   },
   {
     id: "node-database",
@@ -207,7 +207,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Database",
     },
-    position: { x: 1430, y: 515 },
+    position: { x: 1430, y: (50 + 515) },
   },
   {
     id: "node-mvc",
@@ -223,7 +223,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "MVC",
     },
-    position: { x: 1560, y: 570 },
+    position: { x: 1560, y: (50 + 570) },
   },
   {
     id: "node-migrations",
@@ -239,7 +239,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Migrations",
     },
-    position: { x: 1975, y: 540 },
+    position: { x: 1975, y: (50 + 540) },
   },
 
   {
@@ -256,7 +256,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: ["hasOne", "hasMany", "belongsTo", "belongsToMany"],
     },
-    position: { x: 1975, y: 290 },
+    position: { x: 1975, y: (50 + 290) },
   },
   {
     id: "node-seeders",
@@ -272,7 +272,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Seeders",
     },
-    position: { x: 1950, y: 600 },
+    position: { x: 1950, y: (50 + 600) },
   },
   {
     id: "node-advanced",
@@ -291,7 +291,7 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Advanced",
     },
-    position: { x: 1200, y: 700 },
+    position: { x: 1200, y: (50 + 700) },
   },
   {
     id: "node-middleware",
@@ -308,7 +308,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Middleware",
     },
-    position: { x: 800, y: 700 },
+    position: { x: 800, y: (50 + 700) },
   },
   {
     id: "node-route-bindings",
@@ -325,7 +325,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Route Model Binding",
     },
-    position: { x: 750, y: 760 },
+    position: { x: 750, y: (50 + 760) },
   },
   {
     id: "node-database-adv",
@@ -342,7 +342,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Database Advanced",
     },
-    position: { x: 780, y: 820 },
+    position: { x: 780, y: (50 + 820) },
   },
   {
     id: "node-file",
@@ -359,7 +359,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "File Uploads",
     },
-    position: { x: 890, y: 880 },
+    position: { x: 890, y: (50 + 880) },
   },
   {
     id: "node-debug",
@@ -376,7 +376,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Debug",
     },
-    position: { x: 990, y: 950 },
+    position: { x: 990, y: (50 + 950) },
   },
   {
     id: "node-mail",
@@ -393,7 +393,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Mailables and Mail Facade, etc",
     },
-    position: { x: 910, y: 1020 },
+    position: { x: 910, y: (50 + 1020) },
   },
   {
     id: "node-query",
@@ -410,7 +410,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Query Scopes",
     },
-    position: { x: 400, y: 840 },
+    position: { x: 400, y: (50 + 840) },
   },
   {
     id: "node-collections",
@@ -427,7 +427,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Collections",
     },
-    position: { x: 450, y: 900 },
+    position: { x: 450, y: (50 + 900) },
   },
   {
     id: "node-accessors",
@@ -443,7 +443,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Accessors and Mutators",
     },
-    position: { x: 560, y: 960 },
+    position: { x: 560, y: (50 + 960) },
   },
   {
     id: "node-api",
@@ -455,7 +455,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API",
     },
-    position: { x: 1360, y: 775 },
+    position: { x: 1360, y: (50 + 775) },
   },
   {
     id: "node-error",
@@ -471,7 +471,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Error Handling and Status Codes",
     },
-    position: { x: 1650, y: 700 },
+    position: { x: 1650, y: (50 + 700) },
   },
   {
     id: "node-apps",
@@ -487,7 +487,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Postman, Insomnia, ThudnerClient",
     },
-    position: { x: 1700, y: 760 },
+    position: { x: 1700, y: (50 + 760) },
   },
   {
     id: "node-api-routes",
@@ -503,7 +503,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Routes and Controllers",
     },
-    position: { x: 1680, y: 820 },
+    position: { x: 1680, y: (50 + 820) },
   },
   {
     id: "node-resources",
@@ -520,7 +520,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Eloquent Resources",
     },
-    position: { x: 1610, y: 880 },
+    position: { x: 1610, y: (50 + 880) },
   },
   {
     id: "node-try",
@@ -537,7 +537,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Try-Catch and Laravel Exceptions",
     },
-    position: { x: 1460, y: 940 },
+    position: { x: 1460, y: (50 + 940) },
   },
   {
     id: "node-mid",
@@ -556,7 +556,7 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Mid Level",
     },
-    position: { x: 1200, y: 1100 },
+    position: { x: 1200, y: (50 + 1100) },
   },
 
   {
@@ -573,7 +573,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "All Eloquent Features",
     },
-    position: { x: 720, y: 1150 },
+    position: { x: 720, y: (50 + 1150) },
   },
   {
     id: "node-raw",
@@ -589,7 +589,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Raw Database Queries",
     },
-    position: { x: 960, y: 1300 },
+    position: { x: 960, y: (50 + 1300) },
   },
   {
     id: "node-jobs",
@@ -605,7 +605,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Jobs and Queues",
     },
-    position: { x: 750, y: 1225 },
+    position: { x: 750, y: (50 + 1225) },
   },
   {
     id: "node-observers",
@@ -621,7 +621,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Model Observers",
     },
-    position: { x: 1200, y: 1380 },
+    position: { x: 1200, y: (50 + 1380) },
   },
   {
     id: "node-solid",
@@ -637,7 +637,7 @@ const InitialElementsLaravel: Node<any>[] = [
       noTarget: true,
       label: "SOLID Code",
     },
-    position: { x: 860, y: 1480 },
+    position: { x: 860, y: (50 + 1480) },
   },
   {
     id: "node-large-database",
@@ -653,7 +653,7 @@ const InitialElementsLaravel: Node<any>[] = [
       noTarget: true,
       label: "Large Database Structures",
     },
-    position: { x: 500, y: 1480 },
+    position: { x: 500, y: (50 + 1480) },
   },
   {
     id: "node-caching",
@@ -669,7 +669,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Caching",
     },
-    position: { x: 1440, y: 1300 },
+    position: { x: 1440, y: (50 + 1300) },
   },
   {
     id: "node-file-api",
@@ -685,7 +685,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Upload Files via API",
     },
-    position: { x: 1690, y: 1225 },
+    position: { x: 1690, y: (50 + 1225) },
   },
   {
     id: "node-only-api",
@@ -702,7 +702,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Only-API Projects",
     },
-    position: { x: 1720, y: 1150 },
+    position: { x: 1720, y: (50 + 1150) },
   },
 ];
 

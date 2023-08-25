@@ -61,8 +61,8 @@ interface Info {
 
 export interface Children {
   children:
-    | React.ReactNode
-    | ReactElement<any, string | JSXElementConstructor<any>>;
+  | React.ReactNode
+  | ReactElement<any, string | JSXElementConstructor<any>>;
 }
 
 export type ClientContext = Children & {
@@ -238,11 +238,16 @@ export type ExpData = {
   "en-US": Array<keyable>,
 }
 
+export interface Info {
+  name: string,
+  comment: string,
+  date: Date
+}
+
 export type AllProps = {
   comments: Array<Comment>;
-  exp: ExpData;
   json: EdgeConfigItems;
-  projects: keyable;
+  information: Array<Info>;
 };
 
 export type DataStackType = {

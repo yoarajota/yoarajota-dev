@@ -2,17 +2,17 @@
 - [ ] Tech section as part of random stuff
 - [ ] Pass static to inside the src
 - [ ] Easter egg
-- [ ] Make the request messages available in both languages
-- [ ] Add comments
+- [x] Make the request messages available in both languages
+- [x] Add comments
 - [ ] Create textes
 - [ ] Make contact card download clickable
-- [ ] Avoid excessive DOM size
+- [x] Avoid excessive DOM size
 - [ ] Explore possible composition techniques
 - [ ] Reduce DOM elements
-- [ ] Choose colors for skills
+- [x] Choose colors for skills
 - [ ] Review the system configuration for the academy section
-- [ ] Try Chakra themes
 
+- [ ] When end "INFORMATION", DELETE GETEXP FUNCTIONS
 
 ### END
 - [ ] Textes
