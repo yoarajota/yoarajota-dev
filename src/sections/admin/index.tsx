@@ -49,7 +49,7 @@ export default function Admin({ json, auth, information }: keyable) {
           "Content-Type": "application/json",
         },
       })
-      .catch(() => { });
+      .catch(() => {});
     setIsLoading(false);
   }
 
@@ -90,14 +90,9 @@ export default function Admin({ json, auth, information }: keyable) {
         >
           {!isOpen && (
             <>
-              <DButton
-                type="submit"
-                onClick={() => {
-
-                }}
-                text="Refetch"
-              />
+              <DButton type="submit" onClick={() => {}} text="Refetch" />
               <Divider />
+              <Titles size="sm" text="System Config" />
               <Box h="40px">
                 {isLoading ? (
                   <Spinner speed="0.9s" color={Colors.Orange} size="sm" />

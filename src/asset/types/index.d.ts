@@ -238,10 +238,9 @@ export type ExpData = {
   "en-US": Array<keyable>,
 }
 
-export interface Info {
+export type Info = {
   name: string,
-  comment: string,
-  date: Date
+  data: string,
 }
 
 export type AllProps = {
