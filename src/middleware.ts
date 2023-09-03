@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
 export async function middleware(request: NextRequest) {
-  console.log(request.nextUrl.pathname);
-
   if (
     request.nextUrl.pathname.startsWith("/api/verify") ||
     request.nextUrl.pathname.startsWith("/api/config")

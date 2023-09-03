@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Badge,
@@ -37,28 +37,14 @@ const LanguagesIcons = ({ language }: LanguagesIconsType) => {
   return <></>;
 };
 
-type ProjectProps = { projects: keyable }
+type ProjectProps = { projects: keyable };
 export default function Project({ projects }: ProjectProps) {
   const {
     msg,
     systemConfig: { project },
     config,
+    lang,
   } = useContext(ClientContext);
-
-  projects.forEach(function (obj: keyable) {
-    obj.blocked = !config?.includes(obj.name) ? 1 : 0;
-  });
-
-  projects.sort(function (a: keyable, b: keyable) {
-    if (a.blocked !== b.blocked) {
-      return a.blocked ? 1 : -1;
-    }
-
-    const x = a.created_at;
-    const y = b.created_at;
-
-    return x < y ? 1 : -1;
-  });
 
   const [currentRepo, setCurrentRepo] = useState<keyable>({});
 
@@ -91,7 +77,7 @@ export default function Project({ projects }: ProjectProps) {
           scrollSnapType="y"
         >
           <List textAlign="left">
-            {projects?.map((i: keyable) => {
+            {projects[lang]?.map((i: keyable) => {
               return (
                 <ListItem
                   borderBottom={`1px solid  ${Colors.Orange}`}
@@ -103,8 +89,9 @@ export default function Project({ projects }: ProjectProps) {
                   overflow="hidden"
                 >
                   <ScaleAnimation
-                    className={`list-item-project ${i.blocked && "blocked-item"
-                      }`}
+                    className={`list-item-project ${
+                      i.blocked && "blocked-item"
+                    }`}
                     scale={0.98}
                   >
                     <NormalText
@@ -128,7 +115,12 @@ export default function Project({ projects }: ProjectProps) {
             })}
           </List>
         </GridItem>
-        <GridItem p="1em" colSpan={project.colSpan?.[1]} rowSpan={project.rowSpan?.[1]} position="relative">
+        <GridItem
+          p="1em"
+          colSpan={project.colSpan?.[1]}
+          rowSpan={project.rowSpan?.[1]}
+          position="relative"
+        >
           {!_.isEmpty(currentRepo) && (
             <Box className="project-title-wrap">
               <motion.div
@@ -162,7 +154,11 @@ export default function Project({ projects }: ProjectProps) {
             </Box>
           )}
         </GridItem>
-        <GridItem colSpan={project.colSpan?.[2]} rowSpan={project.rowSpan?.[2]} position="relative">
+        <GridItem
+          colSpan={project.colSpan?.[2]}
+          rowSpan={project.rowSpan?.[2]}
+          position="relative"
+        >
           {!_.isEmpty(currentRepo) && (
             <>
               <motion.div
@@ -175,7 +171,14 @@ export default function Project({ projects }: ProjectProps) {
                   <NormalText text={currentRepo.description} />
                 </Box>
               </motion.div>
-              <Badge width="84px" position="absolute" left="calc(50% - 42px)" bottom="12px" bg={Colors.Orange} color={Colors.Black}>
+              <Badge
+                width="84px"
+                position="absolute"
+                left="calc(50% - 42px)"
+                bottom="12px"
+                bg={Colors.Orange}
+                color={Colors.Black}
+              >
                 <Link href={currentRepo.html_url + "#readme"} target="link">
                   Read me
                 </Link>

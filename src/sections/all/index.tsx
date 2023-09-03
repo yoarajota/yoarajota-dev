@@ -71,9 +71,9 @@ export default function All({ comments, json, information }: AllProps) {
 
     setMsg(
       messages?.[
-      storageLang
-        ? storageLang
-        : ["pt-BR", "en-US"].includes(global.navigator?.language)
+        storageLang
+          ? storageLang
+          : ["pt-BR", "en-US"].includes(global.navigator?.language)
           ? global.navigator?.language
           : "en-US"
       ]
@@ -148,7 +148,8 @@ export default function All({ comments, json, information }: AllProps) {
     (comp: keyable) => {
       let expData = {} as ExpData;
       if (comp.comp_name.includes("Exp")) {
-        expData = information.find((val) => val.name === "exp")?.data as ExpData;
+        expData = information.find((val) => val.name === "exp")
+          ?.data as ExpData;
       }
       let feedbackData = [] as Array<Comment>;
       if (comp.comp_name.includes("Feedback")) {
@@ -156,8 +157,8 @@ export default function All({ comments, json, information }: AllProps) {
       }
       let projectData = {} as keyable;
       if (comp.comp_name.includes("Projects")) {
-        console.log(typeof information.find((val) => val.name === "projects")?.data)
-        projectData = information.find((val) => val.name === "projects")?.data as Array<keyable>;
+        projectData = information.find((val) => val.name === "projects")
+          ?.data as Array<keyable>;
       }
       return {
         feedbackData,
@@ -180,7 +181,7 @@ export default function All({ comments, json, information }: AllProps) {
     setAnimationContainers,
     animationContainers,
     innerWidth,
-    innerHeight
+    innerHeight,
   };
   return (
     <ClientContextProvider props={props}>
@@ -195,38 +196,38 @@ export default function All({ comments, json, information }: AllProps) {
 
         {!animationContainers
           ? components.map((comp) => {
-            let { feedbackData, expData, projectData } = mountProps(comp);
+              let { feedbackData, expData, projectData } = mountProps(comp);
 
-            return comp.comp.map((C, index) => (
-              <C
-                projects={projectData}
-                comments={feedbackData}
-                exp={expData}
-                key={comp.container_name[index]}
-                {...comp.props}
-              />
-            ));
-          })
+              return comp.comp.map((C, index) => (
+                <C
+                  projects={projectData}
+                  comments={feedbackData}
+                  exp={expData}
+                  key={comp.container_name[index]}
+                  {...comp.props}
+                />
+              ));
+            })
           : components.map((comp) => {
-            let { feedbackData, expData, projectData } = mountProps(comp);
+              let { feedbackData, expData, projectData } = mountProps(comp);
 
-            return (
-              <comp.container.type
-                key={comp.container_name}
-                {...comp.container.props}
-              >
-                {comp.comp.map((C, index) => (
-                  <C
-                    projects={projectData}
-                    comments={feedbackData}
-                    exp={expData}
-                    key={comp.container_name[index]}
-                    {...comp.props}
-                  />
-                ))}
-              </comp.container.type>
-            );
-          })}
+              return (
+                <comp.container.type
+                  key={comp.container_name}
+                  {...comp.container.props}
+                >
+                  {comp.comp.map((C, index) => (
+                    <C
+                      projects={projectData}
+                      comments={feedbackData}
+                      exp={expData}
+                      key={comp.container_name[index]}
+                      {...comp.props}
+                    />
+                  ))}
+                </comp.container.type>
+              );
+            })}
         <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
       </Box>
     </ClientContextProvider>
