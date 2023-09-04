@@ -5,7 +5,7 @@ import ReactSvg from "../src/components/svg/reactSvg";
 
 const InitialElementsReactJs: Node<any>[] = [
   {
-    id: "node-head",
+    id: 'r-node-head',
     type: "NodeHead",
     sourcePosition: Position.Bottom,
     selectable: false,
@@ -19,7 +19,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1180, y: 100 }
   },
   {
-    id: 'node-fundamental',
+    id: 'r-node-fundamental',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -33,7 +33,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1200, y: 400 }
   },
   {
-    id: 'node-jsx',
+    id: 'r-node-jsx',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -46,7 +46,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 800, y: 400 }
   },
   {
-    id: 'node-create-react-app',
+    id: 'r-node-create-react-app',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -59,7 +59,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 750, y: 460 }
   },
   {
-    id: 'node-components',
+    id: 'r-node-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -71,7 +71,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 780, y: 520 }
   },
   {
-    id: 'node-props-state',
+    id: 'r-node-props-state',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -83,7 +83,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 840, y: 570 }
   },
   {
-    id: 'node-functional-components',
+    id: 'r-node-functional-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -95,7 +95,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 400, y: 540 }
   },
   {
-    id: 'node-class-components',
+    id: 'r-node-class-components',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -107,7 +107,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 450, y: 600 }
   },
   {
-    id: 'node-component-lifecycle',
+    id: 'r-node-component-lifecycle',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -119,7 +119,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1600, y: 400 }
   },
   {
-    id: 'node-composition-inheritance',
+    id: 'r-node-composition-inheritance',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -131,7 +131,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1650, y: 460 }
   },
   {
-    id: 'node-hooks',
+    id: 'r-node-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -143,7 +143,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1630, y: 520 }
   },
   {
-    id: 'node-lists',
+    id: 'r-node-lists',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -155,7 +155,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1560, y: 570 }
   },
   {
-    id: 'node-useeffect',
+    id: 'r-node-useeffect',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -167,7 +167,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 2000, y: 540 }
   },
   {
-    id: 'node-usestate',
+    id: 'r-node-usestate',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -179,7 +179,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1950, y: 600 }
   },
   {
-    id: 'node-advanced',
+    id: 'r-node-advanced',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -193,7 +193,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1200, y: 700 }
   },
   {
-    id: 'node-context',
+    id: 'r-node-context',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -205,7 +205,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 800, y: 700 }
   },
   {
-    id: 'node-refs',
+    id: 'r-node-refs',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -217,7 +217,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 750, y: 760 }
   },
   {
-    id: 'node-hooks-adv',
+    id: 'r-node-hooks-adv',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -229,7 +229,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 780, y: 820 }
   },
   {
-    id: 'node-render-props',
+    id: 'r-node-render-props',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -241,7 +241,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 840, y: 870 }
   },
   {
-    id: 'node-own-hooks',
+    id: 'r-node-own-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -253,7 +253,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 400, y: 840 }
   },
   {
-    id: 'node-common-hooks',
+    id: 'r-node-common-hooks',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -265,7 +265,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 450, y: 900 }
   },
   // {
-  //   id: 'node-portal',
+  //   id: 'r-node-portal',
   //   style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
   //   type: "NodeText",
   //   selectable: false,
@@ -277,7 +277,7 @@ const InitialElementsReactJs: Node<any>[] = [
   //   position: { x: 1600, y: 700 }
   // },
   {
-    id: 'node-error-boundaries',
+    id: 'r-node-error-boundaries',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -288,7 +288,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1650, y: 760 }
   },
   {
-    id: 'node-fiber',
+    id: 'r-node-fiber',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -300,7 +300,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1630, y: 820 }
   },
   {
-    id: 'node-order',
+    id: 'r-node-order',
     style: { padding: '0', minWidth: '420px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -312,7 +312,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1560, y: 870 }
   },
   {
-    id: 'node-ecosystem',
+    id: 'r-node-ecosystem',
     style: { padding: '0', minWidth: '260px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -328,7 +328,7 @@ const InitialElementsReactJs: Node<any>[] = [
 
 
   {
-    id: 'node-router',
+    id: 'r-node-router',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -340,7 +340,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 880, y: 1040 }
   },
   {
-    id: 'node-react-router',
+    id: 'r-node-react-router',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -352,7 +352,7 @@ const InitialElementsReactJs: Node<any>[] = [
   },
 
   {
-    id: 'node-ssg',
+    id: 'r-node-ssg',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -364,19 +364,19 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 960, y: 1150 }
   },
   {
-    id: 'node-ssr',
+    id: 'r-node-ssr',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
     sourcePosition: Position.Left,
-    // targetPosition: undefined,
     data: {
-      label: "SSR"
+      label: "SSR",
+      noTarget: true
     },
     position: { x: 960, y: 1200 }
   },
   {
-    id: 'node-next',
+    id: 'r-node-next',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -387,7 +387,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 630, y: 1175 }
   },
   {
-    id: 'node-api',
+    id: 'r-node-api',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -400,7 +400,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 990, y: 1280 }
   },
   {
-    id: 'node-reactquery',
+    id: 'r-node-reactquery',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -411,7 +411,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 800, y: 1330 }
   },
   {
-    id: 'node-axios',
+    id: 'r-node-axios',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -422,7 +422,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 860, y: 1380 }
   },
   {
-    id: 'node-styling',
+    id: 'r-node-styling',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -435,7 +435,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1340, y: 1140 }
   },
   {
-    id: 'node-chakra',
+    id: 'r-node-chakra',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
@@ -446,7 +446,7 @@ const InitialElementsReactJs: Node<any>[] = [
     position: { x: 1540, y: 1240 }
   },
   {
-    id: 'node-material',
+    id: 'r-node-material',
     style: { padding: '0', minWidth: '280px', background: 'none', border: 'none' },
     type: "NodeText",
     selectable: false,
