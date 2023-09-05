@@ -1,6 +1,6 @@
 import { createClient } from "@vercel/edge-config";
 import { Providers } from "app/providers";
-import { NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 import Admin from "sections/admin";
 import { cookies } from "next/headers";
 import getInformation from "app/api/information/logic";
