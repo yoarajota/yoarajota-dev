@@ -23,7 +23,7 @@ const MongoDBDATA = ({ data }: { data: Array<Info> }) => {
           <Titles size="sm" text={value.name} />
           <JSONInput
             locale={localeEn}
-            onBlur={(val) => {
+            onBlur={(val:any) => {
               // Handle onBlur logic here
             }}
             placeholder={value.data}
