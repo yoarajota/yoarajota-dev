@@ -25,6 +25,7 @@ const MongoDBDATA = ({ data }: { data: Array<Info> }) => {
             locale={localeEn}
             onBlur={(val:any) => {
               // Handle onBlur logic here
+              console.log(val)
             }}
             placeholder={value.data}
             id={_.uniqueId("json-input-id-" + value.name)}
