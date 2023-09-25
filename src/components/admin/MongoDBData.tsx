@@ -31,7 +31,6 @@ const MongoDBDATA = ({ data }: { data: Array<Info> }) => {
           />
         </React.Fragment>
       ))}
-      ;
     </>
   );
 };
