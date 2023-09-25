@@ -1,7 +1,9 @@
-export default function ReactSvg() {
+import { memo } from "react";
+
+const ReactSvg = () => {
   return (
     <svg
-      style={{margin: "0 auto"}}
+      className="margin0auto"
       width="40%"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-11.5 -10.23174 23 20.46348"
@@ -16,3 +18,5 @@ export default function ReactSvg() {
     </svg>
   );
 }
+
+export default memo(ReactSvg)

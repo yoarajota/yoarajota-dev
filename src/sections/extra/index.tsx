@@ -19,8 +19,6 @@ import NormalText from "../../components/typography/normalText";
 import _ from "lodash";
 import axios from "api/axios";
 
-// api/comments
-
 function Extra({ commentsData }: { commentsData: Array<any> }) {
   const toast = useToast();
   const [comments, setComments] = useState<Array<any>>(commentsData);

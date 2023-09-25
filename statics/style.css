@@ -141,6 +141,7 @@ a {
   width: 5%;
 }
 
+.margin0auto,
 .maintenance-wrap>div>div:nth-child(1)>svg {
   margin: 0 auto;
 }

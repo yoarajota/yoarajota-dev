@@ -11,6 +11,7 @@ import InitialElementsLaravel from "../../statics/initalElementsLaravel";
 import InitialEdgesLaravel from "../../statics/initalEdgesLaravel";
 import NodeText from "./nodes/nodeText";
 import NodeHead from "./nodes/nodeHead";
+import InitialElementsExtra from "../../statics/initialElementsExtra";
 
 const Nodes = () => {
   const onLoad = (reactFlowInstance: ReactFlowInstance) => {
@@ -21,13 +22,6 @@ const Nodes = () => {
     []
   );
 
-  const { allNodes, allEdges } = useMemo(() => {
-    return {
-      allNodes: InitialElementsReactJs.concat(InitialElementsLaravel),
-      allEdges: InitialEdgesReactJs.concat(InitialEdgesLaravel),
-    };
-  }, [InitialElementsReactJs, InitialElementsLaravel, InitialEdgesReactJs, InitialEdgesLaravel]);
-
   return (
     <ReactFlowProvider>
       <ReactFlow
@@ -35,9 +29,9 @@ const Nodes = () => {
         onInit={onLoad}
         defaultPosition={[100, 100]}
         maxZoom={1}
-        nodes={allNodes}
+        nodes={InitialElementsReactJs.concat(InitialElementsLaravel).concat(InitialElementsExtra)}
         connectionLineType={ConnectionLineType.Bezier}
-        edges={allEdges}
+        edges={InitialEdgesReactJs.concat(InitialEdgesLaravel)}
         nodeTypes={nodeTypes}
         zoomOnDoubleClick={false}
       />

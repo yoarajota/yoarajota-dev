@@ -4,7 +4,7 @@ import LaravelSvg from "../src/components/svg/laravelSvg";
 
 const InitialElementsLaravel: Node<any>[] = [
   {
-    id: "node-head",
+    id: "l-node-head",
     type: "NodeHead",
     sourcePosition: Position.Bottom,
     selectable: false,
@@ -20,10 +20,10 @@ const InitialElementsLaravel: Node<any>[] = [
       lvl: "2",
       Img: LaravelSvg,
     },
-    position: { x: 1180, y: (50 + 100) },
+    position: { x: 1180, y: (1250 + 100) },
   },
   {
-    id: "node-fundamental",
+    id: "l-node-fundamental",
     style: {
       padding: "0",
       minWidth: "260px",
@@ -39,10 +39,10 @@ const InitialElementsLaravel: Node<any>[] = [
       biggerVariable: true,
       bottomSource: true,
     },
-    position: { x: 1200, y: (50 + 400) },
+    position: { x: 1200, y: (1250 + 400) },
   },
   {
-    id: "node-controllers",
+    id: "l-node-controllers",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -56,10 +56,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Controllers",
     },
-    position: { x: 800, y: (50 + 400) },
+    position: { x: 800, y: (1250 + 400) },
   },
   {
-    id: "node-blade",
+    id: "l-node-blade",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -73,10 +73,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Blade",
     },
-    position: { x: 750, y: (50 + 460) },
+    position: { x: 750, y: (1250 + 460) },
   },
   {
-    id: "node-routing",
+    id: "l-node-routing",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -90,10 +90,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Routing",
     },
-    position: { x: 780, y: (50 + 520) },
+    position: { x: 780, y: (1250 + 520) },
   },
   {
-    id: "node-auth",
+    id: "l-node-auth",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -107,10 +107,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Auth Basics",
     },
-    position: { x: 840, y: (50 + 570) },
+    position: { x: 840, y: (1250 + 570) },
   },
   {
-    id: "node-route-parameters",
+    id: "l-node-route-parameters",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -124,10 +124,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Parameters",
     },
-    position: { x: 400, y: (50 + 540) },
+    position: { x: 400, y: (1250 + 540) },
   },
   {
-    id: "node-route-groups",
+    id: "l-node-route-groups",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -141,10 +141,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Groups",
     },
-    position: { x: 450, y: (50 + 600) },
+    position: { x: 350, y: (1250 + 600) },
   },
   {
-    id: "node-crud",
+    id: "l-node-crud",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -157,10 +157,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "CRUD",
     },
-    position: { x: 1600, y: (50 + 400) },
+    position: { x: 1600, y: (1250 + 400) },
   },
   {
-    id: "node-forms",
+    id: "l-node-forms",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -173,10 +173,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Forms, Validation and Form Requests",
     },
-    position: { x: 1500, y: (50 + 340) },
+    position: { x: 1500, y: (1250 + 340) },
   },
   {
-    id: "node-relationships",
+    id: "l-node-relationships",
     style: {
       padding: "0",
       minWidth: "420px",
@@ -190,10 +190,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Relationships",
     },
-    position: { x: 1650, y: (50 + 460) },
+    position: { x: 1650, y: (1250 + 460) },
   },
   {
-    id: "node-database",
+    id: "l-node-database",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -207,10 +207,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Database",
     },
-    position: { x: 1430, y: (50 + 515) },
+    position: { x: 1430, y: (1250 + 515) },
   },
   {
-    id: "node-mvc",
+    id: "l-node-mvc",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -223,10 +223,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "MVC",
     },
-    position: { x: 1560, y: (50 + 570) },
+    position: { x: 1560, y: (1250 + 570) },
   },
   {
-    id: "node-migrations",
+    id: "l-node-migrations",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -239,11 +239,11 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Migrations",
     },
-    position: { x: 1975, y: (50 + 540) },
+    position: { x: 1975, y: (1250 + 540) },
   },
 
   {
-    id: "node-relations",
+    id: "l-node-relations",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -256,10 +256,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: ["hasOne", "hasMany", "belongsTo", "belongsToMany"],
     },
-    position: { x: 1975, y: (50 + 290) },
+    position: { x: 1975, y: (1250 + 290) },
   },
   {
-    id: "node-seeders",
+    id: "l-node-seeders",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -272,10 +272,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Seeders",
     },
-    position: { x: 1950, y: (50 + 600) },
+    position: { x: 1950, y: (1250 + 600) },
   },
   {
-    id: "node-advanced",
+    id: "l-node-advanced",
     style: {
       padding: "0",
       minWidth: "260px",
@@ -291,10 +291,10 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Advanced",
     },
-    position: { x: 1200, y: (50 + 700) },
+    position: { x: 1200, y: (1250 + 700) },
   },
   {
-    id: "node-middleware",
+    id: "l-node-middleware",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -308,10 +308,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Middleware",
     },
-    position: { x: 800, y: (50 + 700) },
+    position: { x: 800, y: (1250 + 700) },
   },
   {
-    id: "node-route-bindings",
+    id: "l-node-route-bindings",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -325,10 +325,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Route Model Binding",
     },
-    position: { x: 750, y: (50 + 760) },
+    position: { x: 750, y: (1250 + 760) },
   },
   {
-    id: "node-database-adv",
+    id: "l-node-database-adv",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -342,10 +342,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Database Advanced",
     },
-    position: { x: 780, y: (50 + 820) },
+    position: { x: 780, y: (1250 + 820) },
   },
   {
-    id: "node-file",
+    id: "l-node-file",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -359,10 +359,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "File Uploads",
     },
-    position: { x: 890, y: (50 + 880) },
+    position: { x: 890, y: (1250 + 880) },
   },
   {
-    id: "node-debug",
+    id: "l-node-debug",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -376,10 +376,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Debug",
     },
-    position: { x: 990, y: (50 + 950) },
+    position: { x: 990, y: (1250 + 950) },
   },
   {
-    id: "node-mail",
+    id: "l-node-mail",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -393,10 +393,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Mailables and Mail Facade, etc",
     },
-    position: { x: 910, y: (50 + 1020) },
+    position: { x: 910, y: (1250 + 1020) },
   },
   {
-    id: "node-query",
+    id: "l-node-query",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -410,10 +410,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Query Scopes",
     },
-    position: { x: 400, y: (50 + 840) },
+    position: { x: 400, y: (1250 + 840) },
   },
   {
-    id: "node-collections",
+    id: "l-node-collections",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -427,10 +427,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Collections",
     },
-    position: { x: 450, y: (50 + 900) },
+    position: { x: 350, y: (1250 + 900) },
   },
   {
-    id: "node-accessors",
+    id: "l-node-accessors",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -443,10 +443,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Eloquent Accessors and Mutators",
     },
-    position: { x: 560, y: (50 + 960) },
+    position: { x: 560, y: (1250 + 960) },
   },
   {
-    id: "node-api",
+    id: "l-node-api",
     style: { padding: "0", background: "none", border: "none" },
     type: "NodeText",
     selectable: false,
@@ -455,10 +455,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API",
     },
-    position: { x: 1360, y: (50 + 775) },
+    position: { x: 1360, y: (1250 + 775) },
   },
   {
-    id: "node-error",
+    id: "l-node-error",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -471,10 +471,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Error Handling and Status Codes",
     },
-    position: { x: 1650, y: (50 + 700) },
+    position: { x: 1650, y: (1250 + 700) },
   },
   {
-    id: "node-apps",
+    id: "l-node-apps",
     style: {
       padding: "0",
       minWidth: "420px",
@@ -487,10 +487,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Postman, Insomnia, ThudnerClient",
     },
-    position: { x: 1700, y: (50 + 760) },
+    position: { x: 1700, y: (1250 + 760) },
   },
   {
-    id: "node-api-routes",
+    id: "l-node-api-routes",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -503,10 +503,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Routes and Controllers",
     },
-    position: { x: 1680, y: (50 + 820) },
+    position: { x: 1680, y: (1250 + 820) },
   },
   {
-    id: "node-resources",
+    id: "l-node-resources",
     style: {
       padding: "0",
       minWidth: "420px",
@@ -520,10 +520,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "API Eloquent Resources",
     },
-    position: { x: 1610, y: (50 + 880) },
+    position: { x: 1610, y: (1250 + 880) },
   },
   {
-    id: "node-try",
+    id: "l-node-try",
     style: {
       padding: "0",
       minWidth: "420px",
@@ -537,10 +537,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Try-Catch and Laravel Exceptions",
     },
-    position: { x: 1460, y: (50 + 940) },
+    position: { x: 1460, y: (1250 + 940) },
   },
   {
-    id: "node-mid",
+    id: "l-node-mid",
     style: {
       padding: "0",
       minWidth: "260px",
@@ -556,11 +556,11 @@ const InitialElementsLaravel: Node<any>[] = [
       bottomSource: true,
       label: "Mid Level",
     },
-    position: { x: 1200, y: (50 + 1100) },
+    position: { x: 1200, y: (1250 + 1100) },
   },
 
   {
-    id: "node-eloquent-features",
+    id: "l-node-eloquent-features",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -573,10 +573,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "All Eloquent Features",
     },
-    position: { x: 720, y: (50 + 1150) },
+    position: { x: 720, y: (1250 + 1150) },
   },
   {
-    id: "node-raw",
+    id: "l-node-raw",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -589,10 +589,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Raw Database Queries",
     },
-    position: { x: 960, y: (50 + 1300) },
+    position: { x: 960, y: (1250 + 1300) },
   },
   {
-    id: "node-jobs",
+    id: "l-node-jobs",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -605,10 +605,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Jobs and Queues",
     },
-    position: { x: 750, y: (50 + 1225) },
+    position: { x: 750, y: (1250 + 1225) },
   },
   {
-    id: "node-observers",
+    id: "l-node-observers",
     style: {
       padding: "0",
       minWidth: "250px",
@@ -621,10 +621,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Model Observers",
     },
-    position: { x: 1200, y: (50 + 1380) },
+    position: { x: 1200, y: (1250 + 1380) },
   },
   {
-    id: "node-solid",
+    id: "l-node-solid",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -637,10 +637,10 @@ const InitialElementsLaravel: Node<any>[] = [
       noTarget: true,
       label: "SOLID Code",
     },
-    position: { x: 860, y: (50 + 1480) },
+    position: { x: 860, y: (1250 + 1480) },
   },
   {
-    id: "node-large-database",
+    id: "l-node-large-database",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -653,10 +653,10 @@ const InitialElementsLaravel: Node<any>[] = [
       noTarget: true,
       label: "Large Database Structures",
     },
-    position: { x: 500, y: (50 + 1480) },
+    position: { x: 500, y: (1250 + 1480) },
   },
   {
-    id: "node-caching",
+    id: "l-node-caching",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -669,10 +669,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Caching",
     },
-    position: { x: 1440, y: (50 + 1300) },
+    position: { x: 1440, y: (1250 + 1300) },
   },
   {
-    id: "node-file-api",
+    id: "l-node-file-api",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -685,10 +685,10 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Upload Files via API",
     },
-    position: { x: 1690, y: (50 + 1225) },
+    position: { x: 1690, y: (1250 + 1225) },
   },
   {
-    id: "node-only-api",
+    id: "l-node-only-api",
     style: {
       padding: "0",
       minWidth: "280px",
@@ -702,7 +702,7 @@ const InitialElementsLaravel: Node<any>[] = [
     data: {
       label: "Only-API Projects",
     },
-    position: { x: 1720, y: (50 + 1150) },
+    position: { x: 1720, y: (1250 + 1150) },
   },
 ];
 
