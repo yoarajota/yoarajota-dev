@@ -184,52 +184,57 @@ export default function All({ comments, json, information }: AllProps) {
     innerHeight,
   };
   return (
-    <ClientContextProvider props={props}>
-      <Box position="relative" paddingBottom="8em">
-        <ScrollPosition />
-        <Maintenance />
-        <Popup />
-        {innerWidth > 767 && <Scrollbar />}
-        <Box ref={ref}>
-          <Resume />
+    <>
+      <ClientContextProvider props={props}>
+        <Box position="relative" paddingBottom="8em">
+          <ScrollPosition />
+          <Maintenance />
+          <Popup />
+          {innerWidth > 767 && <Scrollbar />}
+          <Box ref={ref}>
+            <Resume />
+          </Box>
+
+          {!animationContainers
+            ? components.map((comp) => {
+                let { feedbackData, expData, projectData } = mountProps(comp);
+
+                return comp.comp.map((C, index) => (
+                  <C
+                    projects={projectData}
+                    comments={feedbackData}
+                    exp={expData}
+                    key={comp.container_name[index]}
+                    {...comp.props}
+                  />
+                ));
+              })
+            : components.map((comp) => {
+                let { feedbackData, expData, projectData } = mountProps(comp);
+
+                return (
+                  <comp.container.type
+                    key={comp.container_name}
+                    {...comp.container.props}
+                  >
+                    {comp.comp.map((C, index) => (
+                      <C
+                        projects={projectData}
+                        comments={feedbackData}
+                        exp={expData}
+                        key={comp.container_name[index]}
+                        {...comp.props}
+                      />
+                    ))}
+                  </comp.container.type>
+                );
+              })}
+          <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
         </Box>
-
-        {!animationContainers
-          ? components.map((comp) => {
-              let { feedbackData, expData, projectData } = mountProps(comp);
-
-              return comp.comp.map((C, index) => (
-                <C
-                  projects={projectData}
-                  comments={feedbackData}
-                  exp={expData}
-                  key={comp.container_name[index]}
-                  {...comp.props}
-                />
-              ));
-            })
-          : components.map((comp) => {
-              let { feedbackData, expData, projectData } = mountProps(comp);
-
-              return (
-                <comp.container.type
-                  key={comp.container_name}
-                  {...comp.container.props}
-                >
-                  {comp.comp.map((C, index) => (
-                    <C
-                      projects={projectData}
-                      comments={feedbackData}
-                      exp={expData}
-                      key={comp.container_name[index]}
-                      {...comp.props}
-                    />
-                  ))}
-                </comp.container.type>
-              );
-            })}
-        <ModalWrap isOpen={isOpen} onClose={onClose} data={modalData} />
+      </ClientContextProvider>
+      <Box as="footer" width="100%" textAlign="center" color="var(--gray)">
+        made with love by <b>yoarajota</b>
       </Box>
-    </ClientContextProvider>
+    </>
   );
 }
